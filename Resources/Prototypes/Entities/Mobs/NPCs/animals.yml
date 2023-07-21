@@ -483,6 +483,7 @@
   id: MobCrab
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
+  - type: VentCrawler
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -781,6 +782,7 @@
   parent: SimpleMobBase
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   components:
+  - type: VentCrawler
   - type: CombatMode
   - type: NameIdentifier
     group: Monkey
@@ -893,6 +895,7 @@
   id: MobMouse
   description: Squeak!
   components:
+  - type: VentCrawler
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -1135,6 +1138,7 @@
   id: MobSlug
   description: And they called this a lizard?
   components:
+  - type: VentCrawler
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 3
@@ -1179,6 +1183,7 @@
   id: MobFrog
   description: Hop hop hop. Lookin' moist.
   components:
+  - type: VentCrawler
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 6
@@ -1399,6 +1404,7 @@
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   suffix: syndicate
   components:
+  - type: VentCrawler
   - type: CombatMode
   - type: NameIdentifier
     group: Monkey
@@ -1501,6 +1507,7 @@
   id: MobSnake
   description: Hissss! Bites aren't poisonous.
   components:
+  - type: VentCrawler
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1549,6 +1556,7 @@
   id: MobGiantSpider
   description: Widely recognized to be the literal worst thing in existence.
   components:
+  - type: VentCrawler
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1975,6 +1983,7 @@
   id: MobCorgiPuppy
   description: A little corgi! Aww...
   components:
+  - type: VentCrawler
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Pets/corgi.rsi
@@ -2239,6 +2248,7 @@
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
+  - type: VentCrawler
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
