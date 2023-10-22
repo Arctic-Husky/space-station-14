@@ -6,6 +6,7 @@ using Content.Server.VentCraw.Tube.Components;
 using Content.Server.VentCraw.Components;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
+using Content.Shared.DragDrop;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Tools.Components;
 using Content.Shared.VentCraw;
@@ -57,7 +58,7 @@ namespace Content.Server.VentCraw
             AlternativeVerb verb = new()
             {
                 Act = () => TryEnter(uid, args.User, ventCrawlerComponent),
-                Text = Loc.GetString("Залезть")
+                Text = Loc.GetString("comp-climbable-verb-climb")
             };
             args.Verbs.Add(verb);
         }

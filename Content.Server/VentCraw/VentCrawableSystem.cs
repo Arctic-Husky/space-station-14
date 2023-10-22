@@ -77,12 +77,6 @@ namespace Content.Server.VentCraw
             if (!Resolve(uid, ref holder))
                 return false;
 
-            // if (!CanInsert(uid, toInsert, holder))
-            //     return false;
-
-            if (!holder.Container.Insert(toInsert))
-                return false;
-
             if (!holder.Container.Insert(toInsert, EntityManager))
                 return false;
 
