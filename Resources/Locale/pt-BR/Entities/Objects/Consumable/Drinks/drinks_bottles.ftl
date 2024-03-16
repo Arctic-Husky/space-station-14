@@ -85,3 +85,14 @@ ent-DrinkMilkCarton = leite
 ent-DrinkSoyMilkCarton = leite de soja
      .desc = Delícia de soja branca e nutritiva!
 
+ent-DrinkSodaWaterBottleFull = água com gás
+     .desc = É igual água, só que irritada!
+
+ent-DrinkCreamCartonXL = creme de leite XL
+     .desc = É creme. Feito de leite. O que mais você achou que encontraria lá?
+
+ent-DrinkSugarJug = açúcar
+     .desc = Tem gente que coloca isso no café...
+
+ent-DrinkChampagneBottleFull = garrafa de champagne
+     .desc = Somente pessoas sem imaginação não conseguem encontrar uma desculpa para o champagne
