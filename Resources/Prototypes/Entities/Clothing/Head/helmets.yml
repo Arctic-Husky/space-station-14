@@ -22,6 +22,18 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: AttachableSlot
+    attachableSlotId: flashlight
+  - type: ContainerContainer
+    containers:
+      flashlight: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      flashlight:
+        name: Flashlight
+        priority: 2
+        ejectOnBreak: true
+        ejectOnDeconstruct: true
 
 #Mercenary Helmet
 - type: entity

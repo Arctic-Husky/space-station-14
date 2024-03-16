@@ -121,6 +121,8 @@
     quickEquip: false
     slots:
       - Belt
+  - type: Attachment
+    attachmentSlotId: flashlight
 
 - type: entity
   parent: FlashlightLantern
