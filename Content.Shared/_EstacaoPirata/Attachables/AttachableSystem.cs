@@ -1,5 +1,6 @@
 ﻿using Content.Shared._EstacaoPirata.Attachments;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Containers;
 
@@ -14,7 +15,13 @@ public sealed class AttachableSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<AttachableSlotComponent, ContainerIsInsertingAttemptEvent>(OnContainerInsertAttempt);
+        //SubscribeLocalEvent<AttachableSlotComponent, GotUnequippedEvent>(OnGotUnequipped);
     }
+
+    // private void OnGotUnequipped(EntityUid uid, AttachableSlotComponent component, ref GotUnequippedEvent args)
+    // {
+    //     Log.Debug("OnGotUnequipped");
+    // }
 
     private void OnContainerInsertAttempt(EntityUid uid, AttachableSlotComponent component, ref ContainerIsInsertingAttemptEvent args)
     {

@@ -11,4 +11,16 @@ public sealed partial class AttachableSlotComponent : Component
     /// </summary>
     [DataField("attachableSlotId", required: true)]
     public string AttachableSlotId = string.Empty;
+
+    public EntityUid? AttachedItem;
+}
+
+public sealed class AttachedEvent : EntityEventArgs
+{
+    public EntityUid AttachedEntity;
+
+    public AttachedEvent(EntityUid attachedEntity)
+    {
+        AttachedEntity = attachedEntity;
+    }
 }
