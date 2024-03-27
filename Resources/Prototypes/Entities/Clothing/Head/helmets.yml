@@ -10,8 +10,31 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/security.rsi
+    layers:
+    - state: icon
+      map: [ "enum.AttachableVisualLayers.Base" ]
+    - state: icon-light
+      visible: false
+      map: [ "enum.AttachableVisualLayers.Attachment" ]
+    - state: icon-lighton
+      visible: false
+      shader: unshaded
+      map: [ "enum.AttachableVisualLayers.AttachmentActivated" ]
+  - type: Appearance
+  - type: ToggleableLightVisuals
+    spriteLayer: enum.AttachableVisualLayers.AttachmentActivated
+    clothingVisuals:
+      head:
+      - state: lighton-equipped-HELMET
+        shader: unshaded
   - type: Clothing
-    sprite: Clothing/Head/Helmets/security.rsi
+    #sprite: Clothing/Head/Helmets/security.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: light-equipped-HELMET
+        visible: false
+        map: [ "enum.AttachableVisualLayers.Attachment" ]
   - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
     modifiers:
       coefficients:

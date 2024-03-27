@@ -20,17 +20,8 @@ namespace Content.Server._EstacaoPirata.Attachables;
 /// </summary>
 public sealed class AttachableSystem : EntitySystem
 {
-    // [Dependency] private readonly SharedPopupSystem _popup = default!;
-    // [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    // [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly SharedActionsSystem _sharedActionsSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _sharedContainerSystem = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
-    [Dependency] private readonly SharedPointLightSystem _lights = default!;
-    [Dependency] private readonly SharedHandheldLightSystem _handheldLightSystem = default!;
-
-
-
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize()
     {
@@ -38,48 +29,57 @@ public sealed class AttachableSystem : EntitySystem
         SubscribeLocalEvent<AttachableSlotComponent, GetItemActionsEvent>(OnItemEquipped);
         SubscribeLocalEvent<AttachableSlotComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<AttachableSlotComponent, GotUnequippedHandEvent>(OnGotUnequippedHands);
-        //SubscribeLocalEvent<ActionsComponent, DidEquipEvent>(OnDidEquip);
-        //SubscribeLocalEvent<AttachableSlotComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
-        //SubscribeLocalEvent<AttachableSlotComponent, InteractUsingEvent>(OnInteractUsing);
-        //SubscribeLocalEvent<AttachableSlotComponent, ContainerIsInsertingAttemptEvent>(OnContainerInsertAttempt);
+        SubscribeLocalEvent<AttachableSlotComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
+        SubscribeLocalEvent<AttachmentComponent, InstantActionEvent>(OnAction);
     }
 
     private void OnGotUnequippedHands(EntityUid uid, AttachableSlotComponent component, ref GotUnequippedHandEvent args)
     {
-        Log.Debug("OnGotUnequippedHand");
-        if (TryComp<AttachableSlotComponent>(args.Unequipped, out var attachableSlotComponent))
-        {
-            if (attachableSlotComponent.AttachedItem != null)
-            {
-                var item = attachableSlotComponent.AttachedItem.Value;
-                _sharedActionsSystem.RemoveAction();
-                _sharedActionsSystem.RemoveProvidedActions(performer:item , container:item);
-            }
-        }
+        TransferActionsBack(component, args.Unequipped);
     }
 
     private void OnGotUnequipped(EntityUid uid, AttachableSlotComponent component, ref GotUnequippedEvent args)
     {
-        Log.Debug("OnGotUnequipped");
-        if (TryComp<AttachableSlotComponent>(args.Equipment, out var attachableSlotComponent))
+        TransferActionsBack(component, args.Equipment);
+    }
+
+    private void TransferActionsBack(AttachableSlotComponent component, EntityUid unequipped)
+    {
+        if (!TryComp<AttachableSlotComponent>(unequipped, out var attachableSlotComponent))
+            return;
+        if (attachableSlotComponent.AttachedItem == null)
+            return;
+
+        foreach (var action in component.AttachedItemActions)
         {
-            if (attachableSlotComponent.AttachedItem != null)
-            {
-                var item = attachableSlotComponent.AttachedItem.Value;
-                _sharedActionsSystem.RemoveProvidedActions(performer:item , container:item);
-            }
+            _sharedActionsSystem.AddActionDirect(performer: attachableSlotComponent.AttachedItem.Value, actionId: action);
         }
+
+        component.PlayerWithItemEquipped = null;
+        component.AttachedItemActions.Clear();
     }
 
     private void OnItemEquipped(EntityUid uid, AttachableSlotComponent component, ref GetItemActionsEvent args)
     {
-        // Aaaaah sei la
+        Log.Debug($"OnItemEquipped {args.SlotFlags}");
+        if (!TryComp<AttachableSlotComponent>(args.Provider, out var attachableSlotComponent))
+            return;
 
-        if (TryComp<AttachableSlotComponent>(args.Provider, out var attachableSlotComponent))
+        // ver depois em que linha colocar isto
+        component.PlayerWithItemEquipped = args.User;
+
+        if (attachableSlotComponent.AttachedItem == null)
+            return;
+
+        if (!TryComp<ActionsComponent>(attachableSlotComponent.AttachedItem.Value, out var actionsComponent))
+            return;
+
+        foreach (var action in actionsComponent.Actions)
         {
-            if (attachableSlotComponent.AttachedItem != null)
+            if (!component.AttachedItemActions.Contains(action))
             {
-                _sharedActionsSystem.GrantContainedActions(args.User, attachableSlotComponent.AttachedItem.Value);
+                component.AttachedItemActions.Add(action);
+                _sharedActionsSystem.AddActionDirect(performer: args.User, actionId: action);
             }
         }
     }
@@ -91,6 +91,57 @@ public sealed class AttachableSystem : EntitySystem
 
         slotComponent.AttachedItem = args.Entity;
 
+        _appearanceSystem.SetData(uid, AttachableVisuals.VisualState, AttachableVisualLayers.Attachment);
+
+        // Checar se e um attachment que ilumina
         args.Container.OccludesLight = false;
+
+        if (!TryComp<ActionsComponent>(slotComponent.AttachedItem.Value, out var actionsComponent))
+            return;
+
+        if (slotComponent.PlayerWithItemEquipped == null)
+            return;
+
+        foreach (var action in actionsComponent.Actions)
+        {
+            if (!slotComponent.AttachedItemActions.Contains(action))
+            {
+                slotComponent.AttachedItemActions.Add(action);
+                _sharedActionsSystem.AddActionDirect(performer: slotComponent.PlayerWithItemEquipped.Value, actionId: action);
+            }
+        }
+    }
+
+    private void OnEntityRemoved(EntityUid uid, AttachableSlotComponent slotComponent, EntRemovedFromContainerMessage args)
+    {
+        if (args.Container.ID != slotComponent.AttachableSlotId)
+            return;
+
+        if (slotComponent.AttachedItem == null)
+            return;
+
+        _appearanceSystem.SetData(uid, AttachableVisuals.VisualState, AttachableVisualLayers.Base);
+
+        if (slotComponent.PlayerWithItemEquipped == null)
+            return;
+
+        if (!TryComp<AttachableSlotComponent>(uid, out var attachableSlotComponent))
+            return;
+
+        foreach (var action in attachableSlotComponent.AttachedItemActions)
+        {
+            _sharedActionsSystem.AddActionDirect(performer: slotComponent.AttachedItem.Value, actionId: action);
+        }
+
+        slotComponent.AttachedItemActions.Clear();
+        slotComponent.AttachedItem = null;
+    }
+
+    private void OnAction(EntityUid uid, AttachmentComponent component, InstantActionEvent args)
+    {
+        if (!HasComp<AttachmentComponent>(args.Performer))
+            return;
+
+        _appearanceSystem.SetData(component.Owner, AttachableVisuals.VisualState, AttachableVisualLayers.AttachmentActivated);
     }
 }

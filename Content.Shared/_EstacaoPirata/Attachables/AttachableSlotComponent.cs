@@ -1,4 +1,7 @@
-﻿namespace Content.Shared._EstacaoPirata.Attachables;
+﻿using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Serialization;
+
+namespace Content.Shared._EstacaoPirata.Attachables;
 
 /// <summary>
 /// This is used for...
@@ -12,15 +15,26 @@ public sealed partial class AttachableSlotComponent : Component
     [DataField("attachableSlotId", required: true)]
     public string AttachableSlotId = string.Empty;
 
+    [ViewVariables]
     public EntityUid? AttachedItem;
+
+    [ViewVariables]
+    public HashSet<EntityUid> AttachedItemActions = new();
+
+    [ViewVariables]
+    public EntityUid? PlayerWithItemEquipped;
 }
 
-public sealed class AttachedEvent : EntityEventArgs
+[Serializable, NetSerializable]
+public enum AttachableVisuals
 {
-    public EntityUid AttachedEntity;
+    VisualState
+}
 
-    public AttachedEvent(EntityUid attachedEntity)
-    {
-        AttachedEntity = attachedEntity;
-    }
+[Serializable, NetSerializable]
+public enum AttachableVisualLayers : byte
+{
+    Base,
+    Attachment,
+    AttachmentActivated
 }

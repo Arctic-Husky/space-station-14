@@ -1,4 +1,5 @@
 ﻿using Content.Shared._EstacaoPirata.Attachments;
+using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
@@ -9,19 +10,14 @@ namespace Content.Shared._EstacaoPirata.Attachables;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class AttachableSystem : EntitySystem
+public class SharedAttachableSystem : EntitySystem
 {
+    [Dependency] private readonly SharedActionsSystem _sharedActionsSystem = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<AttachableSlotComponent, ContainerIsInsertingAttemptEvent>(OnContainerInsertAttempt);
-        //SubscribeLocalEvent<AttachableSlotComponent, GotUnequippedEvent>(OnGotUnequipped);
     }
-
-    // private void OnGotUnequipped(EntityUid uid, AttachableSlotComponent component, ref GotUnequippedEvent args)
-    // {
-    //     Log.Debug("OnGotUnequipped");
-    // }
 
     private void OnContainerInsertAttempt(EntityUid uid, AttachableSlotComponent component, ref ContainerIsInsertingAttemptEvent args)
     {
