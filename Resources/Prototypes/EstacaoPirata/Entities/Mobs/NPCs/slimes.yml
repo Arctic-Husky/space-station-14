@@ -1,0 +1,566 @@
+- type: entity
+  name: basic slime
+  id: MobSlimes
+  parent: [ SimpleMobBase, MobCombat ]
+  abstract: true
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: EstacaoPirata/Mobs/Aliens/slimes.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: grey_adult_slime
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: Tag
+    tags:
+    - FootstepSound
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: FoodMeatSlime
+      amount: 2
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+    maxSaturation: 15
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 3
+      - !type:PopupMessage
+        type: Local
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: Body
+    prototype: Slimes
+    requiredLegs: 1
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/punch3.ogg
+    angle: 0
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 4
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-slimes
+    interactFailureString: petting-failure-generic
+  - type: ReplacementAccent
+    accent: slimes
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-slimes-name
+    description: ghost-role-information-slimes-description
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+  - type: TypingIndicator
+    proto: slime
+
+- type: entity
+  name: grey slime
+  id: MobAdultSlimesGrey
+  parent: MobSlimes
+  components:
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: grey_adult_slime
+      Dead:
+        Base: grey_adult_slime_dead
+  - type: Meiosis
+    neighbors: ["MobAdultSlimesOrange", "MobAdultSlimesPurple", "MobAdultSlimesBlue", "MobAdultSlimesMetal"]
+
+- type: entity
+  name: adamantine slime
+  parent: MobSlimes
+  id: MobAdultSlimesAdamantine
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: adamantine_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: adamantine_adult_slime
+      Dead:
+        Base: adamantine_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: black slime
+  parent: MobSlimes
+  id: MobAdultSlimesBlack
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: black_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: black_adult_slime
+      Dead:
+        Base: black_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+#- type: entity
+#  name: blue slime
+#  id: MobAdultSlimesBlue
+#  parent: MobSlimes
+#  components:
+#  - type: DamageStateVisuals
+#    states:
+#      Alive:
+#        Base: blue_adult_slime
+#      Dead:
+#        Base: blue_adult_slime_dead
+
+- type: entity
+  name: bluespace slime
+  parent: MobSlimes
+  id: MobAdultSlimesBluespace
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: bluespace_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bluespace_adult_slime
+      Dead:
+        Base: bluespace_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: cerulean slime
+  parent: MobSlimes
+  id: MobAdultSlimesCerulean
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: cerulean_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cerulean_adult_slime
+      Dead:
+        Base: cerulean_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: dark blue slime
+  parent: MobSlimes
+  id: MobAdultSlimesDarkBlue
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: dark_blue_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dark_blue_adult_slime
+      Dead:
+        Base: dark_blue_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: dark purple slime
+  parent: MobSlimes
+  id: MobAdultSlimesDarkPurple
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: dark_purple_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dark_purple_adult_slime
+      Dead:
+        Base: dark_purple_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: gold slime
+  parent: MobSlimes
+  id: MobAdultSlimesGold
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: gold_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gold_adult_slime
+      Dead:
+        Base: gold_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+#- type: entity
+#  name: green slime
+#  id: MobAdultSlimesGreen
+#  parent: MobSlimes
+#  components:
+#  - type: DamageStateVisuals
+#    states:
+#      Alive:
+#        Base: green_adult_slime
+#      Dead:
+#        Base: green_adult_slime_dead
+
+- type: entity
+  name: light pink slime
+  parent: MobSlimes
+  id: MobAdultSlimesLightPink
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: light_pink_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: light_pink_adult_slime
+      Dead:
+        Base: light_pink_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: metal slime
+  parent: MobSlimes
+  id: MobAdultSlimesMetal
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: metal_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: metal_adult_slime
+      Dead:
+        Base: metal_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: oil slime
+  parent: MobSlimes
+  id: MobAdultSlimesOil
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: oil_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: oil_adult_slime
+      Dead:
+        Base: oil_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: orange slime
+  parent: MobSlimes
+  id: MobAdultSlimesOrange
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: orange_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: orange_adult_slime
+      Dead:
+        Base: orange_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: pink slime
+  parent: MobSlimes
+  id: MobAdultSlimesPink
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: pink_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pink_adult_slime
+      Dead:
+        Base: pink_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: purple slime
+  parent: MobSlimes
+  id: MobAdultSlimesPurple
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: purple_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: purple_adult_slime
+      Dead:
+        Base: purple_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: rainbow slime
+  parent: MobSlimes
+  id: MobAdultSlimesRainbow
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: rainbow_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: rainbow_adult_slime
+      Dead:
+        Base: rainbow_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: red slime
+  parent: MobSlimes
+  id: MobAdultSlimesRed
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: red_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: red_adult_slime
+      Dead:
+        Base: red_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: sepia slime
+  parent: MobSlimes
+  id: MobAdultSlimesSepia
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: sepia_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: sepia_adult_slime
+      Dead:
+        Base: sepia_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+- type: entity
+  name: silver slime
+  parent: MobSlimes
+  id: MobAdultSlimesSilver
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: silver_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: silver_adult_slime
+      Dead:
+        Base: silver_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+
+#- type: entity
+#  name: yellow slime
+#  id: MobAdultSlimesYellow
+#  parent: MobSlimes
+#  components:
+#  - type: DamageStateVisuals
+#    states:
+#      Alive:
+#        Base: yellow_adult_slime
+#      Dead:
+#        Base: yellow_adult_slime_dead
