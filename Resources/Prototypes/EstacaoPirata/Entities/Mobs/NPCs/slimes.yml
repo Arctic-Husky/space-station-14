@@ -135,10 +135,10 @@
         Base: grey_adult_slime
       Dead:
         Base: grey_adult_slime_dead
+  - type: SlimeFeeding
   - type: Meiosis
     baby: "MobBabySlimesGrey"
-    neighbors: ["MobBabySlimesOrange", "MobBabySlimesPurple", "MobBabySlimesBlue", "MobBabySlimesMetal"]
-    mutationChance: 0.1
+    mutations: ["MobBabySlimesOrange", "MobBabySlimesPurple", "MobBabySlimesBlue", "MobBabySlimesMetal"]
 
 - type: entity
   name: baby grey slime
