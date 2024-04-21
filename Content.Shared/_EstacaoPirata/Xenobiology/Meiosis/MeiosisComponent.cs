@@ -17,14 +17,26 @@ public sealed partial class MeiosisComponent : Component
     /// <summary>
     /// A list of possible prototypes that can be produced via meiosis
     /// </summary>
-    [DataField("neighbors"), ViewVariables]
-    public HashSet<ProtoId<EntityPrototype>> Neighbors = new();
+    [DataField("mutations"), ViewVariables]
+    public HashSet<ProtoId<EntityPrototype>> Mutations = new();
 
     /// <summary>
     /// The chance this node has to mutate when meiosis occurs, must be a value between 0 and 1
     /// </summary>
     [DataField("mutationChance"), ViewVariables]
-    public float MutationChance = 0.1f;
+    public MeiosisThreshold MutationChance = MeiosisThreshold.Mid;
+
+    /// <summary>
+    /// A dictionary relating MeiosisThreshold to how much they modify
+    /// </summary>
+    [DataField("mutationSeverities")]
+    public Dictionary<MeiosisThreshold, (float, float)> MutationSeverities = new()
+    {
+        { MeiosisThreshold.Severe, (0.8f, 1f) },
+        { MeiosisThreshold.High, (0.6f, 0.8f) },
+        { MeiosisThreshold.Mid, (0.25f, 0.45f) },
+        { MeiosisThreshold.Low, (0.15f, 0.20f) }
+    };
 
     /// <summary>
     /// Number of babies that will be made when meiosis occurs
@@ -32,40 +44,17 @@ public sealed partial class MeiosisComponent : Component
     [DataField("numberOfBabies"), ViewVariables]
     public int NumberOfBabies = 4;
 
-    #region Hunger
-
-    /// <summary>
-    /// This controls when the entity will enter the meiosis process
-    /// </summary>
-    [DataField("feedingMeter"), ViewVariables]
-    public float FeedingMeter = 0f;
-
-    /// <summary>
-    /// The limit of how fed the entity needs to be to enter the meiosis process
-    /// </summary>
-    [DataField("feedingThreshold"), ViewVariables]
-    public float FeedingLimit = 50f;
-
-    [ViewVariables]
-    public float LastHungerValue = 0f;
-
-    /// <summary>
-    /// The time when the hunger will update next.
-    /// </summary>
-    [DataField("nextUpdateTime"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan NextUpdateTime;
-
-    /// <summary>
-    /// The time between each update.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan UpdateRate = TimeSpan.FromSeconds(1);
-
-    #endregion
-
     /// <summary>
     /// Used for storing cumulative information about nodes
     /// </summary>
     [DataField("nodeData"), ViewVariables]
     public Dictionary<string, object> NodeData = new();
+}
+
+public enum MeiosisThreshold : byte
+{
+    Severe,
+    High,
+    Mid,
+    Low
 }
