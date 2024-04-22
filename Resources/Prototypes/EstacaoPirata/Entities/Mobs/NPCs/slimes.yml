@@ -7,10 +7,10 @@
   components:
   - type: NpcFactionMember
     factions:
-    - SimpleNeutral
+    - Slime
   - type: HTN
     rootTask:
-      task: MouseCompound
+      task: SlimeCompound
   - type: Sprite
     drawdepth: Mobs
     sprite: EstacaoPirata/Mobs/Aliens/slimes.rsi
@@ -123,6 +123,7 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  - type: SlimeFeeding
 
 - type: entity
   name: grey slime
@@ -135,7 +136,6 @@
         Base: grey_adult_slime
       Dead:
         Base: grey_adult_slime_dead
-  - type: SlimeFeeding
   - type: Meiosis
     baby: "MobBabySlimesGrey"
     mutations: ["MobBabySlimesOrange", "MobBabySlimesPurple", "MobBabySlimesBlue", "MobBabySlimesMetal"]
@@ -162,6 +162,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesGrey"
 
 - type: entity
   name: adamantine slime
@@ -185,6 +187,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesAdamantine"
 
 - type: entity
   name: baby adamantine slime
@@ -208,6 +212,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesAdamantine"
 
 - type: entity
   name: black slime
@@ -231,6 +237,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesBlack"
 
 - type: entity
   name: baby black slime
@@ -254,6 +262,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesBlack"
 
 #- type: entity
 #  name: blue slime
@@ -266,6 +276,32 @@
 #        Base: blue_adult_slime
 #      Dead:
 #        Base: blue_adult_slime_dead
+
+- type: entity
+  name: blue slime
+  parent: MobSlimes
+  id: MobAdultSlimesBlueAlt
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: blue_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: blue_adult_slime
+      Dead:
+        Base: blue_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesBlue"
+    mutations: [ "MobBabySlimesSilver", "MobBabySlimesDarkBlue", "MobBabySlimesPink" ]
 
 - type: entity
   name: baby blue slime
@@ -289,6 +325,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesBlueAlt"
 
 - type: entity
   name: bluespace slime
@@ -312,6 +350,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesBluespace"
 
 - type: entity
   name: baby bluespace slime
@@ -335,6 +375,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesBluespace"
 
 - type: entity
   name: cerulean slime
@@ -358,6 +400,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesCerulean"
 
 - type: entity
   name: baby cerulean slime
@@ -381,6 +425,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesCerulean"
 
 - type: entity
   name: dark blue slime
@@ -404,6 +450,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesDarkBlue"
+    mutations: [ "MobBabySlimesBlue", "MobBabySlimesPurple", "MobBabySlimesCerulean" ]
 
 - type: entity
   name: baby dark blue slime
@@ -427,6 +476,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesDarkBlue"
 
 - type: entity
   name: dark purple slime
@@ -450,6 +501,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesDarkPurple"
+    mutations: [ "MobBabySlimesOrange", "MobBabySlimesPurple", "MobBabySlimesSepia" ]
 
 - type: entity
   name: baby dark purple slime
@@ -473,6 +527,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesDarkPurple"
 
 - type: entity
   name: gold slime
@@ -496,6 +552,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesGold"
+    mutations: [ "MobBabySlimesGold", "MobBabySlimesGold", "MobBabySlimesAdamantine" ]
 
 - type: entity
   name: baby gold slime
@@ -519,6 +578,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesGold"
 
 #- type: entity
 #  name: green slime
@@ -531,6 +592,32 @@
 #        Base: green_adult_slime
 #      Dead:
 #        Base: green_adult_slime_dead
+
+- type: entity
+  name: green slime
+  parent: MobSlimes
+  id: MobAdultSlimesGreenAlt
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: blue_baby_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: green_adult_slime
+      Dead:
+        Base: green_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesGreen"
+    mutations: [ "MobBabySlimesPurple", "MobBabySlimesGreen", "MobBabySlimesBlack" ]
 
 - type: entity
   name: baby green slime
@@ -554,6 +641,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesGreenAlt"
 
 - type: entity
   name: light pink slime
@@ -577,6 +666,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesLightPink"
 
 - type: entity
   name: baby light pink slime
@@ -600,6 +691,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimeLightPink"
 
 - type: entity
   name: metal slime
@@ -623,6 +716,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesMetal"
+    mutations: [ "MobBabySlimesGold", "MobBabySlimesYellow", "MobBabySlimesSilver" ]
 
 - type: entity
   name: baby metal slime
@@ -646,6 +742,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesMetal"
 
 - type: entity
   name: oil slime
@@ -669,6 +767,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesOil"
 
 - type: entity
   name: baby oil slime
@@ -692,6 +792,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesOil"
 
 - type: entity
   name: orange slime
@@ -715,6 +817,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesOrange"
+    mutations: [ "MobBabySlimesYellow", "MobBabySlimesRed", "MobBabySlimesDarkPurple" ]
 
 - type: entity
   name: baby orange slime
@@ -738,6 +843,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesOrange"
 
 - type: entity
   name: pink slime
@@ -761,6 +868,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesPink"
+    mutations: [ "MobBabySlimesLightPink", "MobBabySlimesPink", "MobBabySlimesPink" ]
 
 - type: entity
   name: baby pink slime
@@ -784,6 +894,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesPink"
 
 - type: entity
   name: purple slime
@@ -807,6 +919,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesPurple"
+    mutations: [ "MobBabySlimesDarkPurple", "MobBabySlimesGreen", "MobBabySlimesDarkBlue" ]
 
 - type: entity
   name: baby purple slime
@@ -830,7 +945,10 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesPurple"
 
+# Slimes especial
 - type: entity
   name: rainbow slime
   parent: MobSlimes
@@ -876,6 +994,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesRainbow"
 
 - type: entity
   name: red slime
@@ -899,6 +1019,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesRed"
+    mutations: [ "MobBabySlimesRed", "MobBabySlimesRed", "MobBabySlimesOil" ]
 
 - type: entity
   name: baby red slime
@@ -922,6 +1045,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesRed"
 
 - type: entity
   name: sepia slime
@@ -945,6 +1070,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesSepia"
 
 - type: entity
   name: baby sepia slime
@@ -968,6 +1095,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesSepia"
 
 - type: entity
   name: silver slime
@@ -991,6 +1120,9 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesSilver"
+    mutations: [ "MobBabySlimesPyrite", "MobBabySlimesMetal", "MobBabySlimesBlueAlt" ]
 
 - type: entity
   name: baby silver slime
@@ -1014,6 +1146,8 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesSilver"
 
 #- type: entity
 #  name: yellow slime
@@ -1026,6 +1160,32 @@
 #        Base: yellow_adult_slime
 #      Dead:
 #        Base: yellow_adult_slime_dead
+
+- type: entity
+  name: yellow slime
+  parent: MobSlimes
+  id: MobAdultSlimesYellowAlt
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: silver_baby_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: yellow_adult_slime
+      Dead:
+        Base: yellow_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesYellow"
+    mutations: [ "MobBabySlimesBluespace", "MobBabySlimesOrange", "MobBabySlimesMetal" ]
 
 - type: entity
   name: baby yellow slime
@@ -1049,3 +1209,5 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesYellow"

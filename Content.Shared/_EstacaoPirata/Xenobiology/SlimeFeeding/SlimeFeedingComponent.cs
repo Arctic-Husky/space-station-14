@@ -1,4 +1,7 @@
-﻿namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
+﻿using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 
 /// <summary>
 /// This is used for controlling the feeding of the slime for the process of meiosis
@@ -6,6 +9,12 @@
 [RegisterComponent]
 public sealed partial class SlimeFeedingComponent : Component
 {
+    /// <summary>
+    /// Maximum distance between slime and target for it to feed on it
+    /// </summary>
+    [DataField("maxFeedingDistance"), ViewVariables]
+    public float MaxFeedingDistance = 1f;
+
     /// <summary>
     /// This controls when the entity will enter the meiosis process
     /// </summary>
@@ -32,4 +41,16 @@ public sealed partial class SlimeFeedingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan UpdateRate = TimeSpan.FromSeconds(1);
+
+    public ProtoId<EntityPrototype> SlimeNutrimentPrototype = "SlimeNutriment";
+}
+
+public sealed class SlimeTotallyFedEvent : EntityEventArgs
+{
+    public EntityUid Entity;
+
+    public SlimeTotallyFedEvent(EntityUid entity)
+    {
+        Entity = entity;
+    }
 }

@@ -1,0 +1,13 @@
+- type: entity
+  id: SlimeNutriment
+  components:
+  - type: Food
+    solution: food
+    delay: 5
+    forceFeedDelay: 5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
