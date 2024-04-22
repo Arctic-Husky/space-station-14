@@ -32,7 +32,8 @@ public sealed partial class MeiosisComponent : Component
     [DataField("mutationSeverities")]
     public Dictionary<MeiosisThreshold, (float, float)> MutationSeverities = new()
     {
-        { MeiosisThreshold.Severe, (0.8f, 1f) },
+        { MeiosisThreshold.Max , (1f, 1f)},
+        { MeiosisThreshold.Severe, (0.8f, 0.99f) },
         { MeiosisThreshold.High, (0.6f, 0.8f) },
         { MeiosisThreshold.Mid, (0.25f, 0.45f) },
         { MeiosisThreshold.Low, (0.15f, 0.20f) }
@@ -53,6 +54,7 @@ public sealed partial class MeiosisComponent : Component
 
 public enum MeiosisThreshold : byte
 {
+    Max,
     Severe,
     High,
     Mid,

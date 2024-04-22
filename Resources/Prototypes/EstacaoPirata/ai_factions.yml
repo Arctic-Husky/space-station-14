@@ -1,0 +1,13 @@
+- type: npcFaction
+  id: Slime
+  hostile:
+  - NanoTrasen
+  - SimpleNeutral
+  - SimpleHostile
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Revolutionary
+  - Mouse
+  - Dragon
+  - Xeno

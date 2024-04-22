@@ -1,10 +1,9 @@
-﻿using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
+﻿using System.Linq;
+using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
-using Content.Shared.Nutrition.Components;
+using Content.Shared.Mind;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._EstacaoPirata.Xenobiology;
 
@@ -13,48 +12,23 @@ namespace Content.Server._EstacaoPirata.Xenobiology;
 /// </summary>
 public sealed class MeiosisSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
-
+        SubscribeLocalEvent<MeiosisComponent,SlimeTotallyFedEvent>(OnSlimeFed);
     }
 
-    // TODO: criar um componente pra lidar com o crescimento de um slime
+    private void OnSlimeFed(EntityUid uid, MeiosisComponent component, SlimeTotallyFedEvent args)
+    {
+        DoMeiosis(args.Entity, component);
+    }
+
     // TODO: criar HTN proprio do slime
     // TODO: um componente pra permitir analise pelo slime scanner que pega informacoes do meiosis component
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<MeiosisComponent, HungerComponent, SlimeFeedingComponent>();
-        while (query.MoveNext(out var uid, out var meiosis, out var hunger, out var feeding))
-        {
-            if (_timing.CurTime < feeding.NextUpdateTime)
-                continue;
-
-            feeding.NextUpdateTime = _timing.CurTime + feeding.UpdateRate;
-
-            if(hunger.CurrentThreshold < HungerThreshold.Okay)
-                continue;
-
-            if (feeding.LastHungerValue <= hunger.CurrentHunger)
-            {
-                var difference =  hunger.CurrentHunger - feeding.LastHungerValue;
-                feeding.FeedingMeter += difference;
-
-                if (feeding.FeedingMeter >= feeding.FeedingLimit)
-                {
-                    // Fazer meiose e deletar a entidade original
-                    DoMeiosis(uid, meiosis);
-                }
-            }
-            feeding.LastHungerValue = hunger.CurrentHunger;
-        }
-    }
+    // TODO: fazer logging das coisas pra adm
 
     // TODO: lidar com a morte?
     private void DoMeiosis(EntityUid uid, MeiosisComponent meiosisComponent)
@@ -76,21 +50,31 @@ public sealed class MeiosisSystem : EntitySystem
 
             Log.Debug($"Random Number: {randomNumber*100}% vs {mutationChance*100}% Mutation Chance");
 
-            if (randomNumber <= mutationChance)
+            if (meiosisComponent.Mutations.Count > 0)
             {
-                var pick = _robustRandom.Pick(meiosisComponent.Mutations);
-                entity = pick.Id;
+                if (randomNumber <= mutationChance)
+                {
+                    var pick = _robustRandom.Pick(meiosisComponent.Mutations);
+                    entity = pick.Id;
+                }
             }
 
             entitiesToSpawn.Add(entity);
         }
 
+        var spawnedEntities = new List<EntityUid>();
+
         foreach (var entity in entitiesToSpawn)
         {
-            Spawn(entity, position);
+            var spawnedEntity = Spawn(entity, position);
+            spawnedEntities.Add(spawnedEntity);
         }
 
+        // This transfers the mind to the new entity
+        if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+            _mindSystem.TransferTo(mindId, spawnedEntities.First(), mind: mind);
+
         // Deletar o original
-        QueueDel(uid);
+        //QueueDel(uid);
     }
 }
