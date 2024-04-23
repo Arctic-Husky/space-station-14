@@ -74,6 +74,8 @@ public sealed partial class SlimeFeedingComponent : Component
     [DataField("feedingDamage")]
     public DamageSpecifier FeedingDamage = default!;
 
+    public bool StomachAvailable = false;
+
     public ProtoId<EntityPrototype> SlimeNutrimentPrototype = "PuddleSlimeNutriment";
 }
 
