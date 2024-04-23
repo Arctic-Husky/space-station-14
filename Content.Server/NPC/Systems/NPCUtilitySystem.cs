@@ -349,6 +349,15 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return 0f;
             }
+            case TargetIsOccupiedSlime:
+            {
+                if (TryComp<SlimeFeedingIncapacitatedComponent>(targetUid, out var slimeFeedingIncapacitated))
+                {
+                    return 1f;
+                }
+
+                return 0f;
+            }
             default:
                 throw new NotImplementedException();
         }

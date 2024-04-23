@@ -8,6 +8,7 @@ using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 using Content.Shared.DoAfter;
 using Content.Shared.Nutrition.Components;
+using Serilog;
 
 namespace Content.Server._EstacaoPirata.NPC.HTN.PrimitiveTasks.Operators.Interactions;
 
@@ -34,7 +35,7 @@ public sealed partial class SlimeConsumeOperator : HTNOperator
     {
         return new(true, new Dictionary<string, object>()
         {
-            { IdleKey, 1f }
+            { IdleKey,  1f }
         });
     }
 
@@ -44,65 +45,79 @@ public sealed partial class SlimeConsumeOperator : HTNOperator
         {
             return HTNOperatorStatus.Failed;
         }
-
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-
+        var count = 0;
         var slimeLeapingSystem = _entManager.System<SharedSlimeLeapingSystem>();
 
         _entManager.TryGetComponent<SlimeFeedingComponent>(owner, out var slimeFeedingComponent);
         _entManager.TryGetComponent<HungerComponent>(owner, out var hungerComponent);
-
         _entManager.TryGetComponent<SlimeFoodComponent>(target, out var slimeFoodComponent);
+        _entManager.TryGetComponent<SlimeFeedingIncapacitatedComponent>(target, out var slimeFeedingIncapacitatedComponent);
 
-        if (slimeFeedingComponent != null)
+        if (slimeFeedingComponent == null)
+            return HTNOperatorStatus.Failed;
+
+
+        if (slimeFeedingIncapacitatedComponent != null)
         {
-            slimeLeapingSystem.LeapToTarget(owner, target);
-
-            if (slimeFeedingComponent.Victim == null)
+            if (slimeFeedingIncapacitatedComponent.Attacker != null && slimeFeedingIncapacitatedComponent.Attacker != owner)
             {
-                return HTNOperatorStatus.Continuing;
+                return HTNOperatorStatus.Finished;
             }
+        }
 
-            _entManager.TryGetComponent<DoAfterComponent>(owner, out var doAfter);
-
-            if (doAfter != null)
+        // Cabou comida do alvo
+        if (slimeFoodComponent != null)
+        {
+            if (slimeFoodComponent.Remaining <= 0)
             {
-                if (!doAfter.DoAfters.Any())
-                {
-                    return HTNOperatorStatus.Continuing;
-                }
-
-                var wait = doAfter.DoAfters.First().Value.Args.Delay;
-                blackboard.SetValue(IdleKey, (float) wait.TotalSeconds + 0.5f);
+                return HTNOperatorStatus.Finished;
             }
+        }
 
-            // Cabou comida do alvo
-            if (slimeFoodComponent != null)
-            {
-                if (slimeFoodComponent.Remaining <= 0)
-                {
-                    return HTNOperatorStatus.Finished;
-                }
-            }
+        // Ta de buchin chei
+        if (!slimeFeedingComponent.StomachAvailable)
+        {
+            return HTNOperatorStatus.Finished;
+        }
 
-            // Ta de buchin chei
-            if (!slimeFeedingComponent.StomachAvailable)
+        if (hungerComponent != null)
+        {
+            // Ainda esta com fome
+            if (hungerComponent.CurrentThreshold >= HungerThreshold)
             {
                 return HTNOperatorStatus.Finished;
             }
 
-            if (hungerComponent != null)
+            if (slimeFeedingComponent.Victim != null)
             {
-                // Ainda esta com fome
-                if (hungerComponent.CurrentThreshold >= HungerThreshold)
-                {
-                    return HTNOperatorStatus.Finished;
-                }
-
                 return HTNOperatorStatus.Continuing;
             }
         }
 
-        return HTNOperatorStatus.Failed;
+        if (_entManager.TryGetComponent<DoAfterComponent>(owner, out var doAfter))
+        {
+            count = doAfter.DoAfters.Count;
+        }
+
+        var result = slimeLeapingSystem.LeapToTarget(owner, target);
+
+        // Interaction started a doafter so set the idle time to it.
+        if (result && doAfter != null && doAfter.DoAfters.Count > 0)
+        {
+            var wait = doAfter.DoAfters.First().Value.Args.Delay;
+            blackboard.SetValue(IdleKey, (float) wait.TotalSeconds + (float) wait.TotalSeconds);
+        }
+        else
+        {
+            blackboard.SetValue(IdleKey, 4f);
+        }
+
+        // if (slimeFeedingComponent.Victim == null)
+        // {
+        //     return HTNOperatorStatus.Finished;
+        // }
+
+        return result ? HTNOperatorStatus.Finished : HTNOperatorStatus.Failed;
     }
 }

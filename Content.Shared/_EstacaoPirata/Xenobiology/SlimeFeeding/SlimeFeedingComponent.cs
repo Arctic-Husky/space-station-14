@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -9,7 +10,8 @@ namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 /// <summary>
 /// This is used for controlling the feeding of the slime for the process of meiosis
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class SlimeFeedingComponent : Component
 {
     /// <summary>
@@ -22,6 +24,7 @@ public sealed partial class SlimeFeedingComponent : Component
     /// This controls when the entity will enter the meiosis process
     /// </summary>
     [DataField("feedingMeter"), ViewVariables]
+    [AutoNetworkedField]
     public float FeedingMeter = 0f;
 
     /// <summary>
@@ -31,12 +34,14 @@ public sealed partial class SlimeFeedingComponent : Component
     public float FeedingLimit = 100f;
 
     [ViewVariables]
+    [AutoNetworkedField]
     public float LastHungerValue = 0f;
 
     /// <summary>
     /// The time when the hunger will update next.
     /// </summary>
     [DataField("nextUpdateTime"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
     public TimeSpan NextUpdateTime;
 
     /// <summary>
@@ -61,8 +66,11 @@ public sealed partial class SlimeFeedingComponent : Component
     [DataField("feedingTime")]
     public TimeSpan FeedingTime = TimeSpan.FromSeconds(4);
 
+    [ViewVariables]
+    [AutoNetworkedField]
     public EntityUid? Victim;
 
+    [AutoNetworkedField]
     public bool VictimResisted = false;
 
     [DataField("feedingQuantity")]
@@ -74,7 +82,8 @@ public sealed partial class SlimeFeedingComponent : Component
     [DataField("feedingDamage")]
     public DamageSpecifier FeedingDamage = default!;
 
-    public bool StomachAvailable = false;
+    [AutoNetworkedField]
+    public bool StomachAvailable = true;
 
     public ProtoId<EntityPrototype> SlimeNutrimentPrototype = "PuddleSlimeNutriment";
 }
