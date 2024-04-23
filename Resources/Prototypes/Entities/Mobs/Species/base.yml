@@ -303,6 +303,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: SlimeFood
+    remaining: 100
 
 - type: entity
   save: false

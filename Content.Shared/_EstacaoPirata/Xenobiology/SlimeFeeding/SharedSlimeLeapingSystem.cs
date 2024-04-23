@@ -25,6 +25,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -136,6 +137,29 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
             _physics.SetLinearVelocity(user, Vector2.Zero, body: physics);
             _physics.SetBodyStatus(user, physics, BodyStatus.OnGround);
         }
+
+        var mapCoordinates = _transform.GetMapCoordinates(user);
+
+        var entitiesIntersecting = _lookup.GetEntitiesIntersecting(mapCoordinates, LookupFlags.Uncontained);
+
+        // O(n)
+        foreach (var ent in entitiesIntersecting)
+        {
+            if (!TryComp<SlimeFoodComponent>(ent, out var slimeFoodComponent) || ent == user)
+                continue;
+
+            LatchOn(user, ent);
+            return;
+        }
+
+
+        // var query = AllEntityQuery<SlimeFoodComponent, TransformComponent>();
+        //
+        // while (query.MoveNext(out var uid, out var comp, out var compXform))
+        // {
+        //     if(compXform.Coordinates)
+        // }
+
     }
 
     private void OnUnlatch(EntityUid uid, SlimeFeedingComponent component, ref UnlatchOnEvent args)

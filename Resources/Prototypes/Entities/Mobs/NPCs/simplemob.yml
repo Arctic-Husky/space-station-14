@@ -110,3 +110,4 @@
       heatDamageThreshold: 360
       coldDamageThreshold: 223.15
   - type: SlimeFood
+    remaining: 50

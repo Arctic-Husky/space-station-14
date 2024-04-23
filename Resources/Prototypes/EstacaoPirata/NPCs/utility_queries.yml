@@ -3,8 +3,8 @@
   query:
   - !type:NearbyHostilesQuery
   considerations:
-  - !type:TargetIsAliveCon
-    curve: !type:InverseBoolCurve
+  - !type:TargetHasSlimeFood
+    curve: !type:BoolCurve
   - !type:TargetDistanceCon
     curve: !type:PresetCurve
       preset: TargetDistance

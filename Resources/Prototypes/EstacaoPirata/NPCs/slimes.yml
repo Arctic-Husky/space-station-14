@@ -42,14 +42,15 @@
       preconditions:
       - !type:KeyExistsPrecondition
         key: Target
-      operator: !type:AltInteractOperator
+      operator: !type:SlimeConsumeOperator
+        hungerThreshold: Okay
 
-#    - !type:HTNPrimitiveTask
-#      preconditions:
-#      - !type:KeyExistsPrecondition
-#        key: IdleTime
-#      operator: !type:WaitOperator
-#        key: IdleTime
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime
 
   # Picks a nearby food, moves into range, then eats it and waits the idle time.
   - tasks:
@@ -67,5 +68,18 @@
         targetKey: TargetCoordinates
         pathfindKey: TargetPathfind
         rangeKey: MeleeRange
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      operator: !type:AltInteractOperator
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime
 
 # TODO: separar essas porra tudo

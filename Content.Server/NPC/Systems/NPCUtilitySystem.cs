@@ -24,6 +24,8 @@ using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._EstacaoPirata.NPC.Queries.Considerations;
+using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 
 namespace Content.Server.NPC.Systems;
 
@@ -335,6 +337,15 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (TryComp<MeleeWeaponComponent>(targetUid, out var melee))
                 {
                     return melee.Damage.GetTotal().Float() * melee.AttackRate / 100f;
+                }
+
+                return 0f;
+            }
+            case TargetHasSlimeFood:
+            {
+                if (TryComp<SlimeFoodComponent>(targetUid, out var slimeFood))
+                {
+                    return slimeFood.Remaining > 0 ? 1f : 0f;
                 }
 
                 return 0f;

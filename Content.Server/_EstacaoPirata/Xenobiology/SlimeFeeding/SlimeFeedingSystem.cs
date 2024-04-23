@@ -46,14 +46,14 @@ public sealed class SlimeFeedingSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<SlimeFoodComponent, GetVerbsEvent<InteractionVerb>>(AddFeedVerb);
+        SubscribeLocalEvent<SlimeFoodComponent, GetVerbsEvent<AlternativeVerb>>(AddFeedVerb);
         SubscribeLocalEvent<SlimeFeedingComponent, FeedDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<SlimeFeedingComponent, LatchOnEvent>(OnFeed);
         SubscribeLocalEvent<SlimeFeedingComponent, ComponentRemove>(OnSlimeFeedingRemove);
         SubscribeLocalEvent<SlimeFeedingComponent, DisarmedEvent>(OnDisarmed);
     }
 
-    private void AddFeedVerb(Entity<SlimeFoodComponent> entity, ref GetVerbsEvent<InteractionVerb> ev)
+    private void AddFeedVerb(Entity<SlimeFoodComponent> entity, ref GetVerbsEvent<AlternativeVerb> ev)
     {
         // if (entity.Owner != ev.User)
         //     return;
@@ -72,7 +72,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
 
         var user = ev.User;
         var target = ev.Target;
-        InteractionVerb verb = new()
+        AlternativeVerb verb = new()
         {
             Act = () =>
             {
@@ -80,7 +80,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
             },
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/cutlery.svg.192dpi.png")),
             Text = Loc.GetString("slime-system-verb-feed"),
-            Priority = -1
+            Priority = 10
         };
 
         ev.Verbs.Add(verb);
@@ -130,6 +130,15 @@ public sealed class SlimeFeedingSystem : EntitySystem
     {
         Log.Debug($"OnFeed");
         TryFeed(args.User, args.Target, component);
+    }
+
+    public bool TryFeed(EntityUid entity, EntityUid target)
+    {
+        //Resolve()
+        if(!TryComp<SlimeFeedingComponent>(entity, out var slimeFeedingComponent))
+            return false;
+
+        return TryFeed(entity, target, slimeFeedingComponent);
     }
 
     public bool TryFeed(EntityUid entity, EntityUid target, SlimeFeedingComponent slimeFeedingComponent)
@@ -207,8 +216,6 @@ public sealed class SlimeFeedingSystem : EntitySystem
             return false;
         }
 
-
-
         if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
             return false;
 
@@ -255,6 +262,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
         // No stomach so just popup a message that they can't eat and unlatch.
         if (stomachToUse == null)
         {
+            slimeFeedingComponent.StomachAvailable = false;
             //_solutionContainer.TryAddSolution(soln.Value, drained);
             _popup.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), entity, entity);
 
@@ -262,6 +270,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
             return false;
         }
 
+        slimeFeedingComponent.StomachAvailable = true;
 
         // Consume the solution
         if (_stomach.TryTransferSolution(stomachToUse.Owner, drained, stomachToUse))
@@ -326,11 +335,6 @@ public sealed class SlimeFeedingSystem : EntitySystem
     {
         Log.Debug($"OnDisarmAttempt");
 
-        // if (!TryComp<SlimeFeedingIncapacitatedComponent>(args.Source, out var slimeFeedingIncapacitatedComponent))
-        //     return;
-
-
-
         if (!TryComp<SlimeFeedingIncapacitatedComponent>(args.Source, out var slimeFeedingIncapacitatedComponent))
             return;
 
@@ -345,14 +349,6 @@ public sealed class SlimeFeedingSystem : EntitySystem
 
     private void RaiseUnlatchEvent(EntityUid entity, EntityUid target)
     {
-        var unlatchOnEvent = new UnlatchOnEvent(entity, target);
-        RaiseLocalEvent(uid: entity, args:unlatchOnEvent);
-    }
-
-    private void RaiseUnlatchEvent(EntityUid entity, EntityUid target, ref FeedDoAfterEvent args)
-    {
-        args.FeedCancelled = true;
-
         var unlatchOnEvent = new UnlatchOnEvent(entity, target);
         RaiseLocalEvent(uid: entity, args:unlatchOnEvent);
     }
