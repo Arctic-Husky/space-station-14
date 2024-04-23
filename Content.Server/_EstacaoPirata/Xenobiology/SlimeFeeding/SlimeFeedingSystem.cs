@@ -1,23 +1,24 @@
 ﻿using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Nutrition.Components;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
+using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
-using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.CombatMode;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -29,25 +30,27 @@ namespace Content.Server._EstacaoPirata.Xenobiology.SlimeFeeding;
 /// </summary>
 public sealed class SlimeFeedingSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly IGameTiming                        _timing = default!;
+    [Dependency] private readonly BodySystem                           _body = default!;
+    [Dependency] private readonly SharedInteractionSystem       _interaction = default!;
+    [Dependency] private readonly TransformSystem                 _transform = default!;
+    [Dependency] private readonly PopupSystem                         _popup = default!;
+    [Dependency] private readonly ISharedAdminLogManager        _adminLogger = default!;
+    [Dependency] private readonly SharedDoAfterSystem               _doAfter = default!;
+    [Dependency] private readonly SharedSlimeLeapingSystem    _leapingSystem = default!;
+    [Dependency] private readonly StomachSystem                     _stomach = default!;
+    [Dependency] private readonly ReactiveSystem                   _reaction = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly FoodSystem _food = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly FlavorProfileSystem _flavorProfile = default!;
-    //[Dependency] private readonly HungerSystem _hungerSystem = default!;
+    [Dependency] private readonly DamageableSystem               _damageable = default!;
+    [Dependency] private readonly MobStateSystem                   _mobState = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<SlimeFoodComponent, GetVerbsEvent<InteractionVerb>>(AddFeedVerb);
-        SubscribeLocalEvent<SlimeFeedingComponent, ConsumeDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<SlimeFeedingComponent, FeedDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<SlimeFeedingComponent, LatchOnEvent>(OnFeed);
+        SubscribeLocalEvent<SlimeFeedingComponent, ComponentRemove>(OnSlimeFeedingRemove);
+        SubscribeLocalEvent<SlimeFeedingComponent, DisarmedEvent>(OnDisarmed);
     }
 
     private void AddFeedVerb(Entity<SlimeFoodComponent> entity, ref GetVerbsEvent<InteractionVerb> ev)
@@ -73,10 +76,10 @@ public sealed class SlimeFeedingSystem : EntitySystem
         {
             Act = () =>
             {
-                Feed(user, target, slimeFeedingComponent);
+                _leapingSystem.LeapToTarget(user, target);
             },
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/cutlery.svg.192dpi.png")),
-            Text = Loc.GetString("food-system-verb-feed"),
+            Text = Loc.GetString("slime-system-verb-feed"),
             Priority = -1
         };
 
@@ -109,6 +112,12 @@ public sealed class SlimeFeedingSystem : EntitySystem
                     var slimeFedEvent = new SlimeTotallyFedEvent(uid);
                     RaiseLocalEvent(uid, slimeFedEvent);
 
+                    // Dar unlatch caso tenha vitima antes de deletar a entidade
+                    if (feeding.Victim != null)
+                    {
+                        RaiseUnlatchEvent(uid, feeding.Victim.Value);
+                    }
+
                     QueueDel(uid);
                     return;
                 }
@@ -117,11 +126,31 @@ public sealed class SlimeFeedingSystem : EntitySystem
         }
     }
 
-    public bool Feed(EntityUid entity, EntityUid target, SlimeFeedingComponent slimeFeedingComponent)
+    private void OnFeed(EntityUid uid, SlimeFeedingComponent component, LatchOnEvent args)
     {
-        //Suppresses eating yourself and alive mobs
-        if (target == entity || (_mobState.IsAlive(target)))
+        Log.Debug($"OnFeed");
+        TryFeed(args.User, args.Target, component);
+    }
+
+    public bool TryFeed(EntityUid entity, EntityUid target, SlimeFeedingComponent slimeFeedingComponent)
+    {
+        //Suppresses eating yourself
+        if (target == entity)
             return false;
+
+        if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
+            return false;
+
+        if (slimeFoodComponent.Remaining <= 0)
+        {
+            var message = Loc.GetString("slime-food-not-enough-resources-on-target");
+            _popup.PopupEntity(message, entity, entity);
+
+            var unlatchOnEvent = new UnlatchOnEvent(entity, target);
+            RaiseLocalEvent(uid: entity, args:unlatchOnEvent);
+            return false;
+        }
+
 
         // Target can't be fed or they're already eating
         if (!TryComp<BodyComponent>(target, out var body))
@@ -129,19 +158,6 @@ public sealed class SlimeFeedingSystem : EntitySystem
 
         if (!_body.TryGetBodyOrganComponents<StomachComponent>(entity, out var stomachs))
             return false;
-
-        var nutrimentEntity = Spawn(slimeFeedingComponent.SlimeNutrimentPrototype, _transform.GetMapCoordinates(target));
-
-        if (!TryComp<FoodComponent>(nutrimentEntity, out var foodComponent))
-            return false;
-
-        if (!_solutionContainer.TryGetSolution(nutrimentEntity, foodComponent.Solution, out _, out var foodSolution))
-            return false;
-
-        var flavors = _flavorProfile.GetLocalizedFlavorsMessage(nutrimentEntity, entity, foodSolution);
-
-        // if (_food.IsMouthBlocked(nutrimentEntity, entity))
-        //     return false;
 
         if (!_interaction.InRangeUnobstructed(entity, target, slimeFeedingComponent.MaxFeedingDistance, popup: true))
             return false;
@@ -153,32 +169,197 @@ public sealed class SlimeFeedingSystem : EntitySystem
             return false;
         }
 
-        _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(entity):entity} is feeding on {ToPrettyString(target):target} {SolutionContainerSystem.ToPrettyString(foodSolution)}");
+        _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(entity):entity} is feeding on {ToPrettyString(target):target}");
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, entity, foodComponent.Delay,new ConsumeDoAfterEvent(foodComponent.Solution, flavors), eventTarget: nutrimentEntity, target: target, used: nutrimentEntity)
+        var feedDoAfterEvent = new FeedDoAfterEvent();
+        feedDoAfterEvent.Repeat = true;
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            entity,
+            slimeFeedingComponent.FeedingTime,
+            feedDoAfterEvent,
+            eventTarget: entity,
+            target: target,
+            used: target)
         {
             BreakOnMove = true,
-            BreakOnDamage = true,
+            BreakOnDamage = false,
             MovementThreshold = 0.01f,
             DistanceThreshold = slimeFeedingComponent.MaxFeedingDistance,
-            // Mice and the like can eat without hands.
-            // TODO maybe set this based on some CanEatWithoutHands event or component?
-            NeedHand = false,
+            NeedHand = false
         };
 
-        _doAfter.TryStartDoAfter(doAfterArgs);
-
-        return true;
+        return _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
-    private void OnDoAfter(Entity<SlimeFeedingComponent> entity, ref ConsumeDoAfterEvent args)
+    private bool Feed(EntityUid entity, EntityUid target, SlimeFeedingComponent slimeFeedingComponent)
     {
-        if (args.Cancelled || args.Handled || entity.Comp.Deleted || args.Target == null)
+        Log.Debug($"Feed");
+
+        if (!_mobState.IsAlive(entity))
+            return false;
+
+        if (slimeFeedingComponent.VictimResisted)
         {
-            QueueDel(args.Used);
+            var message = Loc.GetString("slime-victim-resisted");
+            _popup.PopupEntity(message, entity, entity);
+            return false;
+        }
+
+
+
+        if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
+            return false;
+
+        // See if the victim still has food value
+        if (slimeFoodComponent.Remaining <= 0)
+        {
+            var message = Loc.GetString("slime-food-target-drained");
+            _popup.PopupEntity(message, entity, entity);
+
+            RaiseUnlatchEvent(entity,target);
+            return false;
+        }
+
+        if (!TryComp<BodyComponent>(entity, out var body))
+            return false;
+
+        if (!_body.TryGetBodyOrganComponents<StomachComponent>(entity, out var stomachs, body))
+            return false;
+
+        var drained = new Solution();
+        drained.AddReagent(slimeFeedingComponent.FeedingSolutionReagent, slimeFeedingComponent.FeedingSolutionQuantity);
+
+        // Get the stomach with the highest available solution volume
+        var highestAvailable = FixedPoint2.Zero;
+        StomachComponent? stomachToUse = null;
+        foreach (var (stomach, _) in stomachs)
+        {
+            var owner = stomach.Owner;
+            if (!_stomach.CanTransferSolution(owner, drained, stomach))
+                continue;
+
+            if (!_solutionContainer.ResolveSolution(owner, StomachSystem.DefaultSolutionName, ref stomach.Solution, out var stomachSol))
+                continue;
+
+            if (stomachSol.AvailableVolume <= highestAvailable)
+                continue;
+
+            stomachToUse = stomach;
+            highestAvailable = stomachSol.AvailableVolume;
+        }
+
+        _reaction.DoEntityReaction(entity, drained, ReactionMethod.Ingestion);
+
+        // No stomach so just popup a message that they can't eat and unlatch.
+        if (stomachToUse == null)
+        {
+            //_solutionContainer.TryAddSolution(soln.Value, drained);
+            _popup.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), entity, entity);
+
+            RaiseUnlatchEvent(entity, target);
+            return false;
+        }
+
+
+        // Consume the solution
+        if (_stomach.TryTransferSolution(stomachToUse.Owner, drained, stomachToUse))
+        {
+            var damageResult = _damageable.TryChangeDamage(target, slimeFeedingComponent.FeedingDamage, origin:entity);
+            var message = Loc.GetString("slime-slurp");
+            _popup.PopupEntity(message, entity, entity);
+
+            var victimMessage = Loc.GetString("slime-attacking-you");
+            _popup.PopupEntity(victimMessage, target, target);
+            slimeFoodComponent.Remaining -= slimeFeedingComponent.FeedingSolutionQuantity.Value/100f;
+
+            // Tocar um som de slurp?
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private void OnDoAfter(EntityUid uid, SlimeFeedingComponent component, ref FeedDoAfterEvent args)
+    {
+        args.Repeat = true;
+
+        if (args.Cancelled || args.Handled || component.Deleted || args.FeedCancelled)
+        {
+            //QueueDel(args.Used);
+            if (args.Target != null)
+            {
+                args.FeedCancelled = true;
+                args.Repeat = false;
+                RaiseUnlatchEvent(args.User, args.Target.Value);
+            }
+            return;
+        }
+        if (args.Target == null)
+        {
             return;
         }
 
-        Log.Debug($"Consumindo {args.Used}");
+        if(TryComp<SlimeFoodComponent>(args.Target.Value, out var slimeFoodComponent))
+        {
+            if (slimeFoodComponent.Remaining <= 0)
+            {
+                args.FeedCancelled = true;
+                args.Repeat = false;
+                return;
+            }
+        }
+
+        // Finalmente, feed. See retornar falso, parar o doafter
+        // TODO: ver se tem como limpar o codigo de cancel logo acima pra usar so isto daqui
+        if (!Feed(args.User, args.Target.Value, component))
+        {
+            args.FeedCancelled = true;
+            args.Repeat = false;
+            return;
+        }
+    }
+
+    private void OnDisarmed(EntityUid uid, SlimeFeedingComponent component, ref DisarmedEvent args)
+    {
+        Log.Debug($"OnDisarmAttempt");
+
+        // if (!TryComp<SlimeFeedingIncapacitatedComponent>(args.Source, out var slimeFeedingIncapacitatedComponent))
+        //     return;
+
+
+
+        if (!TryComp<SlimeFeedingIncapacitatedComponent>(args.Source, out var slimeFeedingIncapacitatedComponent))
+            return;
+
+        if (args.Target != slimeFeedingIncapacitatedComponent.Attacker)
+            return;
+
+        component.VictimResisted = true;
+
+        RaiseUnlatchEvent(args.Target, args.Source);
+
+    }
+
+    private void RaiseUnlatchEvent(EntityUid entity, EntityUid target)
+    {
+        var unlatchOnEvent = new UnlatchOnEvent(entity, target);
+        RaiseLocalEvent(uid: entity, args:unlatchOnEvent);
+    }
+
+    private void RaiseUnlatchEvent(EntityUid entity, EntityUid target, ref FeedDoAfterEvent args)
+    {
+        args.FeedCancelled = true;
+
+        var unlatchOnEvent = new UnlatchOnEvent(entity, target);
+        RaiseLocalEvent(uid: entity, args:unlatchOnEvent);
+    }
+
+    private void OnSlimeFeedingRemove(EntityUid uid, SlimeFeedingComponent component, ref ComponentRemove args)
+    {
+        Log.Debug($"Removendo componente");
+        // Fazer o que for necessario aqui, ainda n sei
     }
 }

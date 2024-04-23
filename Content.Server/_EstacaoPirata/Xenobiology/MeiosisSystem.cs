@@ -2,6 +2,7 @@
 using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
@@ -15,6 +16,7 @@ public sealed class MeiosisSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -34,6 +36,10 @@ public sealed class MeiosisSystem : EntitySystem
     private void DoMeiosis(EntityUid uid, MeiosisComponent meiosisComponent)
     {
         Log.Debug("Iniciando Meiose");
+
+        if (!_mobState.IsAlive(uid))
+            return;
+
         var position = _transform.GetMapCoordinates(uid);
 
         var entitiesToSpawn = new List<string>();

@@ -6,5 +6,6 @@
 [RegisterComponent]
 public sealed partial class SlimeFoodComponent : Component
 {
-    
+    [DataField("remaining"), ViewVariables]
+    public float Remaining = 100f;
 }

@@ -1,6 +1,7 @@
 ﻿using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeGrowth;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeGrowth;
@@ -12,6 +13,7 @@ public sealed class SlimeGrowthSystem : EntitySystem
 {
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -26,6 +28,9 @@ public sealed class SlimeGrowthSystem : EntitySystem
     private void DoGrowth(EntityUid entity, SlimeGrowthComponent component)
     {
         Log.Debug($"Iniciando Growth");
+
+        if (!_mobState.IsAlive(entity))
+            return;
 
         var position = _transform.GetMapCoordinates(entity);
 
