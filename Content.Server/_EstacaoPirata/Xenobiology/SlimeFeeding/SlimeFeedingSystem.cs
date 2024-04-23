@@ -145,36 +145,59 @@ public sealed class SlimeFeedingSystem : EntitySystem
     {
         //Suppresses eating yourself
         if (target == entity)
+        {
+            Log.Debug($"target == entity");
             return false;
+        }
+
 
         if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
+        {
+            Log.Debug($"Sem slimeFoodComponent");
+            RaiseUnlatchEvent(entity, target);
             return false;
+        }
+
 
         if (slimeFoodComponent.Remaining <= 0)
         {
+            Log.Debug($"Sem recursos o suficiente no alvo, saindo");
             var message = Loc.GetString("slime-food-not-enough-resources-on-target");
             _popup.PopupEntity(message, entity, entity);
 
-            var unlatchOnEvent = new UnlatchOnEvent(entity, target);
-            RaiseLocalEvent(uid: entity, args:unlatchOnEvent);
+            RaiseUnlatchEvent(entity, target);
             return false;
         }
 
 
         // Target can't be fed or they're already eating
         if (!TryComp<BodyComponent>(target, out var body))
+        {
+            Log.Debug($"Sem corpo");
+            RaiseUnlatchEvent(entity, target);
             return false;
+        }
 
         if (!_body.TryGetBodyOrganComponents<StomachComponent>(entity, out var stomachs))
+        {
+            Log.Debug($"Sem estomagos");
+            RaiseUnlatchEvent(entity, target);
             return false;
+        }
 
         if (!_interaction.InRangeUnobstructed(entity, target, slimeFeedingComponent.MaxFeedingDistance, popup: true))
+        {
+            Log.Debug($"InRangeUnobstructed deu ruim");
+            RaiseUnlatchEvent(entity, target);
             return false;
+        }
 
         if (!_transform.GetMapCoordinates(entity).InRange(_transform.GetMapCoordinates(target), slimeFeedingComponent.MaxFeedingDistance))
         {
+            Log.Debug($"Sem alcance, saindo");
             var message = Loc.GetString("interaction-system-user-interaction-cannot-reach");
             _popup.PopupEntity(message, entity, entity);
+            RaiseUnlatchEvent(entity, target);
             return false;
         }
 
@@ -194,10 +217,12 @@ public sealed class SlimeFeedingSystem : EntitySystem
         {
             BreakOnMove = true,
             BreakOnDamage = false,
-            MovementThreshold = 0.01f,
+            MovementThreshold = 0.8f,
             DistanceThreshold = slimeFeedingComponent.MaxFeedingDistance,
             NeedHand = false
         };
+
+        Log.Debug($"Iniciando doafter");
 
         return _doAfter.TryStartDoAfter(doAfterArgs);
     }
@@ -211,6 +236,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
 
         if (slimeFeedingComponent.VictimResisted)
         {
+            Log.Debug($"Vitima resistiu, saindo");
             var message = Loc.GetString("slime-victim-resisted");
             _popup.PopupEntity(message, entity, entity);
             return false;
@@ -222,6 +248,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
         // See if the victim still has food value
         if (slimeFoodComponent.Remaining <= 0)
         {
+            Log.Debug($"Sem recursos no alvo, saindo (feed)");
             var message = Loc.GetString("slime-food-target-drained");
             _popup.PopupEntity(message, entity, entity);
 
@@ -264,6 +291,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
         {
             slimeFeedingComponent.StomachAvailable = false;
             //_solutionContainer.TryAddSolution(soln.Value, drained);
+            Log.Debug($"Estomago cheio, saindo");
             _popup.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), entity, entity);
 
             RaiseUnlatchEvent(entity, target);
@@ -276,6 +304,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
         if (_stomach.TryTransferSolution(stomachToUse.Owner, drained, stomachToUse))
         {
             var damageResult = _damageable.TryChangeDamage(target, slimeFeedingComponent.FeedingDamage, origin:entity);
+            Log.Debug($"Comi com sucesso, saindo");
             var message = Loc.GetString("slime-slurp");
             _popup.PopupEntity(message, entity, entity);
 
@@ -300,6 +329,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
             //QueueDel(args.Used);
             if (args.Target != null)
             {
+                Log.Debug($"Cancelou e args.Target nao e nulo");
                 args.FeedCancelled = true;
                 args.Repeat = false;
                 RaiseUnlatchEvent(args.User, args.Target.Value);
@@ -308,6 +338,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
         }
         if (args.Target == null)
         {
+            Log.Debug($"args.Target e nulo");
             return;
         }
 
@@ -315,8 +346,10 @@ public sealed class SlimeFeedingSystem : EntitySystem
         {
             if (slimeFoodComponent.Remaining <= 0)
             {
+                Log.Debug($"Vitima drenada completamente");
                 args.FeedCancelled = true;
                 args.Repeat = false;
+                RaiseUnlatchEvent(args.User, args.Target.Value);
                 return;
             }
         }
@@ -325,6 +358,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
         // TODO: ver se tem como limpar o codigo de cancel logo acima pra usar so isto daqui
         if (!Feed(args.User, args.Target.Value, component))
         {
+            Log.Debug($"Deu ruim no feed");
             args.FeedCancelled = true;
             args.Repeat = false;
             return;

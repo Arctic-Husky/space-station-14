@@ -5,6 +5,8 @@
   considerations:
   - !type:TargetHasSlimeFood
     curve: !type:BoolCurve
+  - !type:TargetIsOccupiedSlime
+    curve: !type:InverseBoolCurve
   - !type:TargetDistanceCon
     curve: !type:PresetCurve
       preset: TargetDistance

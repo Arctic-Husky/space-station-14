@@ -55,16 +55,19 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         }
     }
 
-    public void LeapToTarget(EntityUid user, EntityUid target)
+    public bool LeapToTarget(EntityUid user, EntityUid target)
     {
         if (!_physicsQuery.TryGetComponent(user, out var physics))
-            return;
+            return false;
 
         if (EnsureComp<SlimeLeapingComponent>(user, out var leaping))
-            return;
+            return false;
 
         if (!TryComp<SlimeFeedingComponent>(user, out var slimeFeedingComponent))
-            return;
+            return false;
+
+        if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
+            return false;
 
         if (TryComp(user, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
             _pulling.TryStopPull(puller.Pulling.Value, pullable, user);
@@ -74,7 +77,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         var direction = targetCoords.Position - origin.Position;
 
         if (direction == Vector2.Zero)
-            return;
+            return false;
 
         var length = direction.Length();
         var distance = Math.Clamp(length, 0.1f, slimeFeedingComponent.LeapDistance);
@@ -86,6 +89,8 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
         _physics.ApplyLinearImpulse(user, impulse, body: physics);
         _physics.SetBodyStatus(user, physics, BodyStatus.InAir);
+
+        return true;
     }
 
     private void OnLeapingDoHit(Entity<SlimeLeapingComponent> ent, ref StartCollideEvent args)
@@ -114,6 +119,9 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
             return;
 
         if (!TryComp<SlimeFeedingComponent>(user, out var slimeFeedingComponent))
+            return;
+
+        if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
             return;
 
         if (EnsureComp<SlimeFeedingIncapacitatedComponent>(target, out var victim))
@@ -167,6 +175,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         RemComp<BlockMovementComponent>(args.Target);
         RemComp<SlimeFeedingIncapacitatedComponent>(args.Target);
         _statusEffect.TryRemoveStatusEffect(args.Target, "KnockedDown");
+        Log.Debug($"Unlatching {component.Victim}");
         component.Victim = null;
     }
 
