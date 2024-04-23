@@ -124,6 +124,10 @@
   - type: TypingIndicator
     proto: slime
   - type: SlimeFeeding
+    feedingDamage:
+      types:
+        Blunt: 18
+        Caustic: 12
 
 - type: entity
   name: grey slime
