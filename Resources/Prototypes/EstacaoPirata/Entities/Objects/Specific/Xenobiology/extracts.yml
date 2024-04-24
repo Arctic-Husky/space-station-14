@@ -22,6 +22,24 @@
   name: grey slime extract
   parent: BaseSlimeExtract
   id: GreySlimeExtract
+  components:
+  - type: SlimeReaction
+    reactions:
+      - method: Plasma
+        effects:
+        - !type:SpawnEntity
+          toSpawn: "MobAdultSlimesGrey"
+          amount: 1
+      - method: Blood
+        effects:
+        - !type:SpawnEntity
+          toSpawn: "MonkeyCube"
+          amount: 3
+      - method: Water
+        effects:
+        - !type:FillExtract
+          reagent: "Epinephrine"
+          minReagentRequired: 1
 
 - type: entity
   name: adamantine slime extract
