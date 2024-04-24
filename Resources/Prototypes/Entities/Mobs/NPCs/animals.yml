@@ -1646,6 +1646,8 @@
     normalState: Mouse_burning
   - type: Puller
     needsHands: true
+  - type: SlimeFood
+    remaining: 5
 
 
 - type: entity
