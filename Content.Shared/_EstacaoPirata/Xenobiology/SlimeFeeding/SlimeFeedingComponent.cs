@@ -70,6 +70,7 @@ public sealed partial class SlimeFeedingComponent : Component
     [AutoNetworkedField]
     public EntityUid? Victim;
 
+    [ViewVariables]
     [AutoNetworkedField]
     public bool VictimResisted = false;
 

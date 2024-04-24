@@ -167,6 +167,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         _statusEffect.TryRemoveStatusEffect(args.Target, "KnockedDown");
         Log.Debug($"Unlatching {component.Victim}");
         component.Victim = null;
+        component.VictimResisted = false;
     }
 
     private void OnSlimeLeapingRemove(Entity<SlimeLeapingComponent> ent, ref ComponentRemove args)
