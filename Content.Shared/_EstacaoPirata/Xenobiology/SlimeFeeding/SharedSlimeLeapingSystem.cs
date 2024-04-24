@@ -95,9 +95,6 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
     private void OnLeapingDoHit(Entity<SlimeLeapingComponent> ent, ref StartCollideEvent args)
     {
-        // if (!TryComp<SlimeLeapingComponent>(ent.Owner, out var slimeLeapingComponent))
-        //     return;
-
         RemComp<SlimeLeapingComponent>(ent.Owner);
 
         var target = args.OtherEntity;
@@ -113,19 +110,19 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         LatchOn(ent.Owner, target);
     }
 
-    public void LatchOn(EntityUid user, EntityUid target)
+    public bool LatchOn(EntityUid user, EntityUid target)
     {
         if (user == target)
-            return;
+            return false;
 
         if (!TryComp<SlimeFeedingComponent>(user, out var slimeFeedingComponent))
-            return;
+            return false;
 
         if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
-            return;
+            return false;
 
         if (EnsureComp<SlimeFeedingIncapacitatedComponent>(target, out var victim))
-            return;
+            return false;
 
         victim.Attacker = user;
 
@@ -136,6 +133,8 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
         var latchOnEvent = new LatchOnEvent(user, target);
         RaiseLocalEvent(user, latchOnEvent);
+
+        return true;
     }
 
     private void StopLeap(EntityUid user)
@@ -159,15 +158,6 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
             LatchOn(user, ent);
             return;
         }
-
-
-        // var query = AllEntityQuery<SlimeFoodComponent, TransformComponent>();
-        //
-        // while (query.MoveNext(out var uid, out var comp, out var compXform))
-        // {
-        //     if(compXform.Coordinates)
-        // }
-
     }
 
     private void OnUnlatch(EntityUid uid, SlimeFeedingComponent component, ref UnlatchOnEvent args)
