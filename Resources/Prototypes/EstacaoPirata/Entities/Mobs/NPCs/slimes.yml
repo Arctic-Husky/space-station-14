@@ -89,7 +89,7 @@
         scaled: true
         damage:
           types:
-            Heat: 6
+            Heat: 12
       - !type:PopupMessage
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]
