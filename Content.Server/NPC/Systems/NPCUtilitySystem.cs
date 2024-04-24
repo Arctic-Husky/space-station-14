@@ -353,7 +353,7 @@ public sealed class NPCUtilitySystem : EntitySystem
             {
                 if (TryComp<SlimeFeedingIncapacitatedComponent>(targetUid, out var slimeFeedingIncapacitated))
                 {
-                    return 1f;
+                    return slimeFeedingIncapacitated.Attacker == owner ? 0f : 1f;
                 }
 
                 return 0f;

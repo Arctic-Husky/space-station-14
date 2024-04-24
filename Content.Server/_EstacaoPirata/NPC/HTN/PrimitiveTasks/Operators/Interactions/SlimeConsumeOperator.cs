@@ -46,7 +46,6 @@ public sealed partial class SlimeConsumeOperator : HTNOperator
             return HTNOperatorStatus.Failed;
         }
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var count = 0;
         var slimeLeapingSystem = _entManager.System<SharedSlimeLeapingSystem>();
 
         _entManager.TryGetComponent<SlimeFeedingComponent>(owner, out var slimeFeedingComponent);
@@ -88,35 +87,27 @@ public sealed partial class SlimeConsumeOperator : HTNOperator
             {
                 return HTNOperatorStatus.Finished;
             }
-
-            if (slimeFeedingComponent.Victim != null)
-            {
-                return HTNOperatorStatus.Continuing;
-            }
         }
 
-        if (_entManager.TryGetComponent<DoAfterComponent>(owner, out var doAfter))
+        if (slimeFeedingComponent.Victim != null)
         {
-            count = doAfter.DoAfters.Count;
+            return HTNOperatorStatus.Continuing;
         }
+
+        _entManager.TryGetComponent<DoAfterComponent>(owner, out var doAfter);
 
         var result = slimeLeapingSystem.LeapToTarget(owner, target);
 
         // Interaction started a doafter so set the idle time to it.
-        if (result && doAfter != null && doAfter.DoAfters.Count > 0)
+        if (doAfter != null && doAfter.DoAfters.Count > 0)
         {
             var wait = doAfter.DoAfters.First().Value.Args.Delay;
             blackboard.SetValue(IdleKey, (float) wait.TotalSeconds + (float) wait.TotalSeconds);
         }
         else
         {
-            blackboard.SetValue(IdleKey, 4f);
+            blackboard.SetValue(IdleKey, 1f);
         }
-
-        // if (slimeFeedingComponent.Victim == null)
-        // {
-        //     return HTNOperatorStatus.Finished;
-        // }
 
         return result ? HTNOperatorStatus.Finished : HTNOperatorStatus.Failed;
     }

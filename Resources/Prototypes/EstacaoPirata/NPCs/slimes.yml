@@ -11,16 +11,6 @@
 - type: htnCompound
   id: SlimeFoodCompound
   branches:
-#  - tasks:
-#    - !type:HTNPrimitiveTask
-#      preconditions:
-#      - !type:HungryPrecondition
-#        minHungerState: Starving  # See HungerThreshold enum
-#      operator: !type:UtilityOperator
-#        proto: NearbyMeleeTargets
-#    - !type:HTNCompoundTask
-#      task: MeleeAttackTargetCompound # Alterar para usar a habilidade de pular em cima
-
   # Picks a nearby entity, moves into range, then eats it and waits the idle time.
   - tasks:
     - !type:HTNPrimitiveTask
@@ -36,7 +26,7 @@
         removeKeyOnFinish: false
         targetKey: TargetCoordinates
         pathfindKey: TargetPathfind
-        rangeKey: MeleeRange
+        rangeKey: MovementRangeClose
 
     - !type:HTNPrimitiveTask
       preconditions:
@@ -82,4 +72,4 @@
       operator: !type:WaitOperator
         key: IdleTime
 
-# TODO: separar essas porra tudo
+# TODO: lidar com sistema de amizade
