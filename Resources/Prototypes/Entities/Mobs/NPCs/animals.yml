@@ -1689,6 +1689,11 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: Puller
+    needsHands: true
+  - type: SlimeFood
+    remaining: 5
+
 
 - type: entity
   parent: MobMouse

@@ -85,8 +85,6 @@ public sealed partial class SlimeFeedingComponent : Component
 
     [AutoNetworkedField]
     public bool StomachAvailable = true;
-
-    public ProtoId<EntityPrototype> SlimeNutrimentPrototype = "PuddleSlimeNutriment";
 }
 
 public sealed class SlimeTotallyFedEvent : EntityEventArgs
