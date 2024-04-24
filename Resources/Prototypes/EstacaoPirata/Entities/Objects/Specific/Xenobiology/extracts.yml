@@ -1,0 +1,213 @@
+- type: entity
+  name: slime extract
+  parent: BaseItem
+  description: The pure essence of a dead slime. (get desc form tg)
+  id: BaseSlimeExtract
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: grey_slime_extract
+  - type: SolutionContainerManager
+    solutions:
+      slime_extract:
+        maxVol: 100
+  - type: Item
+    size: Tiny
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+  - type: InjectableSolution
+    solution: slime_extract
+
+- type: entity
+  name: grey slime extract
+  parent: BaseSlimeExtract
+  id: GreySlimeExtract
+
+- type: entity
+  name: adamantine slime extract
+  parent: BaseSlimeExtract
+  id: AdamantineSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: adamantine_slime_extract
+
+- type: entity
+  name: black slime extract
+  parent: BaseSlimeExtract
+  id: BlackSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: black_slime_extract
+
+- type: entity
+  name: blue slime extract
+  parent: BaseSlimeExtract
+  id: BlueSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: blue_slime_extract
+
+- type: entity
+  name: bluespace slime extract
+  parent: BaseSlimeExtract
+  id: BluespaceSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: bluespace_slime_extract
+
+- type: entity
+  name: cerulean slime extract
+  parent: BaseSlimeExtract
+  id: CeruleanSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: cerulean_slime_extract
+
+- type: entity
+  name: dark blue slime extract
+  parent: BaseSlimeExtract
+  id: DarkBlueSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: dark_blue_slime_extract
+
+- type: entity
+  name: dark purple slime extract
+  parent: BaseSlimeExtract
+  id: DarkPurpleSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: dark_purple_slime_extract
+
+- type: entity
+  name: gold slime extract
+  parent: BaseSlimeExtract
+  id: GoldSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: gold_slime_extract
+
+- type: entity
+  name: green slime extract
+  parent: BaseSlimeExtract
+  id: GreenSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: green_slime_extract
+
+- type: entity
+  name: light pink slime extract
+  parent: BaseSlimeExtract
+  id: LightPinkSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: light_pink_slime_extract
+
+- type: entity
+  name: metal slime extract
+  parent: BaseSlimeExtract
+  id: MetalSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: metal_slime_extract
+
+- type: entity
+  name: oil slime extract
+  parent: BaseSlimeExtract
+  id: OilSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: oil_slime_extract
+
+- type: entity
+  name: orange slime extract
+  parent: BaseSlimeExtract
+  id: OrangeSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: orange_slime_extract
+
+- type: entity
+  name: pink slime extract
+  parent: BaseSlimeExtract
+  id: PinkSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: pink_slime_extract
+
+- type: entity
+  name: purple slime extract
+  parent: BaseSlimeExtract
+  id: PurpleSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: purple_slime_extract
+
+- type: entity
+  name: pyrite slime extract
+  parent: BaseSlimeExtract
+  id: PyriteSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: pyrite_slime_extract
+
+- type: entity
+  name: rainbow slime extract
+  parent: BaseSlimeExtract
+  id: RainbowSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: rainbow_slime_extract
+
+- type: entity
+  name: red slime extract
+  parent: BaseSlimeExtract
+  id: RedSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: red_slime_extract
+
+- type: entity
+  name: sepia slime extract
+  parent: BaseSlimeExtract
+  id: SepiaSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: sepia_slime_extract
+
+- type: entity
+  name: silver slime extract
+  parent: BaseSlimeExtract
+  id: SilverSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: silver_slime_extract
+
+- type: entity
+  name: yellow slime extract
+  parent: BaseSlimeExtract
+  id: YellowSlimeExtract
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+    state: yellow_slime_extract
