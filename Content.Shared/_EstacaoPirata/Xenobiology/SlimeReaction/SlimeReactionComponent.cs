@@ -1,9 +1,13 @@
-﻿namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
+﻿using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 
 /// <summary>
 /// This is used for controlling what reactions will happen when the slime is injected with a reagent
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlimeReactionComponent : Component
 {
     // Tipos de reações:
@@ -16,6 +20,23 @@ public sealed partial class SlimeReactionComponent : Component
 
     [DataField("reactions", true, serverOnly: true)]
     public List<SlimeExtractReactionEntry>? Reactions;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool Used;
+
+    [DataField("reactionSound")]
+    public SoundSpecifier? ReactionSound;
+
+    public string SolutionName = "slimeExtract";
+
+    public bool ExtractJustSpawned = true;
+
+    public Dictionary<SlimeReactionMethod, string> MethodMap = new Dictionary<SlimeReactionMethod, string>
+    {
+        { SlimeReactionMethod.Plasma , "Plasma"},
+        { SlimeReactionMethod.Blood , "Blood"},
+        { SlimeReactionMethod.Water , "Water"}
+    };
 }
 
 [DataDefinition]
@@ -24,6 +45,9 @@ public sealed partial class SlimeExtractReactionEntry
 
     [DataField("method", required: true)]
     public SlimeReactionMethod Method;
+
+    // [DataField("reagent", required: true)]
+    // public ReagentId Reagent;
 
     [DataField("effects", required: true)]
     public List<SlimeReagentEffect> Effects = default!;

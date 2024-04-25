@@ -1,5 +1,5 @@
-﻿using System.Text.Json.Serialization;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using Robust.Shared.Random;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 
@@ -7,11 +7,10 @@ namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 [MeansImplicitUse]
 public abstract partial class SlimeReagentEffect
 {
-    [JsonPropertyName("id")] private protected string _id => this.GetType().Name;
-
-    public abstract void Effect(SlimeReagentEffectArgs args);
+    public abstract bool Effect(SlimeReagentEffectArgs args);
 }
 
+// Se os nomes aqui estiverem iguais aos reagentes, da pra usar o ToString() pras coisas
 public enum SlimeReactionMethod
 {
     Plasma,
@@ -20,9 +19,9 @@ public enum SlimeReactionMethod
 }
 
 public readonly record struct SlimeReagentEffectArgs(
-    string EntityToSpawn,
-    EntityUid? TargetEntity,
+    string Prototype,
+    EntityUid? ExtractEntity,
     float Quantity,
     IEntityManager EntityManager,
-    float Scale
+    IRobustRandom RobustRandom
 );
