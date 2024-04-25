@@ -10,13 +10,15 @@
     state: grey_slime_extract
   - type: SolutionContainerManager
     solutions:
-      slime_extract:
-        maxVol: 100
+      slimeExtract:
+        maxVol: 20
   - type: Item
     size: Tiny
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
   - type: InjectableSolution
-    solution: slime_extract
+    solution: slimeExtract
+  - type: DrawableSolution
+    solution: slimeExtract
 
 - type: entity
   name: grey slime extract
@@ -24,17 +26,21 @@
   id: GreySlimeExtract
   components:
   - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
     reactions:
       - method: Plasma
         effects:
         - !type:SpawnEntity
-          toSpawn: "MobAdultSlimesGrey"
-          amount: 1
+          toSpawn:
+            MobAdultSlimesGrey: 1
       - method: Blood
         effects:
         - !type:SpawnEntity
-          toSpawn: "MonkeyCube"
-          amount: 3
+          toSpawn:
+            MonkeyCube: 3
       - method: Water
         effects:
         - !type:FillExtract
