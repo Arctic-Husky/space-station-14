@@ -4,6 +4,7 @@ using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server._EstacaoPirata.Xenobiology;
@@ -28,7 +29,6 @@ public sealed class MeiosisSystem : EntitySystem
         DoMeiosis(args.Entity, component);
     }
 
-    // TODO: criar HTN proprio do slime
     // TODO: um componente pra permitir analise pelo slime scanner que pega informacoes do meiosis component
     // TODO: fazer logging das coisas pra adm
 
@@ -72,7 +72,12 @@ public sealed class MeiosisSystem : EntitySystem
 
         foreach (var entity in entitiesToSpawn)
         {
-            var spawnedEntity = Spawn(entity, position);
+            var randomizedPosition = position.Position;
+            randomizedPosition.X = _robustRandom.NextFloat(randomizedPosition.X-0.25f, randomizedPosition.X+0.25f);
+            randomizedPosition.Y = _robustRandom.NextFloat(randomizedPosition.Y-0.25f, randomizedPosition.Y+0.25f);
+            var randomizedCoordinates = new MapCoordinates(randomizedPosition.X, randomizedPosition.Y, position.MapId);
+
+            var spawnedEntity = Spawn(entity, randomizedCoordinates);
             spawnedEntities.Add(spawnedEntity);
         }
 
