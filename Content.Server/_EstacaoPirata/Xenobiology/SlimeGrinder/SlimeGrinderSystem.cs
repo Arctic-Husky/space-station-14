@@ -80,11 +80,11 @@ public sealed class SlimeGrinderSystem : EntitySystem
             // Spawnar o extract do slime do topo da lista, resetar o processing timer e deletar o slime
 
             var coordinates = _transform.GetMapCoordinates(uid);
-            if(TryComp<SlimeGrindableComponent>(grinder.Storage.ContainedEntities.First(), out var slimeGrindableComponent))
-            {
-                // TODO: randomizar um pouco a posicao do spawn de cada extract
-                Spawn(slimeGrindableComponent.GrindResult, coordinates);
-            }
+            if(!TryComp<SlimeGrindableComponent>(grinder.Storage.ContainedEntities.First(), out var slimeGrindableComponent))
+                continue;
+
+            // TODO: randomizar um pouco a posicao do spawn de cada extract
+            Spawn(slimeGrindableComponent.GrindResult, coordinates);
 
             // TODO: mudar isso do timer pra ele com a massa do bicho, biomass reclaimer pra ter uma referencia
             grinder.ProcessingTimer = grinder.ProcessingTimerTotal;
@@ -221,8 +221,8 @@ public sealed class SlimeGrinderSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(entity, out var physics))
             return false;
 
-        if (!physics.CanCollide)
-            return false;
+        // if (!physics.CanCollide)
+        //     return false;
 
         return _containerSystem.CanInsert(entity, component.Storage);
     }

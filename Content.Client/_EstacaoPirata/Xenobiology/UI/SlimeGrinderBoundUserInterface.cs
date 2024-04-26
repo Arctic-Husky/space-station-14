@@ -106,7 +106,7 @@ public sealed class SlimeGrinderBoundUserInterface : BoundUserInterface
         {
             if (EntMan.Deleted(entity))
             {
-                return;
+                continue;
             }
 
             // TODO just use sprite view
