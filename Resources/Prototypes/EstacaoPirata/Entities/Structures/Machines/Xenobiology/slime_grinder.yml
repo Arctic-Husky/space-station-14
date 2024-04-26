@@ -7,10 +7,10 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.PowerDeviceVisuals.Powered:
-        base:
-          True: { state: grinder-on }
-          False: { state: grinder-off }
+      enum.SlimeGrinderVisuals.VisualState:
+        SlimeGrinderVisualState.Idle:
+          Idle: {state: grinder-off}
+          Grinding: {state: grinder-on}
 #  - type: DeviceLinkSink
 #    ports:
 #    - On
@@ -25,6 +25,8 @@
     snapCardinals: true
     layers:
     - state: grinder-off
+      map: [ "enumSlimeGrinderVisualLayers.Base" ]
+    - map: [ "SlimeGrinderVisualState.Idle" ]
   - type: Destructible
     thresholds:
     - trigger:
@@ -42,13 +44,31 @@
     deleteAfterExplosion: false
   - type: ApcPowerReceiver
     powerLoad: 400
+  - type: ActivatableUI
+    key: enum.SlimeGrinderUiKey.Key
+  - type: UserInterface
+    interfaces:
+    - key: enum.SlimeGrinderUiKey.Key
+      type: SlimeGrinderBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      slime_grinder_entity_container: !type:Container
+        #      machine_board: !type:Container
+        #      machine_parts: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - slime_grinder_entity_container
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: Climbable
+    delay: 1
+  - type: SlimeGrinder
 #  - type: Machine
 #    board: MicrowaveMachineCircuitboard
-#  - type: ContainerContainer
-#    containers:
-#      microwave_entity_container: !type:Container
-#      machine_board: !type:Container
-#      machine_parts: !type:Container
 #  - type: EmptyOnMachineDeconstruct
 #    containers:
 #    - microwave_entity_container
