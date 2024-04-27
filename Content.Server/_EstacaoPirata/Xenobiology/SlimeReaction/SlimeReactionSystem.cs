@@ -2,6 +2,7 @@
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -18,6 +19,7 @@ public sealed class SlimeReactionSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -52,7 +54,7 @@ public sealed class SlimeReactionSystem : EntitySystem
 
         var reactions = component.Reactions;
 
-        bool reactionHappened = false;
+        //bool reactionHappened = false;
 
         if (reactions == null)
             return;
@@ -63,33 +65,75 @@ public sealed class SlimeReactionSystem : EntitySystem
 
         var keysInCommon = dictContents.Keys.Intersect<string>(dictReactions.Keys);
 
-        foreach (var key in keysInCommon)
+        var inCommon = keysInCommon.ToList();
+        if (inCommon.Any())
         {
-            var effects = dictReactions[key];
+            var activeSlimeReactionComponent = EnsureComp<ActiveSlimeReactionComponent>(uid);
 
-            foreach (var effect in effects)
+            foreach (var key in inCommon)
             {
-                var effectArgs = new SlimeReagentEffectArgs
-                {
-                    ExtractEntity = uid,
-                    EntityManager = _entManager,
-                    RobustRandom = _random
-                };
+                var effects = dictReactions[key];
 
-                if (effect.Effect(effectArgs))
+                foreach (var effect in effects)
                 {
-                    reactionHappened = true;
-                    _audio.PlayPvs(component.ReactionSound, uid);
+                    var effectArgs = new SlimeReagentEffectArgs
+                    {
+                        ExtractEntity = uid,
+                        EntityManager = _entManager,
+                        RobustRandom = _random,
+                        Quantity = args.Solution.Contents.Find(reagent => reagent.Reagent.Prototype == key).Quantity
+                    };
+
+                    activeSlimeReactionComponent.Effects.Add(effect, effectArgs);
+
+                    activeSlimeReactionComponent.WaitTime = effect.NeedsTime();
+
+                    ClearSolution(uid, component);
                 }
-
-
             }
         }
+    }
 
-        if (reactionHappened)
+    // TODO: mudar isto para usar as coisas que vem do args
+    private void ClearSolution(EntityUid uid, SlimeReactionComponent component)
+    {
+        if (TryComp<SolutionContainerManagerComponent>(uid, out var solutionContainerManagerComponent))
         {
-            component.Used = true;
-        }
+            var entity = new Entity<SolutionContainerManagerComponent?>(uid, solutionContainerManagerComponent);
 
+            if (_solutionContainer.TryGetSolution(entity, component.SolutionName, out var soln))
+            {
+                soln.Value.Comp.Solution.RemoveAllSolution();
+            }
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ActiveSlimeReactionComponent, SlimeReactionComponent>();
+        while (query.MoveNext(out var uid, out var activeComp, out var reactionComp))
+        {
+            if (activeComp.WaitTime > 0)
+            {
+                activeComp.WaitTime -= frameTime;
+                continue;
+            }
+
+            if (activeComp.Effects.Any())
+            {
+                var effects = activeComp.Effects;
+                foreach (var effect in effects)
+                {
+                    // Se ocorreu o efeito
+                    if (effect.Key.Effect(effect.Value))
+                    {
+                        reactionComp.Used = true;
+                        _audio.PlayPvs(reactionComp.ReactionSound, uid);
+                    }
+                }
+            }
+        }
     }
 }
