@@ -11,7 +11,7 @@
   - type: SolutionContainerManager
     solutions:
       slimeExtract:
-        maxVol: 20
+        maxVol: 100
   - type: Item
     size: Tiny
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
@@ -163,6 +163,19 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: orange_slime_extract
+  - type: IgnitionSource
+    ignited: true
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Plasma
+      effects:
+      - !type:SpawnGas
+        spawnGas: Plasma
+        delayTime: 5
 
 - type: entity
   name: pink slime extract

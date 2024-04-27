@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using Content.Shared.FixedPoint;
+using JetBrains.Annotations;
 using Robust.Shared.Random;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
@@ -8,6 +9,8 @@ namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 public abstract partial class SlimeReagentEffect
 {
     public abstract bool Effect(SlimeReagentEffectArgs args);
+
+    public abstract float NeedsTime();
 }
 
 // Se os nomes aqui estiverem iguais aos reagentes, da pra usar o ToString() pras coisas
@@ -21,7 +24,7 @@ public enum SlimeReactionMethod
 public readonly record struct SlimeReagentEffectArgs(
     string Prototype,
     EntityUid? ExtractEntity,
-    float Quantity,
+    FixedPoint2 Quantity,
     IEntityManager EntityManager,
     IRobustRandom RobustRandom
 );

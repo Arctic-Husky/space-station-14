@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Map;
 
-namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
+namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction.Reactions;
 
 public sealed partial class SpawnEntity : SlimeReagentEffect
 {
@@ -33,6 +33,13 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
             }
         }
 
+        args.EntityManager.RemoveComponentDeferred<ActiveSlimeReactionComponent>(args.ExtractEntity.Value);
+
         return true;
+    }
+
+    public override float NeedsTime()
+    {
+        return 0;
     }
 }

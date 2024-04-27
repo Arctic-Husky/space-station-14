@@ -29,6 +29,8 @@ public sealed partial class SlimeReactionComponent : Component
 
     public string SolutionName = "slimeExtract";
 
+    public float TimeToWait = 0f;
+
     public bool ExtractJustSpawned = true;
 
     public Dictionary<SlimeReactionMethod, string> MethodMap = new Dictionary<SlimeReactionMethod, string>
