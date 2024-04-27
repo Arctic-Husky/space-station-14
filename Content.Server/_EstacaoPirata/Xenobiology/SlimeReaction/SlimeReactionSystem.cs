@@ -42,8 +42,8 @@ public sealed class SlimeReactionSystem : EntitySystem
         if (component.Used)
         {
             // TODO: De algum jeito vou precisar pegar a entidade que usou o injetor no extract pra exibir so pra ela
-            var message = Loc.GetString("slime-extract-already-used");
-            _popup.PopupEntity(message, uid, PopupType.Small);
+            // var message = Loc.GetString("slime-extract-already-used");
+            // _popup.PopupEntity(message, uid, PopupType.Small);
 
             return;
         }
