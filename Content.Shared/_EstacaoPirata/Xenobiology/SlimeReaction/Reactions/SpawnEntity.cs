@@ -1,4 +1,6 @@
-﻿using Robust.Shared.Map;
+﻿using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction.Reactions;
 
@@ -13,15 +15,14 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
         // Com os args, que deve ser algo tipo target e outras coisas, fazer o codigo funcionar por aqui, pra nao precisar definir tudo no
         // system de SlimeReaction. Quero apenas chamar em slimeReaction o SlimeReagentEffect.Effect() pra funcionar automatico plss
 
-        if (args.ExtractEntity == null)
-            return false;
+        var extractEntity = args.ExtractEntity;
 
         foreach (var prototype in ToSpawn)
         {
             for (int i = 0; i < prototype.Value; i++)
             {
                 var transformSystem = args.EntityManager.System<SharedTransformSystem>();
-                var coordinates = transformSystem.GetMapCoordinates(args.ExtractEntity.Value);
+                var coordinates = transformSystem.GetMapCoordinates(extractEntity);
                 var randomizedPosition = coordinates.Position;
 
                 randomizedPosition.X = args.RobustRandom.NextFloat(randomizedPosition.X-0.25f, randomizedPosition.X+0.25f);
@@ -33,7 +34,9 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
             }
         }
 
-        args.EntityManager.RemoveComponentDeferred<ActiveSlimeReactionComponent>(args.ExtractEntity.Value);
+        var audioSystem = args.EntityManager.System<SharedAudioSystem>();
+
+        PlaySound(audioSystem, args.ReactionComponent.ReactionSound, args.ExtractEntity);
 
         return true;
     }
@@ -41,5 +44,10 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
     public override float NeedsTime()
     {
         return 0;
+    }
+
+    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
+    {
+        audioSystem.PlayPvs(sound, entity);
     }
 }

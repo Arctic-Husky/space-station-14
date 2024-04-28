@@ -1,6 +1,8 @@
 ﻿using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction.Reactions;
@@ -25,27 +27,55 @@ public sealed partial class FillExtract : SlimeReagentEffect
 
     public override bool Effect(SlimeReagentEffectArgs args)
     {
-        if (args.ExtractEntity == null)
+        if (!FillSolution(args,FillToMax,Rate))
             return false;
 
+        var audioSystem = args.EntityManager.System<SharedAudioSystem>();
+
+        PlaySound(audioSystem, args.ReactionComponent.ReactionSound, args.ExtractEntity);
+
+        return true;
+    }
+
+    private bool FillSolution(SlimeReagentEffectArgs args, bool fillToMax = false, float rate = 1f)
+    {
+        var extractEntity = args.ExtractEntity;
+
         var solutionContainerSystem = args.EntityManager.System<SharedSolutionContainerSystem>();
+        var solutionContainerManagerComponent = args.EntityManager.GetComponent<SolutionContainerManagerComponent>(extractEntity);
+        var slimeReactionComponent = args.EntityManager.GetComponent<SlimeReactionComponent>(extractEntity);
 
-        var solutionContainerManagerComponent = args.EntityManager.GetComponent<SolutionContainerManagerComponent>(args.ExtractEntity.Value);
-        var slimeReactionComponent = args.EntityManager.GetComponent<SlimeReactionComponent>(args.ExtractEntity.Value);
-
-        var entity = new Entity<SolutionContainerManagerComponent?>(args.ExtractEntity.Value, solutionContainerManagerComponent);
+        var entity = new Entity<SolutionContainerManagerComponent?>(extractEntity, solutionContainerManagerComponent);
 
         if (!solutionContainerSystem.TryGetSolution(entity, slimeReactionComponent.SolutionName, out var soln))
             return false;
 
-        soln.Value.Comp.Solution.AddReagent(Reagent, soln.Value.Comp.Solution.MaxVolume);
+        if (FillToMax)
+        {
+            soln.Value.Comp.Solution.AddReagent(Reagent, soln.Value.Comp.Solution.MaxVolume);
+        }
+        else
+        {
+            var amount = args.Quantity * rate;
+            if (amount > soln.Value.Comp.Solution.MaxVolume)
+            {
+                amount = soln.Value.Comp.Solution.MaxVolume;
+            }
+            // Talvez lidar com minimo ou rate de a cada 1u inteiro adicionar, nao menos
 
-        args.EntityManager.RemoveComponentDeferred<ActiveSlimeReactionComponent>(args.ExtractEntity.Value);
+            soln.Value.Comp.Solution.AddReagent(Reagent, amount);
+        }
 
         return true;
     }
+
     public override float NeedsTime()
     {
         return 0;
+    }
+
+    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
+    {
+        audioSystem.PlayPvs(sound, entity);
     }
 }

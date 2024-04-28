@@ -176,6 +176,15 @@
       - !type:SpawnGas
         spawnGas: Plasma
         delayTime: 5
+    - method: Blood
+      effects:
+      - !type:FillExtract
+        reagent: "CapsaicinOil"
+        rate: 10
+    - method: Water
+      effects:
+      - !type:SpawnSmoke
+        sound: /Audio/Items/smoke_grenade_smoke.ogg
 
 - type: entity
   name: pink slime extract
