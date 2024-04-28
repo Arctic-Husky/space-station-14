@@ -81,7 +81,8 @@ public sealed class SlimeReactionSystem : EntitySystem
                         ExtractEntity = uid,
                         EntityManager = _entManager,
                         RobustRandom = _random,
-                        Quantity = args.Solution.Contents.Find(reagent => reagent.Reagent.Prototype == key).Quantity
+                        Quantity = args.Solution.Contents.Find(reagent => reagent.Reagent.Prototype == key).Quantity,
+                        ReactionComponent = component
                     };
 
                     activeSlimeReactionComponent.Effects.Add(effect, effectArgs);
@@ -121,6 +122,11 @@ public sealed class SlimeReactionSystem : EntitySystem
                 continue;
             }
 
+            if (reactionComp.Used)
+            {
+                continue;
+            }
+
             if (activeComp.Effects.Any())
             {
                 var effects = activeComp.Effects;
@@ -130,7 +136,7 @@ public sealed class SlimeReactionSystem : EntitySystem
                     if (effect.Key.Effect(effect.Value))
                     {
                         reactionComp.Used = true;
-                        _audio.PlayPvs(reactionComp.ReactionSound, uid);
+                        RemCompDeferred<ActiveSlimeReactionComponent>(uid);
                     }
                 }
             }

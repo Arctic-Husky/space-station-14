@@ -4,6 +4,8 @@ using Content.Server.IgnitionSource;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 using Content.Shared.Atmos;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeReaction.Reactions;
 
@@ -29,14 +31,13 @@ public sealed partial class SpawnGas : SlimeReagentEffect
         if (toSpawn == null)
             return false;
 
-        if (args.ExtractEntity == null)
-            return false;
+        var extractEntity = args.ExtractEntity;
 
         var atmosphereSystem = args.EntityManager.System<AtmosphereSystem>();
 
-        var transform = args.EntityManager.GetComponent<TransformComponent>(args.ExtractEntity.Value);
+        var transform = args.EntityManager.GetComponent<TransformComponent>(extractEntity);
 
-        var environment = atmosphereSystem.GetContainingMixture((args.ExtractEntity.Value, transform), true, true);
+        var environment = atmosphereSystem.GetContainingMixture((extractEntity, transform), true, true);
 
         if (environment == null)
             return false;
@@ -46,19 +47,16 @@ public sealed partial class SpawnGas : SlimeReagentEffect
 
         atmosphereSystem.Merge(environment, merger);
 
-        args.EntityManager.RemoveComponentDeferred<ActiveSlimeReactionComponent>(args.ExtractEntity.Value);
-
-        // var ignitionSourceComponent = args.EntityManager.AddComponent<IgnitionSourceComponent>(args.ExtractEntity.Value);
-        //
-        // var ignitionSourceSystem = args.EntityManager.System<IgnitionSourceSystem>();
-        //
-        // ignitionSourceSystem.SetIgnited(args.ExtractEntity.Value, true);
-
         return true;
     }
 
     public override float NeedsTime()
     {
         return Time;
+    }
+
+    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
+    {
+        audioSystem.PlayPvs(sound, entity);
     }
 }
