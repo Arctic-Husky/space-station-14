@@ -1,9 +1,7 @@
 ﻿using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.IgnitionSource;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 using Content.Shared.Atmos;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
