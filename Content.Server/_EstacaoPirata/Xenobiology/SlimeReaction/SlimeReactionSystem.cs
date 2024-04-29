@@ -1,11 +1,8 @@
 ﻿using System.Linq;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Popups;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeReaction;
@@ -16,8 +13,6 @@ namespace Content.Server._EstacaoPirata.Xenobiology.SlimeReaction;
 public sealed class SlimeReactionSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
 
@@ -54,8 +49,6 @@ public sealed class SlimeReactionSystem : EntitySystem
 
         var reactions = component.Reactions;
 
-        //bool reactionHappened = false;
-
         if (reactions == null)
             return;
 
@@ -66,7 +59,7 @@ public sealed class SlimeReactionSystem : EntitySystem
         var keysInCommon = dictContents.Keys.Intersect<string>(dictReactions.Keys);
 
         var inCommon = keysInCommon.ToList();
-        if (inCommon.Any())
+        if (inCommon.Count > 0)
         {
             var activeSlimeReactionComponent = EnsureComp<ActiveSlimeReactionComponent>(uid);
 

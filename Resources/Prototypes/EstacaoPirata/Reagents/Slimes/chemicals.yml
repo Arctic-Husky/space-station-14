@@ -1,0 +1,31 @@
+- type: reagent
+  id: SlimeSteroid
+  name: reagent-name-slime-steroid
+  desc: reagent-desc-slime-steroid
+  flavor: bitter
+  physicalDesc: reagent-physical-desc-grainy
+  color: "#F0F0F0"
+
+- type: reagent
+  id: ExtractEnhancer
+  name: reagent-name-extract-enhancer
+  desc: reagent-desc-extract-enhancer
+  flavor: bitter
+  physicalDesc: reagent-physical-desc-grainy
+  color: "#F0F0F0"
+
+- type: reagent
+  id: MutationAmplifier
+  name: reagent-name-mutation-amplifier
+  desc: reagent-desc-mutation-amplifier
+  flavor: bitter
+  physicalDesc: reagent-physical-desc-grainy
+  color: "#F0F0F0"
+
+- type: reagent
+  id: DocilityAmplifier
+  name: reagent-name-docility-amplifier
+  desc: reagent-desc-docility-amplifier
+  flavor: bitter
+  physicalDesc: reagent-physical-desc-grainy
+  color: "#F0F0F0"

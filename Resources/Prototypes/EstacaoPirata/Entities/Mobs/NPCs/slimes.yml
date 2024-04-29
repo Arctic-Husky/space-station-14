@@ -128,6 +128,39 @@
       types:
         Blunt: 18
         Caustic: 12
+#  - type: SlimeReaction
+#    reactionSound:
+#      path: /Audio/Effects/Chemistry/bubbles.ogg
+#      params:
+#        volume: -10
+#    reactions:
+#    - method: SlimeSteroid
+#      effects:
+#      - !type:ChangeAttribute
+#        comp:
+#        - type: SlimeGrindable
+#        field: "yield"
+#        type: int
+#        value: 3 # problema, tenho que fazer algum jeito de lidar com alguma operacao, tipo + ou - ou * ou... etc
+
+#  - type: SolutionContainerManager
+#    solutions:
+#      slime:
+#        maxVol: 20
+#  - type: InjectableSolution
+#    solution: slime
+#  - type: SlimeReaction
+#    reactionSound:
+#      path: /Audio/Effects/Chemistry/bubbles.ogg
+#      params:
+#        volume: -10
+#    reactions:
+#    - method: Water
+#      effects:
+#      - !type:ChangeAttributes
+#        comp: "SlimeGrindableComponent"
+
+
 
 - type: entity
   name: grey slime

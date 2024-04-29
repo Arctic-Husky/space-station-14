@@ -45,7 +45,7 @@
         effects:
         - !type:FillExtract
           reagent: "Epinephrine"
-          minReagentRequired: 1
+          fillToMax: true
 
 - type: entity
   name: adamantine slime extract
@@ -73,6 +73,17 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: blue_slime_extract
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Plasma
+      effects:
+      - !type:FillExtract
+        reagent: "Frostoil"
+        rate: 10
 
 - type: entity
   name: bluespace slime extract
@@ -127,6 +138,17 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: green_slime_extract
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Radium
+      effects:
+      - !type:FillExtract
+        reagent: "JuiceThatMakesYouWeh"
+        rate: 1
 
 - type: entity
   name: light pink slime extract
@@ -154,6 +176,17 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: oil_slime_extract
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Blood
+      effects:
+      - !type:FillExtract
+        reagent: "Cornoil"
+        rate: 10
 
 - type: entity
   name: orange slime extract

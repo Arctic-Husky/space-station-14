@@ -8,4 +8,7 @@ public sealed partial class SlimeGrindableComponent : Component
 {
     [DataField("grindResult")]
     public string GrindResult = "GraySlimeExtract";
+
+    [DataField("yield")]
+    public int Yield = 1;
 }

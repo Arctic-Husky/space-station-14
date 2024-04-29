@@ -22,7 +22,13 @@ public enum SlimeReactionMethod
 {
     Plasma,
     Blood,
-    Water
+    Water,
+    Sugar,
+    Radium,
+    SlimeSteroid,
+    ExtractEnhancer,
+    MutationAmplifier,
+    DocilityAmplifier
 }
 
 public readonly record struct SlimeReagentEffectArgs(
