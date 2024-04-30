@@ -38,19 +38,15 @@ public sealed class SlimeReactionSystem : EntitySystem
         // The extract has already created a reaction before and will not create any more reactions
         if (component.Used)
         {
-            // TODO: De algum jeito vou precisar pegar a entidade que usou o injetor no extract pra exibir so pra ela
-            // var message = Loc.GetString("slime-extract-already-used");
-            // _popup.PopupEntity(message, uid, PopupType.Small);
-
             return;
         }
-
-        var contents = args.Solution.Contents;
 
         var reactions = component.Reactions;
 
         if (reactions == null)
             return;
+
+        var contents = args.Solution.Contents;
 
         var dictContents = contents.ToDictionary(re => re.Reagent.Prototype, re => re.Quantity);
 
@@ -69,6 +65,11 @@ public sealed class SlimeReactionSystem : EntitySystem
 
                 foreach (var effect in effects)
                 {
+                    if (activeSlimeReactionComponent.Effects.ContainsKey(effect))
+                    {
+                        continue;
+                    }
+
                     var effectArgs = new SlimeReagentEffectArgs
                     {
                         ExtractEntity = uid,

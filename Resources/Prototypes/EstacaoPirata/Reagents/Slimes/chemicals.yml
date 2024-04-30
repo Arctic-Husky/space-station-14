@@ -4,7 +4,7 @@
   desc: reagent-desc-slime-steroid
   flavor: bitter
   physicalDesc: reagent-physical-desc-grainy
-  color: "#F0F0F0"
+  color: "#D235FE"
 
 - type: reagent
   id: ExtractEnhancer
@@ -12,20 +12,20 @@
   desc: reagent-desc-extract-enhancer
   flavor: bitter
   physicalDesc: reagent-physical-desc-grainy
-  color: "#F0F0F0"
+  color: "#5684AB"
 
 - type: reagent
-  id: MutationAmplifier
-  name: reagent-name-mutation-amplifier
-  desc: reagent-desc-mutation-amplifier
+  id: SlimeMutator
+  name: reagent-name-slime-mutator
+  desc: reagent-desc-slime-mutator
   flavor: bitter
   physicalDesc: reagent-physical-desc-grainy
-  color: "#F0F0F0"
+  color: "#FB4646"
 
 - type: reagent
-  id: DocilityAmplifier
-  name: reagent-name-docility-amplifier
-  desc: reagent-desc-docility-amplifier
+  id: SlimeSedative
+  name: reagent-name-slime-sedative
+  desc: reagent-desc-slime-sedative
   flavor: bitter
   physicalDesc: reagent-physical-desc-grainy
-  color: "#F0F0F0"
+  color: "#FE5CBE"

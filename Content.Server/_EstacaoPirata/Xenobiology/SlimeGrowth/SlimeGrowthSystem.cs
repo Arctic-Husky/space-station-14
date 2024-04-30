@@ -1,8 +1,10 @@
 ﻿using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
+using Content.Shared._EstacaoPirata.Xenobiology.SlimeGrinder;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeGrowth;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeGrowth;
 
@@ -35,6 +37,14 @@ public sealed class SlimeGrowthSystem : EntitySystem
         var position = _transform.GetMapCoordinates(entity);
 
         var spawnedEntity = Spawn(component.Adult, position);
+
+        if (TryComp<SlimeGrindableComponent>(entity, out var grindable))
+        {
+            if (TryComp<SlimeGrindableComponent>(spawnedEntity, out var grindableNew))
+            {
+                grindableNew.Yield = grindable.Yield;
+            }
+        }
 
         // This transfers the mind to the new entity
         if (_mindSystem.TryGetMind(entity, out var mindId, out var mind))

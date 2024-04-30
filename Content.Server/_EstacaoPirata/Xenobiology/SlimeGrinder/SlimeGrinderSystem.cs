@@ -14,6 +14,7 @@ using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
@@ -65,7 +66,7 @@ public sealed class SlimeGrinderSystem : EntitySystem
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<ActiveSlimeGrinderComponent, SlimeGrinderComponent>();
-        while (query.MoveNext(out var uid, out var active, out var grinder))
+        while (query.MoveNext(out var uid, out var _, out var grinder))
         {
             if (!HasContents(grinder))
                 continue;
@@ -83,8 +84,12 @@ public sealed class SlimeGrinderSystem : EntitySystem
             if(!TryComp<SlimeGrindableComponent>(grinder.Storage.ContainedEntities.First(), out var slimeGrindableComponent))
                 continue;
 
+            var yieldRounded = Math.Round(slimeGrindableComponent.Yield);
             // TODO: randomizar um pouco a posicao do spawn de cada extract
-            Spawn(slimeGrindableComponent.GrindResult, coordinates);
+            for (int i = 0; i < yieldRounded; i++)
+            {
+                Spawn(slimeGrindableComponent.GrindResult, coordinates);
+            }
 
             // TODO: mudar isso do timer pra ele com a massa do bicho, biomass reclaimer pra ter uma referencia
             grinder.ProcessingTimer = grinder.ProcessingTimerTotal;
@@ -96,7 +101,9 @@ public sealed class SlimeGrinderSystem : EntitySystem
     private void OnActiveInit(Entity<ActiveSlimeGrinderComponent> ent, ref ComponentInit args)
     {
         SetAppearance(ent.Owner, SlimeGrinderVisualState.Grinding);
-        _jitteringSystem.AddJitter(ent.Owner, -80, 80);
+        _jitteringSystem.AddJitter(ent.Owner, -80, 80); // usar valores de componente
+        var sound = _audioSystem.PlayPvs(ent.Comp.StartingSound, ent.Owner);
+        _audioSystem.SetVolume(sound.Value.Entity, sound.Value.Component.Volume - 15, sound.Value.Component); // usar valores de componente
         _ambientSoundSystem.SetAmbience(ent.Owner, true);
     }
 
@@ -104,7 +111,6 @@ public sealed class SlimeGrinderSystem : EntitySystem
     {
         RemComp<JitteringComponent>(ent.Owner);
         SetAppearance(ent.Owner, SlimeGrinderVisualState.Idle);
-        _audioSystem.PlayPvs(ent.Comp.FinishingSound, ent.Owner);
         _ambientSoundSystem.SetAmbience(ent.Owner, false);
     }
     private void OnInit(Entity<SlimeGrinderComponent> ent, ref ComponentInit args)
