@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
 
@@ -34,9 +35,9 @@ public sealed partial class MeiosisComponent : Component
     {
         { MeiosisThreshold.Max , (1f, 1f)},
         { MeiosisThreshold.Severe, (0.8f, 0.99f) },
-        { MeiosisThreshold.High, (0.6f, 0.8f) },
+        { MeiosisThreshold.High, (0.6f, 0.79f) },
         { MeiosisThreshold.Mid, (0.25f, 0.45f) },
-        { MeiosisThreshold.Low, (0.15f, 0.20f) }
+        { MeiosisThreshold.Low, (0.15f, 0.24f) }
     };
 
     /// <summary>
@@ -50,13 +51,16 @@ public sealed partial class MeiosisComponent : Component
     /// </summary>
     [DataField("nodeData"), ViewVariables]
     public Dictionary<string, object> NodeData = new();
+
+    [ViewVariables]
+    public FixedPoint2 AccumulatedMutagen = FixedPoint2.Zero;
 }
 
 public enum MeiosisThreshold : byte
 {
-    Max,
-    Severe,
-    High,
+    Low,
     Mid,
-    Low
+    High,
+    Severe,
+    Max
 }
