@@ -15,9 +15,9 @@
   color: "#5684AB"
 
 - type: reagent
-  id: SlimeMutator
-  name: reagent-name-slime-mutator
-  desc: reagent-desc-slime-mutator
+  id: SlimeMutagen
+  name: reagent-name-slime-mutagen
+  desc: reagent-desc-slime-mutagen
   flavor: bitter
   physicalDesc: reagent-physical-desc-grainy
   color: "#FB4646"

@@ -98,6 +98,10 @@
       methods: [ Injection ]
       effects:
       - !type:IncreaseExtractYield
+    - reagents: [ SlimeMutagen ]
+      methods: [ Injection ]
+      effects:
+      - !type:IncreaseMutationChance
   - type: Body
     prototype: Slimes
     requiredLegs: 1

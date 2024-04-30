@@ -88,4 +88,18 @@ public sealed class MeiosisSystem : EntitySystem
         // Deletar o original
         //QueueDel(uid);
     }
+
+    public T EnumNext<T>(T enumValue) where T : Enum {
+        T[] enumValues = (T[])Enum.GetValues(typeof(T));
+        int currentIndex = Array.IndexOf(enumValues, enumValue);
+        int nextIndex = (currentIndex + 1) % enumValues.Length;
+        return enumValues[nextIndex];
+    }
+
+    public T EnumPrevious<T>(T enumValue) where T : Enum {
+        T[] enumValues = (T[])Enum.GetValues(typeof(T));
+        int currentIndex = Array.IndexOf(enumValues, enumValue);
+        int previousIndex = (currentIndex - 1 + enumValues.Length) % enumValues.Length;
+        return enumValues[previousIndex];
+    }
 }

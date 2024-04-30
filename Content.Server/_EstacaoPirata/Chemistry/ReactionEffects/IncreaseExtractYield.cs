@@ -1,6 +1,5 @@
 ﻿using Content.Shared._EstacaoPirata.Xenobiology.SlimeGrinder;
 using Content.Shared.Chemistry.Reagent;
-using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._EstacaoPirata.Chemistry.ReactionEffects;
@@ -17,9 +16,6 @@ public sealed partial class IncreaseExtractYield : ReagentEffect
 
     public override void Effect(ReagentEffectArgs args)
     {
-        if (!args.EntityManager.TrySystem<SharedContainerSystem>(out var containerSystem))
-            return;
-
         if (!args.EntityManager.TryGetComponent<SlimeGrindableComponent>(args.SolutionEntity, out var grindable))
             return;
 
