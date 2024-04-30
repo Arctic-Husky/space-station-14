@@ -60,10 +60,10 @@
     - slime_grinder_entity_container
   - type: AmbientSound
     enabled: false
-    volume: -5
+    volume: -15
     range: 5
     sound:
-      path: /Audio/Ambience/Objects/engine_hum.ogg
+      path: /Audio/Ambience/Objects/reclaimer_ambience.ogg
   - type: Climbable
     delay: 1
   - type: SlimeGrinder

@@ -8,6 +8,6 @@ namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeGrinder;
 [RegisterComponent]
 public sealed partial class ActiveSlimeGrinderComponent : Component
 {
-    [DataField("finishingSound")]
-    public SoundSpecifier FinishingSound = new SoundPathSpecifier("/Audio/EstacaoPirata/Machines/engine_hum_finish.ogg");
+    [DataField("startingSound")]
+    public SoundSpecifier StartingSound = new SoundPathSpecifier("/Audio/Machines/reclaimer_startup.ogg");
 }
