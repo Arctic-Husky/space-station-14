@@ -84,6 +84,11 @@
       - !type:FillExtract
         reagent: "Frostoil"
         rate: 10
+    - method: Blood
+      effects:
+      - !type:FillExtract
+        reagent: "SlimeStabilizer"
+        rate: 10
 
 - type: entity
   name: bluespace slime extract
@@ -236,6 +241,22 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: purple_slime_extract
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Plasma
+      effects:
+      - !type:FillExtract
+        reagent: "SlimeSteroid"
+        rate: 5
+    - method: Blood
+      effects:
+      - !type:FillExtract
+        reagent: "Tricordrazine"
+        rate: 5
 
 - type: entity
   name: pyrite slime extract

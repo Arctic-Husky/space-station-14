@@ -1,9 +1,13 @@
 ﻿using System.Linq;
+using System.Numerics;
 using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
+using Content.Shared._EstacaoPirata.Xenobiology.SlimeGrowth;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
@@ -18,6 +22,8 @@ public sealed class MeiosisSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -79,13 +85,23 @@ public sealed class MeiosisSystem : EntitySystem
 
             var spawnedEntity = Spawn(entity, randomizedCoordinates);
             spawnedEntities.Add(spawnedEntity);
+
+            var direction = new Vector2(_robustRandom.Next(-2, 2), _robustRandom.Next(-2, 2));
+            _throwing.TryThrow(spawnedEntity, direction, 5.0f);
+
+            if (TryComp<SlimeGrowthComponent>(spawnedEntity, out var growth))
+            {
+                growth.InheritedMutation = meiosisComponent.MutationChance;
+            }
         }
 
         // This transfers the mind to the new entity
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, spawnedEntities.First(), mind: mind);
 
-        // Deletar o original
+        _audio.PlayPvs(meiosisComponent.MeiosisSound, spawnedEntities.First());
+
+        // O del esta sendo feito no SlimeFeeding
         //QueueDel(uid);
     }
 

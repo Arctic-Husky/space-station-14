@@ -6,10 +6,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._EstacaoPirata.Chemistry.ReactionEffects;
 
-public sealed partial class IncreaseMutationChance : ReagentEffect
+// TODO: mudar isso pra aceitar decreases
+public sealed partial class ChangeMutationChance : ReagentEffect
 {
     [DataField("rate")]
     public FixedPoint2 Rate = FixedPoint2.FromCents(1500);
+
+    [DataField("increase")]
+    public bool Increase = true;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
@@ -31,12 +35,22 @@ public sealed partial class IncreaseMutationChance : ReagentEffect
 
         var chance = meiosis.MutationChance;
 
-        if (chance == MeiosisThreshold.Max)
-        {
-            return;
-        }
+        MeiosisThreshold newChance;
 
-        var newChance = meiosisSystem.EnumNext(chance);
+        if (Increase)
+        {
+            if (chance == MeiosisThreshold.Max)
+                return;
+
+            newChance = meiosisSystem.EnumNext(chance);
+        }
+        else
+        {
+            if (chance == MeiosisThreshold.Low)
+                return;
+
+            newChance = meiosisSystem.EnumPrevious(chance);
+        }
 
         meiosis.MutationChance = newChance;
 

@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeGrowth;
 
@@ -13,4 +14,7 @@ public sealed partial class SlimeGrowthComponent : Component
     /// </summary>
     [DataField("adult"), ViewVariables]
     public ProtoId<EntityPrototype> Adult;
+
+    [ViewVariables]
+    public MeiosisThreshold InheritedMutation = MeiosisThreshold.Mid;
 }

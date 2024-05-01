@@ -48,7 +48,7 @@ public sealed partial class FillExtract : SlimeReagentEffect
         if (!solutionContainerSystem.TryGetSolution(entity, slimeReactionComponent.SolutionName, out var soln))
             return false;
 
-        if (FillToMax)
+        if (fillToMax)
         {
             soln.Value.Comp.Solution.AddReagent(Reagent, soln.Value.Comp.Solution.MaxVolume);
         }

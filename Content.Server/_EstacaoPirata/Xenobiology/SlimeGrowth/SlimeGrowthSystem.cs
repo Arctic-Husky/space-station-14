@@ -1,4 +1,5 @@
-﻿using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
+﻿using Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
+using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeGrinder;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeGrowth;
 using Content.Shared.Mind;
@@ -44,6 +45,11 @@ public sealed class SlimeGrowthSystem : EntitySystem
             {
                 grindableNew.Yield = grindable.Yield;
             }
+        }
+
+        if (TryComp<MeiosisComponent>(spawnedEntity, out var meiosis))
+        {
+            meiosis.MutationChance = component.InheritedMutation;
         }
 
         // This transfers the mind to the new entity
