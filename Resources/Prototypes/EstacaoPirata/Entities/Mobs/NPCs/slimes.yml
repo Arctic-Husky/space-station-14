@@ -101,7 +101,13 @@
     - reagents: [ SlimeMutagen ]
       methods: [ Injection ]
       effects:
-      - !type:IncreaseMutationChance
+      - !type:ChangeMutationChance
+        increase: true
+    - reagents: [ SlimeStabilizer ]
+      methods: [ Injection ]
+      effects:
+      - !type:ChangeMutationChance
+        increase: false
   - type: Body
     prototype: Slimes
     requiredLegs: 1
@@ -136,6 +142,14 @@
       types:
         Blunt: 18
         Caustic: 12
+  - type: Hunger
+    thresholds: # only animals and rats are derived from this prototype so let's override it here and in rats' proto
+      Overfed: 100
+      Okay: 70
+      Peckish: 45
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0.1 # it is okay for animals to eat and drink less than humans, but more frequently
 
 - type: entity
   name: grey slime
@@ -151,6 +165,7 @@
   - type: Meiosis
     baby: "MobBabySlimesGrey"
     mutations: ["MobBabySlimesOrange", "MobBabySlimesPurple", "MobBabySlimesBlue", "MobBabySlimesMetal"]
+    sound: /Audio/EstacaoPirata/Effects/Slime/slime_jump.ogg
   - type: SlimeGrindable
     grindResult: "GreySlimeExtract"
 

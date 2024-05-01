@@ -1,4 +1,5 @@
 ﻿using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.Meiosis;
@@ -54,6 +55,9 @@ public sealed partial class MeiosisComponent : Component
 
     [ViewVariables]
     public FixedPoint2 AccumulatedMutagen = FixedPoint2.Zero;
+
+    [DataField("sound")]
+    public SoundSpecifier? MeiosisSound = new SoundPathSpecifier("/Audio/EstacaoPirata/Effects/Slime/slime_jump.ogg");
 }
 
 public enum MeiosisThreshold : byte

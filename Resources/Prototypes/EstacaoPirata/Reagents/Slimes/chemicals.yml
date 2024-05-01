@@ -29,3 +29,11 @@
   flavor: bitter
   physicalDesc: reagent-physical-desc-grainy
   color: "#FE5CBE"
+
+- type: reagent
+  id: SlimeStabilizer
+  name: reagent-name-slime-stabilizer
+  desc: reagent-desc-slime-stabilizer
+  flavor: bitter
+  physicalDesc: reagent-physical-desc-grainy
+  color: "#13FEFE"

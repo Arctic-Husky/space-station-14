@@ -14,7 +14,6 @@ using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
