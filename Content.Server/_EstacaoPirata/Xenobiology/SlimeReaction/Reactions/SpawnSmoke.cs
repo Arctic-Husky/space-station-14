@@ -19,8 +19,8 @@ public sealed partial class SpawnSmoke : SlimeReagentEffect
     /// Smoke entity to spawn.
     /// Defaults to smoke but you can use foam if you want.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<EntityPrototype> SmokePrototype = "Smoke";
+    [DataField("prototype"), ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<EntityPrototype> Prototype = "Smoke";
 
     [DataField("sound")]
     public SoundSpecifier? Sound;
@@ -65,7 +65,7 @@ public sealed partial class SpawnSmoke : SlimeReagentEffect
             return false;
         }
 
-        var ent = args.EntityManager.Spawn(protoName:SmokePrototype.Id,coordinates:mapCoordinates);
+        var ent = args.EntityManager.Spawn(protoName:Prototype.Id,coordinates:mapCoordinates);
         entityCoordinates.SnapToGrid();
 
         if (!args.EntityManager.HasComponent<SmokeComponent>(ent))
@@ -90,13 +90,18 @@ public sealed partial class SpawnSmoke : SlimeReagentEffect
 
         var smokeComp = args.EntityManager.GetComponent<SmokeComponent>(ent);
 
-        var spreadAmount = args.Quantity.Value / 10;
+        // TODO: ver sobre esses valores hardcoded
+
+        var allReagentsQuantity = soln.Value.Comp.Solution.Volume.Value / 100;
+
+        var catalystQuantity = args.Quantity.Value / 100;
+
+        var range = (int) MathF.Round(MathHelper.Lerp(catalystQuantity, allReagentsQuantity+10, args.RobustRandom.NextFloat(0, 1f)));
 
         var duration = Math.Log(args.Quantity.Value, 1.25);
         duration = Math.Round(duration);
 
-        // TODO: a solucao do extract sempre vai chegar aqui vazia, tentar ver um jeito de fazer ela nao estar vazia pra poder adicionar reagentes na fumaca
-        smokeSystem.StartSmoke(ent, soln.Value.Comp.Solution, (float)duration, spreadAmount, smokeComp);
+        smokeSystem.StartSmoke(ent, soln.Value.Comp.Solution, (float)duration, range, smokeComp);
         var audioSystem = args.EntityManager.System<SharedAudioSystem>();
 
         var sound = Sound == null ? args.ReactionComponent.ReactionSound : Sound;

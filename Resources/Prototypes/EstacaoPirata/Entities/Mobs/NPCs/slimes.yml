@@ -151,6 +151,8 @@
       Dead: 0
     baseDecayRate: 0.1 # it is okay for animals to eat and drink less than humans, but more frequently
 
+# TODO: fazer visuals de slime pra comer, idle, morto
+
 - type: entity
   name: grey slime
   id: MobAdultSlimesGrey
