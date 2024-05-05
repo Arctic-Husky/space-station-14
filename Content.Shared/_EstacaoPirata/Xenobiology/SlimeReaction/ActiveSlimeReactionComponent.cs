@@ -9,4 +9,12 @@ public sealed partial class ActiveSlimeReactionComponent : Component
     public Dictionary<SlimeReagentEffect, SlimeReagentEffectArgs> Effects = new Dictionary<SlimeReagentEffect, SlimeReagentEffectArgs>();
 
     public float WaitTime = 0f;
+
+    public float MaxWaitTimeToDeactivate = 5f;
+
+    public float WaitTimeToDeactivate = 5f;
+
+    public bool ReactionSuccess = false;
+
+    public bool SpendOnUse = false;
 }

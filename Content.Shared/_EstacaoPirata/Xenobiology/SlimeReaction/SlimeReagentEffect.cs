@@ -12,7 +12,9 @@ public abstract partial class SlimeReagentEffect
 {
     public abstract bool Effect(SlimeReagentEffectArgs args);
 
-    public abstract float NeedsTime();
+    public abstract float TimeNeeded();
+
+    public abstract bool SpendOnUse();
 
     public abstract void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity);
 }

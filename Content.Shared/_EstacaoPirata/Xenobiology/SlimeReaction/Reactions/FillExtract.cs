@@ -67,9 +67,14 @@ public sealed partial class FillExtract : SlimeReagentEffect
         return true;
     }
 
-    public override float NeedsTime()
+    public override float TimeNeeded()
     {
         return 0;
+    }
+
+    public override bool SpendOnUse()
+    {
+        return false;
     }
 
     public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)

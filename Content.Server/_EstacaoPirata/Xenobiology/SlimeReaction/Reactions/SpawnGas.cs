@@ -48,9 +48,14 @@ public sealed partial class SpawnGas : SlimeReagentEffect
         return true;
     }
 
-    public override float NeedsTime()
+    public override float TimeNeeded()
     {
         return Time;
+    }
+
+    public override bool SpendOnUse()
+    {
+        return false;
     }
 
     public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
