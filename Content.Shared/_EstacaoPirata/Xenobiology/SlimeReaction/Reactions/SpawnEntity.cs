@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Audio;
+﻿using Content.Shared.Stacks;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 
@@ -10,28 +11,42 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
     [DataField("toSpawn")]
     public Dictionary<string, int> ToSpawn;
 
+    /// <summary>
+    /// Won't work if the entity doesn't have the stack component
+    /// </summary>
+    [DataField("stack")]
+    public bool Stack = false;
+
     public override bool Effect(SlimeReagentEffectArgs args)
     {
-        // Com os args, que deve ser algo tipo target e outras coisas, fazer o codigo funcionar por aqui, pra nao precisar definir tudo no
-        // system de SlimeReaction. Quero apenas chamar em slimeReaction o SlimeReagentEffect.Effect() pra funcionar automatico plss
-
         var extractEntity = args.ExtractEntity;
+
+        var transformSystem = args.EntityManager.System<SharedTransformSystem>();
+
+        var stackSystem = args.EntityManager.System<SharedStackSystem>();
 
         foreach (var prototype in ToSpawn)
         {
-            for (int i = 0; i < prototype.Value; i++)
+            if (Stack)
             {
-                var transformSystem = args.EntityManager.System<SharedTransformSystem>();
-                var coordinates = transformSystem.GetMapCoordinates(extractEntity);
-                var randomizedPosition = coordinates.Position;
+                var randomizedCoordinates = RandomizedCoordinates(args, transformSystem, extractEntity);
 
-                randomizedPosition.X = args.RobustRandom.NextFloat(randomizedPosition.X-0.25f, randomizedPosition.X+0.25f);
-                randomizedPosition.Y = args.RobustRandom.NextFloat(randomizedPosition.Y-0.25f, randomizedPosition.Y+0.25f);
+                var spawned = args.EntityManager.Spawn(prototype.Key, randomizedCoordinates);
 
-                var randomizedCoordinates = new MapCoordinates(randomizedPosition.X, randomizedPosition.Y, coordinates.MapId);
+                args.EntityManager.TryGetComponent<StackComponent>(spawned, out var stack);
 
-                args.EntityManager.Spawn(prototype.Key, randomizedCoordinates);
+                stackSystem.SetCount(spawned, prototype.Value, stack);
             }
+            else
+            {
+                for (int i = 0; i < prototype.Value; i++)
+                {
+                    var randomizedCoordinates = RandomizedCoordinates(args, transformSystem, extractEntity);
+
+                    args.EntityManager.Spawn(prototype.Key, randomizedCoordinates);
+                }
+            }
+
         }
 
         var audioSystem = args.EntityManager.System<SharedAudioSystem>();
@@ -39,6 +54,19 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
         PlaySound(audioSystem, args.ReactionComponent.ReactionSound, args.ExtractEntity);
 
         return true;
+    }
+
+    private MapCoordinates RandomizedCoordinates(SlimeReagentEffectArgs args, SharedTransformSystem transformSystem,
+        EntityUid extractEntity)
+    {
+        var coordinates = transformSystem.GetMapCoordinates(extractEntity);
+        var randomizedPosition = coordinates.Position;
+
+        randomizedPosition.X = args.RobustRandom.NextFloat(randomizedPosition.X-0.25f, randomizedPosition.X+0.25f);
+        randomizedPosition.Y = args.RobustRandom.NextFloat(randomizedPosition.Y-0.25f, randomizedPosition.Y+0.25f);
+
+        var randomizedCoordinates = new MapCoordinates(randomizedPosition.X, randomizedPosition.Y, coordinates.MapId);
+        return randomizedCoordinates;
     }
 
     public override float TimeNeeded()

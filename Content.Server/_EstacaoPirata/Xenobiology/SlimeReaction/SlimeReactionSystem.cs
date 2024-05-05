@@ -35,7 +35,7 @@ public sealed class SlimeReactionSystem : EntitySystem
             return;
         }
 
-        // The extract has already created a reaction before and will not create any more reactions
+        // The extract has already created a reaction and will not create any more reactions
         if (component.Spent) // && component.TimeToWait <= 0
         {
             return;
@@ -86,7 +86,7 @@ public sealed class SlimeReactionSystem : EntitySystem
 
                     activeSlimeReactionComponent.SpendOnUse = effect.SpendOnUse();
 
-                    ClearSolution(uid, component);
+                    //ClearSolution(uid, component);
                 }
             }
         }
@@ -136,6 +136,8 @@ public sealed class SlimeReactionSystem : EntitySystem
                         effects.Remove(effect.Key);
                     }
                 }
+
+                ClearSolution(uid, reactionComp);
             }
 
             // TODO: mudar o sprite do extract pra um que indique que ele ja esta esgotado

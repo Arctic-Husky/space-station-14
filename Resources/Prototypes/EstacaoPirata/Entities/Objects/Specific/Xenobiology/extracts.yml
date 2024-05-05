@@ -20,6 +20,8 @@
   - type: DrawableSolution
     solution: slimeExtract
 
+# TODO: fazer visuals de extract pra estar esgotado
+
 - type: entity
   name: grey slime extract
   parent: BaseSlimeExtract
@@ -89,6 +91,12 @@
       - !type:FillExtract
         reagent: "SlimeStabilizer"
         rate: 10
+    - method: Water
+      effects:
+      - !type:SpawnSmoke
+        prototype: "Foam"
+        sound:
+          path: /Audio/Effects/extinguish.ogg
 
 - type: entity
   name: bluespace slime extract
@@ -172,6 +180,26 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: metal_slime_extract
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Plasma
+      effects:
+      - !type:SpawnEntity
+        toSpawn:
+          SheetPlasteel1: 5
+          SheetSteel1: 15
+        stack: true
+    - method: Water
+      effects:
+      - !type:SpawnEntity
+        toSpawn:
+          SheetGlass1: 15
+          SheetRGlass1: 5
+        stack: true
 
 - type: entity
   name: oil slime extract
