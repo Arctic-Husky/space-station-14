@@ -36,7 +36,7 @@ public sealed class SlimeReactionSystem : EntitySystem
         }
 
         // The extract has already created a reaction before and will not create any more reactions
-        if (component.Used)
+        if (component.Spent) // && component.TimeToWait <= 0
         {
             return;
         }
@@ -65,6 +65,7 @@ public sealed class SlimeReactionSystem : EntitySystem
 
                 foreach (var effect in effects)
                 {
+                    // Problematico?
                     if (activeSlimeReactionComponent.Effects.ContainsKey(effect))
                     {
                         continue;
@@ -81,7 +82,9 @@ public sealed class SlimeReactionSystem : EntitySystem
 
                     activeSlimeReactionComponent.Effects.Add(effect, effectArgs);
 
-                    activeSlimeReactionComponent.WaitTime = effect.NeedsTime();
+                    activeSlimeReactionComponent.WaitTime = effect.TimeNeeded();
+
+                    activeSlimeReactionComponent.SpendOnUse = effect.SpendOnUse();
 
                     ClearSolution(uid, component);
                 }
@@ -116,12 +119,12 @@ public sealed class SlimeReactionSystem : EntitySystem
                 continue;
             }
 
-            if (reactionComp.Used)
+            if (reactionComp.Spent)
             {
                 continue;
             }
 
-            if (activeComp.Effects.Any())
+            if (activeComp.Effects.Count > 0)
             {
                 var effects = activeComp.Effects;
                 foreach (var effect in effects)
@@ -129,10 +132,33 @@ public sealed class SlimeReactionSystem : EntitySystem
                     // Se ocorreu o efeito
                     if (effect.Key.Effect(effect.Value))
                     {
-                        reactionComp.Used = true;
-                        RemCompDeferred<ActiveSlimeReactionComponent>(uid);
+                        activeComp.ReactionSuccess = true;
+                        effects.Remove(effect.Key);
                     }
                 }
+            }
+
+            // TODO: mudar o sprite do extract pra um que indique que ele ja esta esgotado
+
+            if (activeComp.SpendOnUse)
+            {
+                reactionComp.Spent = true;
+                RemCompDeferred<ActiveSlimeReactionComponent>(uid);
+            }
+
+            if (activeComp.WaitTimeToDeactivate > 0)
+            {
+                activeComp.WaitTimeToDeactivate -= frameTime;
+                continue;
+            }
+
+            if (activeComp.ReactionSuccess)
+            {
+                activeComp.WaitTimeToDeactivate = activeComp.MaxWaitTimeToDeactivate; // Linha inutil
+
+                reactionComp.Spent = true;
+                RemCompDeferred<ActiveSlimeReactionComponent>(uid);
+                //return;
             }
         }
     }

@@ -22,7 +22,7 @@ public sealed partial class SlimeReactionComponent : Component
     public List<SlimeExtractReactionEntry>? Reactions;
 
     [ViewVariables, AutoNetworkedField]
-    public bool Used;
+    public bool Spent;
 
     [DataField("reactionSound")]
     public SoundSpecifier? ReactionSound;
