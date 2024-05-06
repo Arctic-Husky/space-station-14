@@ -51,6 +51,12 @@ public sealed class SlimeGrinderBoundUserInterface : BoundUserInterface
         };
     }
 
+    // TODO: lidar aqui com o caso de se distanciar demais e fechar a ui?
+    protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+    {
+        base.ReceiveMessage(message);
+    }
+
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
