@@ -28,10 +28,6 @@ public sealed partial class FillExtract : SlimeReagentEffect
         if (!FillSolution(args,FillToMax,Rate))
             return false;
 
-        var audioSystem = args.EntityManager.System<SharedAudioSystem>();
-
-        PlaySound(audioSystem, args.ReactionComponent.ReactionSound, args.ExtractEntity);
-
         return true;
     }
 

@@ -2,6 +2,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 using Content.Shared.Atmos;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
@@ -18,8 +19,8 @@ public sealed partial class SpawnGas : SlimeReagentEffect
     [DataField("spawnAmount")]
     public float SpawnAmount { get; set; } = Atmospherics.OxygenMolesStandard;
 
-    [DataField("hotspot")]
-    public bool Hotspot { get; set; } = true;
+    [DataField("ignite")]
+    public bool Ignite { get; set; } = false;
 
     [DataField("delayTime")]
     public float Time { get; set; } = 0;
@@ -35,6 +36,8 @@ public sealed partial class SpawnGas : SlimeReagentEffect
 
         var transform = args.EntityManager.GetComponent<TransformComponent>(extractEntity);
 
+        var transformSystem = args.EntityManager.System<TransformSystem>();
+
         var environment = atmosphereSystem.GetContainingMixture((extractEntity, transform), true, true);
 
         if (environment == null)
@@ -44,6 +47,16 @@ public sealed partial class SpawnGas : SlimeReagentEffect
         merger.SetMoles(toSpawn.Value, SpawnAmount);
 
         atmosphereSystem.Merge(environment, merger);
+
+        if (Ignite)
+        {
+            if (transform.GridUid is { } gridUid)
+            {
+                var position = transformSystem.GetGridOrMapTilePosition(args.ExtractEntity, transform);
+                atmosphereSystem.HotspotExpose(gridUid, position, 700, 50);
+            }
+
+        }
 
         return true;
     }
