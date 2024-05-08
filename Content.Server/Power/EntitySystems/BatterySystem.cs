@@ -1,6 +1,7 @@
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
+using Content.Shared._EstacaoPirata.EmpBlocker;
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
@@ -99,6 +100,11 @@ namespace Content.Server.Power.EntitySystems
 
         private void OnEmpPulse(EntityUid uid, BatteryComponent component, ref EmpPulseEvent args)
         {
+            if (HasComp<EmpBlockerComponent>(uid))
+            {
+                return;
+            }
+
             args.Affected = true;
             UseCharge(uid, args.EnergyConsumption, component);
         }
