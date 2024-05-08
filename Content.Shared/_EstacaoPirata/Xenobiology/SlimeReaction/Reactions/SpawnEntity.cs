@@ -49,10 +49,6 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
 
         }
 
-        var audioSystem = args.EntityManager.System<SharedAudioSystem>();
-
-        PlaySound(audioSystem, args.ReactionComponent.ReactionSound, args.ExtractEntity);
-
         return true;
     }
 

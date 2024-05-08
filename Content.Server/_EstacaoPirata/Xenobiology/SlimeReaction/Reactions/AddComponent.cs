@@ -19,9 +19,6 @@ public sealed partial class AddComponent : SlimeReagentEffect
             args.EntityManager.AddComponent(args.ExtractEntity, componentToAdd);
         }
 
-        var audioSystem = args.EntityManager.System<SharedAudioSystem>();
-
-        PlaySound(audioSystem, args.ReactionComponent.ReactionSound, args.ExtractEntity);
         return true;
     }
 

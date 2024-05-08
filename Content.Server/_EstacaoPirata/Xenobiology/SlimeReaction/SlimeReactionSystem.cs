@@ -3,6 +3,7 @@ using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeReaction;
@@ -15,6 +16,7 @@ public sealed class SlimeReactionSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -132,6 +134,7 @@ public sealed class SlimeReactionSystem : EntitySystem
                     // Se ocorreu o efeito
                     if (effect.Key.Effect(effect.Value))
                     {
+                        effect.Key.PlaySound(_audio, reactionComp.ReactionSound, uid);
                         activeComp.ReactionSuccess = true;
                         effects.Remove(effect.Key);
                     }

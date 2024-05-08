@@ -229,8 +229,6 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: orange_slime_extract
-  - type: IgnitionSource
-    ignited: true
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
@@ -242,6 +240,7 @@
       - !type:SpawnGas
         spawnGas: Plasma
         delayTime: 5
+        ignite: true
     - method: Blood
       effects:
       - !type:FillExtract

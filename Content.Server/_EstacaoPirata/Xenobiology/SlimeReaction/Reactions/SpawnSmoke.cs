@@ -102,11 +102,6 @@ public sealed partial class SpawnSmoke : SlimeReagentEffect
         duration = Math.Round(duration);
 
         smokeSystem.StartSmoke(ent, soln.Value.Comp.Solution, (float)duration, range, smokeComp);
-        var audioSystem = args.EntityManager.System<SharedAudioSystem>();
-
-        var sound = Sound == null ? args.ReactionComponent.ReactionSound : Sound;
-
-        PlaySound(audioSystem, sound, extractEntity);
 
         return true;
     }

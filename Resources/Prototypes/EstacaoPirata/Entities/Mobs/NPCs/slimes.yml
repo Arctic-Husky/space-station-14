@@ -1041,6 +1041,60 @@
   - type: SlimeGrindable
     grindResult: "PurpleSlimeExtract"
 
+- type: entity
+  name: pyrite slime
+  parent: MobSlimes
+  id: MobAdultSlimesPyrite
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: pyrite_adult_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pyrite_adult_slime
+      Dead:
+        Base: pyrite_adult_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+  - type: Meiosis
+    baby: "MobBabySlimesPyrite"
+  - type: SlimeGrindable
+    grindResult: "PyriteSlimeExtract"
+
+- type: entity
+  name: baby pyrite slime
+  parent: MobSlimes
+  id: MobBabySlimesPyrite
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: pyrite_baby_slime
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pyrite_baby_slime
+      Dead:
+        Base: pyrite_baby_slime_dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 1
+        Cellular: 3
+  - type: SlimeGrowth
+    adult: "MobAdultSlimesPyrite"
+  - type: SlimeGrindable
+    grindResult: "PyriteSlimeExtract"
+
 # Slimes especiais
 - type: entity
   name: rainbow slime
