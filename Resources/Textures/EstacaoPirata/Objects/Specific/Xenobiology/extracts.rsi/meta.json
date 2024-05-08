@@ -98,6 +98,19 @@
         },
         {
             "name": "cerulean_slime_extract"
+        },
+        {
+            "name": "effect_charged",
+            "delays": [
+                [
+                    3,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
         }
     ]
 }

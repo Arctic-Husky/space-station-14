@@ -338,4 +338,47 @@
   components:
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
-    state: yellow_slime_extract
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: yellow_slime_extract
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: effect_charged
+      shader: unshaded
+  - type: PowerCell
+  - type: PowerCellVisuals
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 50
+  - type: Tag
+    tags:
+    - PowerCell
+  - type: Appearance
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Plasma
+      effects:
+      - !type:AddComponent # TODO: nao usar addcomponent aqui, fazer um SlimeReaction especifico
+        comp:
+          - type: Battery
+            maxCharge: 2700
+            startingCharge: 2700
+#          - type: PowerCell
+#          - type: PowerCellVisuals
+#          - type: HitscanBatteryAmmoProvider
+#            proto: RedLightLaser
+#            fireCost: 50
+#          - type: Tag
+#            tags:
+#            - PowerCell
+    - method: Water
+      effects:
+      - !type:AddComponent
+        comp:
+          - type: PointLight
+            autoRot: true
+            radius: 7
+            netsync: false
