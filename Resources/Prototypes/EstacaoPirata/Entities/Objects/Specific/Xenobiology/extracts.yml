@@ -343,14 +343,7 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: effect_charged
       shader: unshaded
-  - type: PowerCell
-  - type: PowerCellVisuals
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLightLaser
-    fireCost: 50
-  - type: Tag
-    tags:
-    - PowerCell
+      visible: false
   - type: Appearance
   - type: SlimeReaction
     reactionSound:
@@ -365,14 +358,14 @@
           - type: Battery
             maxCharge: 2700
             startingCharge: 2700
-#          - type: PowerCell
-#          - type: PowerCellVisuals
-#          - type: HitscanBatteryAmmoProvider
-#            proto: RedLightLaser
-#            fireCost: 50
-#          - type: Tag
-#            tags:
-#            - PowerCell
+          - type: PowerCell
+          - type: PowerCellVisuals
+          - type: HitscanBatteryAmmoProvider
+            proto: RedLightLaser
+            fireCost: 50
+          - type: Tag
+            tags:
+            - PowerCell
     - method: Water
       effects:
       - !type:AddComponent
