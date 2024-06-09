@@ -234,14 +234,9 @@ public sealed class SlimeGrinderSystem : EntitySystem
 
     public void UpdateUserInterfaceState(EntityUid uid, SlimeGrinderComponent component)
     {
-        var ui = _userInterface.GetUiOrNull(uid, SlimeGrinderUiKey.Key);
-        if (ui == null)
-            return;
-
-        _userInterface.SetUiState(ui, new SlimeGrinderUpdateUserInterfaceState(
+        _userInterface.SetUiState(uid, SlimeGrinderUiKey.Key, new SlimeGrinderUpdateUserInterfaceState(
             GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
-            HasComp<ActiveSlimeGrinderComponent>(uid)
-        ));
+            HasComp<ActiveSlimeGrinderComponent>(uid)));
     }
 
     public static bool HasContents(SlimeGrinderComponent component)

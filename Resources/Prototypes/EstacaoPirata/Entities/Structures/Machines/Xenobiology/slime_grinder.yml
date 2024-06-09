@@ -48,8 +48,8 @@
     key: enum.SlimeGrinderUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.SlimeGrinderUiKey.Key
-      type: SlimeGrinderBoundUserInterface
+      enum.SlimeGrinderUiKey.Key:
+        type: SlimeGrinderBoundUserInterface
   - type: ContainerContainer
     containers:
       slime_grinder_entity_container: !type:Container
