@@ -19,6 +19,12 @@
     solution: slimeExtract
   - type: DrawableSolution
     solution: slimeExtract
+  - type: AmbientSound
+    enabled: false
+    volume: -15
+    range: 5
+    sound:
+      path: /Audio/Items/Flare/flare_burn.ogg
 
 # TODO: fazer visuals de extract pra estar esgotado
 
@@ -152,6 +158,14 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: dark_purple_slime_extract
+  - type: SlimeReaction
+    reactions:
+    - method: Plasma
+      effects:
+      - !type:SpawnEntity
+        toSpawn:
+          SheetPlasma1: 5
+        stack: true
 
 - type: entity
   name: gold slime extract
@@ -355,6 +369,20 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: silver_slime_extract
+  - type: SlimeReaction
+    reactions:
+    - method: Plasma
+      sound:
+        path: /Audio/Effects/flash_bang.ogg
+        params:
+          volume: -10
+      effects:
+#      - !type:AddComponent
+#        comp:
+#          - type: Flash
+      - !type:SpawnFlash
+        range: 7
+
 
 - type: entity
   name: yellow slime extract

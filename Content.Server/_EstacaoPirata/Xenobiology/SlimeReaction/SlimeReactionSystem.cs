@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
+using Content.Shared.Audio;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -22,6 +23,7 @@ public sealed class SlimeReactionSystem : EntitySystem
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -149,7 +151,9 @@ public sealed class SlimeReactionSystem : EntitySystem
                     _audio.PlayPvs(reactionComp.ReactionSound, uid);
                     _popupSystem.PopupEntity(Loc.GetString("extract-reaction-activated", ("extract", uid)), uid, PopupType.Small);
                     activeComp.SoundPlayed = true;
+                    _ambientSoundSystem.SetAmbience(uid, true);
                 }
+
                 activeComp.WaitTime -= frameTime;
                 continue;
             }
@@ -162,6 +166,7 @@ public sealed class SlimeReactionSystem : EntitySystem
                     // Se ocorreu o efeito
                     if (effect.Key.Effect(effect.Value))
                     {
+                        _ambientSoundSystem.SetAmbience(uid, false);
                         _popupSystem.PopupEntity(Loc.GetString("extract-reaction-successful", ("extract", uid), ("occured", Loc.GetString(effect.Key.GetReactionMessage()))), uid, PopupType.Small);
                         _audio.PlayPvs(effect.Value.Sound, uid);
                         activeComp.ReactionSuccess = true;
@@ -172,6 +177,7 @@ public sealed class SlimeReactionSystem : EntitySystem
 
             // TODO: mudar o sprite do extract pra um que indique que ele ja esta esgotado
 
+            // bloco para remover pq nao to lembrando a utilidade
             if (activeComp.SpendOnUse)
             {
                 reactionComp.Spent = true;
@@ -189,6 +195,8 @@ public sealed class SlimeReactionSystem : EntitySystem
                 activeComp.WaitTimeToDeactivate = activeComp.MaxWaitTimeToDeactivate; // Linha inutil
 
                 reactionComp.Spent = true;
+
+                _ambientSoundSystem.SetAmbience(uid, false);
                 RemCompDeferred<ActiveSlimeReactionComponent>(uid);
                 //return;
             }
