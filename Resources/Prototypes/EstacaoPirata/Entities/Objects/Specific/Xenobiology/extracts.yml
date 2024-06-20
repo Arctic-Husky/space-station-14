@@ -341,10 +341,10 @@
     - map: [ "enum.PowerCellVisualLayers.Base" ]
       state: yellow_slime_extract
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-      state: effect_charged
+      state: o1
       shader: unshaded
       visible: false
-  - type: Appearance
+  - type: PowerCellVisuals
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
@@ -356,21 +356,32 @@
       - !type:AddComponent # TODO: nao usar addcomponent aqui, fazer um SlimeReaction especifico
         comp:
           - type: Battery
-            maxCharge: 2700
-            startingCharge: 2700
+            maxCharge: 1080
+            startingCharge: 1080
           - type: PowerCell
-          - type: PowerCellVisuals
           - type: HitscanBatteryAmmoProvider
             proto: RedLightLaser
             fireCost: 50
+          - type: MachinePart
+            part: PowerCell
+            rating: 3
           - type: Tag
             tags:
             - PowerCell
+          - type: Appearance
+      - !type:ChangeAppearance
+        visualEnum: enum.PowerCellVisuals.ChargeLevel
+        value: 1
     - method: Water
       effects:
       - !type:AddComponent
         comp:
           - type: PointLight
             autoRot: true
-            radius: 7
-            netsync: false
+            radius: 2
+            softness: 5
+            netsync: true
+            color: yellow
+    - method: Blood
+      effects:
+      - !type:SpawnEmp
