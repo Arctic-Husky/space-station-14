@@ -3,7 +3,11 @@ using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
+using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeReaction;
@@ -17,6 +21,7 @@ public sealed class SlimeReactionSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -52,7 +57,7 @@ public sealed class SlimeReactionSystem : EntitySystem
 
         var dictContents = contents.ToDictionary(re => re.Reagent.Prototype, re => re.Quantity);
 
-        var dictReactions = reactions.ToDictionary(re => re.Method.ToString(), re => re.Effects);
+        var dictReactions = reactions.ToDictionary(re => re.Method.ToString(), re => (re.Effects, re.Sound));
 
         var keysInCommon = dictContents.Keys.Intersect<string>(dictReactions.Keys);
 
@@ -65,7 +70,7 @@ public sealed class SlimeReactionSystem : EntitySystem
             {
                 var effects = dictReactions[key];
 
-                foreach (var effect in effects)
+                foreach (var effect in effects.Effects)
                 {
                     // Problematico?
                     if (activeSlimeReactionComponent.Effects.ContainsKey(effect))
@@ -73,13 +78,16 @@ public sealed class SlimeReactionSystem : EntitySystem
                         continue;
                     }
 
+                    var quantity = args.Solution.Contents.Find(reagent => reagent.Reagent.Prototype == key).Quantity;
+
                     var effectArgs = new SlimeReagentEffectArgs
                     {
                         ExtractEntity = uid,
                         EntityManager = _entManager,
                         RobustRandom = _random,
-                        Quantity = args.Solution.Contents.Find(reagent => reagent.Reagent.Prototype == key).Quantity,
-                        ReactionComponent = component
+                        Quantity = quantity,
+                        ReactionComponent = component,
+                        Sound = effects.Sound
                     };
 
                     activeSlimeReactionComponent.Effects.Add(effect, effectArgs);
@@ -88,7 +96,7 @@ public sealed class SlimeReactionSystem : EntitySystem
 
                     activeSlimeReactionComponent.SpendOnUse = effect.SpendOnUse();
 
-                    //ClearSolution(uid, component);
+                    RemoveReagent(uid, component, key, quantity);
                 }
             }
         }
@@ -108,6 +116,19 @@ public sealed class SlimeReactionSystem : EntitySystem
         }
     }
 
+    private void RemoveReagent(EntityUid uid, SlimeReactionComponent component, string prototype, FixedPoint2 quantity)
+    {
+        if (TryComp<SolutionContainerManagerComponent>(uid, out var solutionContainerManagerComponent))
+        {
+            var entity = new Entity<SolutionContainerManagerComponent?>(uid, solutionContainerManagerComponent);
+
+            if (_solutionContainer.TryGetSolution(entity, component.SolutionName, out var soln))
+            {
+                soln.Value.Comp.Solution.RemoveReagent(prototype, quantity);
+            }
+        }
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -115,14 +136,21 @@ public sealed class SlimeReactionSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveSlimeReactionComponent, SlimeReactionComponent>();
         while (query.MoveNext(out var uid, out var activeComp, out var reactionComp))
         {
-            if (activeComp.WaitTime > 0)
+            // bloco inutil
+            if (reactionComp.Spent)
             {
-                activeComp.WaitTime -= frameTime;
                 continue;
             }
 
-            if (reactionComp.Spent)
+            if (activeComp.WaitTime > 0)
             {
+                if (!activeComp.SoundPlayed)
+                {
+                    _audio.PlayPvs(reactionComp.ReactionSound, uid);
+                    _popupSystem.PopupEntity(Loc.GetString("extract-reaction-activated", ("extract", uid)), uid, PopupType.Small);
+                    activeComp.SoundPlayed = true;
+                }
+                activeComp.WaitTime -= frameTime;
                 continue;
             }
 
@@ -134,13 +162,12 @@ public sealed class SlimeReactionSystem : EntitySystem
                     // Se ocorreu o efeito
                     if (effect.Key.Effect(effect.Value))
                     {
-                        effect.Key.PlaySound(_audio, reactionComp.ReactionSound, uid);
+                        _popupSystem.PopupEntity(Loc.GetString("extract-reaction-successful", ("extract", uid), ("occured", Loc.GetString(effect.Key.GetReactionMessage()))), uid, PopupType.Small);
+                        _audio.PlayPvs(effect.Value.Sound, uid);
                         activeComp.ReactionSuccess = true;
                         effects.Remove(effect.Key);
                     }
                 }
-
-                ClearSolution(uid, reactionComp);
             }
 
             // TODO: mudar o sprite do extract pra um que indique que ele ja esta esgotado

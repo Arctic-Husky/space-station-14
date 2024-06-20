@@ -14,6 +14,7 @@ public sealed partial class ChangeAppearance : SlimeReagentEffect
     [DataField("value")]
     public byte Value;
 
+    // TODO: try to have some way of knowing if SetData worked or now
     public override bool Effect(SlimeReagentEffectArgs args)
     {
         var appearance = args.EntityManager.System<SharedAppearanceSystem>();
@@ -31,10 +32,5 @@ public sealed partial class ChangeAppearance : SlimeReagentEffect
     public override bool SpendOnUse()
     {
         return true;
-    }
-
-    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
-    {
-
     }
 }

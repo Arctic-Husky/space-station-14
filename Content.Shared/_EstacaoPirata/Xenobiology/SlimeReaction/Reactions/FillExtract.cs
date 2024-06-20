@@ -73,8 +73,8 @@ public sealed partial class FillExtract : SlimeReagentEffect
         return false;
     }
 
-    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
+    public override string GetReactionMessage()
     {
-        audioSystem.PlayPvs(sound, entity);
+        return "extract-fill";
     }
 }

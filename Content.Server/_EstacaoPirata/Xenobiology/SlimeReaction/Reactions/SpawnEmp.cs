@@ -41,8 +41,8 @@ public sealed partial class SpawnEmp : SlimeReagentEffect
         return true;
     }
 
-    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
+    public override string GetReactionMessage()
     {
-        audioSystem.PlayPvs(sound, entity);
+        return "extract-explosion";
     }
 }

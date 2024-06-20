@@ -8,15 +8,28 @@ namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 
 [ImplicitDataDefinitionForInheritors]
 [MeansImplicitUse]
-public abstract partial class SlimeReagentEffect
+[Virtual]
+public partial class SlimeReagentEffect
 {
-    public abstract bool Effect(SlimeReagentEffectArgs args);
+    public virtual bool Effect(SlimeReagentEffectArgs args)
+    {
+        return false;
+    }
 
-    public abstract float TimeNeeded();
+    public virtual float TimeNeeded()
+    {
+        return 0f;
+    }
 
-    public abstract bool SpendOnUse();
+    public virtual bool SpendOnUse()
+    {
+        return true;
+    }
 
-    public abstract void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity);
+    public virtual string GetReactionMessage()
+    {
+        return "extract-reacting";
+    }
 }
 
 // Se os nomes aqui estiverem iguais aos reagentes, da pra usar o ToString() pras coisas
@@ -36,5 +49,6 @@ public readonly record struct SlimeReagentEffectArgs(
     FixedPoint2 Quantity,
     IEntityManager EntityManager,
     IRobustRandom RobustRandom,
-    SlimeReactionComponent ReactionComponent
+    SlimeReactionComponent ReactionComponent,
+    SoundSpecifier? Sound
 );
