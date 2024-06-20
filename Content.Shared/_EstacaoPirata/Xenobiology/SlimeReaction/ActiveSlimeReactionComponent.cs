@@ -1,4 +1,8 @@
-﻿namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
+﻿using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
+
+namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 
 /// <summary>
 /// This is used for...
@@ -17,4 +21,6 @@ public sealed partial class ActiveSlimeReactionComponent : Component
     public bool ReactionSuccess = false;
 
     public bool SpendOnUse = false;
+
+    public bool SoundPlayed = false;
 }

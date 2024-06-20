@@ -6,8 +6,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
@@ -21,9 +19,6 @@ public sealed partial class SpawnSmoke : SlimeReagentEffect
     /// </summary>
     [DataField("prototype"), ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<EntityPrototype> Prototype = "Smoke";
-
-    [DataField("sound")]
-    public SoundSpecifier? Sound;
 
     public override bool Effect(SlimeReagentEffectArgs args)
     {
@@ -129,8 +124,8 @@ public sealed partial class SpawnSmoke : SlimeReagentEffect
         return false;
     }
 
-    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
+    public override string GetReactionMessage()
     {
-        audioSystem.PlayPvs(sound, entity);
+        return "extract-smoke";
     }
 }

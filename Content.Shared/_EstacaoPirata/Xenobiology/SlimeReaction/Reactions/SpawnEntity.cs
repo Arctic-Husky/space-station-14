@@ -75,8 +75,8 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
         return true;
     }
 
-    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
+    public override string GetReactionMessage()
     {
-        audioSystem.PlayPvs(sound, entity);
+        return "extract-entity";
     }
 }

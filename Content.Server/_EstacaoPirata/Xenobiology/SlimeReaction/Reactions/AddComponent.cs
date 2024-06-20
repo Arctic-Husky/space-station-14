@@ -31,9 +31,4 @@ public sealed partial class AddComponent : SlimeReagentEffect
     {
         return false;
     }
-
-    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
-    {
-        audioSystem.PlayPvs(sound, entity);
-    }
 }

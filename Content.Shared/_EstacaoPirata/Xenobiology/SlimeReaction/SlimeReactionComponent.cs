@@ -25,35 +25,30 @@ public sealed partial class SlimeReactionComponent : Component
     public bool Spent;
 
     [DataField("reactionSound")]
-    public SoundSpecifier? ReactionSound;
+    public SoundSpecifier? ReactionSound = new SoundPathSpecifier("/Audio/Effects/Chemistry/bubbles.ogg",
+        new AudioParams
+    {
+        Volume = -10
+    });
 
     public string SolutionName = "slimeExtract";
 
-    public float TimeToWait = 0f;
-
     public bool ExtractJustSpawned = true;
-
-    public Dictionary<SlimeReactionMethod, string> MethodMap = new Dictionary<SlimeReactionMethod, string>
-    {
-        { SlimeReactionMethod.Plasma , "Plasma"},
-        { SlimeReactionMethod.Blood , "Blood"},
-        { SlimeReactionMethod.Water , "Water"}
-    };
 }
 
 [DataDefinition]
 public sealed partial class SlimeExtractReactionEntry
 {
-
     [DataField("method", required: true)]
     public SlimeReactionMethod Method;
 
-    // [DataField("reagent", required: true)]
-    // public ReagentId Reagent;
-
     [DataField("effects", required: true)]
     public List<SlimeReagentEffect> Effects = default!;
-    // [DataField("groups", readOnly: true, serverOnly: true,
-    //     customTypeSerializer:typeof(PrototypeIdDictionarySerializer<HashSet<ReactionMethod>, ReactiveGroupPrototype>))]
-    // public Dictionary<string, HashSet<string>>? ReactiveGroups { get; private set; }
+
+    [DataField("sound")]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Effects/Chemistry/bubbles.ogg",
+        new AudioParams
+    {
+        Volume = -10
+    });
 }

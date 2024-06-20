@@ -92,11 +92,13 @@
         reagent: "SlimeStabilizer"
         rate: 10
     - method: Water
+      sound:
+        path: /Audio/Effects/extinguish.ogg
+        params:
+          volume: -10
       effects:
       - !type:SpawnSmoke
         prototype: "Foam"
-        sound:
-          path: /Audio/Effects/extinguish.ogg
 
 - type: entity
   name: bluespace slime extract
@@ -124,6 +126,23 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: dark_blue_slime_extract
+  - type: SlimeReaction
+    reactionSound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+      params:
+        volume: -10
+    reactions:
+    - method: Plasma
+      sound:
+        path: /Audio/Items/smoke_grenade_smoke.ogg
+        params:
+          volume: -2
+      effects:
+      - !type:SpawnGas
+        spawnGas: Nitrogen
+        delayTime: 5
+        spawnAmount: 82.10312
+        spawnTemperature: 23.15
 
 - type: entity
   name: dark purple slime extract
@@ -236,6 +255,10 @@
         volume: -10
     reactions:
     - method: Plasma
+      sound:
+        path: /Audio/Items/smoke_grenade_smoke.ogg
+        params:
+          volume: -2
       effects:
       - !type:SpawnGas
         spawnGas: Plasma
@@ -247,9 +270,12 @@
         reagent: "CapsaicinOil"
         rate: 10
     - method: Water
+      sound:
+        path: /Audio/Items/smoke_grenade_smoke.ogg
+        params:
+          volume: -2
       effects:
       - !type:SpawnSmoke
-        sound: /Audio/Items/smoke_grenade_smoke.ogg
 
 - type: entity
   name: pink slime extract

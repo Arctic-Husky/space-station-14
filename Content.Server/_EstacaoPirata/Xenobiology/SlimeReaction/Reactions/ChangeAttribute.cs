@@ -70,11 +70,6 @@ public sealed partial class ChangeAttribute : SlimeReagentEffect
     {
         return false;
     }
-
-    public override void PlaySound(SharedAudioSystem audioSystem, SoundSpecifier? sound, EntityUid entity)
-    {
-
-    }
 }
 
 
