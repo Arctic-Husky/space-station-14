@@ -16,7 +16,7 @@ public sealed partial class IncreaseExtractYield : ReagentEffect
 
     public override void Effect(ReagentEffectArgs args)
     {
-        if (!args.EntityManager.TryGetComponent<SlimeGrindableComponent>(args.SolutionEntity, out var grindable))
+        if (!args.EntityManager.TryGetComponent<SlimeCoreComponent>(args.SolutionEntity, out var grindable))
             return;
 
         // 1u = 100

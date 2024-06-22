@@ -50,21 +50,21 @@ public sealed partial class SlimeFeedingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan UpdateRate = TimeSpan.FromSeconds(1);
 
+    [DataField("feedingTime")]
+    public TimeSpan FeedingTime = TimeSpan.FromSeconds(4);
+
+    // TODO: tirar coisas de leap daqui
     /// <summary>
     ///
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan LatchOnTime = TimeSpan.FromSeconds(60);
 
-    // TODO: tirar coisas de leap daqui
     [DataField("leapDistance")]
     public float LeapDistance = 1f;
 
     [DataField("leapStrength")]
     public float LeapStrength = 4f;
-
-    [DataField("feedingTime")]
-    public TimeSpan FeedingTime = TimeSpan.FromSeconds(4);
 
     [ViewVariables]
     [AutoNetworkedField]

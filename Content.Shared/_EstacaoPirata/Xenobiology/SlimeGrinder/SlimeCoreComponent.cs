@@ -4,10 +4,10 @@
 /// This is used for...
 /// </summary>
 [RegisterComponent]
-public sealed partial class SlimeGrindableComponent : Component
+public sealed partial class SlimeCoreComponent : Component
 {
-    [DataField("grindResult")]
-    public string GrindResult = "GraySlimeExtract";
+    [DataField("core")]
+    public string Core = "GraySlimeExtract";
 
     [DataField("yield")]
     public float Yield = 1f;

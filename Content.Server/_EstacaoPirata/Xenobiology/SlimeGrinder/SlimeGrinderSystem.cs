@@ -80,14 +80,14 @@ public sealed class SlimeGrinderSystem : EntitySystem
             // Spawnar o extract do slime do topo da lista, resetar o processing timer e deletar o slime
 
             var coordinates = _transform.GetMapCoordinates(uid);
-            if(!TryComp<SlimeGrindableComponent>(grinder.Storage.ContainedEntities.First(), out var slimeGrindableComponent))
+            if(!TryComp<SlimeCoreComponent>(grinder.Storage.ContainedEntities.First(), out var slimeGrindableComponent))
                 continue;
 
             var yieldRounded = Math.Round(slimeGrindableComponent.Yield);
             // TODO: randomizar um pouco a posicao do spawn de cada extract
             for (int i = 0; i < yieldRounded; i++)
             {
-                Spawn(slimeGrindableComponent.GrindResult, coordinates);
+                Spawn(slimeGrindableComponent.Core, coordinates);
             }
 
             // TODO: mudar isso do timer pra ele com a massa do bicho, biomass reclaimer pra ter uma referencia
@@ -213,7 +213,7 @@ public sealed class SlimeGrinderSystem : EntitySystem
         // if (!Transform(uid).Anchored)
         //     return false;
 
-        if (!HasComp<SlimeGrindableComponent>(entity))
+        if (!HasComp<SlimeCoreComponent>(entity))
             return false;
 
         // Talvez mudar depois pra poder aceitar slime vivo, com algum upgrade de maquina sei la

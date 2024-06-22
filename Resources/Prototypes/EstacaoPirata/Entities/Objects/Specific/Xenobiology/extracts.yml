@@ -24,7 +24,7 @@
     volume: -15
     range: 5
     sound:
-      path: /Audio/Items/Flare/flare_burn.ogg
+      path: /Audio/EstacaoPirata/Effects/underwater_bubbles.ogg
 
 # TODO: fazer visuals de extract pra estar esgotado
 
@@ -377,9 +377,6 @@
         params:
           volume: -10
       effects:
-#      - !type:AddComponent
-#        comp:
-#          - type: Flash
       - !type:SpawnFlash
         range: 7
 
@@ -407,7 +404,7 @@
     reactions:
     - method: Plasma
       effects:
-      - !type:AddComponent # TODO: nao usar addcomponent aqui, fazer um SlimeReaction especifico
+      - !type:AddComponent
         comp:
           - type: Battery
             maxCharge: 1080
