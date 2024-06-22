@@ -150,8 +150,29 @@
       Starving: 10
       Dead: 0
     baseDecayRate: 0.1 # it is okay for animals to eat and drink less than humans, but more frequently
+  - type: Temperature
+    coldDamageThreshold: 300
+    currentTemperature: 310.15
+    specificHeat: 20
+    coldDamage:
+      types:
+        Cold: 2.0 #per second, scales with temperature & other constants
+#    heatDamage:
+#      types:
+#        Heat: 1.5 #per second, scales with temperature & other constants
 
 # TODO: fazer visuals de slime pra comer, idle, morto
+
+- type: entity
+  name: baby slime
+  id: MobSlimesBaby
+  abstract: true
+  parent: MobSlimes
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Dead
 
 - type: entity
   name: grey slime
@@ -168,12 +189,12 @@
     baby: "MobBabySlimesGrey"
     mutations: ["MobBabySlimesOrange", "MobBabySlimesPurple", "MobBabySlimesBlue", "MobBabySlimesMetal"]
     sound: /Audio/EstacaoPirata/Effects/Slime/slime_jump.ogg
-  - type: SlimeGrindable
-    grindResult: "GreySlimeExtract"
+  - type: SlimeCore
+    core: "GreySlimeExtract"
 
 - type: entity
   name: baby grey slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesGrey
   components:
   - type: Sprite
@@ -195,8 +216,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesGrey"
-  - type: SlimeGrindable
-    grindResult: "GreySlimeExtract"
+  - type: SlimeCore
+    core: "GreySlimeExtract"
 
 - type: entity
   name: adamantine slime
@@ -222,12 +243,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesAdamantine"
-  - type: SlimeGrindable
-    grindResult: "AdamantineSlimeExtract"
+  - type: SlimeCore
+    core: "AdamantineSlimeExtract"
 
 - type: entity
   name: baby adamantine slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesAdamantine
   components:
   - type: Sprite
@@ -249,8 +270,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesAdamantine"
-  - type: SlimeGrindable
-    grindResult: "AdamantineSlimeExtract"
+  - type: SlimeCore
+    core: "AdamantineSlimeExtract"
 
 - type: entity
   name: black slime
@@ -276,12 +297,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesBlack"
-  - type: SlimeGrindable
-    grindResult: "BlackSlimeExtract"
+  - type: SlimeCore
+    core: "BlackSlimeExtract"
 
 - type: entity
   name: baby black slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesBlack
   components:
   - type: Sprite
@@ -303,8 +324,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesBlack"
-  - type: SlimeGrindable
-    grindResult: "BlackSlimeExtract"
+  - type: SlimeCore
+    core: "BlackSlimeExtract"
 
 #- type: entity
 #  name: blue slime
@@ -343,12 +364,12 @@
   - type: Meiosis
     baby: "MobBabySlimesBlue"
     mutations: [ "MobBabySlimesSilver", "MobBabySlimesDarkBlue", "MobBabySlimesPink" ]
-  - type: SlimeGrindable
-    grindResult: "BlueSlimeExtract"
+  - type: SlimeCore
+    core: "BlueSlimeExtract"
 
 - type: entity
   name: baby blue slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesBlue
   components:
   - type: Sprite
@@ -370,8 +391,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesBlueAlt"
-  - type: SlimeGrindable
-    grindResult: "BlueSlimeExtract"
+  - type: SlimeCore
+    core: "BlueSlimeExtract"
 
 - type: entity
   name: bluespace slime
@@ -397,12 +418,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesBluespace"
-  - type: SlimeGrindable
-    grindResult: "BluespaceSlimeExtract"
+  - type: SlimeCore
+    core: "BluespaceSlimeExtract"
 
 - type: entity
   name: baby bluespace slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesBluespace
   components:
   - type: Sprite
@@ -424,8 +445,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesBluespace"
-  - type: SlimeGrindable
-    grindResult: "BluespaceSlimeExtract"
+  - type: SlimeCore
+    core: "BluespaceSlimeExtract"
 
 - type: entity
   name: cerulean slime
@@ -451,12 +472,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesCerulean"
-  - type: SlimeGrindable
-    grindResult: "CeruleanSlimeExtract"
+  - type: SlimeCore
+    core: "CeruleanSlimeExtract"
 
 - type: entity
   name: baby cerulean slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesCerulean
   components:
   - type: Sprite
@@ -478,8 +499,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesCerulean"
-  - type: SlimeGrindable
-    grindResult: "CeruleanSlimeExtract"
+  - type: SlimeCore
+    core: "CeruleanSlimeExtract"
 
 - type: entity
   name: dark blue slime
@@ -506,12 +527,12 @@
   - type: Meiosis
     baby: "MobBabySlimesDarkBlue"
     mutations: [ "MobBabySlimesBlue", "MobBabySlimesPurple", "MobBabySlimesCerulean" ]
-  - type: SlimeGrindable
-    grindResult: "DarkBlueSlimeExtract"
+  - type: SlimeCore
+    core: "DarkBlueSlimeExtract"
 
 - type: entity
   name: baby dark blue slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesDarkBlue
   components:
   - type: Sprite
@@ -533,8 +554,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesDarkBlue"
-  - type: SlimeGrindable
-    grindResult: "DarkBlueSlimeExtract"
+  - type: SlimeCore
+    core: "DarkBlueSlimeExtract"
 
 - type: entity
   name: dark purple slime
@@ -561,12 +582,12 @@
   - type: Meiosis
     baby: "MobBabySlimesDarkPurple"
     mutations: [ "MobBabySlimesOrange", "MobBabySlimesPurple", "MobBabySlimesSepia" ]
-  - type: SlimeGrindable
-    grindResult: "DarkPurpleSlimeExtract"
+  - type: SlimeCore
+    core: "DarkPurpleSlimeExtract"
 
 - type: entity
   name: baby dark purple slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesDarkPurple
   components:
   - type: Sprite
@@ -588,8 +609,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesDarkPurple"
-  - type: SlimeGrindable
-    grindResult: "DarkPurpleSlimeExtract"
+  - type: SlimeCore
+    core: "DarkPurpleSlimeExtract"
 
 - type: entity
   name: gold slime
@@ -616,12 +637,12 @@
   - type: Meiosis
     baby: "MobBabySlimesGold"
     mutations: [ "MobBabySlimesGold", "MobBabySlimesGold", "MobBabySlimesAdamantine" ]
-  - type: SlimeGrindable
-    grindResult: "GoldSlimeExtract"
+  - type: SlimeCore
+    core: "GoldSlimeExtract"
 
 - type: entity
   name: baby gold slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesGold
   components:
   - type: Sprite
@@ -643,8 +664,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesGold"
-  - type: SlimeGrindable
-    grindResult: "GoldSlimeExtract"
+  - type: SlimeCore
+    core: "GoldSlimeExtract"
 
 #- type: entity
 #  name: green slime
@@ -683,12 +704,12 @@
   - type: Meiosis
     baby: "MobBabySlimesGreen"
     mutations: [ "MobBabySlimesPurple", "MobBabySlimesGreen", "MobBabySlimesBlack" ]
-  - type: SlimeGrindable
-    grindResult: "GreenSlimeExtract"
+  - type: SlimeCore
+    core: "GreenSlimeExtract"
 
 - type: entity
   name: baby green slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesGreen
   components:
   - type: Sprite
@@ -710,8 +731,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesGreenAlt"
-  - type: SlimeGrindable
-    grindResult: "GreenSlimeExtract"
+  - type: SlimeCore
+    core: "GreenSlimeExtract"
 
 - type: entity
   name: light pink slime
@@ -737,12 +758,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesLightPink"
-  - type: SlimeGrindable
-    grindResult: "LightPinkSlimeExtract"
+  - type: SlimeCore
+    core: "LightPinkSlimeExtract"
 
 - type: entity
   name: baby light pink slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesLightPink
   components:
   - type: Sprite
@@ -764,8 +785,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesLightPink"
-  - type: SlimeGrindable
-    grindResult: "LightPinkSlimeExtract"
+  - type: SlimeCore
+    core: "LightPinkSlimeExtract"
 
 - type: entity
   name: metal slime
@@ -792,12 +813,12 @@
   - type: Meiosis
     baby: "MobBabySlimesMetal"
     mutations: [ "MobBabySlimesGold", "MobBabySlimesYellow", "MobBabySlimesSilver" ]
-  - type: SlimeGrindable
-    grindResult: "MetalSlimeExtract"
+  - type: SlimeCore
+    core: "MetalSlimeExtract"
 
 - type: entity
   name: baby metal slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesMetal
   components:
   - type: Sprite
@@ -819,8 +840,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesMetal"
-  - type: SlimeGrindable
-    grindResult: "MetalSlimeExtract"
+  - type: SlimeCore
+    core: "MetalSlimeExtract"
 
 - type: entity
   name: oil slime
@@ -846,12 +867,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesOil"
-  - type: SlimeGrindable
-    grindResult: "OilSlimeExtract"
+  - type: SlimeCore
+    core: "OilSlimeExtract"
 
 - type: entity
   name: baby oil slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesOil
   components:
   - type: Sprite
@@ -873,8 +894,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesOil"
-  - type: SlimeGrindable
-    grindResult: "OilSlimeExtract"
+  - type: SlimeCore
+    core: "OilSlimeExtract"
 
 - type: entity
   name: orange slime
@@ -901,12 +922,12 @@
   - type: Meiosis
     baby: "MobBabySlimesOrange"
     mutations: [ "MobBabySlimesYellow", "MobBabySlimesRed", "MobBabySlimesDarkPurple" ]
-  - type: SlimeGrindable
-    grindResult: "OrangeSlimeExtract"
+  - type: SlimeCore
+    core: "OrangeSlimeExtract"
 
 - type: entity
   name: baby orange slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesOrange
   components:
   - type: Sprite
@@ -928,8 +949,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesOrange"
-  - type: SlimeGrindable
-    grindResult: "OrangeSlimeExtract"
+  - type: SlimeCore
+    core: "OrangeSlimeExtract"
 
 - type: entity
   name: pink slime
@@ -956,12 +977,12 @@
   - type: Meiosis
     baby: "MobBabySlimesPink"
     mutations: [ "MobBabySlimesLightPink", "MobBabySlimesPink", "MobBabySlimesPink" ]
-  - type: SlimeGrindable
-    grindResult: "PinkSlimeExtract"
+  - type: SlimeCore
+    core: "PinkSlimeExtract"
 
 - type: entity
   name: baby pink slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesPink
   components:
   - type: Sprite
@@ -983,8 +1004,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesPink"
-  - type: SlimeGrindable
-    grindResult: "PinkSlimeExtract"
+  - type: SlimeCore
+    core: "PinkSlimeExtract"
 
 - type: entity
   name: purple slime
@@ -1011,12 +1032,12 @@
   - type: Meiosis
     baby: "MobBabySlimesPurple"
     mutations: [ "MobBabySlimesDarkPurple", "MobBabySlimesGreen", "MobBabySlimesDarkBlue" ]
-  - type: SlimeGrindable
-    grindResult: "PurpleSlimeExtract"
+  - type: SlimeCore
+    core: "PurpleSlimeExtract"
 
 - type: entity
   name: baby purple slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesPurple
   components:
   - type: Sprite
@@ -1038,8 +1059,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesPurple"
-  - type: SlimeGrindable
-    grindResult: "PurpleSlimeExtract"
+  - type: SlimeCore
+    core: "PurpleSlimeExtract"
 
 - type: entity
   name: pyrite slime
@@ -1065,12 +1086,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesPyrite"
-  - type: SlimeGrindable
-    grindResult: "PyriteSlimeExtract"
+  - type: SlimeCore
+    core: "PyriteSlimeExtract"
 
 - type: entity
   name: baby pyrite slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesPyrite
   components:
   - type: Sprite
@@ -1092,8 +1113,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesPyrite"
-  - type: SlimeGrindable
-    grindResult: "PyriteSlimeExtract"
+  - type: SlimeCore
+    core: "PyriteSlimeExtract"
 
 # Slimes especiais
 - type: entity
@@ -1118,12 +1139,12 @@
         Structural: 4
         Caustic: 1
         Cellular: 3
-  - type: SlimeGrindable
-    grindResult: "RainbowSlimeExtract"
+  - type: SlimeCore
+    core: "RainbowSlimeExtract"
 
 - type: entity
   name: baby rainbow slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesRainbow
   components:
   - type: Sprite
@@ -1145,8 +1166,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesRainbow"
-  - type: SlimeGrindable
-    grindResult: "RainbowSlimeExtract"
+  - type: SlimeCore
+    core: "RainbowSlimeExtract"
 
 - type: entity
   name: red slime
@@ -1173,12 +1194,12 @@
   - type: Meiosis
     baby: "MobBabySlimesRed"
     mutations: [ "MobBabySlimesRed", "MobBabySlimesRed", "MobBabySlimesOil" ]
-  - type: SlimeGrindable
-    grindResult: "RedSlimeExtract"
+  - type: SlimeCore
+    core: "RedSlimeExtract"
 
 - type: entity
   name: baby red slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesRed
   components:
   - type: Sprite
@@ -1200,8 +1221,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesRed"
-  - type: SlimeGrindable
-    grindResult: "RedSlimeExtract"
+  - type: SlimeCore
+    core: "RedSlimeExtract"
 
 - type: entity
   name: sepia slime
@@ -1227,12 +1248,12 @@
         Cellular: 3
   - type: Meiosis
     baby: "MobBabySlimesSepia"
-  - type: SlimeGrindable
-    grindResult: "SepiaSlimeExtract"
+  - type: SlimeCore
+    core: "SepiaSlimeExtract"
 
 - type: entity
   name: baby sepia slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesSepia
   components:
   - type: Sprite
@@ -1254,8 +1275,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesSepia"
-  - type: SlimeGrindable
-    grindResult: "SepiaSlimeExtract"
+  - type: SlimeCore
+    core: "SepiaSlimeExtract"
 
 - type: entity
   name: silver slime
@@ -1282,12 +1303,12 @@
   - type: Meiosis
     baby: "MobBabySlimesSilver"
     mutations: [ "MobBabySlimesPyrite", "MobBabySlimesMetal", "MobBabySlimesBlueAlt" ]
-  - type: SlimeGrindable
-    grindResult: "SilverSlimeExtract"
+  - type: SlimeCore
+    core: "SilverSlimeExtract"
 
 - type: entity
   name: baby silver slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesSilver
   components:
   - type: Sprite
@@ -1309,8 +1330,8 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesSilver"
-  - type: SlimeGrindable
-    grindResult: "SilverSlimeExtract"
+  - type: SlimeCore
+    core: "SilverSlimeExtract"
 
 #- type: entity
 #  name: yellow slime
@@ -1349,12 +1370,12 @@
   - type: Meiosis
     baby: "MobBabySlimesYellow"
     mutations: [ "MobBabySlimesBluespace", "MobBabySlimesOrange", "MobBabySlimesMetal" ]
-  - type: SlimeGrindable
-    grindResult: "YellowSlimeExtract"
+  - type: SlimeCore
+    core: "YellowSlimeExtract"
 
 - type: entity
   name: baby yellow slime
-  parent: MobSlimes
+  parent: MobSlimesBaby
   id: MobBabySlimesYellow
   components:
   - type: Sprite
@@ -1376,5 +1397,5 @@
         Cellular: 3
   - type: SlimeGrowth
     adult: "MobAdultSlimesYellow"
-  - type: SlimeGrindable
-    grindResult: "YellowSlimeExtract"
+  - type: SlimeCore
+    core: "YellowSlimeExtract"

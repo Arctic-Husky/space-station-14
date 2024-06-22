@@ -39,14 +39,16 @@ public sealed class SlimeGrowthSystem : EntitySystem
 
         var spawnedEntity = Spawn(component.Adult, position);
 
-        if (TryComp<SlimeGrindableComponent>(entity, out var grindable))
+        // Tirar isto daqui e colocar em outro sistema proprio
+        if (TryComp<SlimeCoreComponent>(entity, out var grindable))
         {
-            if (TryComp<SlimeGrindableComponent>(spawnedEntity, out var grindableNew))
+            if (TryComp<SlimeCoreComponent>(spawnedEntity, out var grindableNew))
             {
                 grindableNew.Yield = grindable.Yield;
             }
         }
 
+        // Tirar isto daqui e colocar em outro sistema proprio
         if (TryComp<MeiosisComponent>(spawnedEntity, out var meiosis))
         {
             meiosis.MutationChance = component.InheritedMutation;
