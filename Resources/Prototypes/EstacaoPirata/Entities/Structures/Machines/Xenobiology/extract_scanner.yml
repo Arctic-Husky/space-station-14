@@ -1,0 +1,103 @@
+- type: entity
+  id: ExtractScanner
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: extract scanner
+  description: Scan the slime extracts to learn more about or sell them for points
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ExtractScannerVisualState.Scanning:
+        scanningunshaded:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.VisualState:
+        enum.ExtractScannerVisualizerLayers.Base:
+          Idle: { state: "scanner" }
+        enum.ExtractScannerVisualizerLayers.BaseUnlit:
+          Idle: { state: "unlit" }
+        scanningunshaded:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.ExtractScannerVisualizerLayers.BaseUnlit:
+          True: { visible: true }
+          False: { visible: false }
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.PowerDeviceVisualLayers.Powered:
+#        computerLayerScreen:
+#          True: { visible: true, shader: unshaded }
+#          False: { visible: false }
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.16,0.3,0.16"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
+        hard: false
+  - type: Sprite
+    sprite: EstacaoPirata/Structures/Machines/Xenobiology/extract_scanner.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: scanner
+      map: [ "enum.ExtractScannerVisualizerLayers.Base" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.ExtractScannerVisualizerLayers.BaseUnlit" ]
+    - state: scanner_active
+      shader: unshaded
+      visible: false
+      map: ["scanningunshaded"]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    totalIntensity: 5
+    intensitySlope: 5
+    canCreateVacuum: false
+    deleteAfterExplosion: false
+  - type: ApcPowerReceiver
+    powerLoad: 400
+#  - type: PointLight
+#    radius: 1.2
+#    energy: 1.0
+#    color: "#33FF00"
+  - type: ContainerContainer
+    containers:
+      extract_container: !type:Container
+        #      machine_board: !type:Container
+      #      machine_parts: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - extract_container
+  - type: ActivatableUI
+    key: enum.ExtractScannerUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ExtractScannerUiKey.Key:
+        type: ExtractScannerBoundUserInterface # criar tela
+  - type: ExtractScanner
+#  - type: DeviceLinkSink
+#    ports:
+#    - On
+#  - type: DeviceNetwork
+#    deviceNetId: Wireless
+#    receiveFrequencyId: BasicDevice
+#  - type: WirelessNetworkConnection
+#    range: 200

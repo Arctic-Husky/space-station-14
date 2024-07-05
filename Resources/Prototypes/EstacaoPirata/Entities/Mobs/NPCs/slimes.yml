@@ -123,7 +123,7 @@
         Caustic: 4
   - type: InteractionPopup
     successChance: 0.5
-    interactSuccessString: petting-success-slimes
+    interactSuccessString: petting-success-slimes # TODO usar isso aqui pra melhorar amizade
     interactFailureString: petting-failure-generic
   - type: ReplacementAccent
     accent: slimes
@@ -140,8 +140,8 @@
   - type: SlimeFeeding
     feedingDamage:
       types:
-        Blunt: 18
-        Caustic: 12
+        #Blunt: 18
+        Caustic: 30
   - type: Hunger
     thresholds: # only animals and rats are derived from this prototype so let's override it here and in rats' proto
       Overfed: 100
