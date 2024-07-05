@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Baystation12 at https://github.com/Baystation12/Baystation12/blob/464342c5dc8c417b7e79d56c69aa30445bdf3b75/icons/obj/machines/research/xenoarcheology_scanner.dmi, altered by Arctic-Husky",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "scanner"
+    },
+    {
+      "name": "scanner_active",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "xenoarch_console",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "unlit"
+    }
+  ]
+}
