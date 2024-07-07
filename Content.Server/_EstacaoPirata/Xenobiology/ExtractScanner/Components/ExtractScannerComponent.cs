@@ -1,4 +1,5 @@
-﻿using Content.Shared.Item;
+﻿using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -14,9 +15,5 @@ public sealed partial class ExtractScannerComponent : Component
     /// The sound played when an artifact has points extracted.
     /// </summary>
     [DataField("sellSound")]
-    public SoundSpecifier SellSound = new SoundPathSpecifier("/Audio/Effects/radpulse11.ogg");
-
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<ItemSizePrototype> MaxItemSize = "Tiny";
-
+    public SoundSpecifier SellSound = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg");
 }

@@ -10,6 +10,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeReaction;
 
@@ -166,7 +167,7 @@ public sealed class SlimeReactionSystem : EntitySystem
                     // Se ocorreu o efeito
                     if (effect.Key.Effect(effect.Value))
                     {
-                        _ambientSoundSystem.SetAmbience(uid, false);
+                        _ambientSoundSystem.SetAmbience(uid, false); // tirar daqui e deixar so la em reactionsuccess
                         _popupSystem.PopupEntity(Loc.GetString("extract-reaction-successful", ("extract", uid), ("occured", Loc.GetString(effect.Key.GetReactionMessage()))), uid, PopupType.Small);
                         _audio.PlayPvs(effect.Value.Sound, uid);
                         activeComp.ReactionSuccess = true;
@@ -201,5 +202,55 @@ public sealed class SlimeReactionSystem : EntitySystem
                 //return;
             }
         }
+    }
+
+    public FormattedMessage GetReactionsText(EntityUid uid)
+    {
+        var msg = new FormattedMessage();
+
+        if (!TryComp<SlimeReactionComponent>(uid, out var component))
+        {
+            return msg;
+        }
+
+        var reactions = component.Reactions;
+
+        if (reactions is not null)
+        {
+            foreach (var reaction in reactions)
+            {
+                var text = reaction.Method.ToString().ToLower();
+                var locString = $"reagent-name-{text}";
+                msg.AddMarkup(Loc.GetString(locString));
+                msg.PushNewline();
+
+            }
+        }
+
+        return msg;
+    }
+
+    public List<string> GetReactionsList(EntityUid uid)
+    {
+        var msg = new List<string>();
+
+        if (!TryComp<SlimeReactionComponent>(uid, out var component))
+        {
+            return msg;
+        }
+
+        var reactions = component.Reactions;
+
+        if (reactions is not null)
+        {
+            foreach (var reaction in reactions)
+            {
+                var text = reaction.Method.ToString().ToLower();
+                var locString = $"reagent-name-{text}";
+                msg.Add(locString);
+            }
+        }
+
+        return msg;
     }
 }

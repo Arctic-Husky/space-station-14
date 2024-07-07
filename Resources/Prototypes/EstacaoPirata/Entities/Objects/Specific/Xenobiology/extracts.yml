@@ -21,10 +21,14 @@
     solution: slimeExtract
   - type: AmbientSound
     enabled: false
-    volume: -15
     range: 5
     sound:
       path: /Audio/EstacaoPirata/Effects/underwater_bubbles.ogg
+  - type: Tag
+    tags:
+    - SlimeExtract
+  - type: ExtractValue
+    tier: 0
 
 # TODO: fazer visuals de extract pra estar esgotado
 
@@ -37,7 +41,7 @@
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
       - method: Plasma
         effects:
@@ -63,6 +67,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: adamantine_slime_extract
+  - type: ExtractValue
+    tier: 5
 
 - type: entity
   name: black slime extract
@@ -72,6 +78,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: black_slime_extract
+  - type: ExtractValue
+    tier: 5
 
 - type: entity
   name: blue slime extract
@@ -81,11 +89,13 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: blue_slime_extract
+  - type: ExtractValue
+    tier: 1
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Plasma
       effects:
@@ -101,7 +111,7 @@
       sound:
         path: /Audio/Effects/extinguish.ogg
         params:
-          volume: -10
+          volume: -2
       effects:
       - !type:SpawnSmoke
         prototype: "Foam"
@@ -114,6 +124,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: bluespace_slime_extract
+  - type: ExtractValue
+    tier: 4
 
 - type: entity
   name: cerulean slime extract
@@ -123,6 +135,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: cerulean_slime_extract
+  - type: ExtractValue
+    tier: 4
 
 - type: entity
   name: dark blue slime extract
@@ -132,17 +146,17 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: dark_blue_slime_extract
+  - type: ExtractValue
+    tier: 2
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Plasma
       sound:
         path: /Audio/Items/smoke_grenade_smoke.ogg
-        params:
-          volume: -2
       effects:
       - !type:SpawnGas
         spawnGas: Nitrogen
@@ -158,6 +172,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: dark_purple_slime_extract
+  - type: ExtractValue
+    tier: 2
   - type: SlimeReaction
     reactions:
     - method: Plasma
@@ -175,6 +191,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: gold_slime_extract
+  - type: ExtractValue
+    tier: 3
 
 - type: entity
   name: green slime extract
@@ -184,11 +202,13 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: green_slime_extract
+  - type: ExtractValue
+    tier: 3
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Radium
       effects:
@@ -204,6 +224,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: light_pink_slime_extract
+  - type: ExtractValue
+    tier: 5
 
 - type: entity
   name: metal slime extract
@@ -213,11 +235,13 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: metal_slime_extract
+  - type: ExtractValue
+    tier: 1
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Plasma
       effects:
@@ -242,11 +266,13 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: oil_slime_extract
+  - type: ExtractValue
+    tier: 5
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Blood
       effects:
@@ -262,17 +288,17 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: orange_slime_extract
+  - type: ExtractValue
+    tier: 1
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Plasma
       sound:
         path: /Audio/Items/smoke_grenade_smoke.ogg
-        params:
-          volume: -2
       effects:
       - !type:SpawnGas
         spawnGas: Plasma
@@ -286,8 +312,6 @@
     - method: Water
       sound:
         path: /Audio/Items/smoke_grenade_smoke.ogg
-        params:
-          volume: -2
       effects:
       - !type:SpawnSmoke
 
@@ -299,6 +323,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: pink_slime_extract
+  - type: ExtractValue
+    tier: 3
 
 - type: entity
   name: purple slime extract
@@ -308,11 +334,13 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: purple_slime_extract
+  - type: ExtractValue
+    tier: 1
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Plasma
       effects:
@@ -333,6 +361,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: pyrite_slime_extract
+  - type: ExtractValue
+    tier: 4
 
 - type: entity
   name: rainbow slime extract
@@ -342,6 +372,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: rainbow_slime_extract
+  - type: ExtractValue
+    tier: 6
 
 - type: entity
   name: red slime extract
@@ -351,6 +383,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: red_slime_extract
+  - type: ExtractValue
+    tier: 3
 
 - type: entity
   name: sepia slime extract
@@ -360,6 +394,8 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: sepia_slime_extract
+  - type: ExtractValue
+    tier: 4
 
 - type: entity
   name: silver slime extract
@@ -369,13 +405,15 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
     state: silver_slime_extract
+  - type: ExtractValue
+    tier: 2
   - type: SlimeReaction
     reactions:
     - method: Plasma
       sound:
         path: /Audio/Effects/flash_bang.ogg
         params:
-          volume: -10
+          volume: -5
       effects:
       - !type:SpawnFlash
         range: 7
@@ -395,12 +433,18 @@
       state: o1
       shader: unshaded
       visible: false
+  - type: ExtractValue
+    tier: 2
   - type: PowerCellVisuals
+  - type: Tag
+    tags:
+    - SlimeExtract
+    - PowerCell
   - type: SlimeReaction
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
-        volume: -10
+        volume: -2
     reactions:
     - method: Plasma
       effects:
@@ -416,13 +460,13 @@
           - type: MachinePart
             part: PowerCell
             rating: 3
-          - type: Tag
-            tags:
-            - PowerCell
+#          - type: Tag
+#            tags:
+#            - PowerCell
           - type: Appearance
       - !type:ChangeAppearance
         visualEnum: enum.PowerCellVisuals.ChargeLevel
-        value: 1
+        value: 2
     - method: Water
       effects:
       - !type:AddComponent

@@ -23,23 +23,15 @@ public sealed class ExtractScannerServerSelectionMessage : BoundUserInterfaceMes
 public sealed class ExtractScannerUpdateState(
         NetEntity? containedSolid,
         FormattedMessage? extractInfo,
-        bool canSell,
-        bool serverConnected
+        bool serverConnected,
+        FormattedMessage? value
     )
     : BoundUserInterfaceState
 {
     public NetEntity? ContainedSolid = containedSolid;
-    //public bool CanScan = canScan;
     public bool ServerConnected = serverConnected;
-    public bool CanSell = canSell;
     public FormattedMessage? ExtractInfo = extractInfo;
-
-    // public ExtractScannerUpdateState(NetEntity? containedSolid,
-    //     bool canScan)
-    // {
-    //     ContainedSolid = containedSolid;
-    //     CanScan = canScan;
-    // }
+    public FormattedMessage? Value = value;
 }
 
 [Serializable, NetSerializable]
