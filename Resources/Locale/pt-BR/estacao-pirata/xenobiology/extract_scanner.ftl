@@ -9,6 +9,7 @@ extract-scanner-menu-footer-flavor-left = Para análise celular de corpos estran
 extract-scanner-menu-footer-flavor-right = v1.0
 extract-scanner-no-server-connected = Não é possível extrair. Não há nenhum servidor conectado.
 extract-scanner-no-extract = Não há nada na máquina.
+extract-scanner-slot-name = Extrato de slime
 
 extract-scanner-item-name = Nome: {$item}
 extract-scanner-item-reactions = Reações: {$reactions}
