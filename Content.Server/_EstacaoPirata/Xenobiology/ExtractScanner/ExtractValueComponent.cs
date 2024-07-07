@@ -10,9 +10,11 @@ public sealed partial class ExtractValueComponent : Component
     public byte Tier = 0;  // Tirar tier 0 e fazer a partir do 1 ?
 
     [ViewVariables]
-    public int Value = 0;
+    public int Value = 0; // This is not being used by the system, its just for debugging for now
 
+    [DataField("base")]
     public int BaseValue = 250;
 
+    [DataField("decrease")]
     public int SpentDecrease = 2;
 }

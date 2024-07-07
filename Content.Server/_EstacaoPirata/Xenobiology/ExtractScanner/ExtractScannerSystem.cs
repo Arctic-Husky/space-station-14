@@ -195,9 +195,11 @@ public sealed class ExtractScannerSystem : EntitySystem
         {
             if(slimeReactionComponent.Spent)
             {
-                value /= 2;
+                value /= extractValueComponent.SpentDecrease;
             }
         }
+
+        extractValueComponent.Value = (int)MathF.Round(value);
 
         return (int)MathF.Round(value);
     }
