@@ -73,13 +73,16 @@
     deleteAfterExplosion: false
   - type: ApcPowerReceiver
     powerLoad: 400
-#  - type: PointLight
-#    radius: 1.2
-#    energy: 1.0
-#    color: "#33FF00"
+  - type: ItemSlots
+    slots:
+      extract_slot:
+        name: extract-scanner-slot-name
+        whitelist:
+          tags:
+          - SlimeExtract
   - type: ContainerContainer
     containers:
-      extract_container: !type:Container
+      extract_slot: !type:ContainerSlot
         #      machine_board: !type:Container
       #      machine_parts: !type:Container
   - type: EmptyOnMachineDeconstruct
@@ -91,8 +94,15 @@
   - type: UserInterface
     interfaces:
       enum.ExtractScannerUiKey.Key:
-        type: ExtractScannerBoundUserInterface # criar tela
+        type: ExtractScannerBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: ResearchClient
   - type: ExtractScanner
+    sellSound:
+      path: /Audio/Machines/scan_finish.ogg
+      params:
+        volume: -8
 #  - type: DeviceLinkSink
 #    ports:
 #    - On
