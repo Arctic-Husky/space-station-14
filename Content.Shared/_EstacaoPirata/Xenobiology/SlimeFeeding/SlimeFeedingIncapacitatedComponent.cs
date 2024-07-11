@@ -12,5 +12,6 @@ public sealed partial class SlimeFeedingIncapacitatedComponent : Component
     public TimeSpan RecoverAt;
 
     // Testar isto aqui
-    public EntityUid? Attacker;
+    [AutoNetworkedField]
+    public EntityUid Attacker;
 }

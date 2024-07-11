@@ -43,28 +43,21 @@ public sealed partial class SlimeConsumeOperator : HTNOperator
     {
         if (!blackboard.TryGetValue<EntityUid>(Target, out var target, _entManager))
         {
-            return HTNOperatorStatus.Failed;
+            return HTNOperatorStatus.Finished;
         }
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var slimeLeapingSystem = _entManager.System<SharedSlimeLeapingSystem>();
 
-        _entManager.TryGetComponent<SlimeFeedingComponent>(owner, out var slimeFeedingComponent);
-        _entManager.TryGetComponent<HungerComponent>(owner, out var hungerComponent);
-        _entManager.TryGetComponent<SlimeFoodComponent>(target, out var slimeFoodComponent);
+
         _entManager.TryGetComponent<SlimeFeedingIncapacitatedComponent>(target, out var slimeFeedingIncapacitatedComponent);
-
-        if (slimeFeedingComponent == null)
-            return HTNOperatorStatus.Failed;
-
-
         if (slimeFeedingIncapacitatedComponent != null)
         {
-            if (slimeFeedingIncapacitatedComponent.Attacker != null && slimeFeedingIncapacitatedComponent.Attacker != owner)
+            if (slimeFeedingIncapacitatedComponent.Attacker != owner)
             {
                 return HTNOperatorStatus.Finished;
             }
         }
 
+        _entManager.TryGetComponent<SlimeFoodComponent>(target, out var slimeFoodComponent);
         // Cabou comida do alvo
         if (slimeFoodComponent != null)
         {
@@ -74,29 +67,42 @@ public sealed partial class SlimeConsumeOperator : HTNOperator
             }
         }
 
+        // if (_entManager.HasComponent<SlimeBadFoodComponent>(target))
+        // {
+        //     return HTNOperatorStatus.Failed;
+        // }
+
+
+        _entManager.TryGetComponent<SlimeFeedingComponent>(owner, out var slimeFeedingComponent);
+        if (slimeFeedingComponent == null)
+            return HTNOperatorStatus.Failed;
+
         // Ta de buchin chei
         if (!slimeFeedingComponent.StomachAvailable)
         {
             return HTNOperatorStatus.Finished;
         }
 
+        _entManager.TryGetComponent<HungerComponent>(owner, out var hungerComponent);
         if (hungerComponent != null)
         {
-            // Ainda esta com fome
+            // Não está mais com fome
             if (hungerComponent.CurrentThreshold >= HungerThreshold)
             {
                 return HTNOperatorStatus.Finished;
             }
         }
 
-        if (slimeFeedingComponent.Victim != null)
+        var result = false;
+
+        if (slimeFeedingComponent.Victim == null)
         {
-            return HTNOperatorStatus.Continuing;
+            var slimeLeapingSystem = _entManager.System<SharedSlimeLeapingSystem>();
+            result = slimeLeapingSystem.LeapToTarget(owner, target);
+            //return HTNOperatorStatus.Continuing;
         }
 
         _entManager.TryGetComponent<DoAfterComponent>(owner, out var doAfter);
-
-        var result = slimeLeapingSystem.LeapToTarget(owner, target);
 
         // Interaction started a doafter so set the idle time to it.
         if (doAfter != null && doAfter.DoAfters.Count > 0)
