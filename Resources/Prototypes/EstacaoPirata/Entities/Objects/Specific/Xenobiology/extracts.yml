@@ -1,7 +1,7 @@
 - type: entity
   name: slime extract
   parent: BaseItem
-  description: The pure essence of a dead slime. (get desc form tg)
+  description: Goo extracted from a slime. Legends claim these to have "magical powers".
   id: BaseSlimeExtract
   abstract: true
   components:
