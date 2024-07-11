@@ -28,6 +28,12 @@ public sealed class MeiosisSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<MeiosisComponent,SlimeTotallyFedEvent>(OnSlimeFed);
+        SubscribeLocalEvent<MeiosisComponent,ComponentInit>(OnComponentInit);
+    }
+
+    private void OnComponentInit(EntityUid uid, MeiosisComponent component, ComponentInit args)
+    {
+        component.BabiesToSpawn = PickMutations(component);
     }
 
     private void OnSlimeFed(EntityUid uid, MeiosisComponent component, SlimeTotallyFedEvent args)
@@ -48,31 +54,7 @@ public sealed class MeiosisSystem : EntitySystem
 
         var position = _transform.GetMapCoordinates(uid);
 
-        var entitiesToSpawn = new List<string>();
-
-        for (int i = 0; i < meiosisComponent.NumberOfBabies; i++)
-        {
-            var entity = meiosisComponent.Baby.Id;
-
-            var randomNumber = _robustRandom.NextFloat();
-
-            meiosisComponent.MutationSeverities.TryGetValue(meiosisComponent.MutationChance, out var percentages);
-
-            var mutationChance = _robustRandom.NextFloat(percentages.Item1, percentages.Item2);
-
-            Log.Debug($"Random Number: {randomNumber*100}% vs {mutationChance*100}% Mutation Chance");
-
-            if (meiosisComponent.Mutations.Count > 0)
-            {
-                if (randomNumber <= mutationChance)
-                {
-                    var pick = _robustRandom.Pick(meiosisComponent.Mutations);
-                    entity = pick.Id;
-                }
-            }
-
-            entitiesToSpawn.Add(entity);
-        }
+        var entitiesToSpawn = meiosisComponent.BabiesToSpawn;
 
         var spawnedEntities = new List<EntityUid>();
 
@@ -103,6 +85,37 @@ public sealed class MeiosisSystem : EntitySystem
 
         // O del esta sendo feito no SlimeFeeding
         //QueueDel(uid);
+    }
+
+    public List<string> PickMutations(MeiosisComponent meiosisComponent)
+    {
+        var entitiesToSpawn = new List<string>();
+
+        for (int i = 0; i < meiosisComponent.NumberOfBabies; i++)
+        {
+            var entity = meiosisComponent.Baby.Id;
+
+            var randomNumber = _robustRandom.NextFloat();
+
+            meiosisComponent.MutationSeverities.TryGetValue(meiosisComponent.MutationChance, out var percentages);
+
+            var mutationChance = _robustRandom.NextFloat(percentages.Item1, percentages.Item2);
+
+            Log.Debug($"Random Number: {randomNumber*100}% vs {mutationChance*100}% Mutation Chance");
+
+            if (meiosisComponent.Mutations.Count > 0)
+            {
+                if (randomNumber <= mutationChance)
+                {
+                    var pick = _robustRandom.Pick(meiosisComponent.Mutations);
+                    entity = pick.Id;
+                }
+            }
+
+            entitiesToSpawn.Add(entity);
+        }
+
+        return entitiesToSpawn;
     }
 
     public T EnumNext<T>(T enumValue) where T : Enum {
