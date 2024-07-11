@@ -63,12 +63,12 @@ public sealed partial class FillExtract : SlimeReagentEffect
         return true;
     }
 
-    public override float TimeNeeded()
+    public override float GetTimeNeeded()
     {
         return 0;
     }
 
-    public override bool SpendOnUse()
+    public override bool GetSpendOnUse()
     {
         return false;
     }

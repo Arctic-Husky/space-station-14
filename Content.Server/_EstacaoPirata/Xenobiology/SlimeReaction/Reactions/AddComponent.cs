@@ -22,12 +22,12 @@ public sealed partial class AddComponent : SlimeReagentEffect
         return true;
     }
 
-    public override float TimeNeeded()
+    public override float GetTimeNeeded()
     {
         return 0f;
     }
 
-    public override bool SpendOnUse()
+    public override bool GetSpendOnUse()
     {
         return false;
     }

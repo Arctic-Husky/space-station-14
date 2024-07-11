@@ -61,12 +61,12 @@ public sealed partial class SpawnGas : SlimeReagentEffect
         return true;
     }
 
-    public override float TimeNeeded()
+    public override float GetTimeNeeded()
     {
         return Time;
     }
 
-    public override bool SpendOnUse()
+    public override bool GetSpendOnUse()
     {
         return false;
     }

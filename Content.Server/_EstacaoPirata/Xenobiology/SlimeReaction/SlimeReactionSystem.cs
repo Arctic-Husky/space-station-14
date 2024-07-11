@@ -58,7 +58,7 @@ public sealed class SlimeReactionSystem : EntitySystem
 
         var dictContents = contents.ToDictionary(re => re.Reagent.Prototype, re => re.Quantity);
 
-        var dictReactions = reactions.ToDictionary(re => re.Method.ToString(), re => (re.Effects, re.Sound));
+        var dictReactions = reactions.ToDictionary(re => re.Method, re => (re.Effects, re.Sound));
 
         var keysInCommon = dictContents.Keys.Intersect<string>(dictReactions.Keys);
 
@@ -93,9 +93,9 @@ public sealed class SlimeReactionSystem : EntitySystem
 
                     activeSlimeReactionComponent.Effects.Add(effect, effectArgs);
 
-                    activeSlimeReactionComponent.WaitTime = effect.TimeNeeded();
+                    activeSlimeReactionComponent.WaitTime = effect.GetTimeNeeded();
 
-                    activeSlimeReactionComponent.SpendOnUse = effect.SpendOnUse();
+                    activeSlimeReactionComponent.SpendOnUse = effect.GetSpendOnUse();
 
                     RemoveReagent(uid, component, key, quantity);
                 }
@@ -202,32 +202,6 @@ public sealed class SlimeReactionSystem : EntitySystem
         }
     }
 
-    public FormattedMessage GetReactionsText(EntityUid uid)
-    {
-        var msg = new FormattedMessage();
-
-        if (!TryComp<SlimeReactionComponent>(uid, out var component))
-        {
-            return msg;
-        }
-
-        var reactions = component.Reactions;
-
-        if (reactions is not null)
-        {
-            foreach (var reaction in reactions)
-            {
-                var text = reaction.Method.ToString().ToLower();
-                var locString = $"reagent-name-{text}";
-                msg.AddMarkup(Loc.GetString(locString));
-                msg.PushNewline();
-
-            }
-        }
-
-        return msg;
-    }
-
     public List<string> GetReactionsList(EntityUid uid)
     {
         var msg = new List<string>();
@@ -243,7 +217,7 @@ public sealed class SlimeReactionSystem : EntitySystem
         {
             foreach (var reaction in reactions)
             {
-                var text = reaction.Method.ToString().ToLower();
+                var text = reaction.Method.ToLower();
                 var locString = $"reagent-name-{text}";
                 msg.Add(locString);
             }
