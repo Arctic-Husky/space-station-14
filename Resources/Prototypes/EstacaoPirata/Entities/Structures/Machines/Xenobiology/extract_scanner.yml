@@ -23,12 +23,6 @@
         enum.ExtractScannerVisualizerLayers.BaseUnlit:
           True: { visible: true }
           False: { visible: false }
-#  - type: GenericVisualizer
-#    visuals:
-#      enum.PowerDeviceVisualLayers.Powered:
-#        computerLayerScreen:
-#          True: { visible: true, shader: unshaded }
-#          False: { visible: false }
   - type: Physics
   - type: Fixtures
     fixtures:
