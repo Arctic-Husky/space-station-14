@@ -28,6 +28,8 @@ public sealed partial class MeiosisComponent : Component
     [DataField("mutationChance"), ViewVariables]
     public MeiosisThreshold MutationChance = MeiosisThreshold.Mid;
 
+    public List<string> BabiesToSpawn = new();
+
     /// <summary>
     /// A dictionary relating MeiosisThreshold to how much they modify
     /// </summary>

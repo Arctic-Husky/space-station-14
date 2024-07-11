@@ -55,5 +55,7 @@ public sealed partial class ChangeMutationChance : ReagentEffect
         meiosis.MutationChance = newChance;
 
         meiosis.AccumulatedMutagen = FixedPoint2.Zero;
+
+        meiosisSystem.PickMutations(meiosis);
     }
 }
