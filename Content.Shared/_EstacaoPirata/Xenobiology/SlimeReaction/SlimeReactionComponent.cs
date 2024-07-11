@@ -35,11 +35,19 @@ public sealed partial class SlimeReactionComponent : Component
     public bool ExtractJustSpawned = true;
 }
 
+// TODO o method tem que ser de Interaction ou Substancia, ai se for substancia, ai sim especificar qual
+
+// Melhor: criar prototipos para cada crossbreed, ex id:BurningGreySlimeExtract
+// Criar um tipo de ativacao do slime que necessite apertar Z para interagir, alem de injetar o agente quimico
+// Criar uma maquina que lida com crossbreeding. Tera dois slots, o de 1 slime e de ate 10 extracts. Um botao para ativar o crossbreed
+
 [DataDefinition]
 public sealed partial class SlimeExtractReactionEntry
 {
     [DataField("method", required: true)]
-    public SlimeReactionMethod Method;
+    public string Method;
+
+    // Ter uma variavel List<string> que contera os reagentes
 
     [DataField("effects", required: true)]
     public List<SlimeReagentEffect> Effects = default!;

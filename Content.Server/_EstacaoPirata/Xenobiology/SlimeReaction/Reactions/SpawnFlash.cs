@@ -35,7 +35,7 @@ public sealed partial class SpawnFlash : SlimeReagentEffect
         return true;
     }
 
-    public override float TimeNeeded()
+    public override float GetTimeNeeded()
     {
         return 5f;
     }

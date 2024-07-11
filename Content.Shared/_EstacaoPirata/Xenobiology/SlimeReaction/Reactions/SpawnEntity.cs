@@ -65,12 +65,12 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
         return randomizedCoordinates;
     }
 
-    public override float TimeNeeded()
+    public override float GetTimeNeeded()
     {
         return 0;
     }
 
-    public override bool SpendOnUse()
+    public override bool GetSpendOnUse()
     {
         return true;
     }
