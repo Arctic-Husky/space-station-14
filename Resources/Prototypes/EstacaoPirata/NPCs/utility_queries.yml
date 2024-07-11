@@ -3,6 +3,8 @@
   query:
   - !type:NearbyHostilesQuery
   considerations:
+  - !type:TargetIsBadSlimeFood
+    curve: !type:InverseBoolCurve
   - !type:TargetHasSlimeFood
     curve: !type:BoolCurve
   - !type:TargetIsOccupiedSlime

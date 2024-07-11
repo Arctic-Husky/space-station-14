@@ -24,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._EstacaoPirata.NPC.Queries.Considerations;
+using Content.Server._EstacaoPirata.NPCTarget;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeFeeding;
 
 namespace Content.Server.NPC.Systems;
@@ -358,6 +359,13 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return 0f;
             }
+            case TargetIsBadSlimeFood:
+                if (HasComp<SlimeBadFoodComponent>(targetUid))
+                {
+                    return 1f;
+                }
+
+                return 0f;
             default:
                 throw new NotImplementedException();
         }

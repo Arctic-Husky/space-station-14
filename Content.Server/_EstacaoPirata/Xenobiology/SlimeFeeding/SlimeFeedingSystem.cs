@@ -49,10 +49,9 @@ public sealed class SlimeFeedingSystem : EntitySystem
         SubscribeLocalEvent<SlimeFoodComponent, GetVerbsEvent<AlternativeVerb>>(AddFeedVerb);
         SubscribeLocalEvent<SlimeFeedingComponent, FeedDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<SlimeFeedingComponent, LatchOnEvent>(OnFeed);
-        SubscribeLocalEvent<SlimeFeedingComponent, ComponentRemove>(OnSlimeFeedingRemove);
         SubscribeLocalEvent<SlimeFeedingComponent, DisarmedEvent>(OnDisarmed);
+        SubscribeLocalEvent<SlimeFeedingComponent, ComponentShutdown>(OnShutdown);
     }
-
     private void AddFeedVerb(Entity<SlimeFoodComponent> entity, ref GetVerbsEvent<AlternativeVerb> ev)
     {
         // if (entity.Owner != ev.User)
@@ -109,6 +108,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
                 if (feeding.FeedingMeter >= feeding.FeedingLimit)
                 {
                     // Fazer meiose ou growth e deletar a entidade original
+                    Log.Debug($"Slime {uid} totalmente alimentado");
                     var slimeFedEvent = new SlimeTotallyFedEvent(uid);
                     RaiseLocalEvent(uid, slimeFedEvent);
 
@@ -118,6 +118,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
                         RaiseUnlatchEvent(uid, feeding.Victim.Value);
                     }
 
+                    Log.Debug($"Deletando {uid}");
                     QueueDel(uid);
                     return;
                 }
@@ -158,13 +159,19 @@ public sealed class SlimeFeedingSystem : EntitySystem
             return false;
         }
 
+        if (HasComp<SlimeBadFoodComponent>(target))
+        {
+            Log.Debug($"Bad Food");
+            RaiseUnlatchEvent(entity, target);
+            return false;
+        }
+
 
         if (slimeFoodComponent.Remaining <= 0)
         {
             Log.Debug($"Sem recursos o suficiente no alvo, saindo");
             var message = Loc.GetString("slime-food-not-enough-resources-on-target");
             _popup.PopupEntity(message, entity, entity);
-
             RaiseUnlatchEvent(entity, target);
             return false;
         }
@@ -222,7 +229,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
             NeedHand = false
         };
 
-        Log.Debug($"Iniciando doafter");
+        Log.Debug($"Iniciando doafter {entity} -> {target}");
 
         return _doAfter.TryStartDoAfter(doAfterArgs);
     }
@@ -251,7 +258,6 @@ public sealed class SlimeFeedingSystem : EntitySystem
             Log.Debug($"Sem recursos no alvo, saindo (feed)");
             var message = Loc.GetString("slime-food-target-drained");
             _popup.PopupEntity(message, entity, entity);
-
             RaiseUnlatchEvent(entity,target);
             return false;
         }
@@ -293,7 +299,6 @@ public sealed class SlimeFeedingSystem : EntitySystem
             //_solutionContainer.TryAddSolution(soln.Value, drained);
             Log.Debug($"Estomago cheio, saindo");
             _popup.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), entity, entity);
-
             RaiseUnlatchEvent(entity, target);
             return false;
         }
@@ -322,6 +327,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, SlimeFeedingComponent component, ref FeedDoAfterEvent args)
     {
+        Log.Debug($"Pos DoAfter Antes do Feed");
         args.Repeat = true;
 
         if (args.Cancelled || args.Handled || component.Deleted || args.FeedCancelled)
@@ -336,7 +342,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
             }
             return;
         }
-        if (args.Target == null)
+        if (args.Target == null) // Tenho que ver isto
         {
             Log.Debug($"args.Target e nulo");
             return;
@@ -361,6 +367,7 @@ public sealed class SlimeFeedingSystem : EntitySystem
             Log.Debug($"Deu ruim no feed");
             args.FeedCancelled = true;
             args.Repeat = false;
+            RaiseUnlatchEvent(args.User, args.Target.Value);
             return;
         }
     }
@@ -376,20 +383,25 @@ public sealed class SlimeFeedingSystem : EntitySystem
             return;
 
         component.VictimResisted = true;
-
         RaiseUnlatchEvent(args.Target, args.Source);
 
     }
 
     private void RaiseUnlatchEvent(EntityUid entity, EntityUid target)
     {
+        Log.Debug($"Raise Unlatch Event");
         var unlatchOnEvent = new UnlatchOnEvent(entity, target);
         RaiseLocalEvent(uid: entity, args:unlatchOnEvent);
     }
 
-    private void OnSlimeFeedingRemove(EntityUid uid, SlimeFeedingComponent component, ref ComponentRemove args)
+    private void OnShutdown(EntityUid uid, SlimeFeedingComponent component, ComponentShutdown args)
     {
-        Log.Debug($"Removendo componente");
-        // Fazer o que for necessario aqui, ainda n sei
+        Log.Debug($"Shutdown");
+
+        // Isso aqui trata o case de se o slime for deletado de repente
+        if (component.Victim is not null)
+        {
+            RaiseUnlatchEvent(uid, component.Victim.Value);
+        }
     }
 }

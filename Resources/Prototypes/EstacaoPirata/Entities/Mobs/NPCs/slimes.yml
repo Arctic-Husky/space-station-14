@@ -11,6 +11,7 @@
   - type: HTN
     rootTask:
       task: SlimeCompound
+    checkServices: true
   - type: Sprite
     drawdepth: Mobs
     sprite: EstacaoPirata/Mobs/Aliens/slimes.rsi
@@ -137,6 +138,7 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
+  - type: SlimeBadFood
   - type: SlimeFeeding
     feedingDamage:
       types:
@@ -1353,7 +1355,7 @@
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: silver_baby_slime
+      state: yellow_adult_slime
   - type: DamageStateVisuals
     states:
       Alive:
@@ -1399,3 +1401,19 @@
     adult: "MobAdultSlimesYellow"
   - type: SlimeCore
     core: "YellowSlimeExtract"
+
+# Debugging
+- type: entity
+  name: yellow slime
+  parent: MobAdultSlimesYellowAlt
+  id: MobAdultSlimesYellowAltHungry
+  suffix: Hungry
+  components:
+  - type: Hunger
+    thresholds:
+      Overfed: 100
+      Okay: 70
+      Peckish: 45
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 50.1

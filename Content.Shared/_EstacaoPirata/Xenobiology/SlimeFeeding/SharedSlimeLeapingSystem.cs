@@ -38,6 +38,8 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         SubscribeLocalEvent<SlimeLeapingComponent, PhysicsSleepEvent>(OnSlimeLeapingPhysicsSleep);
         SubscribeLocalEvent<SlimeFeedingComponent, UnlatchOnEvent>(OnUnlatch);
 
+        SubscribeLocalEvent<SlimeFeedingIncapacitatedComponent, ComponentShutdown>(OnIncapacitatedShutdown);
+
     }
 
     public override void Update(float frameTime)
@@ -57,6 +59,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
     public bool LeapToTarget(EntityUid user, EntityUid target)
     {
+        Log.Debug($"Leap To Target {user} -> {target}");
         if (!_physicsQuery.TryGetComponent(user, out var physics))
             return false;
 
@@ -95,6 +98,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
     private void OnLeapingDoHit(Entity<SlimeLeapingComponent> ent, ref StartCollideEvent args)
     {
+        Log.Debug($"Leaping Do Hit");
         RemComp<SlimeLeapingComponent>(ent.Owner);
 
         var target = args.OtherEntity;
@@ -112,6 +116,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
     public bool LatchOn(EntityUid user, EntityUid target)
     {
+        Log.Debug($"Latching de {user} em {target}");
         if (user == target)
             return false;
 
@@ -119,6 +124,9 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
             return false;
 
         if (!TryComp<SlimeFoodComponent>(target, out var slimeFoodComponent))
+            return false;
+
+        if (HasComp<SlimeBadFoodComponent>(target))
             return false;
 
         if (EnsureComp<SlimeFeedingIncapacitatedComponent>(target, out var victim))
@@ -139,6 +147,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
     private void StopLeap(EntityUid user)
     {
+        Log.Debug($"Parando Leap em {user}");
         if (_physicsQuery.TryGetComponent(user, out var physics))
         {
             _physics.SetLinearVelocity(user, Vector2.Zero, body: physics);
@@ -152,7 +161,10 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         // O(n)
         foreach (var ent in entitiesIntersecting)
         {
-            if (!TryComp<SlimeFoodComponent>(ent, out var slimeFoodComponent) || ent == user)
+            if (!HasComp<SlimeFoodComponent>(ent) || ent == user)
+                continue;
+
+            if (HasComp<SlimeBadFoodComponent>(ent))
                 continue;
 
             LatchOn(user, ent);
@@ -160,6 +172,7 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
         }
     }
 
+    // Maybe change this to not be related to feeding
     private void OnUnlatch(EntityUid uid, SlimeFeedingComponent component, ref UnlatchOnEvent args)
     {
         RemComp<BlockMovementComponent>(args.Target);
@@ -172,11 +185,19 @@ public sealed class SharedSlimeLeapingSystem : EntitySystem
 
     private void OnSlimeLeapingRemove(Entity<SlimeLeapingComponent> ent, ref ComponentRemove args)
     {
+        Log.Debug($"SlimeLeaping ComponentRemove");
         StopLeap(ent.Owner);
     }
 
     private void OnSlimeLeapingPhysicsSleep(Entity<SlimeLeapingComponent> ent, ref PhysicsSleepEvent args)
     {
+        Log.Debug($"Physics Sleep");
         StopLeap(ent.Owner);
+    }
+
+    private void OnIncapacitatedShutdown(EntityUid uid, SlimeFeedingIncapacitatedComponent component, ComponentShutdown args)
+    {
+        Log.Debug($"SlimeLeaping ComponentShutdown");
+        StopLeap(uid);
     }
 }
