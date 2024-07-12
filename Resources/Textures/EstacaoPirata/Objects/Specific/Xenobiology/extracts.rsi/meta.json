@@ -53,23 +53,7 @@
             "name": "black_slime_extract"
         },
         {
-            "name": "rainbow_slime_extract",
-            "delays": [
-                [
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
+            "name": "rainbow_slime_extract"
         },
         {
             "name": "adamantine_slime_extract"
@@ -78,17 +62,7 @@
             "name": "oil_slime_extract"
         },
         {
-            "name": "bluespace_slime_extract",
-            "delays": [
-                [
-                    3,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.1
-                ]
-            ]
+            "name": "bluespace_slime_extract"
         },
         {
             "name": "pyrite_slime_extract"
@@ -98,6 +72,9 @@
         },
         {
             "name": "cerulean_slime_extract"
+        },
+        {
+            "name": "platinum_slime_extract"
         },
         {
             "name": "o1",
