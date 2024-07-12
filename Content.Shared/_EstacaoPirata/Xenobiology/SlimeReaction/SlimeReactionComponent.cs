@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Audio;
+﻿using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
@@ -30,9 +31,14 @@ public sealed partial class SlimeReactionComponent : Component
         Volume = -10
     });
 
+    [DataField("useInHand"), ViewVariables]
+    public bool UseInHand = false;
+
     public string SolutionName = "slimeExtract";
 
     public bool ExtractJustSpawned = true;
+
+    public List<ReagentQuantity> Contents = new();
 }
 
 // TODO o method tem que ser de Interaction ou Substancia, ai se for substancia, ai sim especificar qual
