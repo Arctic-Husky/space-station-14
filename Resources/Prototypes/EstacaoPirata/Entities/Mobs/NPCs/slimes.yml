@@ -193,6 +193,21 @@
     sound: /Audio/EstacaoPirata/Effects/Slime/slime_jump.ogg
   - type: SlimeCore
     core: "GreySlimeExtract"
+  - type: SlimeCrossbreeding
+    crossbreeds:
+    - method: Plasma # Tenho que lidar com alguns que não necessitam de reagente
+      crossbreed: Burning
+      effects:
+      - !type:SpawnEntity
+        toSpawn:
+          MobAdultSlimesGrey: 1
+#    - method: Charged
+#    - method: Chilling
+#    - method: Consuming
+#    - method: Industrial
+#    ## pulei prismatic, recurring, regenerative, reproductive e self sustaining
+#    - method: Stabilized
+#    - method: Crystallized
 
 - type: entity
   name: baby grey slime

@@ -53,6 +53,9 @@ public sealed partial class SlimeExtractReactionEntry
     [DataField("method", required: true)]
     public string Method;
 
+    [DataField("crossbreed")]
+    public string Crossbreed;
+
     // Ter uma variavel List<string> que contera os reagentes
 
     [DataField("effects", required: true)]

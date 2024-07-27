@@ -46,7 +46,7 @@ public sealed class SlimeReactionSystem : EntitySystem
         if (reactions == null)
             return;
 
-        if (ent.Comp.Contents.Count > 0) // && !ent.Comp.Spent
+        if (ent.Comp.Contents.Count > 0 && !ent.Comp.Spent)
         {
             ActivateReaction(ent.Owner, ent.Comp, ent.Comp.Contents, reactions);
             return;

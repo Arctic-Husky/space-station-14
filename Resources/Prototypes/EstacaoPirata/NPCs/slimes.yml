@@ -28,17 +28,11 @@
       - !type:TargetNotBadSlimeFoodPrecondition
         targetKey: Target
       operator: !type:MoveToOperator
-#        shutdownState: PlanFinished
         pathfindInPlanning: true
         removeKeyOnFinish: false
         targetKey: TargetCoordinates
         pathfindKey: TargetPathfind
         rangeKey: MovementRangeClose
-#      services:
-#      - !type:UtilityService
-#        id: OccupiedService
-#        proto: NearbySlimeFood
-#        key: Target
 
   - tasks:
     - !type:HTNPrimitiveTask
