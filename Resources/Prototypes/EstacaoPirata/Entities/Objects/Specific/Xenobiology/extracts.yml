@@ -480,3 +480,37 @@
     - method: Blood
       effects:
       - !type:SpawnEmp
+
+## Crossbreeds
+
+- type: entity
+  name: grey slime extract
+  parent: BaseSlimeExtract
+  id: GreySlimeExtractBurning
+  ## add SlimeReaction component on runtime
+
+#- type: entity
+#  name: orange slime extract
+#  parent: BaseSlimeExtract
+#  id: OrangeSlimeExtractBurning
+#  components:
+#  - type: Sprite
+#    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
+#    state: orange_slime_extract
+#  - type: ExtractValue
+#    tier: 1
+#  - type: SlimeReaction
+#    useInHand: true
+#    reactionSound:
+#      path: /Audio/Effects/Chemistry/bubbles.ogg
+#      params:
+#        volume: -2
+#    reactions:
+#    - method: Plasma
+#      sound:
+#        path: /Audio/Items/smoke_grenade_smoke.ogg
+#      effects:
+#      - !type:SpawnGas
+#        spawnGas: Plasma
+#        delayTime: 5
+#        ignite: true
