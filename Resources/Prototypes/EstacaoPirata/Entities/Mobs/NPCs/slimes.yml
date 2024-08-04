@@ -195,12 +195,14 @@
     core: "GreySlimeExtract"
   - type: SlimeCrossbreeding
     crossbreeds:
-    - method: Plasma # Tenho que lidar com alguns que não necessitam de reagente
-      crossbreed: Burning
-      effects:
-      - !type:SpawnEntity
-        toSpawn:
-          MobAdultSlimesGrey: 1
+    - prototype: GreySlimeExtractBurning
+      reactions:
+        method: Plasma # Tenho que lidar com alguns que não necessitam de reagente
+  #      crossbreed: burning
+        effects:
+        - !type:SpawnEntity
+          toSpawn:
+            MobAdultSlimesGrey: 1
 #    - method: Charged
 #    - method: Chilling
 #    - method: Consuming
