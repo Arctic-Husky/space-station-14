@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 
@@ -31,9 +32,6 @@ public sealed partial class SlimeReactionComponent : Component
         Volume = -10
     });
 
-    [DataField("useInHand"), ViewVariables]
-    public bool UseInHand = false;
-
     public string SolutionName = "slimeExtract";
 
     public bool ExtractJustSpawned = true;
@@ -50,11 +48,19 @@ public sealed partial class SlimeReactionComponent : Component
 [DataDefinition]
 public sealed partial class SlimeExtractReactionEntry
 {
-    [DataField("method", required: true)]
-    public string Method;
+    // UseInHand deve estar aqui, um Method tem que ser Interaction ou useinhand. Inclusive, aqui tem que ser uma lista
+    [DataField("reagent")]
+    public string Reagent = "None"; // Reagentes normais e None
+
+    [DataField("interaction")]
+    public bool Interaction = false;
+
+    // public bool Interaction;
+    //
+    // public bool InteracionRequired;
 
     [DataField("crossbreed")]
-    public string Crossbreed;
+    public string? Crossbreed;
 
     // Ter uma variavel List<string> que contera os reagentes
 

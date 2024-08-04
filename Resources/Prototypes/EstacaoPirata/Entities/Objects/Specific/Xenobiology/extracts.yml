@@ -43,21 +43,26 @@
       params:
         volume: -2
     reactions:
-      - method: Plasma
+      - reagent: Plasma
         effects:
         - !type:SpawnEntity
           toSpawn:
             MobAdultSlimesGrey: 1
-      - method: Blood
+      - reagent: Blood
         effects:
         - !type:SpawnEntity
           toSpawn:
             MonkeyCube: 3
-      - method: Water
+      - reagent: Water
         effects:
         - !type:FillExtract
           reagent: "Epinephrine"
           fillToMax: true
+      - interaction: true
+        effects:
+        - !type:SpawnEntity
+          toSpawn:
+            MonkeyCube: 3
 
 - type: entity
   name: adamantine slime extract
@@ -97,17 +102,17 @@
       params:
         volume: -2
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       effects:
       - !type:FillExtract
         reagent: "Frostoil"
         rate: 10
-    - method: Blood
+    - reagent: Blood
       effects:
       - !type:FillExtract
         reagent: "SlimeStabilizer"
         rate: 10
-    - method: Water
+    - reagent: Water
       sound:
         path: /Audio/Effects/extinguish.ogg
         params:
@@ -154,7 +159,7 @@
       params:
         volume: -2
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       sound:
         path: /Audio/Items/smoke_grenade_smoke.ogg
       effects:
@@ -176,7 +181,7 @@
     tier: 2
   - type: SlimeReaction
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       effects:
       - !type:SpawnEntity
         toSpawn:
@@ -210,7 +215,7 @@
       params:
         volume: -2
     reactions:
-    - method: Radium
+    - reagent: Radium
       effects:
       - !type:FillExtract
         reagent: "JuiceThatMakesYouWeh"
@@ -243,14 +248,14 @@
       params:
         volume: -2
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       effects:
       - !type:SpawnEntity
         toSpawn:
           SheetPlasteel1: 5
           SheetSteel1: 15
         stack: true
-    - method: Water
+    - reagent: Water
       effects:
       - !type:SpawnEntity
         toSpawn:
@@ -274,7 +279,7 @@
       params:
         volume: -2
     reactions:
-    - method: Blood
+    - reagent: Blood
       effects:
       - !type:FillExtract
         reagent: "Cornoil"
@@ -296,7 +301,7 @@
       params:
         volume: -2
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       sound:
         path: /Audio/Items/smoke_grenade_smoke.ogg
       effects:
@@ -304,12 +309,12 @@
         spawnGas: Plasma
         delayTime: 5
         ignite: true
-    - method: Blood
+    - reagent: Blood
       effects:
       - !type:FillExtract
         reagent: "CapsaicinOil"
         rate: 10
-    - method: Water
+    - reagent: Water
       sound:
         path: /Audio/Items/smoke_grenade_smoke.ogg
       effects:
@@ -342,12 +347,12 @@
       params:
         volume: -2
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       effects:
       - !type:FillExtract
         reagent: "SlimeSteroid"
         rate: 5
-    - method: Blood
+    - reagent: Blood
       effects:
       - !type:FillExtract
         reagent: "Tricordrazine"
@@ -409,7 +414,7 @@
     tier: 2
   - type: SlimeReaction
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       sound:
         path: /Audio/Effects/flash_bang.ogg
         params:
@@ -446,7 +451,7 @@
       params:
         volume: -2
     reactions:
-    - method: Plasma
+    - reagent: Plasma
       effects:
       - !type:AddComponent
         comp:
@@ -467,7 +472,7 @@
       - !type:ChangeAppearance
         visualEnum: enum.PowerCellVisuals.ChargeLevel
         value: 2
-    - method: Water
+    - reagent: Water
       effects:
       - !type:AddComponent
         comp:
@@ -477,14 +482,14 @@
             softness: 5
             netsync: true
             color: yellow
-    - method: Blood
+    - reagent: Blood
       effects:
       - !type:SpawnEmp
 
 ## Crossbreeds
 
 - type: entity
-  name: grey slime extract
+  name: burning grey slime extract
   parent: BaseSlimeExtract
   id: GreySlimeExtractBurning
   ## add SlimeReaction component on runtime
@@ -506,7 +511,7 @@
 #      params:
 #        volume: -2
 #    reactions:
-#    - method: Plasma
+#    - reagent: Plasma
 #      sound:
 #        path: /Audio/Items/smoke_grenade_smoke.ogg
 #      effects:
