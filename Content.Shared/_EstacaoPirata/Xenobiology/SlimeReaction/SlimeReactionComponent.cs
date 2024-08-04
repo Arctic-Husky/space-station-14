@@ -11,14 +11,6 @@ namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlimeReactionComponent : Component
 {
-    // Tipos de reações:
-    // Criar entidade (item, gas, mob)
-    // Encher o extract com algum reagente
-    // Mexer na IA dos mobs
-    // Dar um componente especifico para alguma entidade (ex: fazer o extract emitir luz)
-
-    // Outlier: sepia slime: plasma, para o tempo por 15 segundos, vai tomar no cu isso nao vou fazer
-
     [DataField("reactions", true, serverOnly: true)]
     public List<SlimeExtractReactionEntry>? Reactions;
 
@@ -31,6 +23,9 @@ public sealed partial class SlimeReactionComponent : Component
     {
         Volume = -10
     });
+
+    [DataField("color")]
+    public string Color = default!;
 
     public string SolutionName = "slimeExtract";
 
@@ -53,16 +48,10 @@ public sealed partial class SlimeExtractReactionEntry
     public string Reagent = "None"; // Reagentes normais e None
 
     [DataField("interaction")]
-    public bool Interaction = false;
-
-    // public bool Interaction;
-    //
-    // public bool InteracionRequired;
+    public bool Interaction = false; // TODO usar isso pra bloquear interaction ou permitir
 
     [DataField("crossbreed")]
     public string? Crossbreed;
-
-    // Ter uma variavel List<string> que contera os reagentes
 
     [DataField("effects", required: true)]
     public List<SlimeReagentEffect> Effects = default!;

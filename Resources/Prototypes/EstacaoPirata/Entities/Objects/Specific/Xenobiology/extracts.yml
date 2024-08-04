@@ -38,6 +38,7 @@
   id: GreySlimeExtract
   components:
   - type: SlimeReaction
+    color: Grey
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -97,6 +98,7 @@
   - type: ExtractValue
     tier: 1
   - type: SlimeReaction
+    color: Blue
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -154,6 +156,7 @@
   - type: ExtractValue
     tier: 2
   - type: SlimeReaction
+    color: DarkBlue
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -180,6 +183,7 @@
   - type: ExtractValue
     tier: 2
   - type: SlimeReaction
+    color: DarkPurple
     reactions:
     - reagent: Plasma
       effects:
@@ -210,6 +214,7 @@
   - type: ExtractValue
     tier: 3
   - type: SlimeReaction
+    color: Green
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -243,6 +248,7 @@
   - type: ExtractValue
     tier: 1
   - type: SlimeReaction
+    color: Metal
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -274,6 +280,7 @@
   - type: ExtractValue
     tier: 5
   - type: SlimeReaction
+    color: Oil
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -296,6 +303,7 @@
   - type: ExtractValue
     tier: 1
   - type: SlimeReaction
+    color: Orange
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -342,6 +350,7 @@
   - type: ExtractValue
     tier: 1
   - type: SlimeReaction
+    color: Purple
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -413,6 +422,7 @@
   - type: ExtractValue
     tier: 2
   - type: SlimeReaction
+    color: Silver
     reactions:
     - reagent: Plasma
       sound:
@@ -446,6 +456,7 @@
     - SlimeExtract
     - PowerCell
   - type: SlimeReaction
+    color: Yellow
     reactionSound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
       params:
@@ -492,6 +503,18 @@
   name: burning grey slime extract
   parent: BaseSlimeExtract
   id: GreySlimeExtractBurning
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: burning orange slime extract
+  parent: BaseSlimeExtract
+  id: OrangeSlimeExtractBurning
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: burning metal slime extract
+  parent: BaseSlimeExtract
+  id: MetalSlimeExtractBurning
   ## add SlimeReaction component on runtime
 
 #- type: entity
