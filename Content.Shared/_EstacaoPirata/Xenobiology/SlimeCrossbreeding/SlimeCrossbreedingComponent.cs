@@ -10,24 +10,15 @@ namespace Content.Shared._EstacaoPirata.Xenobiology.SlimeCrossbreeding;
 public sealed partial class SlimeCrossbreedingComponent : Component
 {
     [DataField("crossbreeds", true, serverOnly: true)]
-    public List<SlimeExtractReactionEntry>? Crossbreeds;
+    public List<SlimeCrossbreedingEntry>? Crossbreeds;
 }
 
-// [DataDefinition]
-// public sealed partial class SlimeCrossbreedingEntry
-// {
-//     [DataField("type", required: true)]
-//     public string Type;
-//
-//     // Ter uma variavel List<string> que contera os reagentes
-//
-//     [DataField("effects", required: true)]
-//     public List<SlimeReagentEffect> Effects = default!;
-//
-//     [DataField("sound")]
-//     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Effects/Chemistry/bubbles.ogg",
-//         new AudioParams
-//         {
-//             Volume = -10
-//         });
-// }
+[DataDefinition]
+public sealed partial class SlimeCrossbreedingEntry
+{
+    [DataField("prototype")]
+    public string Prototype = default!;
+
+    [DataField("reactions", true, serverOnly: true)]
+    public List<SlimeExtractReactionEntry>? Reactions;
+}
