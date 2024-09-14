@@ -1,4 +1,5 @@
-﻿using Content.Shared.Stacks;
+﻿using Content.Shared.FixedPoint;
+using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -17,6 +18,12 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
     [DataField("stack")]
     public bool Stack = false;
 
+    [DataField("needsReagent")]
+    public bool NeedsReagent = false;
+
+    [DataField("reagentAmount")]
+    public FixedPoint2 ReagentAmount = FixedPoint2.Zero;
+
     public override bool Effect(SlimeReagentEffectArgs args)
     {
         var extractEntity = args.ExtractEntity;
@@ -24,6 +31,9 @@ public sealed partial class SpawnEntity : SlimeReagentEffect
         var transformSystem = args.EntityManager.System<SharedTransformSystem>();
 
         var stackSystem = args.EntityManager.System<SharedStackSystem>();
+
+        if (args.Quantity < ReagentAmount)
+            return false;
 
         foreach (var prototype in ToSpawn)
         {

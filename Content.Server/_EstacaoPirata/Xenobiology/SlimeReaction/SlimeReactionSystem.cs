@@ -1,13 +1,10 @@
 ﻿using System.Linq;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
 using Content.Shared.Audio;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -34,6 +31,7 @@ public sealed class SlimeReactionSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SlimeReactionComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
         SubscribeLocalEvent<SlimeReactionComponent, UseInHandEvent>(OnUseInHand);
+
     }
 
     private void OnUseInHand(Entity<SlimeReactionComponent> ent, ref UseInHandEvent args)
@@ -45,7 +43,7 @@ public sealed class SlimeReactionSystem : EntitySystem
     }
 
 
-    // TODO: fazer algo pra impedir injecting caso ja esteja usado, ou mudar de lugar a mensagem
+    /// TODO: fazer algo pra impedir injecting caso ja esteja usado, ou mudar de lugar a mensagem
     private void OnSolutionChanged(EntityUid uid, SlimeReactionComponent component, ref SolutionContainerChangedEvent args)
     {
         // Really annoying that this gets run when the entity spawns
@@ -69,7 +67,7 @@ public sealed class SlimeReactionSystem : EntitySystem
     private void ActivateReactions(EntityUid uid,
         SlimeReactionComponent component,
         List<string> inCommon,
-        Dictionary<string, (List<SlimeReagentEffect> Effects, SoundSpecifier? Sound, bool Method)> dictReactions,
+        Dictionary<string, (List<SlimeReagentEffect> Effects, SoundSpecifier? Sound, bool Interaction)> dictReactions,
         List<ReagentQuantity> contents)
     {
         var activeSlimeReactionComponent = EnsureComp<ActiveSlimeReactionComponent>(uid); // Antes de dar o Active, verificar se interagiu, ou dar active assim que interagir para aqueles que precisam
@@ -109,7 +107,7 @@ public sealed class SlimeReactionSystem : EntitySystem
         }
     }
 
-    // Um activate reaction especifico que nao usa reagentes
+    /// Um activate reaction especifico que nao usa reagentes
     private void TryActivateReactions(EntityUid uid, SlimeReactionComponent component)
     {
         if (component.Reactions == null)
@@ -125,6 +123,18 @@ public sealed class SlimeReactionSystem : EntitySystem
         var inCommon = keysInCommon.ToList();
         if (inCommon.Count > 0)
         {
+            // Verifica se a reação no inCommon necessita de interaction
+            var interaction = false;
+
+            foreach (var key in inCommon)
+            {
+                if (dictReactions[key].Interaction)
+                    interaction = true;
+            }
+
+            if (!interaction)
+                return;
+
             ActivateReactions(uid, component, inCommon, dictReactions, contents);
 
             return;
@@ -143,11 +153,11 @@ public sealed class SlimeReactionSystem : EntitySystem
         }
     }
 
-    private IEnumerable<string> DictReactions(List<SlimeExtractReactionEntry> reactions, List<ReagentQuantity> contents, out Dictionary<string, (List<SlimeReagentEffect> Effects, SoundSpecifier? Sound, bool Method)> dictReactions)
+    private IEnumerable<string> DictReactions(List<SlimeExtractReactionEntry> reactions, List<ReagentQuantity> contents, out Dictionary<string, (List<SlimeReagentEffect> Effects, SoundSpecifier? Sound, bool Interaction)> dictReactions)
     {
         var dictContents = contents.ToDictionary(re => re.Reagent.Prototype, re => re.Quantity);
 
-        dictReactions = reactions.ToDictionary(re => re.Reagent, re => (re.Effects, re.Sound, Method: re.Interaction));
+        dictReactions = reactions.ToDictionary(re => re.Reagent, re => (re.Effects, re.Sound, re.Interaction));
 
         var keysInCommon = dictContents.Keys.Intersect<string>(dictReactions.Keys);
         return keysInCommon;
@@ -163,6 +173,13 @@ public sealed class SlimeReactionSystem : EntitySystem
         var keysInCommon = DictReactions(component.Reactions, contents, out var dictReactions);
 
         var inCommon = keysInCommon.ToList();
+
+        // Verifica se a reação no inCommon necessita de interaction
+        foreach (var key in inCommon)
+        {
+            if (dictReactions[key].Interaction)
+                return;
+        }
 
         ActivateReactions(uid, component, inCommon, dictReactions, contents);
     }
@@ -266,6 +283,12 @@ public sealed class SlimeReactionSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Providencia uma lista de reagentes que podem provocar uma reação
+    /// TODO mover isto para outra classe
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <returns></returns>
     public List<string> GetReactionsList(EntityUid uid)
     {
         var msg = new List<string>();

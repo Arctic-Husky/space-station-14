@@ -1,7 +1,11 @@
 ﻿using System.Linq;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeCrossbreeding;
 using Content.Shared._EstacaoPirata.Xenobiology.SlimeReaction;
+using Content.Shared.Audio;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Server._EstacaoPirata.Xenobiology.SlimeCrossbreeding;
 
@@ -11,6 +15,11 @@ namespace Content.Server._EstacaoPirata.Xenobiology.SlimeCrossbreeding;
 public sealed class SlimeCrossbreedingSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<SlimeCrossbreedingComponent, InteractUsingEvent>(OnInteraction);
@@ -32,6 +41,11 @@ public sealed class SlimeCrossbreedingSystem : EntitySystem
 
         // Extract.Color pode ser vazio, lidar com isso
 
+        if (extract.Color.Length == 0)
+        {
+            return;
+        }
+
         if (!target.Crossbreeds.TryGetValue(extract.Color, out var value)) // Ja obtem o entry da cor certa
             return;
 
@@ -39,14 +53,18 @@ public sealed class SlimeCrossbreedingSystem : EntitySystem
         {
             if (ent.Comp.ExtractsUsed.TryGetValue(extract.Color, out var timesUsed))
             {
-                ent.Comp.ExtractsUsed[extract.Color] = timesUsed + 1;
-                if (timesUsed >= ent.Comp.Max)
+                var newTimesUsed = timesUsed + 1;
+                ent.Comp.ExtractsUsed[extract.Color] = newTimesUsed;
+                if (newTimesUsed >= ent.Comp.Max)
                 {
                     ent.Comp.MaxAchieved = true;
-                    // ent.Comp.MaxColor = extract.Color;
                 }
             }
         }
+
+        _popup.PopupEntity(Loc.GetString("core-inserted-into-slime"), args.Target);
+
+        _audio.PlayPvs(ent.Comp.Sound, _transform.GetMoverCoordinates(args.Target), AudioHelpers.WithVariation(0.05f, _robustRandom));
 
         if (ent.Comp.MaxAchieved)
         {
@@ -54,9 +72,16 @@ public sealed class SlimeCrossbreedingSystem : EntitySystem
 
             var entity = Spawn(value.Prototype, coords);
 
-            SlimeReactionComponent component = new SlimeReactionComponent
+            var netEntity = GetNetEntity(entity);
+
+            RaiseNetworkEvent(new ExtractColorChangeEvent(netEntity, value.Color));
+
+            _audio.PlayPvs(ent.Comp.SoundComplete, _transform.GetMoverCoordinates(args.Target), AudioHelpers.WithVariation(0.05f, _robustRandom));
+
+            var component = new SlimeReactionComponent
             {
-                Reactions = value.Reactions
+                Reactions = value.Reactions,
+                ExtractJustSpawned = false
             };
 
             AddComp(entity, component);
@@ -65,18 +90,5 @@ public sealed class SlimeCrossbreedingSystem : EntitySystem
         }
 
         QueueDel(args.Used);
-
-        // Log.Debug($"Interagido com {args.Target}");
-
-        // var coords = _transform.GetMapCoordinates(args.Target);
-
-        // var entity = Spawn(value.Prototype, coords);
-
-        // var component = new SlimeReactionComponent
-        // {
-        //     Reactions = value.Reactions
-        // };
-        //
-        // AddComp(entity, component);
     }
 }

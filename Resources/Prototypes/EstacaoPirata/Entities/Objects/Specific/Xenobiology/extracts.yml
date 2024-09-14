@@ -500,45 +500,140 @@
 ## Crossbreeds
 
 - type: entity
-  name: burning grey slime extract
+  name: slime extract
   parent: BaseSlimeExtract
-  id: GreySlimeExtractBurning
+  id: BaseSlimeExtractCrossbreed
+  suffix: Crossbreed
   ## add SlimeReaction component on runtime
 
 - type: entity
-  name: burning orange slime extract
-  parent: BaseSlimeExtract
-  id: OrangeSlimeExtractBurning
+  name: stabilized-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: StabilizedSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: stabilized
   ## add SlimeReaction component on runtime
 
 - type: entity
-  name: burning metal slime extract
-  parent: BaseSlimeExtract
-  id: MetalSlimeExtractBurning
+  name: self-sustaining-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: SelfSustainingSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: selfsustaining
   ## add SlimeReaction component on runtime
 
-#- type: entity
-#  name: orange slime extract
-#  parent: BaseSlimeExtract
-#  id: OrangeSlimeExtractBurning
-#  components:
-#  - type: Sprite
-#    sprite: EstacaoPirata/Objects/Specific/Xenobiology/extracts.rsi
-#    state: orange_slime_extract
-#  - type: ExtractValue
-#    tier: 1
-#  - type: SlimeReaction
-#    useInHand: true
-#    reactionSound:
-#      path: /Audio/Effects/Chemistry/bubbles.ogg
-#      params:
-#        volume: -2
-#    reactions:
-#    - reagent: Plasma
-#      sound:
-#        path: /Audio/Items/smoke_grenade_smoke.ogg
-#      effects:
-#      - !type:SpawnGas
-#        spawnGas: Plasma
-#        delayTime: 5
-#        ignite: true
+- type: entity
+  name: reproductive-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: ReproductiveSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: reproductive
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: regenerative-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: RegenerativeSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: regenerative
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: recurring-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: RecurringSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: recurring
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: prismatic-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: PrismaticSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: prismatic
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: industrial-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: IndustrialSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: industrial
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: crystalline-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: CrystallineSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: crystalline
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: consuming-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: ConsumingSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: consuming
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: chilling-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: ChillingSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: chilling
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: charged-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: ChargedSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: charged
+  ## add SlimeReaction component on runtime
+
+- type: entity
+  name: burning-slime-extract
+  parent: BaseSlimeExtractCrossbreed
+  id: BurningSlimeExtract
+  suffix: Crossbreed
+  components:
+  - type: Sprite
+    sprite: EstacaoPirata/Objects/Specific/Xenobiology/slimecrossing.rsi
+    state: burning
+  ## add SlimeReaction component on runtime
