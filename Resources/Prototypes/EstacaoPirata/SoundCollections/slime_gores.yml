@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: SlimeGore
+  files:
+  - /Audio/EstacaoPirata/Effects/Slime/gore_slime1_short.ogg
+  - /Audio/EstacaoPirata/Effects/Slime/gore_slime3_short.ogg

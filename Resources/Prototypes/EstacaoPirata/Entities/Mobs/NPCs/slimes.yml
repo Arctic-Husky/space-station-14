@@ -196,16 +196,19 @@
   - type: SlimeCrossbreeding
     crossbreeds:
       Orange:
-        prototype: OrangeSlimeExtractBurning
+        color: "#fa6a0a"
+        prototype: BurningSlimeExtract
         reactions:
           - reagent: Plasma # Tenho que lidar com alguns que não necessitam de reagente
       #      crossbreed: burning
+            interaction: true
             effects:
             - !type:SpawnEntity
               toSpawn:
                 MobAdultSlimesGrey: 1
       Metal:
-        prototype: MetalSlimeExtractBurning
+        color: "#6d758d"
+        prototype: IndustrialSlimeExtract
         reactions:
         - reagent: Blood
           effects:
