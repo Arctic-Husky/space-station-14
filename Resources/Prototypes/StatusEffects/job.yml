@@ -9,9 +9,14 @@
   parent: JobIcon
   id: JobIconBlueshield
   icon:
+<<<<<<< HEAD
     sprite: Interface/Misc/job_icons.rsi
     state: Blueshield
 
+=======
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Blueshield
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: statusIcon
   parent: JobIcon
@@ -122,15 +127,25 @@
   parent: JobIcon
   id: JobIconChaplain
   icon:
+<<<<<<< HEAD
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Chaplain
+=======
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi # DeltaV - Move Chaplain into Epistemics
+    state: Chaplain # DeltaV - Move Chaplain into Epistemics
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: statusIcon
   parent: JobIcon
   id: JobIconLawyer
   icon:
+<<<<<<< HEAD
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Lawyer
+=======
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi # DeltaV - Move Lawyer into Justice
+    state: Lawyer # DeltaV - Move Lawyer into Justice
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: statusIcon
   parent: JobIcon

@@ -30,9 +30,12 @@ ui-options-ambience-volume = Ambience volume:
 ui-options-lobby-volume = Lobby & Round-end volume:
 ui-options-interface-volume = Interface volume:
 ui-options-ambience-max-sounds = Ambience simultaneous sounds:
+ui-options-announcer-volume = Announcer volume:
 ui-options-lobby-music = Lobby & Round-end Music
 ui-options-restart-sounds = Round Restart Sounds
 ui-options-event-music = Event Music
+ui-options-announcer-disable-multiple-sounds = Disable Overlapping Announcer Sounds
+ui-options-announcer-disable-multiple-sounds-tooltip = Some announcements will not sound right, this setting isn't recommended
 ui-options-admin-sounds = Play Admin Sounds
 ui-options-volume-label = Volume
 ui-options-volume-percent = { TOSTRING($volume, "P0") }
@@ -41,6 +44,10 @@ ui-options-volume-percent = { TOSTRING($volume, "P0") }
 
 ui-options-show-held-item = Show held item next to cursor
 ui-options-show-combat-mode-indicators = Show combat mode indicators with cursor
+<<<<<<< HEAD
+=======
+ui-options-show-offer-mode-indicators = Show offer mode indicators with cursor
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ui-options-opaque-storage-window = Opaque storage window
 ui-options-show-ooc-patron-color = Show OOC Patreon color
 ui-options-show-looc-on-head = Show LOOC chat above characters head
@@ -114,13 +121,17 @@ ui-options-header-dev = Development
 ui-options-header-general = General
 
 ui-options-hotkey-keymap = Use US QWERTY Keys
+<<<<<<< HEAD
 ui-options-hotkey-toggle-walk = Toggle Walk
+=======
+ui-options-hotkey-toggle-walk = Toggle Speed
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ui-options-function-move-up = Move Up
 ui-options-function-move-left = Move Left
 ui-options-function-move-down = Move Down
 ui-options-function-move-right = Move Right
-ui-options-function-walk = Walk
+ui-options-function-walk = Change Speed
 
 ui-options-function-camera-rotate-left = Rotate left
 ui-options-function-camera-rotate-right = Rotate right
@@ -142,7 +153,13 @@ ui-options-function-examine-entity = Examine
 ui-options-function-swap-hands = Swap hands
 ui-options-function-move-stored-item = Move stored item
 ui-options-function-rotate-stored-item = Rotate stored item
+<<<<<<< HEAD
 ui-options-function-save-item-location = Save item location
+=======
+ui-options-function-offer-item = Offer something
+ui-options-function-save-item-location = Save item location
+ui-options-function-toggle-standing = Toggle standing
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ui-options-static-storage-ui = Lock storage window to hotbar
 
 ui-options-function-smart-equip-backpack = Smart-equip to backpack

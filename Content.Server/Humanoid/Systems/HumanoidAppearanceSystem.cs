@@ -41,6 +41,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
         targetHumanoid.EyeColor = sourceHumanoid.EyeColor;
         targetHumanoid.Age = sourceHumanoid.Age;
+        targetHumanoid.Height = sourceHumanoid.Height;
+        targetHumanoid.Width = sourceHumanoid.Width;
         SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
@@ -51,7 +53,13 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             grammar.Gender = sourceHumanoid.Gender;
         }
 
+<<<<<<< HEAD
         Dirty(target, targetHumanoid);
+=======
+        targetHumanoid.LastProfileLoaded = sourceHumanoid.LastProfileLoaded; // DeltaV - let paradox anomaly be cloned
+
+        Dirty(targetHumanoid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -149,6 +157,10 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             markings[index].SetColor(i, colors[i]);
         }
 
+<<<<<<< HEAD
         Dirty(uid, humanoid);
+=======
+        Dirty(humanoid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

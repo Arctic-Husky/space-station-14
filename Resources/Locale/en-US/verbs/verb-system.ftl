@@ -27,7 +27,11 @@ verb-categories-timer = Set Delay
 verb-categories-lever = Lever
 verb-categories-select-type = Select Type
 verb-categories-fax = Set Destination
+<<<<<<< HEAD
 verb-categories-power-level = Power Level
+=======
+verb-categories-interaction = Interact
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 verb-common-toggle-light = Toggle light
 verb-common-close = Close

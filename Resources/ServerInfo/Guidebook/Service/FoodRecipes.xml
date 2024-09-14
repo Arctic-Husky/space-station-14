@@ -1,9 +1,10 @@
 <Document>
-## Starting Out
-This is not an extensive list of recipes, these listings are to showcase the basics.
+## Recipe list
+Note: Only solid foods are listed here! To learn recipes for liquid ingredients, check the chemistry guidebook.
 
-Mixes are done in a Beaker, foods are cooked in a Microwave. Cook times will be listed.
+This list is auto-generated and contains all known foods.
 
+<<<<<<< HEAD
 WARNING: This is not an automatically generated list, things here may become outdated. The wiki has much more than is listed here.
 
 ## The Basics: Mixing
@@ -84,5 +85,8 @@ WARNING: This is not an automatically generated list, things here may become out
 <GuideEntityEmbed Entity="FoodMealFriesCarrot"/>
 <GuideEntityEmbed Entity="FoodBakedPancake"/>
 </Box>
+=======
+<GuideFoodGroupEmbed/>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 </Document>

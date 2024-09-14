@@ -14,6 +14,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
     [GenerateTypedNameReferences]
     public sealed partial class MakeGhostRoleWindow : DefaultWindow
     {
+<<<<<<< HEAD
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         private readonly List<GhostRoleRaffleSettingsPrototype> _rafflePrototypes = [];
 
@@ -24,6 +25,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
         private NetEntity? Entity { get; set; }
 
         public event MakeRole? OnMake;
+=======
+        public delegate void MakeRole(NetEntity uid, string name, string description, string rules, bool makeSentient);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public MakeGhostRoleWindow()
         {
@@ -84,13 +88,26 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             RaffleButton.OnItemSelected += OnRaffleButtonItemSelected;
         }
 
+<<<<<<< HEAD
         private void OnRaffleDurationChanged(ValueChangedEventArgs args)
         {
             ValidateRaffleDurations();
+=======
+        private NetEntity? Entity { get; set; }
+
+        public event MakeRole? OnMake;
+
+        public void SetEntity(IEntityManager entManager, NetEntity entity)
+        {
+            Entity = entity;
+            RoleName.Text = entManager.GetComponent<MetaDataComponent>(entManager.GetEntity(entity)).EntityName;
+            RoleEntity.Text = $"{entity}";
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void ValidateRaffleDurations()
         {
+<<<<<<< HEAD
             if (RaffleInitialDuration.Value > RaffleMaxDuration.Value)
             {
                 MakeButton.Disabled = true;
@@ -129,11 +146,14 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
 
         private void OnMakeButtonPressed(ButtonEventArgs args)
         {
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (Entity == null)
             {
                 return;
             }
 
+<<<<<<< HEAD
             GhostRoleRaffleSettings? raffleSettings = null;
 
             if (_raffleSettingId == RaffleCustomRaffleId)
@@ -151,6 +171,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             }
 
             OnMake?.Invoke(Entity.Value, RoleName.Text, RoleDescription.Text, RoleRules.Text, MakeSentientCheckbox.Pressed, raffleSettings);
+=======
+            OnMake?.Invoke(Entity.Value, RoleName.Text, RoleDescription.Text, RoleRules.Text, MakeSentientCheckbox.Pressed);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         public delegate void MakeRole(NetEntity uid, string name, string description, string rules, bool makeSentient, GhostRoleRaffleSettings? settings);

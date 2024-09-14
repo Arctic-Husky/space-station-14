@@ -46,6 +46,14 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: Gun
+    fireRate: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    fireOnDropChance: 1
 
 - type: entity
   name: Hristov
@@ -82,6 +90,10 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+<<<<<<< HEAD
+=======
+    fireOnDropChance: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 8 #it's a musket
@@ -111,6 +123,10 @@
   - type: Gun
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore
+<<<<<<< HEAD
+=======
+    fireOnDropChance: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     size: Small
     storedRotation: 90

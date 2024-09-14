@@ -12,14 +12,21 @@ namespace Content.Shared.Cargo.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedCargoSystem))]
 public sealed partial class CargoTelepadComponent : Component
 {
+<<<<<<< HEAD
     [DataField]
     public List<CargoOrderData> CurrentOrders = new();
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// <summary>
     /// The actual amount of time it takes to teleport from the telepad
     /// </summary>
     [DataField("delay"), ViewVariables(VVAccess.ReadWrite)]
+<<<<<<< HEAD
     public float Delay = 5f;
+=======
+    public float Delay = 10f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     /// How much time we've accumulated until next teleport.

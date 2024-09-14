@@ -1,19 +1,29 @@
-﻿- type: job
+- type: job
   id: TechnicalAssistant
   name: job-name-technical-assistant
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
+  antagAdvantage: 3 # DeltaV - Reduced TC: External Access + Engineering
   requirements:
+<<<<<<< HEAD
     - !type:OverallPlaytimeRequirement
       time: 3600 #1 hr
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 54000 #15 hrs
       inverted: true # stop playing intern if you're good at engineering!
+=======
+  - !type:CharacterOverallTimeRequirement # DeltaV - to prevent griefers from taking the role.
+      min: 14400 # 4 hours
+    # - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
+    #   department: Engineering
+    #   time: 54000 #15 hrs
+    #   inverted: true # stop playing intern if you're good at engineering!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  canBeAntag: false
+  canBeAntag: true # DeltaV - Can be antagonist
   access:
   - Maintenance
   - Engineering
@@ -22,8 +32,20 @@
 - type: startingGear
   id: TechnicalAssistantGear
   equipment:
+<<<<<<< HEAD
+=======
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+    back: ClothingBackpackEngineeringFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
+<<<<<<< HEAD
     pocket2: BookEngineersHandbook
+=======
+    pocket2: BookEngineersHandbook
+  innerClothingSkirt: ClothingUniformJumpskirtColorYellow
+  satchel: ClothingBackpackSatchelEngineeringFilled
+  duffelbag: ClothingBackpackDuffelEngineeringFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

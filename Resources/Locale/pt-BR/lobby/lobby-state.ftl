@@ -1,5 +1,9 @@
 lobby-state-paused = Pausado
 lobby-state-soon = Em breve
+<<<<<<< HEAD
+=======
+lobby-state-preloading = Em breve
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 lobby-state-right-now-question = Agora?
 lobby-state-right-now-confirmation = Agora
 lobby-state-round-start-countdown-text = A rodada começa em: {$timeLeft}
@@ -13,4 +17,8 @@ lobby-state-player-status-round-time =  O tempo do round é: {$hours} horas e {$
 lobby-state-song-text = Tocando: [color=white]{$songTitle}[/color] por [color=white]{$songArtist}[/color]
 lobby-state-song-no-song-text = Nenhuma música de lobby tocando.
 lobby-state-song-unknown-title = [color=dimgray]Título desconhecido[/color]
+<<<<<<< HEAD
 lobby-state-song-unknown-artist = [color=dimgray]Artista desconhecido[/color]
+=======
+lobby-state-song-unknown-artist = [color=dimgray]Artista desconhecido[/color]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

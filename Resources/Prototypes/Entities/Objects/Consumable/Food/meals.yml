@@ -230,6 +230,7 @@
       - spicy
   - type: Sprite
     state: cubancarp
+# Delta-V: Removed the toxin and changed the description.
   - type: SolutionContainerManager
     solutions:
       food:
@@ -237,7 +238,7 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
-        - ReagentId: CarpoToxin
+        - ReagentId: Protein
           Quantity: 3
   - type: Tag
     tags:
@@ -507,13 +508,14 @@
   name: sashimi
   parent: FoodMealBase
   id: FoodMealSashimi
-  description: Its taste can only be described as "Exotic". The poisoning though? That's pretty common.
+  description: Its taste can only be described as "Exotic".
   components:
   - type: FlavorProfile
     flavors:
       - fishy
   - type: Sprite
     state: sashimi
+# Delta-V: Removed the toxin and changed the description.
   - type: SolutionContainerManager
     solutions:
       food:
@@ -521,8 +523,13 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
+<<<<<<< HEAD
         - ReagentId: CarpoToxin
           Quantity: 15
+=======
+        - ReagentId: Protein
+          Quantity: 6
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - Meat
@@ -589,6 +596,8 @@
   parent: FoodMealBase
   id: FoodMealCornInButter
   description: Buttery.
+<<<<<<< HEAD
+=======
   components:
   - type: Food
     trash: FoodPlate
@@ -607,3 +616,43 @@
           Quantity: 4
         - ReagentId: Vitamin
           Quantity: 4
+
+- type: entity
+  name: harpy wings
+  parent: FoodMealBase
+  id: FoodHarpyWings
+  description: It's a bit stringy.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  components:
+  - type: Food
+    trash: FoodPlate
+  - type: FlavorProfile
+    flavors:
+<<<<<<< HEAD
+      - corn
+      - butter
+  - type: Sprite
+    state: corn-in-butter
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 4
+=======
+      - chicken
+  - type: Sprite
+    state: harpywings
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 13
+        - ReagentId: Protein
+          Quantity: 7
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

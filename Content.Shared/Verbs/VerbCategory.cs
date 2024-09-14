@@ -84,6 +84,10 @@ namespace Content.Shared.Verbs
 
         public static readonly VerbCategory SelectType = new("verb-categories-select-type", null);
 
+<<<<<<< HEAD
         public static readonly VerbCategory PowerLevel = new("verb-categories-power-level", null);
+=======
+        public static readonly VerbCategory Interaction = new("verb-categories-interaction", null);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

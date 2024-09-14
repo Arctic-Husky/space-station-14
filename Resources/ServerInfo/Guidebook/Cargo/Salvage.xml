@@ -29,12 +29,16 @@ Serão necessários jetpacks para se mover pelo espaço, pois sem piso e gravida
 O interior será importante, visto que todas as espécies precisam respirar e o espaço não contém gases. Sua máscara é usada para conectar o tanque de gás à boca para respirar, enquanto os tanques de gás contêm gases consumíveis e podem ser recarregados em botijões de gás. Todas as espécies respiram oxigênio (tanques azuis + amarelos), exceto slimes, que precisam de nitrogênio (tanques vermelhos)
 
 <Box>
-<GuideEntityEmbed Entity="WeaponCrusherGlaive"/>
+<GuideEntityEmbed Entity="WeaponCrusher"/>
 <GuideEntityEmbed Entity="WeaponCrusherDagger"/>
 <GuideEntityEmbed Entity="WeaponProtoKineticAccelerator"/>
 </Box>
 
+<<<<<<< HEAD
 Os "Crushers" são sua primeira e última linha de defesa contra a fauna espacial e outras coisas que desejam causar danos à carga. Embora a adaga seja apenas uma faca padrão, a crusher tem uma propriedade especial que se você atirar em algo com ela e depois seguir com um ataque corpo a corpo, ela causa 2x mais dano. O acelerador protocinético é como uma arma de recarga que pode fornecer impulso no cenário em que seu jetpack seca ou o meu para você.
+=======
+Os "Crushers" são sua primeira e última linha de defesa contra a fauna espacial e outras coisas que desejam causar danos à carga. Embora a adaga seja apenas uma faca padrão, a glaive tem uma propriedade especial que se você atirar em algo com ela e depois seguir com um ataque corpo a corpo, ela causa 2x mais dano. O acelerador protocinético é como uma arma de recarga que pode fornecer impulso no cenário em que seu jetpack seca ou o meu para você.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 <Box>
 <GuideEntityEmbed Entity="Pickaxe"/>

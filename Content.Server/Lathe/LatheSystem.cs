@@ -8,7 +8,10 @@ using Content.Server.Materials;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
+<<<<<<< HEAD
 using Content.Shared.Atmos;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Emag.Components;
@@ -234,7 +237,11 @@ namespace Content.Server.Lathe
             var producing = component.CurrentRecipe ?? component.Queue.FirstOrDefault();
 
             var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue, producing);
+<<<<<<< HEAD
             _uiSys.SetUiState(uid, LatheUiKey.Key, state);
+=======
+            _uiSys.SetUiState(ui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnGetRecipes(EntityUid uid, TechnologyDatabaseComponent component, LatheGetRecipesEvent args)

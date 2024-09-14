@@ -18,6 +18,10 @@
   - type: PaperLabelType
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
+<<<<<<< HEAD
+=======
+    closeOnHandDeselect: false
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     requireHands: false
   - type: UserInterface
     interfaces:
@@ -71,6 +75,15 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 1
+<<<<<<< HEAD
+=======
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/paper_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/paper_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/paper_drop.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # Corvax-Printer-Start
   - type: Material
   - type: PhysicalComposition
@@ -288,6 +301,19 @@
   suffix: Station Only
   components:
   - type: NukeCodePaper
+
+- type: entity
+  parent: Paper
+  id: StationGoalPaper
+  name: station goal
+  description: It looks like you have a lot of work to do.
+  components:
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - stampedName: stamp-component-stamped-name-centcom
+        stampedColor: "#bb3232"
+
 
 - type: entity
   name: pen
@@ -701,10 +727,17 @@
     key: enum.CargoConsoleUiKey.Orders
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.CargoConsoleUiKey.Orders:
         type: CargoOrderConsoleBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+=======
+    - key: enum.CargoConsoleUiKey.Orders
+      type: CargoOrderConsoleBoundUserInterface
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:

@@ -12,4 +12,8 @@ power-sensor-switch = Trocado para verificar a bateria da rede de {$output ->
     [true] saída
     *[false] entrada
 } battery.
+<<<<<<< HEAD
 power-sensor-voltage-switch = Trocado para a rede elétrica de {$voltage}!
+=======
+power-sensor-voltage-switch = Trocado para a rede elétrica de {$voltage}!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

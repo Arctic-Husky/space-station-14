@@ -24,7 +24,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Power\Components\" />
+=======
+    <Folder Include="DeltaV\Abilities\" />
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />

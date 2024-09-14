@@ -1,4 +1,5 @@
 using Content.Shared.PowerCell;
+using Content.Shared.UserInterface;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.UserInterface;

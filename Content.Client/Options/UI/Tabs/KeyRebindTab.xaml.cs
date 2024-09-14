@@ -183,7 +183,13 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.SwapHands);
             AddButton(ContentKeyFunctions.MoveStoredItem);
             AddButton(ContentKeyFunctions.RotateStoredItem);
+<<<<<<< HEAD
             AddButton(ContentKeyFunctions.SaveItemLocation);
+=======
+            AddButton(ContentKeyFunctions.OfferItem);
+            AddButton(ContentKeyFunctions.SaveItemLocation);
+            AddButton(ContentKeyFunctions.ToggleStanding);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
@@ -213,6 +219,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.OpenCraftingMenu);
             AddButton(ContentKeyFunctions.OpenGuidebook);
             AddButton(ContentKeyFunctions.OpenInventoryMenu);
+            AddButton(ContentKeyFunctions.OpenLanguageMenu);
             AddButton(ContentKeyFunctions.OpenAHelp);
             AddButton(ContentKeyFunctions.OpenActionsMenu);
             AddButton(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
@@ -476,7 +483,11 @@ namespace Content.Client.Options.UI.Tabs
 
                 BindButton1 = new BindButton(parent, this, StyleBase.ButtonOpenRight);
                 BindButton2 = new BindButton(parent, this, StyleBase.ButtonOpenLeft);
+<<<<<<< HEAD
                 ResetButton = new Button { Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { StyleBase.ButtonCaution } };
+=======
+                ResetButton = new Button { Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { StyleBase.ButtonDanger } };
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 var hBox = new BoxContainer
                 {

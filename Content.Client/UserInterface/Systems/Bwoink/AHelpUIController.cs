@@ -43,9 +43,18 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     private MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton;
     private Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
     public IAHelpUIHandler? UIHelper;
+
     private bool _discordRelayActive;
     private bool _hasUnreadAHelp;
+<<<<<<< HEAD
     private string? _aHelpSound;
+=======
+
+    public const string AHelpErrorSound = "/Audio/Admin/ahelp_error.ogg";
+    public const string AHelpReceiveSound = "/Audio/Admin/ahelp_receive.ogg";
+    public const string AHelpSendSound = "/Audio/Admin/ahelp_send.ogg";
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -57,6 +66,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
         _config.OnValueChanged(CCVars.AHelpSound, v => _aHelpSound = v, true);
     }
+
 
     public void UnloadButton()
     {
@@ -112,6 +122,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     private void SetAHelpPressed(bool pressed)
     {
         if (GameAHelpButton != null)
+<<<<<<< HEAD
         {
             GameAHelpButton.Pressed = pressed;
         }
@@ -120,6 +131,12 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         {
             LobbyAHelpButton.Pressed = pressed;
         }
+=======
+            GameAHelpButton.Pressed = pressed;
+
+        if (LobbyAHelpButton != null)
+            LobbyAHelpButton.Pressed = pressed;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         UIManager.ClickSound();
         UnreadAHelpRead();
@@ -130,8 +147,8 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         Logger.InfoS("c.s.go.es.bwoink", $"@{message.UserId}: {message.Text}");
         var localPlayer = _playerManager.LocalSession;
         if (localPlayer == null)
-        {
             return;
+<<<<<<< HEAD
         }
         if (message.PlaySound && localPlayer.UserId != message.TrueSender)
         {
@@ -146,6 +163,19 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         {
             UnreadAHelpReceived();
         }
+=======
+
+        EnsureUIHelper();
+
+        if (message.PlaySound && localPlayer.UserId != message.TrueSender && !UIHelper!.IsOpen)
+        {
+            _audio.PlayGlobal(AHelpReceiveSound, Filter.Local(), false);
+            _clyde.RequestWindowAttention();
+        }
+
+        if (!UIHelper!.IsOpen)
+            UnreadAHelpReceived();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         UIHelper!.Receive(message);
     }

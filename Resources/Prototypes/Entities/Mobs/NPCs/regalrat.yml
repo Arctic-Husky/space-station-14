@@ -120,6 +120,16 @@
   - type: Grammar
     attributes:
       gender: male
+<<<<<<< HEAD
+=======
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: MobRatKingBuff
@@ -164,6 +174,8 @@
   description: He's da mini rat. He don't make da roolz.
   noSpawn: true #Must be configured to a King or the AI breaks.
   components:
+  - type: Carriable
+    freeHandsRequired: 1
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
@@ -286,6 +298,19 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
+<<<<<<< HEAD
+=======
+  - type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
+  - type: Food
+  - type: Item
+    size: Tiny # Delta V - Make them eatable and pickable.
+  - type: LanguageKnowledge
+    speaks:
+    - Mouse
+    understands:
+    - GalacticCommon
+    - Mouse
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning

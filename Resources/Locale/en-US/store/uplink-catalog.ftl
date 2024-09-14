@@ -157,9 +157,12 @@ uplink-radio-jammer-desc = This device will disrupt any nearby outgoing radio co
 uplink-syndicate-weapon-module-name = Weapon Cyborg Module
 uplink-syndicate-weapon-module-desc = This module will give a cyborg advanced laser and machete
 
+<<<<<<< HEAD
 uplink-syndicate-martyr-module-name = Martyr Cyborg Module
 uplink-syndicate-martyr-module-desc = Turn your emagged borg friend into a walking bomb with just this module. Make sure they're loyal to your cause, results may vary.
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 uplink-singularity-beacon-name = Singularity Beacon
 uplink-singularity-beacon-desc = A device that attracts singularities. Has to be anchored and powered. Causes singularities to grow when consumed.
 
@@ -196,7 +199,11 @@ uplink-micro-bomb-implanter-desc = Explode on death or manual activation with th
 
 # Bundles
 uplink-observation-kit-name = Observation Kit
+<<<<<<< HEAD
 uplink-observation-kit-desc = Includes surveillance camera monitor board and security hud disguised as sunglasses.
+=======
+uplink-observation-kit-desc = Includes syndicate crew monitor, high power cell and security hud disguised as sunglasses.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 uplink-emp-kit-name = Electrical Disruptor Kit
 uplink-emp-kit-desc = The ultimate reversal on energy-based weaponry: Disables disablers, stuns stunbatons, discharges laser guns! Contains 3 EMP grenades and an EMP implanter. Note: Does not disrupt actual firearms.
@@ -290,9 +297,12 @@ uplink-disposable-turret-desc = Looks and functions like a normal electrical too
 uplink-cluster-banana-peel-name = Cluster Banana
 uplink-cluster-banana-peel-desc = Splits into 6 explosive banana peels after being thrown, the peels detonate automatically after 20 seconds if nobody slips on them.
 
+<<<<<<< HEAD
 uplink-cane-blade-name = Cane Blade
 uplink-cane-blade-desc = A cane that has a hidden blade that can be unsheathed.
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # Armor
 uplink-chameleon-name = Chameleon Kit
 uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anything on the station, and more!
@@ -373,9 +383,12 @@ uplink-slipocalypse-clustersoap-desc = Scatters arounds small pieces of syndicat
 uplink-mobcat-microbomb-name = SyndiCat
 uplink-mobcat-microbomb-desc = A hand cat equipped with a microbomb implant. Explodes when seriously injured. Can bite painfully
 
+<<<<<<< HEAD
 uplink-chameleon-projector-name = Chameleon Projector
 uplink-chameleon-projector-desc = Disappear in plain sight by creating a hologram of an item around you. Do not use this to play the game "Object Search".
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # Pointless
 uplink-revolver-cap-gun-name = Cap Gun
 uplink-revolver-cap-gun-desc = Looks almost like the real thing! Ages 8 and up.
@@ -430,3 +443,9 @@ uplink-barber-scissors-desc = A good tool to give your fellow agent a nice hairc
 
 uplink-backpack-syndicate-name = Syndicate backpack
 uplink-backpack-syndicate-desc = Lightweight explosion-proof а backpack for holding various traitor goods
+<<<<<<< HEAD
+=======
+
+uplink-home-run-bat-name = Home Run Bat
+uplink-home-run-bat-desc = Rigged bat pre-coated in blood for Syndicate tee-ball practice. Launch your foes!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

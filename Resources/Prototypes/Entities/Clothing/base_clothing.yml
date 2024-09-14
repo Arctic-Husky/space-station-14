@@ -11,6 +11,12 @@
       - WhitelistChameleon
   - type: StaticPrice
     price: 10
+<<<<<<< HEAD
+=======
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -19,12 +25,15 @@
     - type: Geiger
       attachedToSuit: true
 
+<<<<<<< HEAD
 - type: entity
   abstract: true
   id: AllowSuitStorageClothing
   components:
   - type: AllowSuitStorage
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # for clothing that has a single item slot to insert and alt click out.
 # inheritors add a whitelisted slot named item
 - type: entity

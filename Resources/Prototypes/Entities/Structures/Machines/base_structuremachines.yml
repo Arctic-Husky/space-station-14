@@ -41,6 +41,12 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+<<<<<<< HEAD
+=======
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -70,3 +76,13 @@
     - machine_board
   - type: LightningTarget
     priority: 1
+<<<<<<< HEAD
+=======
+
+- type: entity
+  abstract: true
+  parent: ConstructibleMachine
+  id: SmallConstructibleMachine
+  components:
+    - type: RequireProjectileTarget
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

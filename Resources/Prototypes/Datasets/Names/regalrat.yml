@@ -1,6 +1,7 @@
 - type: dataset
   id: RegalRatNameKingdom
   values:
+<<<<<<< HEAD
     - Rei
     - Lord
     - Príncipe
@@ -15,10 +16,28 @@
     - Prefeito
     - Chefe
     - Profeta
+=======
+  - Plague
+  - Ammonia
+  - Maintenance
+  - Trash
+  - Garbage
+  - Rat
+  - Vermin
+  - Cheese
+  - Munching
+  - Big
+  - Filth
+  - Sewer
+  - Disposal
+  - Service
+  - The
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: dataset
   id: RegalRatNameTitle
   values:
+<<<<<<< HEAD
     - Praga
     - Miasma
     - Manutenção
@@ -31,3 +50,22 @@
     - Esgoto
     - Bueiro
     - Queijo
+=======
+  - King
+  - Lord
+  - Prince
+  - Emperor
+  - Supreme
+  - Overlord
+  - Master
+  - Shogun
+  - Bojar
+  - Tsar
+  - Fan #vs
+  - Enjoyer
+  - President
+  - Mayor
+  - Boss
+  - Prophet
+  - Cheese
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

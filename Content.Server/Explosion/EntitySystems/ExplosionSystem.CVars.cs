@@ -24,6 +24,9 @@ public sealed partial class ExplosionSystem : EntitySystem
         Subs.CVar(_cfg, CCVars.ExplosionMaxProcessingTime, value => MaxProcessingTime = value, true);
         Subs.CVar(_cfg, CCVars.ExplosionIncrementalTileBreaking, value => IncrementalTileBreaking = value, true);
         Subs.CVar(_cfg, CCVars.ExplosionSingleTickAreaLimit, value => SingleTickAreaLimit = value, true);
+<<<<<<< HEAD
         Subs.CVar(_cfg, CCVars.ExplosionCanCreateVacuum, value => CanCreateVacuum = value, true);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

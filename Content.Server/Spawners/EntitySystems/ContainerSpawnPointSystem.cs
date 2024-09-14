@@ -20,6 +20,13 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         if (args.SpawnResult != null)
             return;
 
+<<<<<<< HEAD
+=======
+        // DeltaV - Ignore these two desired spawn types
+        if (args.DesiredSpawnPointType is SpawnPointType.Observer or SpawnPointType.LateJoin)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var query = EntityQueryEnumerator<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>();
         var possibleContainers = new List<Entity<ContainerSpawnPointComponent, ContainerManagerComponent, TransformComponent>>();
 
@@ -28,6 +35,19 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
             if (args.Station != null && _station.GetOwningStation(uid, xform) != args.Station)
                 continue;
 
+<<<<<<< HEAD
+=======
+            // DeltaV - Custom override for override spawnpoints, only used for prisoners currently. This shouldn't run for any other jobs
+            if (args.DesiredSpawnPointType == SpawnPointType.Job)
+            {
+                if (spawnPoint.SpawnType != SpawnPointType.Job || spawnPoint.Job != args.Job?.Prototype)
+                    continue;
+
+                possibleContainers.Add((uid, spawnPoint, container, xform));
+                continue;
+            }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             // If it's unset, then we allow it to be used for both roundstart and midround joins
             if (spawnPoint.SpawnType == SpawnPointType.Unset)
             {

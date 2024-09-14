@@ -28,8 +28,11 @@
     concerningOrangeFore: "#FFF5EE"
     dangerousRedFore: "#FFF5EE"
     disabledFore: "#FFF5EE"
+<<<<<<< HEAD
     _itemstatus_content_margin_right: "#06060404"
     _itemstatus_content_margin_left: "#04060604"
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: uiTheme
   id: SS14SlimecoreTheme
   path: /Textures/Interface/Slimecore/
@@ -44,8 +47,11 @@
     concerningOrangeFore: "#FFF5EE"
     dangerousRedFore: "#FFF5EE"
     disabledFore: "#FFF5EE"
+<<<<<<< HEAD
     _itemstatus_content_margin_right: "#06060404"
     _itemstatus_content_margin_left: "#04060604"
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: uiTheme
   id: SS14ClockworkTheme
   path: /Textures/Interface/Clockwork/
@@ -60,8 +66,11 @@
     concerningOrangeFore: "#FFF5EE"
     dangerousRedFore: "#FFF5EE"
     disabledFore: "#FFF5EE"
+<<<<<<< HEAD
     _itemstatus_content_margin_right: "#06060404"
     _itemstatus_content_margin_left: "#04060604"
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: uiTheme
   id: SS14RetroTheme
   path: /Textures/Interface/Retro/
@@ -76,8 +85,11 @@
     concerningOrangeFore: "#FFF5EE"
     dangerousRedFore: "#FFF5EE"
     disabledFore: "#FFF5EE"
+<<<<<<< HEAD
     _itemstatus_content_margin_right: "#06060404"
     _itemstatus_content_margin_left: "#04060604"
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: uiTheme
   id: SS14MinimalistTheme
   path: /Textures/Interface/Minimalist/
@@ -108,5 +120,8 @@
     concerningOrangeFore: "#FFF5EE"
     dangerousRedFore: "#FFF5EE"
     disabledFore: "#FFF5EE"
+<<<<<<< HEAD
     _itemstatus_content_margin_right: "#06060604"
     _itemstatus_content_margin_left: "#06060604"
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

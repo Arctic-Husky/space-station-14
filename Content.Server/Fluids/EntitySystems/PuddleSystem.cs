@@ -712,7 +712,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         {
             var (reagent, quantity) = solution.Contents[i];
             var proto = _prototypeManager.Index<ReagentPrototype>(reagent.Prototype);
+<<<<<<< HEAD
             var removed = proto.ReactionTile(tileRef, quantity, EntityManager);
+=======
+            var removed = proto.ReactionTile(tileRef, quantity);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (removed <= FixedPoint2.Zero)
                 continue;
 

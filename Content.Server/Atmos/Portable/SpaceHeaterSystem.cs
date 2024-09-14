@@ -98,7 +98,11 @@ public sealed class SpaceHeaterSystem : EntitySystem
         if (!Resolve(uid, ref powerReceiver))
             return;
 
+<<<<<<< HEAD
         _power.TogglePower(uid);
+=======
+        _power.TryTogglePower(uid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         UpdateAppearance(uid);
         DirtyUI(uid, spaceHeater);
@@ -163,7 +167,11 @@ public sealed class SpaceHeaterSystem : EntitySystem
         {
             return;
         }
+<<<<<<< HEAD
         _userInterfaceSystem.SetUiState(uid, SpaceHeaterUiKey.Key,
+=======
+        _userInterfaceSystem.TrySetUiState(uid, SpaceHeaterUiKey.Key,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             new SpaceHeaterBoundUserInterfaceState(spaceHeater.MinTemperature, spaceHeater.MaxTemperature, thermoMachine.TargetTemperature, !powerReceiver.PowerDisabled, spaceHeater.Mode, spaceHeater.PowerLevel));
     }
 

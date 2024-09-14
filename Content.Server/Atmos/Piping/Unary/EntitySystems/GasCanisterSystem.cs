@@ -15,6 +15,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
+using Content.Server.Silicons.Borgs.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -91,6 +92,13 @@ public sealed class GasCanisterSystem : EntitySystem
         if (canister.GasTankSlot.Item != null)
         {
             var tank = canister.GasTankSlot.Item.Value;
+<<<<<<< HEAD
+=======
+            if (TryComp<BorgJetpackComponent>(tank, out var jetpack) && jetpack.JetpackUid.HasValue)
+            {
+                tank = jetpack.JetpackUid.Value;
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             var tankComponent = Comp<GasTankComponent>(tank);
             tankLabel = Name(tank);
             tankPressure = tankComponent.Air.Pressure;
@@ -104,12 +112,21 @@ public sealed class GasCanisterSystem : EntitySystem
 
     private void OnHoldingTankEjectMessage(EntityUid uid, GasCanisterComponent canister, GasCanisterHoldingTankEjectMessage args)
     {
+<<<<<<< HEAD
         if (canister.GasTankSlot.Item == null)
             return;
 
         var item = canister.GasTankSlot.Item;
         _slots.TryEjectToHands(uid, canister.GasTankSlot, args.Actor);
         _adminLogger.Add(LogType.CanisterTankEjected, LogImpact.Medium, $"Player {ToPrettyString(args.Actor):player} ejected tank {ToPrettyString(item):tank} from {ToPrettyString(uid):canister}");
+=======
+        if (canister.GasTankSlot.Item == null || args.Session.AttachedEntity == null)
+            return;
+
+        var item = canister.GasTankSlot.Item;
+        _slots.TryEjectToHands(uid, canister.GasTankSlot, args.Session.AttachedEntity);
+        _adminLogger.Add(LogType.CanisterTankEjected, LogImpact.Medium, $"Player {ToPrettyString(args.Session.AttachedEntity.GetValueOrDefault()):player} ejected tank {ToPrettyString(item):tank} from {ToPrettyString(uid):canister}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnCanisterChangeReleasePressure(EntityUid uid, GasCanisterComponent canister, GasCanisterChangeReleasePressureMessage args)
@@ -163,7 +180,16 @@ public sealed class GasCanisterSystem : EntitySystem
         {
             if (canister.GasTankSlot.Item != null)
             {
+<<<<<<< HEAD
                 var gasTank = Comp<GasTankComponent>(canister.GasTankSlot.Item.Value);
+=======
+                var tank = canister.GasTankSlot.Item;
+                if (TryComp<BorgJetpackComponent>(tank, out var jetpack) && jetpack.JetpackUid.HasValue)
+                {
+                    tank = jetpack.JetpackUid.Value;
+                }
+                var gasTank = Comp<GasTankComponent>(tank.Value);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 _atmos.ReleaseGasTo(canister.Air, gasTank.Air, canister.ReleasePressure);
             }
             else
@@ -233,7 +259,23 @@ public sealed class GasCanisterSystem : EntitySystem
         if (args.Slot.ID != component.ContainerName || args.User == null)
             return;
 
+<<<<<<< HEAD
         if (!TryComp<GasTankComponent>(args.Item, out var gasTank) || gasTank.IsValveOpen)
+=======
+        var tank = args.Item;
+
+        if (TryComp<BorgJetpackComponent>(tank, out var jetpack))
+        {
+            if (!jetpack.JetpackUid.HasValue)
+            {
+                args.Cancelled = true;
+                return;
+            }
+            tank = jetpack.JetpackUid.Value;
+        }
+
+        if (!TryComp<GasTankComponent>(tank, out var gasTank) || gasTank.IsValveOpen)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             args.Cancelled = true;
             return;
@@ -296,6 +338,7 @@ public sealed class GasCanisterSystem : EntitySystem
     /// </summary>
     private void OnAnalyzed(EntityUid uid, GasCanisterComponent canisterComponent, GasAnalyzerScanEvent args)
     {
+<<<<<<< HEAD
         args.GasMixtures ??= new List<(string, GasMixture?)>();
         args.GasMixtures.Add((Name(uid), canisterComponent.Air));
         // if a tank is inserted show it on the analyzer as well
@@ -305,6 +348,9 @@ public sealed class GasCanisterSystem : EntitySystem
             var tankComponent = Comp<GasTankComponent>(tank);
             args.GasMixtures.Add((Name(tank), tankComponent.Air));
         }
+=======
+        args.GasMixtures = new Dictionary<string, GasMixture?> { {Name(uid), component.Air} };
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>

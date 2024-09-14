@@ -11,7 +11,10 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     public Action<uint?>? OnKeySelected;
 
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
+<<<<<<< HEAD
     public Action<uint>? OnDeleted;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     private bool _isPopulating;
 

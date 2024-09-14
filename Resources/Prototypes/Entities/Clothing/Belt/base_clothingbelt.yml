@@ -12,11 +12,25 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
+    equipSound:
+      path: /Audio/SimpleStation14/Items/Equip/toolbelt_equip.ogg
+    clothingVisuals:
+      belt2: #there should be a cleaner way to do this tbh
+      - state: equipped-BELT
   - type: PhysicalComposition
     materialComposition:
       Cloth: 50
   - type: StaticPrice
     price: 20
+<<<<<<< HEAD
+=======
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/toolbelt_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/toolbelt_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/toolbelt_drop.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -36,8 +50,13 @@
         ents: []
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+=======
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -51,4 +70,7 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

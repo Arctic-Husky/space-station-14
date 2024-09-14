@@ -72,6 +72,7 @@ public readonly record struct ItemMaskToggledEvent(EntityUid Wearer, string? equ
 /// </summary>
 [ByRefEvent]
 public readonly record struct WearerMaskToggledEvent(bool IsToggled);
+<<<<<<< HEAD
 
 /// <summary>
 /// Raised on the clothing entity when it is equipped to a valid slot,
@@ -100,3 +101,5 @@ public readonly record struct ClothingDidEquippedEvent(Entity<ClothingComponent>
 /// </summary>
 [ByRefEvent]
 public readonly record struct ClothingDidUnequippedEvent(Entity<ClothingComponent> Clothing);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

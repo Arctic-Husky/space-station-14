@@ -89,8 +89,12 @@ public sealed partial class MechSystem : SharedMechSystem
 
         if (TryComp<ToolComponent>(args.Used, out var tool) && tool.Qualities.Contains("Prying") && component.BatterySlot.ContainedEntity != null)
         {
+<<<<<<< HEAD
             var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.BatteryRemovalDelay,
                 new RemoveBatteryEvent(), uid, target: uid, used: args.Target)
+=======
+            var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.BatteryRemovalDelay, new RemoveBatteryEvent(), uid, target: uid, used: args.Target)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 BreakOnMove = true
             };
@@ -207,8 +211,16 @@ public sealed partial class MechSystem : SharedMechSystem
                         return;
                     }
 
+<<<<<<< HEAD
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.ExitDelay,
                         new MechExitEvent(), uid, target: uid);
+=======
+                    var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.ExitDelay, new MechExitEvent(), uid, target: uid)
+                    {
+                        BreakOnUserMove = true,
+                        BreakOnTargetMove = true,
+                    };
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
                 }
@@ -303,7 +315,12 @@ public sealed partial class MechSystem : SharedMechSystem
         {
             EquipmentStates = ev.States
         };
+<<<<<<< HEAD
         _ui.SetUiState(uid, MechUiKey.Key, state);
+=======
+        var ui = _ui.GetUi(uid, MechUiKey.Key);
+        _ui.SetUiState(ui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public override void BreakMech(EntityUid uid, MechComponent? component = null)

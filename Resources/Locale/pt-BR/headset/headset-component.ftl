@@ -19,3 +19,10 @@ chat-radio-freelance = Freelance
 # not headset but whatever
 chat-radio-handheld = Portátil
 chat-radio-binary = Binário
+<<<<<<< HEAD
+=======
+chat-radio-binary = Binário
+
+# not headset but whatever
+chat-radio-handheld = Portátil
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

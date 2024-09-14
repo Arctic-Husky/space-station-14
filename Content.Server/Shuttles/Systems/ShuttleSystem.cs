@@ -49,7 +49,10 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ThrusterSystem _thruster = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IAdminLogManager _logger = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public const float TileMassMultiplier = 0.5f;
 

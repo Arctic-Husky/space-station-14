@@ -59,6 +59,7 @@ namespace Content.Server.Database
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.TraitName})
                 .IsUnique();
 
+<<<<<<< HEAD
             modelBuilder.Entity<ProfileRoleLoadout>()
                 .HasOne(e => e.Profile)
                 .WithMany(e => e.Loadouts)
@@ -76,6 +77,11 @@ namespace Content.Server.Database
                 .WithMany(e => e.Loadouts)
                 .HasForeignKey(e => e.ProfileLoadoutGroupId)
                 .IsRequired();
+=======
+            modelBuilder.Entity<Loadout>()
+                .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.LoadoutName})
+                .IsUnique();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             modelBuilder.Entity<Job>()
                 .HasIndex(j => j.ProfileId);
@@ -348,6 +354,8 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
+        public float Height { get; set; } = 1f;
+        public float Width { get; set; } = 1f;
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;
@@ -355,10 +363,16 @@ namespace Content.Server.Database
         public string FacialHairColor { get; set; } = null!;
         public string EyeColor { get; set; } = null!;
         public string SkinColor { get; set; } = null!;
+<<<<<<< HEAD
+=======
+        public string Clothing { get; set; } = null!;
+        public string Backpack { get; set; } = null!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public int SpawnPriority { get; set; } = 0;
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
+        public List<Loadout> Loadouts { get; } = new();
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
@@ -405,6 +419,7 @@ namespace Content.Server.Database
         public string TraitName { get; set; } = null!;
     }
 
+<<<<<<< HEAD
     #region Loadouts
 
     /// <summary>
@@ -478,6 +493,17 @@ namespace Content.Server.Database
 
     #endregion
 
+=======
+    public class Loadout
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string LoadoutName { get; set; } = null!;
+    }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public enum DbPreferenceUnavailableMode
     {
         // These enum values HAVE to match the ones in PreferenceUnavailableMode in Shared.

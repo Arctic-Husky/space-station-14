@@ -152,6 +152,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         var newSkinColor = new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1);
         switch (skinType)
         {
+<<<<<<< HEAD
             case HumanoidSkinColor.HumanToned:
                 var tone = Math.Round(Humanoid.SkinColor.HumanSkinToneFromColor(newSkinColor));
                 newSkinColor = Humanoid.SkinColor.HumanSkinTone((int)tone);
@@ -164,13 +165,181 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             case HumanoidSkinColor.VoxFeathers:
                 newSkinColor = Humanoid.SkinColor.ProportionalVoxColor(newSkinColor);
                 break;
+=======
+        }
+
+        public static HumanoidCharacterAppearance DefaultWithSpecies(string species)
+        {
+            var speciesPrototype = IoCManager.Resolve<IPrototypeManager>().Index<SpeciesPrototype>(species);
+            var skinColor = speciesPrototype.SkinColoration switch
+            {
+                HumanoidSkinColor.HumanToned => Humanoid.SkinColor.HumanSkinTone(speciesPrototype.DefaultHumanSkinTone),
+                HumanoidSkinColor.Hues => speciesPrototype.DefaultSkinTone,
+                HumanoidSkinColor.TintedHues => Humanoid.SkinColor.TintedHues(speciesPrototype.DefaultSkinTone),
+                // DeltaV - Blended tint for moths
+                HumanoidSkinColor.TintedHuesSkin => Humanoid.SkinColor.TintedHuesSkin(speciesPrototype.DefaultSkinTone, speciesPrototype.DefaultSkinTone),
+                _ => Humanoid.SkinColor.ValidHumanSkinTone
+            };
+
+            return new(
+                HairStyles.DefaultHairStyle,
+                Color.Black,
+                HairStyles.DefaultFacialHairStyle,
+                Color.Black,
+                Color.Black,
+                skinColor,
+                new ()
+            );
+        }
+
+        private static IReadOnlyList<Color> RealisticEyeColors = new List<Color>
+        {
+            Color.Brown,
+            Color.Gray,
+            Color.Azure,
+            Color.SteelBlue,
+            Color.Black
+        };
+
+        public static HumanoidCharacterAppearance Random(string species, Sex sex)
+        {
+            var random = IoCManager.Resolve<IRobustRandom>();
+            var markingManager = IoCManager.Resolve<MarkingManager>();
+            var hairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, species).Keys.ToList();
+            var facialHairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, species).Keys.ToList();
+
+            var newHairStyle = hairStyles.Count > 0
+                ? random.Pick(hairStyles)
+                : HairStyles.DefaultHairStyle;
+
+            var newFacialHairStyle = facialHairStyles.Count == 0 || sex == Sex.Female
+                ? HairStyles.DefaultFacialHairStyle
+                : random.Pick(facialHairStyles);
+
+            var newHairColor = random.Pick(HairStyles.RealisticHairColors);
+            newHairColor = newHairColor
+                .WithRed(RandomizeColor(newHairColor.R))
+                .WithGreen(RandomizeColor(newHairColor.G))
+                .WithBlue(RandomizeColor(newHairColor.B));
+
+            // TODO: Add random markings
+
+            var newEyeColor = random.Pick(RealisticEyeColors);
+
+            var skinType = IoCManager.Resolve<IPrototypeManager>().Index<SpeciesPrototype>(species).SkinColoration;
+            var skinTone = IoCManager.Resolve<IPrototypeManager>().Index<SpeciesPrototype>(species).DefaultSkinTone; // DeltaV, required for tone blending
+
+            var newSkinColor = Humanoid.SkinColor.ValidHumanSkinTone;
+            switch (skinType)
+            {
+                case HumanoidSkinColor.HumanToned:
+                    var tone = random.Next(0, 100);
+                    newSkinColor = Humanoid.SkinColor.HumanSkinTone(tone);
+                    break;
+                case HumanoidSkinColor.Hues:
+                case HumanoidSkinColor.TintedHues:
+                    var rbyte = random.NextByte();
+                    var gbyte = random.NextByte();
+                    var bbyte = random.NextByte();
+                    newSkinColor = new Color(rbyte, gbyte, bbyte);
+                    break;
+                case HumanoidSkinColor.TintedHuesSkin: // DeltaV, tone blending
+                    rbyte = random.NextByte();
+                    gbyte = random.NextByte();
+                    bbyte = random.NextByte();
+                    newSkinColor = new Color(rbyte, gbyte, bbyte);
+                    break;
+            }
+
+            if (skinType == HumanoidSkinColor.TintedHues)
+            {
+                newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(newSkinColor);
+            }
+
+            if (skinType == HumanoidSkinColor.TintedHuesSkin) // DeltaV, tone blending
+            {
+                newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(skinTone, newSkinColor);
+            }
+
+            return new HumanoidCharacterAppearance(newHairStyle, newHairColor, newFacialHairStyle, newHairColor, newEyeColor, newSkinColor, new ());
+
+            float RandomizeColor(float channel)
+            {
+                return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         return new HumanoidCharacterAppearance(newHairStyle, newHairColor, newFacialHairStyle, newHairColor, newEyeColor, newSkinColor, new ());
 
         float RandomizeColor(float channel)
         {
+<<<<<<< HEAD
             return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
+=======
+            return new(color.RByte, color.GByte, color.BByte);
+        }
+
+        public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, string species, Sex sex)
+        {
+            var hairStyleId = appearance.HairStyleId;
+            var facialHairStyleId = appearance.FacialHairStyleId;
+
+            var hairColor = ClampColor(appearance.HairColor);
+            var facialHairColor = ClampColor(appearance.FacialHairColor);
+            var eyeColor = ClampColor(appearance.EyeColor);
+
+            var proto = IoCManager.Resolve<IPrototypeManager>();
+            var markingManager = IoCManager.Resolve<MarkingManager>();
+
+            if (!markingManager.MarkingsByCategory(MarkingCategories.Hair).ContainsKey(hairStyleId))
+            {
+                hairStyleId = HairStyles.DefaultHairStyle;
+            }
+
+            if (!markingManager.MarkingsByCategory(MarkingCategories.FacialHair).ContainsKey(facialHairStyleId))
+            {
+                facialHairStyleId = HairStyles.DefaultFacialHairStyle;
+            }
+
+            var markingSet = new MarkingSet();
+            var skinColor = appearance.SkinColor;
+            if (proto.TryIndex(species, out SpeciesPrototype? speciesProto))
+            {
+                markingSet = new MarkingSet(appearance.Markings, speciesProto.MarkingPoints, markingManager, proto);
+                markingSet.EnsureValid(markingManager);
+
+                if (!Humanoid.SkinColor.VerifySkinColor(speciesProto.SkinColoration, skinColor))
+                {
+                    skinColor = Humanoid.SkinColor.ValidSkinTone(speciesProto.SkinColoration, skinColor);
+                }
+
+                markingSet.EnsureSpecies(species, skinColor, markingManager);
+                markingSet.EnsureSexes(sex, markingManager);
+            }
+
+            return new HumanoidCharacterAppearance(
+                hairStyleId,
+                hairColor,
+                facialHairStyleId,
+                facialHairColor,
+                eyeColor,
+                skinColor,
+                markingSet.GetForwardEnumerator().ToList());
+        }
+
+        public bool MemberwiseEquals(ICharacterAppearance maybeOther)
+        {
+            if (maybeOther is not HumanoidCharacterAppearance other) return false;
+            if (HairStyleId != other.HairStyleId) return false;
+            if (!HairColor.Equals(other.HairColor)) return false;
+            if (FacialHairStyleId != other.FacialHairStyleId) return false;
+            if (!FacialHairColor.Equals(other.FacialHairColor)) return false;
+            if (!EyeColor.Equals(other.EyeColor)) return false;
+            if (!SkinColor.Equals(other.SkinColor)) return false;
+            if (!Markings.SequenceEqual(other.Markings)) return false;
+            return true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 

@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
-using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -92,6 +91,7 @@ public sealed class UserDbDataManager : IPostInjectInit
         }
     }
 
+<<<<<<< HEAD
     /// <summary>
     /// Wait for all on-database data for a user to be loaded.
     /// </summary>
@@ -103,6 +103,8 @@ public sealed class UserDbDataManager : IPostInjectInit
     /// <returns>
     /// A task that completes when all on-database data for a user has finished loading.
     /// </returns>
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public Task WaitLoadComplete(ICommonSession session)
     {
         return _users[session.UserId].Task;

@@ -35,8 +35,13 @@
         variation: 0.125
     activatedDamage:
         types:
+<<<<<<< HEAD
             Slash: 15
             Heat: 15
+=======
+            Slash: 8
+            Heat: 10
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             Structural: 20
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
@@ -49,13 +54,21 @@
         map: [ "blade" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     attackRate: 1
+=======
+    attackRate: 1.25
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       types:
         Blunt: 4.5
   - type: Item
     size: Small
+<<<<<<< HEAD
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+=======
+    sprite: DeltaV/Objects/Weapons/Melee/e_sword.rsi # Delta-V
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: UseDelay
     delay: 1.0
   - type: PointLight
@@ -78,8 +91,11 @@
     malus: 0
   - type: Reflect
     enabled: false
+<<<<<<< HEAD
     reflectProb: 0.5
     minReflectProb: 0.25
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: IgnitionSource
     temperature: 700
 
@@ -108,8 +124,13 @@
         variation: 0.250
     activatedDamage:
         types:
+<<<<<<< HEAD
             Slash: 10
             Heat: 10
+=======
+            Slash: 4
+            Heat: 8
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -183,7 +204,7 @@
   name: energy cutlass
   parent: EnergySword
   id: EnergyCutlass
-  description: An exotic energy weapon.
+  description: An exotic energy weapon, brutal blade crackling with crudely harnessed plasma. #DeltaV - nicer description.
   components:
   - type: EnergySword
   - type: ItemToggleMeleeWeapon
@@ -195,7 +216,7 @@
   - type: ItemToggleDisarmMalus
     activatedDisarmMalus: 0.6
   - type: Sprite
-    sprite: Objects/Weapons/Melee/e_cutlass.rsi
+    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi # DeltaV
     layers:
       - state: e_cutlass
       - state: e_cutlass_blade
@@ -203,9 +224,20 @@
         visible: false
         shader: unshaded
         map: [ "blade" ]
+  - type: MeleeWeapon # DeltaV - reduced attack rate of e-cutlass; slower, more brutal swings
+    attackRate: 0.75
+    soundHit:
+      path: /Audio/Weapons/eblade1.ogg
+    damage:
+      types:
+        Blunt: 6
   - type: Item
     size: Small
+<<<<<<< HEAD
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
+=======
+    sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi #DeltaV
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ToggleableLightVisuals
     spriteLayer: blade
     inhandVisuals:
@@ -240,8 +272,13 @@
         variation: 0.250
     activatedDamage:
         types:
+<<<<<<< HEAD
             Slash: 12
             Heat: 12
+=======
+            Slash: 8
+            Heat: 13
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             Structural: 15
   - type: ItemToggleActiveSound
     activeSound:
@@ -249,13 +286,20 @@
       params:
         volume: 3
   - type: ItemToggleDisarmMalus
+<<<<<<< HEAD
     activatedDisarmMalus: 0.6
+=======
+    activatedDisarmMalus: 0.7
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Wieldable
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1.5
     angle: 100
+<<<<<<< HEAD
     range: 1.0
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       types:
         Blunt: 4.5
@@ -272,9 +316,16 @@
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect
+<<<<<<< HEAD
     reflectProb: .50
     minReflectProb: .50
     spread: 75
+=======
+    reflectProb: .80 #DeltaV: 80% Energy Reflection but no ballistics.
+    spread: 75
+    reflects:
+      - Energy #DeltaV: 80% Energy Reflection but no ballistics.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: UseDelay
     delay: 1
   - type: ToggleableLightVisuals

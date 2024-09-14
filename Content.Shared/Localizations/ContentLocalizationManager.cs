@@ -11,7 +11,10 @@ namespace Content.Shared.Localizations
 
         // If you want to change your codebase's language, do it here.
         private const string Culture = "pt-BR";
+<<<<<<< HEAD
         private const string FallbackCulture = "en-US"; // Corvax-Localization
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
@@ -50,7 +53,7 @@ namespace Content.Shared.Localizations
              * localization you should NOT modify these, instead add new functions specific to your language/culture.
              * This ensures the english translations continue to work as expected when fallbacks are needed.
              */
-            var cultureEn = new CultureInfo("en-US");
+            var cultureEn = new CultureInfo(Culture); //Fallback para o inglês não funciona, crashando o server/jogo (???)
 
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);

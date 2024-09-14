@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 using Content.Shared.Explosion;
 using Content.Shared.Inventory;
+=======
+using Content.Server.Storage.EntitySystems;
+using Content.Shared.Explosion;
+using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
+using Content.Shared.Storage;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Inventory
 {
@@ -10,6 +18,10 @@ namespace Content.Server.Inventory
             base.Initialize();
 
             SubscribeLocalEvent<InventoryComponent, BeforeExplodeEvent>(OnExploded);
+<<<<<<< HEAD
+=======
+            SubscribeNetworkEvent<OpenSlotStorageNetworkMessage>(OnOpenSlotStorage);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnExploded(Entity<InventoryComponent> ent, ref BeforeExplodeEvent args)
@@ -17,6 +29,21 @@ namespace Content.Server.Inventory
             // explode each item in their inventory too
             var slots = new InventorySlotEnumerator(ent);
             while (slots.MoveNext(out var slot))
+<<<<<<< HEAD
+=======
+            {
+                if (slot.ContainedEntity != null)
+                    args.Contents.Add(slot.ContainedEntity.Value);
+            }
+        }
+
+        private void OnOpenSlotStorage(OpenSlotStorageNetworkMessage ev, EntitySessionEventArgs args)
+        {
+            if (args.SenderSession.AttachedEntity is not { Valid: true } uid)
+                    return;
+
+            if (TryGetSlotEntity(uid, ev.Slot, out var entityUid) && TryComp<StorageComponent>(entityUid, out var storageComponent))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 if (slot.ContainedEntity != null)
                     args.Contents.Add(slot.ContainedEntity.Value);

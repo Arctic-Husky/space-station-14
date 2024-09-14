@@ -8,6 +8,7 @@
    "copyright":"Inhand sprites by alzore_(discord) for SS14. pipeTrinaryConnectors made by Menshin for SS14 based on pipeTJunction, the rest is taken from https://github.com/tgstation/tgstation at commit 57cd1d59ca019dd0e7811ac451f295f818e573da.",
    "states":[
       {
+<<<<<<< HEAD
          "name": "inhand-left",
          "directions":4
       },
@@ -40,6 +41,8 @@
          "directions":4
       },
       {
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
          "name":"pipeBroken",
          "directions":1
       },

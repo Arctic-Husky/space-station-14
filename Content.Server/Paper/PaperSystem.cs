@@ -100,14 +100,23 @@ namespace Content.Server.Paper
         {
             // only allow editing if there are no stamps or when using a cyberpen
             var editable = paperComp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, "WriteIgnoreStamps");
+<<<<<<< HEAD
             if (_tagSystem.HasTag(args.Used, "Write") && editable)
+=======
+            if (_tagSystem.HasTag(args.Used, "Write") && editable && paperComp.CanEdit)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 var writeEvent = new PaperWriteEvent(uid, args.User);
                 RaiseLocalEvent(args.Used, ref writeEvent);
 
                 paperComp.Mode = PaperAction.Write;
+<<<<<<< HEAD
                 _uiSystem.OpenUi(uid, PaperUiKey.Key, args.User);
                 UpdateUserInterface(uid, paperComp);
+=======
+                _uiSystem.TryOpen(uid, PaperUiKey.Key, actor.PlayerSession);
+                UpdateUserInterface(uid, paperComp, actor.PlayerSession);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 args.Handled = true;
                 return;
             }
@@ -151,8 +160,14 @@ namespace Content.Server.Paper
                 if (TryComp<MetaDataComponent>(uid, out var meta))
                     _metaSystem.SetEntityDescription(uid, "", meta);
 
+<<<<<<< HEAD
                 _adminLogger.Add(LogType.Chat, LogImpact.Low,
                     $"{ToPrettyString(args.Actor):player} has written on {ToPrettyString(uid):entity} the following text: {args.Text}");
+=======
+                if (args.Session.AttachedEntity != null)
+                    _adminLogger.Add(LogType.Chat, LogImpact.Low,
+                        $"{ToPrettyString(args.Session.AttachedEntity.Value):player} has written on {ToPrettyString(uid):entity} the following text: {args.Text}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 _audio.PlayPvs(paperComp.Sound, uid);
             }
@@ -206,12 +221,21 @@ namespace Content.Server.Paper
             _appearance.SetData(uid, PaperVisuals.Status, status, appearance);
         }
 
+<<<<<<< HEAD
         public void UpdateUserInterface(EntityUid uid, PaperComponent? paperComp = null)
+=======
+        public void UpdateUserInterface(EntityUid uid, PaperComponent? paperComp = null, ICommonSession? session = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (!Resolve(uid, ref paperComp))
                 return;
 
+<<<<<<< HEAD
             _uiSystem.SetUiState(uid, PaperUiKey.Key, new PaperBoundUserInterfaceState(paperComp.Content, paperComp.StampedBy, paperComp.Mode));
+=======
+            if (_uiSystem.TryGetUi(uid, PaperUiKey.Key, out var bui))
+                _uiSystem.SetUiState(bui, new PaperBoundUserInterfaceState(paperComp.Content, paperComp.StampedBy, paperComp.Mode), session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 

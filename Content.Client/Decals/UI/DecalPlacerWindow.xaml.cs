@@ -16,7 +16,10 @@ namespace Content.Client.Decals.UI;
 public sealed partial class DecalPlacerWindow : DefaultWindow
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IEntityManager _e = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     private readonly DecalPlacementSystem _decalPlacementSystem;
 

@@ -5,7 +5,11 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c6e3401f2e7e1e55c57060cdf956a98ef1fefc24 | Moth sprites made by PuroSlavKing (Github) | Spider sprites made by PixelTheKermit (Github) | Lizard sprites made by AmalgoMyte (Github)",
+=======
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c6e3401f2e7e1e55c57060cdf956a98ef1fefc24 | Moth sprites made by PuroSlavKing (Github) | Spider sprites made by PixelTheKermit (Github) | Lizard sprites made by AmalgoMyte (Github) | Oni sprites made by angelofallars and leonardo-dabepis (Github)",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     "states": [
         {
             "name": "alien0",
@@ -422,6 +426,26 @@
                     0.4
                 ]
             ]
+<<<<<<< HEAD
+=======
+        },
+        {
+            "name": "oni0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "oni1"
+        },
+        {
+            "name": "oni2"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     ]
 }

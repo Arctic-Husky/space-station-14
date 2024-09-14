@@ -61,7 +61,11 @@ public abstract partial class SharedSericultureSystem : EntitySystem
 
         var doAfter = new DoAfterArgs(EntityManager, uid, comp.ProductionLength, new SericultureDoAfterEvent(), uid)
         { // I'm not sure if more things should be put here, but imo ideally it should probably be set in the component/YAML. Not sure if this is currently possible.
+<<<<<<< HEAD
             BreakOnMove = true,
+=======
+            BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             BlockDuplicate = true,
             BreakOnDamage = true,
             CancelDuplicate = true,

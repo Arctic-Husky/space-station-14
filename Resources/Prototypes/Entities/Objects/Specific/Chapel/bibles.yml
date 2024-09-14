@@ -40,13 +40,36 @@
     - 0,0,0,1
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+=======
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  - type: MeleeWeapon # Nyanotrasen - Bibles do Holy damage
+    damage:
+      types:
+        Blunt: 4
+        Holy: 20
+    heavyRateModifier: 0.8
+    heavyDamageBaseModifier: 1
+    heavyStaminaCost: 5
+    maxTargets: 3
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - Book
   - type: StealTarget
     stealGroup: Bible
+<<<<<<< HEAD
+=======
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: Bible

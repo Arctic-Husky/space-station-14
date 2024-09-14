@@ -527,9 +527,13 @@ WHERE to_tsvector('english'::regconfig, a.message) @@ websearch_to_tsquery('engl
             return time;
         }
 
+<<<<<<< HEAD
         private async Task<DbGuardImpl> GetDbImpl(
             CancellationToken cancel = default,
             [CallerMemberName] string? name = null)
+=======
+        private async Task<DbGuardImpl> GetDbImpl([CallerMemberName] string? name = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             LogDbOp(name);
 
@@ -539,14 +543,23 @@ WHERE to_tsvector('english'::regconfig, a.message) @@ websearch_to_tsquery('engl
             if (_msLag > 0)
                 await Task.Delay(_msLag, cancel);
 
+            if (_msLag > 0)
+                await Task.Delay(_msLag);
+
             return new DbGuardImpl(this, new PostgresServerDbContext(_options));
         }
 
+<<<<<<< HEAD
         protected override async Task<DbGuard> GetDb(
             CancellationToken cancel = default,
             [CallerMemberName] string? name = null)
         {
             return await GetDbImpl(cancel, name);
+=======
+        protected override async Task<DbGuard> GetDb([CallerMemberName] string? name = null)
+        {
+            return await GetDbImpl(name);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private sealed class DbGuardImpl : DbGuard

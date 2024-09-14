@@ -5,7 +5,9 @@ using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
+using Content.Server.JoinQueue;
 using Content.Server.Database;
+using Content.Server.DiscordAuth;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.GhostKick;
@@ -29,7 +31,10 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+<<<<<<< HEAD
 using Content.Server.Redial;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Entry
 {
@@ -105,6 +110,11 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<ContentNetworkResourceManager>().Initialize();
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
+<<<<<<< HEAD
+=======
+                IoCManager.Resolve<JoinQueueManager>().Initialize();
+                IoCManager.Resolve<DiscordAuthManager>().Initialize();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 IoCManager.Resolve<ServerApi>().Initialize();
 
                 _voteManager.Initialize();

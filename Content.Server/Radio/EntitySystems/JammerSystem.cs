@@ -1,8 +1,18 @@
 using Content.Server.DeviceNetwork.Components;
+<<<<<<< HEAD
+=======
+using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Medical.CrewMonitoring;
+using Content.Server.Medical.SuitSensors;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Server.Radio.Components;
+<<<<<<< HEAD
+=======
+using Content.Server.Station.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -16,7 +26,13 @@ public sealed class JammerSystem : SharedJammerSystem
 {
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly PopupSystem _popup = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
 
     public override void Initialize()
     {
@@ -26,6 +42,7 @@ public sealed class JammerSystem : SharedJammerSystem
         SubscribeLocalEvent<ActiveRadioJammerComponent, PowerCellChangedEvent>(OnPowerCellChanged);
         SubscribeLocalEvent<RadioJammerComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
+        SubscribeLocalEvent<SuitSensorComponent, SuitSensorsSendAttemptEvent>(OnSensorSendAttempt);
     }
 
     public override void Update(float frameTime)
@@ -34,6 +51,7 @@ public sealed class JammerSystem : SharedJammerSystem
 
         while (query.MoveNext(out var uid, out var _, out var jam))
         {
+<<<<<<< HEAD
 
             if (_powerCell.TryGetBatteryFromSlot(uid, out var batteryUid, out var battery))
             {
@@ -60,6 +78,13 @@ public sealed class JammerSystem : SharedJammerSystem
                     }
                 }
 
+=======
+            if (_powerCell.TryGetBatteryFromSlot(uid, out var batteryUid, out var battery) &&
+                !_battery.TryUseCharge(batteryUid.Value, jam.Wattage * frameTime, battery))
+            {
+                RemComp<ActiveRadioJammerComponent>(uid);
+                RemComp<DeviceNetworkJammerComponent>(uid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
         }
@@ -75,15 +100,24 @@ public sealed class JammerSystem : SharedJammerSystem
             ChangeLEDState(true, uid);
             EnsureComp<ActiveRadioJammerComponent>(uid);
             EnsureComp<DeviceNetworkJammerComponent>(uid, out var jammingComp);
+<<<<<<< HEAD
             jammingComp.Range = GetCurrentRange(comp);
+=======
+            jammingComp.Range = comp.Range;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             jammingComp.JammableNetworks.Add(DeviceNetworkComponent.DeviceNetIdDefaults.Wireless.ToString());
             Dirty(uid, jammingComp);
         }
         else
         {
+<<<<<<< HEAD
             ChangeLEDState(false, uid);
             RemCompDeferred<ActiveRadioJammerComponent>(uid);
             RemCompDeferred<DeviceNetworkJammerComponent>(uid);
+=======
+            RemComp<ActiveRadioJammerComponent>(uid);
+            RemComp<DeviceNetworkJammerComponent>(uid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
         var state = Loc.GetString(activated ? "radio-jammer-component-on-state" : "radio-jammer-component-off-state");
         var message = Loc.GetString("radio-jammer-component-on-use", ("state", state));
@@ -118,9 +152,38 @@ public sealed class JammerSystem : SharedJammerSystem
     private void OnRadioSendAttempt(ref RadioSendAttemptEvent args)
     {
         if (ShouldCancelSend(args.RadioSource))
+<<<<<<< HEAD
+        {
+            args.Cancelled = true;
+=======
         {
             args.Cancelled = true;
         }
+    }
+
+    private void OnSensorSendAttempt(EntityUid uid, SuitSensorComponent comp, ref SuitSensorsSendAttemptEvent args)
+    {
+        if (ShouldCancelSend(uid))
+        {
+            args.Cancelled = true;
+        }
+    }
+
+    private bool ShouldCancelSend(EntityUid sourceUid)
+    {
+        var source = Transform(sourceUid).Coordinates;
+        var query = EntityQueryEnumerator<ActiveRadioJammerComponent, RadioJammerComponent, TransformComponent>();
+
+        while (query.MoveNext(out _, out _, out var jam, out var transform))
+        {
+            if (source.InRange(EntityManager, _transform, transform.Coordinates, jam.Range))
+            {
+                return true;
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+        }
+
+        return false;
     }
 
     private bool ShouldCancelSend(EntityUid sourceUid)

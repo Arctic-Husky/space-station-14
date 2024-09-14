@@ -89,15 +89,29 @@
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi # DeltaV - resprite
   - type: Clothing
+<<<<<<< HEAD
     sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+=======
+    sprite: DeltaV/Clothing/OuterClothing/Coats/hos_trenchcoat.rsi # DeltaV - resprite
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+        Caustic: 0.75 #not the full 90% from ss13 because of the head
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatInspector
-  name: inspector's coat
-  description: A strict inspector's coat for being intimidating during inspections.
+  name: slim trench coat
+  description: A slim minimalist trench coat best worn unbuttoned.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
@@ -246,15 +260,25 @@
   name: chief medical officer's lab coat
 
 - type: entity
+<<<<<<< HEAD
   parent: ClothingOuterStorageFoldableBase
+=======
+  parent: ClothingOuterStorageBase
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingOuterCoatRnd
-  name: scientist lab coat
+  name: epistemics lab coat # DeltaV - Epistemics Department replacing Science
   description: A suit that protects against minor chemical spills. Has a purple stripe on the shoulder.
   components:
   - type: Sprite
+<<<<<<< HEAD
     sprite: Clothing/OuterClothing/Coats/labcoat_sci.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_sci.rsi
+=======
+    sprite: DeltaV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/epicoat.rsi # DeltaV - Epistemic lab coat
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Armor
     modifiers:
       coefficients:
@@ -292,9 +316,15 @@
   description: Woven with top of the line technology, this labcoat helps protect against radiation in similar way to the experimental hardsuit.
   components:
   - type: Sprite
+<<<<<<< HEAD
     sprite: Clothing/OuterClothing/Coats/labcoat_rd.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_rd.rsi
+=======
+    sprite: Clothing/OuterClothing/Coats/rd_coat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/rd_coat.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Armor
     modifiers:
       coefficients:
@@ -410,13 +440,13 @@
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
-  - type: Armor
+  - type: Armor # DeltaV - tweak for Velta armour
     modifiers:
       coefficients:
-        Blunt: 0.8
+        Blunt: 0.85
         Slash: 0.85
-        Piercing: 0.65
-        Heat: 0.85
+        Piercing: 0.85
+        Heat: 0.75
         Caustic: 0.75
 
 - type: entity

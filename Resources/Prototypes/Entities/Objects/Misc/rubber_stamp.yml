@@ -77,6 +77,7 @@
     state: stamp-chaplain
 
 - type: entity
+<<<<<<< HEAD
   name: lawyer's rubber stamp
   parent: RubberStampBase
   id: RubberStampLawyer
@@ -90,6 +91,8 @@
     state: stamp-lawyer
 
 - type: entity
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: clown's rubber stamp
   parent: RubberStampBase
   id: RubberStampClown
@@ -172,11 +175,16 @@
     state: stamp-mime
 
 - type: entity
+<<<<<<< HEAD
   name: quartermaster's rubber stamp
+=======
+  name: logistics officer's rubber stamp # DeltaV - Logistics Department replacing Cargo
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: RubberStampBase
   id: RubberStampQm
   suffix: DO NOT MAP
   components:
+<<<<<<< HEAD
   - type: Stamp
     stampedName: stamp-component-stamped-name-qm
     stampedColor: "#a23e3e"
@@ -186,16 +194,36 @@
 
 - type: entity
   name: research director's rubber stamp
+=======
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-qm
+      stampedColor: "#a23e3e"
+      stampState: "paper_stamp-qm"
+    - type: Sprite
+      state: stamp-qm
+
+- type: entity
+  name: mystagogue's rubber stamp # DeltaV - Epistemics Department replacing Science
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: RubberStampBase
   id: RubberStampRd
   suffix: DO NOT MAP
   components:
+<<<<<<< HEAD
   - type: Stamp
     stampedName: stamp-component-stamped-name-rd
     stampedColor: "#1f66a0"
     stampState: "paper_stamp-rd"
   - type: Sprite
     state: stamp-rd
+=======
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-rd
+      stampedColor: "#1f66a0"
+      stampState: "paper_stamp-rd"
+    - type: Sprite
+      state: stamp-rd
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: trader's rubber stamp
@@ -267,7 +295,11 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-detective
+<<<<<<< HEAD
     stampedColor: "#754d36"
+=======
+    stampedColor: "#FC0A0A"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     stampState: "paper_stamp-detective"
   - type: Sprite
     state: stamp-detective

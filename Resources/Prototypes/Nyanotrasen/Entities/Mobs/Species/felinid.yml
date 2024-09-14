@@ -9,6 +9,10 @@
     scale: 0.8, 0.8
   - type: HumanoidAppearance
     species: Felinid
+<<<<<<< HEAD
+=======
+    initial: Felinid
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -25,12 +29,20 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
+<<<<<<< HEAD
+=======
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.85  # 0.7 is base speed.
+      80: 0.75  # 0.5 is base speed.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: MeleeWeapon
     soundHit:
       collection: Punch
     animation: WeaponArcClaw
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 1
         Slash: 5
 #  - type: DiseaseCarrier
@@ -39,6 +51,13 @@
   - type: Thieving
     stealthy: true
     stripTimeReduction: 1
+=======
+        Slash: 4
+        Piercing: 1
+#  - type: DiseaseCarrier
+#    naturalImmunities:
+#    - OwOnavirus
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Speech
     speechSounds: Alto
   - type: DamageOnHighSpeedImpact # Landing on all fours!
@@ -47,8 +66,13 @@
         Blunt: 1
   - type: Stamina
     critThreshold: 85
+<<<<<<< HEAD
 #  - type: TypingIndicator
 #    proto: felinid
+=======
+  - type: TypingIndicator
+    proto: felinid
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PseudoItem
     storedOffset: 0,17
     shape:
@@ -62,8 +86,27 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: Felinid
+<<<<<<< HEAD
   - type: CanEscapeInventory
 #  - type: NoShoesSilentFootsteps
+=======
+  - type: NoShoesSilentFootsteps
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - SolCommon
+    - Nekomimetic
+    understands:
+    - GalacticCommon
+    - SolCommon
+    - Nekomimetic
+  - type: Thieving
+    ignoreStripHidden: true
+    stealth: Subtle
+    stripTimeReduction: 0
+    stripTimeMultiplier: 0.667
+  - type: StepTriggerImmune
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   save: false

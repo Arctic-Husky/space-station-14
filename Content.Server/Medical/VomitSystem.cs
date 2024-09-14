@@ -11,6 +11,10 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.StatusEffect;
 using Robust.Server.Audio;
+<<<<<<< HEAD
+=======
+using Content.Shared.Mood;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -68,7 +72,11 @@ namespace Content.Server.Medical
             // Adds a tiny amount of the chem stream from earlier along with vomit
             if (TryComp<BloodstreamComponent>(uid, out var bloodStream))
             {
+<<<<<<< HEAD
                 const float chemMultiplier = 0.5f;
+=======
+                const float chemMultiplier = 0.1f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 var vomitAmount = solutionSize;
 
@@ -94,6 +102,8 @@ namespace Content.Server.Medical
             // Force sound to play as spill doesn't work if solution is empty.
             _audio.PlayPvs("/Audio/Effects/Fluids/splat.ogg", uid, AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
             _popup.PopupEntity(Loc.GetString("disease-vomit", ("person", Identity.Entity(uid, EntityManager))), uid);
+
+            RaiseLocalEvent(uid, new MoodEffectEvent("MobVomit"));
         }
     }
 }

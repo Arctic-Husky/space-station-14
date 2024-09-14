@@ -20,7 +20,10 @@ public sealed class GeneralStationRecordConsoleBoundUserInterface : BoundUserInt
             SendMessage(new SelectStationRecord(key));
         _window.OnFiltersChanged += (type, filterValue) =>
             SendMessage(new SetStationRecordFilter(type, filterValue));
+<<<<<<< HEAD
         _window.OnDeleted += id => SendMessage(new DeleteStationRecord(id));
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _window.OnClose += Close;
 
         _window.OpenCentered();

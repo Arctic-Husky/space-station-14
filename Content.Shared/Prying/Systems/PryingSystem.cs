@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -9,6 +10,20 @@ using Content.Shared.Prying.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
+=======
+using Content.Shared.Prying.Components;
+using Content.Shared.Verbs;
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Doors.Components;
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using PryUnpoweredComponent = Content.Shared.Prying.Components.PryUnpoweredComponent;
 
 namespace Content.Shared.Prying.Systems;
@@ -98,16 +113,24 @@ public sealed class PryingSystem : EntitySystem
             // to be marked as handled.
             return true;
 
+<<<<<<< HEAD
         // hand-prying is much slower
         var modifier = CompOrNull<PryingComponent>(user)?.SpeedModifier ?? 0.1f;
         return StartPry(target, user, null, modifier, out id);
+=======
+        return StartPry(target, user, null, 0.1f, out id); // hand-prying is much slower
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private bool CanPry(EntityUid target, EntityUid user, out string? message, PryingComponent? comp = null)
     {
         BeforePryEvent canev;
 
+<<<<<<< HEAD
         if (comp != null || Resolve(user, ref comp, false))
+=======
+        if (comp != null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             canev = new BeforePryEvent(user, comp.PryPowered, comp.Force);
         }
@@ -137,7 +160,12 @@ public sealed class PryingSystem : EntitySystem
         var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(modEv.BaseTime * modEv.PryTimeModifier / toolModifier), new DoorPryDoAfterEvent(), target, target, tool)
         {
             BreakOnDamage = true,
+<<<<<<< HEAD
             BreakOnMove = true,
+=======
+            BreakOnUserMove = true,
+            BreakOnWeightlessMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         };
 
         if (tool != null)

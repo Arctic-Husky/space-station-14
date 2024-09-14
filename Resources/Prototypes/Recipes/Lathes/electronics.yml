@@ -111,6 +111,18 @@
   id: CloningPodMachineCircuitboard
   result: CloningPodMachineCircuitboard
   category: Circuitry
+<<<<<<< HEAD
+=======
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+     Gold: 100
+
+- type: latheRecipe
+  id: MetempsychoticMachineCircuitboard
+  result: MetempsychoticMachineCircuitboard
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   completetime: 4
   materials:
      Steel: 100
@@ -134,7 +146,11 @@
   completetime: 4
   materials:
     Steel: 150
+<<<<<<< HEAD
     Glass: 500
+=======
+    Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     Gold: 50
 
 - type: latheRecipe
@@ -144,12 +160,29 @@
   completetime: 4
   materials:
     Steel: 100
+<<<<<<< HEAD
     Glass: 500
+=======
+    Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: PortableScrubberMachineCircuitBoard
   result: PortableScrubberMachineCircuitBoard
   category: Circuitry
+<<<<<<< HEAD
+=======
+  completetime: 4
+  materials:
+    Steel: 150
+    Glass: 900
+    Gold: 50
+
+- type: latheRecipe
+  id: SpaceHeaterMachineCircuitBoard
+  result: SpaceHeaterMachineCircuitBoard
+  category: Circuitry
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   completetime: 4
   materials:
     Steel: 150
@@ -198,11 +231,22 @@
   id: ChemDispenserMachineCircuitboard
   result: ChemDispenserMachineCircuitboard
   category: Circuitry
+<<<<<<< HEAD
   completetime: 4
   materials:
      Steel: 100
      Glass: 500
      Gold: 100
+
+- type: latheRecipe
+  id: MedipenRefillerMachineCircuitboard
+  result: MedipenRefillerMachineCircuitboard
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
 
 - type: latheRecipe
   id: MedipenRefillerMachineCircuitboard
@@ -216,6 +260,19 @@
   id: BiomassReclaimerMachineCircuitboard
   result: BiomassReclaimerMachineCircuitboard
   category: Circuitry
+<<<<<<< HEAD
+=======
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+     Gold: 100
+
+- type: latheRecipe
+  id: BiofabricatorMachineCircuitboard
+  result: BiofabricatorMachineCircuitboard
+  category: Circuitry
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   completetime: 4
   materials:
      Steel: 100
@@ -277,6 +334,26 @@
   materials:
     Steel: 100
     Glass: 500
+    Gold: 100
+
+- type: latheRecipe
+  id: AutolatheHyperConvectionMachineCircuitboard
+  result: AutolatheHyperConvectionMachineCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
+    Gold: 100
+
+- type: latheRecipe
+  id: ProtolatheHyperConvectionMachineCircuitboard
+  result: ProtolatheHyperConvectionMachineCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
     Gold: 100
 
 - type: latheRecipe
@@ -348,13 +425,28 @@
      Gold: 100
 
 - type: latheRecipe
+<<<<<<< HEAD
+  id: ArtifactCrusherMachineCircuitboard
+  result: ArtifactCrusherMachineCircuitboard
+=======
+  id: TraversalDistorterMachineCircuitboard
+  result: TraversalDistorterMachineCircuitboard
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 500
+    Gold: 100
+
+- type: latheRecipe
   id: ArtifactCrusherMachineCircuitboard
   result: ArtifactCrusherMachineCircuitboard
   category: Circuitry
   completetime: 4
   materials:
     Steel: 100
-    Glass: 500
+    Glass: 900
     Gold: 100
 
 - type: latheRecipe
@@ -374,6 +466,26 @@
   materials:
     Steel: 100
     Glass: 500
+    Gold: 100
+
+- type: latheRecipe
+  id: AnomalySynchronizerCircuitboard
+  result: AnomalySynchronizerCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 700
+     Silver: 100
+
+- type: latheRecipe
+  id: AnomalyVesselExperimentalCircuitboard
+  result: AnomalyVesselExperimentalCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
     Gold: 100
 
 - type: latheRecipe
@@ -478,7 +590,11 @@
   completetime: 4
   materials:
     Steel: 100
+<<<<<<< HEAD
     Glass: 500
+=======
+    Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: CentrifugeMachineCircuitboard
@@ -487,7 +603,11 @@
   completetime: 4
   materials:
     Steel: 100
+<<<<<<< HEAD
     Glass: 500
+=======
+    Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MaterialReclaimerMachineCircuitboard
@@ -502,6 +622,18 @@
   id: OreProcessorMachineCircuitboard
   result: OreProcessorMachineCircuitboard
   category: Circuitry
+<<<<<<< HEAD
+=======
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
+
+- type: latheRecipe
+  id: OreProcessorIndustrialMachineCircuitboard
+  result: OreProcessorIndustrialMachineCircuitboard
+  category: Circuitry
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   completetime: 4
   materials:
     Steel: 100
@@ -709,6 +841,18 @@
   id: MicrowaveMachineCircuitboard
   result: MicrowaveMachineCircuitboard
   category: Circuitry
+<<<<<<< HEAD
+=======
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
+  id: ElectricGrillMachineCircuitboard
+  result: ElectricGrillMachineCircuitboard
+  category: Circuitry
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   completetime: 4
   materials:
      Steel: 100
@@ -740,6 +884,16 @@
   materials:
     Steel: 100
     Glass: 500
+    Gold: 100
+
+- type: latheRecipe
+  id: FlatpackerMachineCircuitboard
+  result: FlatpackerMachineCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
     Gold: 100
 
 - type: latheRecipe
@@ -912,7 +1066,11 @@
   completetime: 6
   materials:
      Steel: 100
+<<<<<<< HEAD
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      Gold: 100
 
 - type: latheRecipe
@@ -921,7 +1079,11 @@
   completetime: 6
   materials:
      Steel: 100
+<<<<<<< HEAD
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: ShuttleGunSvalinnMachineGunCircuitboard
@@ -929,8 +1091,12 @@
   completetime: 6
   materials:
      Steel: 100
+<<<<<<< HEAD
 
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: ShuttleGunPerforatorCircuitboard
@@ -938,7 +1104,11 @@
   completetime: 10
   materials:
      Steel: 100
+<<<<<<< HEAD
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      Gold: 100
 
 - type: latheRecipe
@@ -947,7 +1117,11 @@
   completetime: 6
   materials:
      Steel: 100
+<<<<<<< HEAD
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: ShuttleGunFriendshipCircuitboard
@@ -955,7 +1129,11 @@
   completetime: 8
   materials:
      Steel: 100
+<<<<<<< HEAD
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      Gold: 50
 
 - type: latheRecipe
@@ -964,7 +1142,11 @@
   completetime: 12
   materials:
      Steel: 100
+<<<<<<< HEAD
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      Gold: 100
 
 - type: latheRecipe
@@ -973,7 +1155,11 @@
   completetime: 5
   materials:
      Steel: 100
+<<<<<<< HEAD
      Glass: 500
+=======
+     Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      Gold: 100
  
 - type: latheRecipe
@@ -982,4 +1168,8 @@
   completetime: 4
   materials:
     Steel: 100
+<<<<<<< HEAD
     Glass: 500
+=======
+    Glass: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

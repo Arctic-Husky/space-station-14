@@ -1,13 +1,44 @@
 - type: trait
   id: UltraVision
+<<<<<<< HEAD
   name: Ultraviolet Vision
   description: trait-ultravision-desc
+=======
+  category: Visual
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Vulpkanin
+        - Harpy
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - DogVision
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
     - type: UltraVision
 
 - type: trait
+<<<<<<< HEAD
   id: DefaultVision
   name: Normal Vision
   description: trait-defaultvision-desc
   components:
     - type: DefaultVision
+=======
+  id: DogVision
+  category: Visual
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Vulpkanin
+        - Harpy
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - UltraVision
+  components:
+    - type: DogVision
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

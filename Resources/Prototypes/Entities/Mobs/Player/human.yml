@@ -46,6 +46,8 @@
   components:
     - type: NukeOperative
     - type: RandomHumanoidAppearance
+    - type: Psionic
+      powerRollMultiplier: 7
 
 - type: entity
   noSpawn: true
@@ -65,6 +67,8 @@
     - type: NpcFactionMember
       factions:
       - Syndicate
+    - type: Psionic
+      powerRollMultiplier: 7
 
 # Space Ninja
 - type: entity

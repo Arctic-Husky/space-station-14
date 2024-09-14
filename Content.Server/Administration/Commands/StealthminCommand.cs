@@ -22,12 +22,16 @@ public sealed class StealthminCommand : LocalizedCommands
             }
 
             var mgr = IoCManager.Resolve<IAdminManager>();
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             var adminData = mgr.GetAdminData(player);
 
             DebugTools.AssertNotNull(adminData);
 
             if (!adminData!.Stealth)
+<<<<<<< HEAD
             {
                 mgr.Stealth(player);
             }
@@ -35,5 +39,10 @@ public sealed class StealthminCommand : LocalizedCommands
             {
                 mgr.UnStealth(player);
             }
+=======
+                mgr.Stealth(player);
+            else
+                mgr.UnStealth(player);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

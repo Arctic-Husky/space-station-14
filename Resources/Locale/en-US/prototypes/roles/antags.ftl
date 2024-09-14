@@ -30,3 +30,9 @@ roles-antag-space-ninja-objective = Use your stealth to sabotage the station, no
 
 roles-antag-thief-name = Thief
 roles-antag-thief-objective = Add some NT property to your personal collection without using violence.
+<<<<<<< HEAD
+=======
+
+roles-antag-terminator-name = Paradox Anomaly # DeltaV - paradox anomaly
+roles-antag-terminator-objective = Replace your double, or befriend them. # DeltaV - paradox anomaly
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -18,6 +18,7 @@ public sealed partial class StationEventComponent : Component
     [DataField]
     public float Weight = WeightNormal;
 
+<<<<<<< HEAD
     [DataField]
     public string? StartAnnouncement;
 
@@ -29,6 +30,13 @@ public sealed partial class StationEventComponent : Component
 
     [DataField]
     public SoundSpecifier? EndAudio;
+=======
+    [DataField("startAnnouncement")]
+    public bool StartAnnouncement;
+
+    [DataField("endAnnouncement")]
+    public bool EndAnnouncement;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     ///     In minutes, when is the first round time this event can start

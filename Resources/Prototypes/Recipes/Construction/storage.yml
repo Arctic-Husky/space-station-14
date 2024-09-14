@@ -49,6 +49,7 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+<<<<<<< HEAD
 
 # ItemCabinets
 - type: construction
@@ -67,3 +68,5 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

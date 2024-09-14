@@ -27,7 +27,11 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+<<<<<<< HEAD
     [Dependency] private readonly StationRecordsSystem _records = default!;
+=======
+    [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
@@ -77,10 +81,17 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             msg.Status == SecurityStatus.Suspected != (msg.Reason != null))
             return;
 
+<<<<<<< HEAD
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
             return;
 
         if (!_records.TryGetRecord<CriminalRecord>(key.Value, out var record) || record.Status == msg.Status)
+=======
+        if (!CheckSelected(ent, msg.Session, out var mob, out var key))
+            return;
+
+        if (!_stationRecords.TryGetRecord<CriminalRecord>(key.Value, out var record) || record.Status == msg.Status)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         // validate the reason
@@ -106,7 +117,11 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         // will probably never fail given the checks above
         _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason);
 
+<<<<<<< HEAD
         var name = _records.RecordName(key.Value);
+=======
+        var name = RecordName(key.Value);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var officer = Loc.GetString("criminal-records-console-unknown-officer");
         if (_idCard.TryFindIdCard(mob.Value, out var id) && id.Comp.FullName is { } fullName)
             officer = fullName;
@@ -145,11 +160,19 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             ent.Comp.SecurityChannel, ent);
 
         UpdateUserInterface(ent);
+<<<<<<< HEAD
+=======
+        UpdateCriminalIdentity(name, msg.Status);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnAddHistory(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordAddHistory msg)
     {
+<<<<<<< HEAD
         if (!CheckSelected(ent, msg.Actor, out _, out var key))
+=======
+        if (!CheckSelected(ent, msg.Session, out _, out var key))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         var line = msg.Line.Trim();
@@ -166,7 +189,11 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
     private void OnDeleteHistory(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordDeleteHistory msg)
     {
+<<<<<<< HEAD
         if (!CheckSelected(ent, msg.Actor, out _, out var key))
+=======
+        if (!CheckSelected(ent, msg.Session, out _, out var key))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         if (!_criminalRecords.TryDeleteHistory(key.Value, msg.Index))
@@ -184,38 +211,68 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
         if (!TryComp<StationRecordsComponent>(owningStation, out var stationRecords))
         {
+<<<<<<< HEAD
             _ui.SetUiState(uid, CriminalRecordsConsoleKey.Key, new CriminalRecordsConsoleState());
             return;
         }
 
         var listing = _records.BuildListing((owningStation.Value, stationRecords), console.Filter);
+=======
+            _ui.TrySetUiState(uid, CriminalRecordsConsoleKey.Key, new CriminalRecordsConsoleState());
+            return;
+        }
+
+        var listing = _stationRecords.BuildListing((owningStation.Value, stationRecords), console.Filter);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         var state = new CriminalRecordsConsoleState(listing, console.Filter);
         if (console.ActiveKey is { } id)
         {
             // get records to display when a crewmember is selected
             var key = new StationRecordKey(id, owningStation.Value);
+<<<<<<< HEAD
             _records.TryGetRecord(key, out state.StationRecord, stationRecords);
             _records.TryGetRecord(key, out state.CriminalRecord, stationRecords);
             state.SelectedKey = id;
         }
 
         _ui.SetUiState(uid, CriminalRecordsConsoleKey.Key, state);
+=======
+            _stationRecords.TryGetRecord(key, out state.StationRecord, stationRecords);
+            _stationRecords.TryGetRecord(key, out state.CriminalRecord, stationRecords);
+            state.SelectedKey = id;
+        }
+
+        _ui.TrySetUiState(uid, CriminalRecordsConsoleKey.Key, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
     /// Boilerplate that most actions use, if they require that a record be selected.
     /// Obviously shouldn't be used for selecting records.
     /// </summary>
+<<<<<<< HEAD
     private bool CheckSelected(Entity<CriminalRecordsConsoleComponent> ent, EntityUid user,
+=======
+    private bool CheckSelected(Entity<CriminalRecordsConsoleComponent> ent, ICommonSession session,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         [NotNullWhen(true)] out EntityUid? mob, [NotNullWhen(true)] out StationRecordKey? key)
     {
         key = null;
         mob = null;
+<<<<<<< HEAD
 
         if (!_access.IsAllowed(user, ent))
         {
             _popup.PopupEntity(Loc.GetString("criminal-records-permission-denied"), ent, user);
+=======
+        if (session.AttachedEntity is not { } user)
+            return false;
+
+        if (!_access.IsAllowed(user, ent))
+        {
+            _popup.PopupEntity(Loc.GetString("criminal-records-permission-denied"), ent, session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return false;
         }
 
@@ -232,6 +289,20 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     }
 
     /// <summary>
+<<<<<<< HEAD
+=======
+    /// Gets the name from a record, or empty string if this somehow fails.
+    /// </summary>
+    private string RecordName(StationRecordKey key)
+    {
+        if (!_stationRecords.TryGetRecord<GeneralStationRecord>(key, out var record))
+            return "";
+
+        return record.Name;
+    }
+
+    /// <summary>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// Checks if the new identity's name has a criminal record attached to it, and gives the entity the icon that
     /// belongs to the status if it does.
     /// </summary>
@@ -239,6 +310,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     {
         var name = Identity.Name(uid, EntityManager);
         var xform = Transform(uid);
+<<<<<<< HEAD
 
         // TODO use the entity's station? Not the station of the map that it happens to currently be on?
         var station = _station.GetStationInMap(xform.MapID);
@@ -246,11 +318,22 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         if (station != null && _records.GetRecordByName(station.Value, name) is { } id)
         {
             if (_records.TryGetRecord<CriminalRecord>(new StationRecordKey(id, station.Value),
+=======
+        var station = _station.GetStationInMap(xform.MapID);
+
+        if (station != null && _stationRecords.GetRecordByName(station.Value, name) is { } id)
+        {
+            if (_stationRecords.TryGetRecord<CriminalRecord>(new StationRecordKey(id, station.Value),
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     out var record))
             {
                 if (record.Status != SecurityStatus.None)
                 {
+<<<<<<< HEAD
                     _criminalRecords.SetCriminalIcon(name, record.Status, uid);
+=======
+                    SetCriminalIcon(name, record.Status, uid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     return;
                 }
             }

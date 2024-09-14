@@ -262,7 +262,11 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
         }
         else if (args.Function == ContentKeyFunctions.ActivateItemInWorld)
         {
+<<<<<<< HEAD
             _entity.RaisePredictiveEvent(
+=======
+            _entity.EntityNetManager?.SendSystemNetworkMessage(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 new InteractInventorySlotEvent(_entity.GetNetEntity(control.Entity), altInteract: false));
             args.Handle();
         }
@@ -314,16 +318,26 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
                     _entity.GetNetEntity(storageEnt)));
             }
 
+<<<<<<< HEAD
             _menuDragHelper.EndDrag();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _container?.BuildItemPieces();
         }
         else //if we just clicked, then take it out of the bag.
         {
+<<<<<<< HEAD
             _menuDragHelper.EndDrag();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _entity.RaisePredictiveEvent(new StorageInteractWithItemEvent(
                 _entity.GetNetEntity(control.Entity),
                 _entity.GetNetEntity(storageEnt)));
         }
+<<<<<<< HEAD
+=======
+        _menuDragHelper.EndDrag();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         args.Handle();
     }
 

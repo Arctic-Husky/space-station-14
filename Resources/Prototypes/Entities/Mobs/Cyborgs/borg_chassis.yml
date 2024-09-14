@@ -133,6 +133,11 @@
     access: [["Engineering"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+<<<<<<< HEAD
+=======
+  - type: SiliconLawProvider # Delta-V - Adds custom lawset for Engineering Cyborg
+    laws: Engineer
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BorgChassisJanitor
@@ -189,6 +194,11 @@
     access: [["Service"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+<<<<<<< HEAD
+=======
+  - type: SiliconLawProvider # Delta-V Adds custom lawset for Janitor Cyborg
+    laws: Janitor
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BorgChassisMedical
@@ -245,9 +255,18 @@
     access: [["Medical"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgDutch
+<<<<<<< HEAD
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHoverBorg
+=======
+  - type: FabricateActions
+    actions:
+    - ActionFabricateLollipop
+    - ActionFabricateGumball
+  - type: SiliconLawProvider # Delta-V - Adds custom lawset for Medical cyborg
+    laws: Medical
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BorgChassisService

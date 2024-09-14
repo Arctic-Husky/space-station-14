@@ -79,6 +79,10 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
             data.Add(i, info);
         }
 
+<<<<<<< HEAD
         _ui.SetUiState(uid, ThiefBackpackUIKey.Key, new ThiefBackpackBoundUserInterfaceState(data, MaxSelectedSets));
+=======
+        _ui.TrySetUiState(uid, ThiefBackpackUIKey.Key, new ThiefBackpackBoundUserInterfaceState(data, MaxSelectedSets));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

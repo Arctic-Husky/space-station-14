@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 station-event-ion-storm-start-announcement = Ion storm detected near the station. Please check all AI-controlled equipment for errors.
+=======
+station-event-ion-storm-announcement = Ion storm detected near the station. Please check all AI-controlled equipment for errors.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ion-storm-law-scrambled-number = [font="Monospace"][scramble rate=250 length={$length} chars="@@###$$&%!01"/][/font]
 

@@ -8,7 +8,11 @@ ghost-role-information-mouse-name = Rato
 ghost-role-information-mouse-description = Um rato faminto e travesso.
 
 ghost-role-information-mothroach-name = Baraposa
+<<<<<<< HEAD
 ghost-role-information-mothroach-description = Uma criatura fofa, porém maliciosa.
+=======
+ghost-role-information-mothroach-description = Uma fofa mas maliciosa baraposa.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ghost-role-information-giant-spider-name = Aranha gigante
 ghost-role-information-giant-spider-description = Os habitantes desta estação parecem muito saborosos, e sua teia pegajosa é perfeita para pegá-los!
@@ -16,6 +20,7 @@ ghost-role-information-giant-spider-description = Os habitantes desta estação 
 ghost-role-information-cognizine-description = Feito consciente com a mágica de cognizine.
 
 ghost-role-information-hamster-name = Hamster
+<<<<<<< HEAD
 ghost-role-information-hamster-description = Uma bolinha de pelo rabugenta.
 
 ghost-role-information-hamlet-name = Hamlet o hamster.
@@ -23,6 +28,15 @@ ghost-role-information-hamlet-description = Vive na ponte de comando da estaçã
 
 ghost-role-information-slimes-name = Slime
 ghost-role-information-slimes-description = Um mero Slime sem necessidades ou interesses especiais. Você é amigável com os outros.
+=======
+ghost-role-information-hamster-description = Uma rabugenta pequena bola de pêlo.
+
+ghost-role-information-hamlet-name = Hamlet o hamster.
+ghost-role-information-hamlet-description = Vive na ponte de comando da estação, é um tanto temperamentál e está sempre com fome.
+
+ghost-role-information-slimes-name = Slime
+ghost-role-information-slimes-description = Um simples Slime sem necessidades ou interesses especiais. Você é amigável com os outros.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ghost-role-information-angry-slimes-name = Slime
 ghost-role-information-angry-slimes-description = Tudo ao seu redor irrita seus instintos, destrua-os!
@@ -68,7 +82,11 @@ ghost-role-information-salvage-shark-name = Sharkminnow espacial em naufrágio d
 ghost-role-information-salvage-shark-description = Ajude as carpas mais jovens a proteger suas presas. Cheire o sangue!
 
 ghost-role-information-willow-name = Willow o canguru
+<<<<<<< HEAD
 ghost-role-information-willow-description = Você é um canguru chamado Willow! Willow gosta de boxe.
+=======
+ghost-role-information-willow-description = Você é um canguru chamado Willow! Willow gosta de box.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ghost-role-information-space-tick-name = Carrapato espacial
 ghost-role-information-space-tick-description = Cause estragos na estação!
@@ -224,3 +242,14 @@ ghost-role-information-syndicate-reinforcement-rules = As regras normais para an
 ghost-role-information-syndicate-monkey-reinforcement-name = Agente Macaco do Sindicato
 ghost-role-information-syndicate-monkey-reinforcement-description = Alguém precisa de reforços. Você, um macaco treinado, irá ajudá-los.
 ghost-role-information-syndicate-monkey-reinforcement-rules = As regras normais para antagonistas do sindicato se aplicam. Trabalhe com quem o chamou e não o prejudique.
+<<<<<<< HEAD
+=======
+ghost-role-information-cancer-mouse-name = Rato Canceroso
+ghost-role-information-cancer-mouse-description = Um Rato Canceroso.
+
+ghost-role-information-medibot-name = Medibot
+ghost-role-information-medibot-description = Clique nas pessoas para curá-las. Cure qualquer pessoa que seu autoinjetor permitir.
+
+ghost-role-information-cleanbot-name = CleanBot
+ghost-role-information-cleanbot-description = Clique nas poças para limpá-las.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

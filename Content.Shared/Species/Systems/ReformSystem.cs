@@ -69,7 +69,11 @@ public sealed partial class ReformSystem : EntitySystem
         // Create a doafter & start it
         var doAfter = new DoAfterArgs(EntityManager, uid, comp.ReformTime, new ReformDoAfterEvent(), uid)
         {
+<<<<<<< HEAD
             BreakOnMove = true,
+=======
+            BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             BlockDuplicate = true,
             BreakOnDamage = true,
             CancelDuplicate = true,
@@ -89,7 +93,11 @@ public sealed partial class ReformSystem : EntitySystem
             return;
 
         // Spawn a new entity
+<<<<<<< HEAD
         // This is, to an extent, taken from polymorph. I don't use polymorph for various reasons- most notably that this is permanent.
+=======
+        // This is, to an extent, taken from polymorph. I don't use polymorph for various reasons- most notably that this is permanent. 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var child = Spawn(comp.ReformPrototype, Transform(uid).Coordinates);
 
         // This transfers the mind to the new entity
@@ -105,7 +113,11 @@ public sealed partial class ReformSystem : EntitySystem
         _actionsSystem.RemoveAction(uid, comp.ActionEntity); // Zombies can't reform
     }
 
+<<<<<<< HEAD
     public sealed partial class ReformEvent : InstantActionEvent { }
+=======
+    public sealed partial class ReformEvent : InstantActionEvent { } 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     
     [Serializable, NetSerializable]
     public sealed partial class ReformDoAfterEvent : SimpleDoAfterEvent { }

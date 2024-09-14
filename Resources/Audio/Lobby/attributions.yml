@@ -1,5 +1,6 @@
-﻿- files: ["thunderdome.ogg"]
+﻿- files: ["01 The Gamble.ogg", "02 Guilty Pleasures.ogg", "03 Jazzcuzzi.ogg", "04 The Walk.ogg", "05 Velvet Bossa.ogg", "06 Colors.ogg", "07 Midnight Jam.ogg", "08 Miles Ahead.ogg", "09 Moody.ogg", "10 Flying Away.ogg", "11 Take It Easy.ogg"]
   license: "CC-BY-NC-SA-3.0"
+<<<<<<< HEAD
   copyright: "-Sector11 by MashedByMachines. Converted from MP3 to OGG."
   source: "https://www.newgrounds.com/audio/listen/312622"
 
@@ -68,3 +69,7 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "every light is blinking at once by Alexander Divine."
   source: "https://soundcloud.com/alexanderdivine/every-light-is-blinking-at-once"
+=======
+  copyright: "All songs used are produced by Danya Vodovoz, royalty free."
+  source: "https://soundcloud.com/danyavodovoz"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

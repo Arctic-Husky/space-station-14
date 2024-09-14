@@ -6,6 +6,7 @@
   components:
   - type: Hunger
   - type: Thirst
+  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Slime/parts.rsi
     state: full
@@ -42,7 +43,10 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
+<<<<<<< HEAD
     allowedEmotes: ['Squish']
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: TypingIndicator
     proto: slime
   - type: Vocal
@@ -73,8 +77,12 @@
   - type: Barotrauma
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 0.50 #per second, scales with pressure and other constants.
         Heat: 0.2 # 0.1 more than humans, i feel like low pressure would make slime boil more than blunt stretch them so i decided on this instead.
+=======
+        Blunt: 0.60 #per second, scales with pressure and other constants. Slighty more than humans.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -110,6 +118,13 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Bubblish
+    understands:
+    - GalacticCommon
+    - Bubblish
 
 - type: entity
   parent: MobHumanDummy

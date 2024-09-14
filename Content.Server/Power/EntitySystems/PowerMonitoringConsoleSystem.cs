@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+=======
+using Content.Server.GameTicking.Rules.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
+using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Server.Power.Nodes;
@@ -11,8 +16,15 @@ using Content.Shared.Power;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
+<<<<<<< HEAD
 using Robust.Shared.Utility;
 using System.Linq;
+=======
+using Robust.Shared.Player;
+using Robust.Shared.Utility;
+using System.Linq;
+using System.Diagnostics.CodeAnalysis;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.GameTicking.Components;
 
 namespace Content.Server.Power.EntitySystems;
@@ -159,7 +171,11 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             allChunks = new();
 
         var tile = _sharedMapSystem.LocalToTile(xform.GridUid.Value, grid, xform.Coordinates);
+<<<<<<< HEAD
         var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
+=======
+        var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, SharedNavMapSystem.ChunkSize);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (!allChunks.TryGetValue(chunkOrigin, out var chunk))
         {
@@ -167,8 +183,13 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             allChunks[chunkOrigin] = chunk;
         }
 
+<<<<<<< HEAD
         var relative = SharedMapSystem.GetChunkRelative(tile, ChunkSize);
         var flag = GetFlag(relative);
+=======
+        var relative = SharedMapSystem.GetChunkRelative(tile, SharedNavMapSystem.ChunkSize);
+        var flag = SharedNavMapSystem.GetFlag(relative);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (args.Anchored)
             chunk.PowerCableData[(int) component.CableType] |= flag;
@@ -282,15 +303,24 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             var query = AllEntityQuery<PowerMonitoringConsoleComponent>();
             while (query.MoveNext(out var ent, out var console))
             {
+<<<<<<< HEAD
                 if (!_userInterfaceSystem.IsUiOpen(ent, PowerMonitoringConsoleUiKey.Key))
                     continue;
 
                 UpdateUIState(ent, console);
 
+=======
+                if (!_userInterfaceSystem.TryGetUi(ent, PowerMonitoringConsoleUiKey.Key, out var bui))
+                    continue;
+
+                foreach (var session in bui.SubscribedSessions)
+                    UpdateUIState(ent, console, session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
     }
 
+<<<<<<< HEAD
     private void UpdateUIState(EntityUid uid, PowerMonitoringConsoleComponent component)
     {
         var consoleXform = Transform(uid);
@@ -298,6 +328,18 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         if (consoleXform?.GridUid == null)
             return;
 
+=======
+    public void UpdateUIState(EntityUid uid, PowerMonitoringConsoleComponent component, ICommonSession session)
+    {
+        if (!_userInterfaceSystem.TryGetUi(uid, PowerMonitoringConsoleUiKey.Key, out var bui))
+            return;
+
+        var consoleXform = Transform(uid);
+
+        if (consoleXform?.GridUid == null)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var gridUid = consoleXform.GridUid.Value;
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
@@ -415,15 +457,24 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         }
 
         // Set the UI state
+<<<<<<< HEAD
         _userInterfaceSystem.SetUiState(uid,
             PowerMonitoringConsoleUiKey.Key,
+=======
+        _userInterfaceSystem.SetUiState(bui,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             new PowerMonitoringConsoleBoundInterfaceState
                 (totalSources,
                 totalBatteryUsage,
                 totalLoads,
                 allEntries.ToArray(),
                 sourcesForFocus.ToArray(),
+<<<<<<< HEAD
                 loadsForFocus.ToArray()));
+=======
+                loadsForFocus.ToArray()),
+            session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private double GetPrimaryPowerValues(EntityUid uid, PowerMonitoringDeviceComponent device, out double powerSupplied, out double powerUsage, out double batteryUsage)
@@ -880,7 +931,11 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                 continue;
 
             var tile = _sharedMapSystem.GetTileRef(gridUid, grid, entXform.Coordinates);
+<<<<<<< HEAD
             var chunkOrigin = SharedMapSystem.GetChunkIndices(tile.GridIndices, ChunkSize);
+=======
+            var chunkOrigin = SharedMapSystem.GetChunkIndices(tile.GridIndices, SharedNavMapSystem.ChunkSize);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (!allChunks.TryGetValue(chunkOrigin, out var chunk))
             {
@@ -888,8 +943,13 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                 allChunks[chunkOrigin] = chunk;
             }
 
+<<<<<<< HEAD
             var relative = SharedMapSystem.GetChunkRelative(tile.GridIndices, ChunkSize);
             var flag = GetFlag(relative);
+=======
+            var relative = SharedMapSystem.GetChunkRelative(tile.GridIndices, SharedNavMapSystem.ChunkSize);
+            var flag = SharedNavMapSystem.GetFlag(relative);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             chunk.PowerCableData[(int) cable.CableType] |= flag;
         }
@@ -906,7 +966,11 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
             var xform = Transform(ent);
             var tile = _sharedMapSystem.GetTileRef(gridUid, grid, xform.Coordinates);
             var gridIndices = tile.GridIndices;
+<<<<<<< HEAD
             var chunkOrigin = SharedMapSystem.GetChunkIndices(gridIndices, ChunkSize);
+=======
+            var chunkOrigin = SharedMapSystem.GetChunkIndices(gridIndices, SharedNavMapSystem.ChunkSize);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (!component.FocusChunks.TryGetValue(chunkOrigin, out var chunk))
             {
@@ -914,8 +978,13 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
                 component.FocusChunks[chunkOrigin] = chunk;
             }
 
+<<<<<<< HEAD
             var relative = SharedMapSystem.GetChunkRelative(gridIndices, ChunkSize);
             var flag = GetFlag(relative);
+=======
+            var relative = SharedMapSystem.GetChunkRelative(gridIndices, SharedNavMapSystem.ChunkSize);
+            var flag = SharedNavMapSystem.GetFlag(relative);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (TryComp<CableComponent>(ent, out var cable))
                 chunk.PowerCableData[(int) cable.CableType] |= flag;

@@ -10,7 +10,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 using System.Linq;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Payload.EntitySystems;
 
@@ -18,7 +21,10 @@ public sealed class PayloadSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly TransformSystem _transform = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
@@ -160,7 +166,11 @@ public sealed class PayloadSystem : EntitySystem
         var solStringB = SolutionContainerSystem.ToPrettyString(solutionB);
 
         _adminLogger.Add(LogType.ChemicalReaction,
+<<<<<<< HEAD
             $"Chemical bomb payload {ToPrettyString(entity.Owner):payload} at {_transform.GetMapCoordinates(entity.Owner):location} is combining two solutions: {solStringA:solutionA} and {solStringB:solutionB}");
+=======
+            $"Chemical bomb payload {ToPrettyString(entity.Owner):payload} at {Transform(entity.Owner).MapPosition:location} is combining two solutions: {solStringA:solutionA} and {solStringB:solutionB}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         solutionA.MaxVolume += solutionB.MaxVolume;
         _solutionContainerSystem.TryAddSolution(solnA.Value, solutionB);

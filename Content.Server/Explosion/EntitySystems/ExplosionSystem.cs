@@ -52,7 +52,11 @@ public sealed partial class ExplosionSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
 
     private EntityQuery<TransformComponent> _transformQuery;
+<<<<<<< HEAD
     private EntityQuery<FlammableComponent> _flammableQuery;
+=======
+    private EntityQuery<DamageableComponent> _damageQuery;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;
 
@@ -104,7 +108,11 @@ public sealed partial class ExplosionSystem : EntitySystem
         InitVisuals();
 
         _transformQuery = GetEntityQuery<TransformComponent>();
+<<<<<<< HEAD
         _flammableQuery = GetEntityQuery<FlammableComponent>();
+=======
+        _damageQuery = GetEntityQuery<DamageableComponent>();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
     }

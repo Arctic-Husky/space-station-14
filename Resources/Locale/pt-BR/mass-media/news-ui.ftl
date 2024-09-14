@@ -33,4 +33,8 @@ news-write-ui-richtext-tooltip = Os artigos de notícias suportam texto formatad
     {"[bullet/]color"}
     {"[bullet/]bullet[/color]"}
 
+<<<<<<< HEAD
 news-pda-notification-header = Novo artigo de notícias
+=======
+news-pda-notification-header = Novo artigo de notícias
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

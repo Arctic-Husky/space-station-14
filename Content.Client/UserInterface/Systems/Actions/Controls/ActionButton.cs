@@ -285,6 +285,7 @@ public sealed class ActionButton : Control, IEntityControl
 
         _controller ??= UserInterfaceManager.GetUIController<ActionUIController>();
         _spriteSys ??= _entities.System<SpriteSystem>();
+<<<<<<< HEAD
         if ((_controller.SelectingTargetFor == ActionId || _action.Toggled))
         {
             if (_action.IconOn != null)
@@ -298,6 +299,12 @@ public sealed class ActionButton : Control, IEntityControl
             SetActionIcon(_action.Icon != null ? _spriteSys.Frame0(_action.Icon) : null);
             _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
         }
+=======
+        if ((_controller.SelectingTargetFor == ActionId || _action.Toggled) && _action.IconOn != null)
+            SetActionIcon(_spriteSys.Frame0(_action.IconOn));
+        else
+            SetActionIcon(_action.Icon != null ? _spriteSys.Frame0(_action.Icon) : null);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public void UpdateBackground()

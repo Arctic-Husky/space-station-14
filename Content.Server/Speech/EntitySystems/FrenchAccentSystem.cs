@@ -10,10 +10,13 @@ public sealed class FrenchAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
+<<<<<<< HEAD
     private static readonly Regex RegexTh = new(@"th", RegexOptions.IgnoreCase);
     private static readonly Regex RegexStartH = new(@"(?<!\w)h", RegexOptions.IgnoreCase);
     private static readonly Regex RegexSpacePunctuation = new(@"(?<=\w\w)[!?;:](?!\w)", RegexOptions.IgnoreCase);
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public override void Initialize()
     {
         base.Initialize();
@@ -27,6 +30,7 @@ public sealed class FrenchAccentSystem : EntitySystem
 
         msg = _replacement.ApplyReplacements(msg, "french");
 
+<<<<<<< HEAD
         // replaces th with dz
         msg = RegexTh.Replace(msg, "'z");
 
@@ -35,6 +39,19 @@ public sealed class FrenchAccentSystem : EntitySystem
 
         // spaces out ! ? : and ;.
         msg = RegexSpacePunctuation.Replace(msg, " $&");
+=======
+        // replaces th with dz 
+        msg = Regex.Replace(msg, @"th", "'z", RegexOptions.IgnoreCase);
+
+        // removes the letter h from the start of words.
+        msg = Regex.Replace(msg, @"(?<!\w)[h]", "'", RegexOptions.IgnoreCase);
+
+        // spaces out ! ? : and ;.
+        msg = Regex.Replace(msg, @"(?<=\w\w)!(?!\w)", " !", RegexOptions.IgnoreCase);
+        msg = Regex.Replace(msg, @"(?<=\w\w)[?](?!\w)", " ?", RegexOptions.IgnoreCase);
+        msg = Regex.Replace(msg, @"(?<=\w\w)[;](?!\w)", " ;", RegexOptions.IgnoreCase);
+        msg = Regex.Replace(msg, @"(?<=\w\w)[:](?!\w)", " :", RegexOptions.IgnoreCase);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         return msg;
     }

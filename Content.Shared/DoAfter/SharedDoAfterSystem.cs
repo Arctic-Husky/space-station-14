@@ -65,7 +65,12 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     {
         // If we're applying state then let the server state handle the do_after prediction.
         // This is to avoid scenarios where a do_after is erroneously cancelled on the final tick.
+<<<<<<< HEAD
         if (!args.InterruptsDoAfters || !args.DamageIncreased || args.DamageDelta == null || GameTiming.ApplyingState)
+=======
+        if (!args.InterruptsDoAfters || !args.DamageIncreased || args.DamageDelta == null || GameTiming.ApplyingState
+            || args.DamageDelta.DamageDict.ContainsKey("Radiation")) //Sanity check so people can crowbar doors open to flee from Lord Singuloth
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         var delta = args.DamageDelta.GetTotal();
@@ -214,7 +219,11 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         args.NetUser = GetNetEntity(args.User);
         args.NetEventTarget = GetNetEntity(args.EventTarget);
 
+<<<<<<< HEAD
         if (args.BreakOnMove)
+=======
+        if (args.BreakOnUserMove || args.BreakOnTargetMove)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             doAfter.UserPosition = Transform(args.User).Coordinates;
 
         if (args.Target != null && args.BreakOnMove)

@@ -9,8 +9,13 @@ namespace Content.Shared.Chat.Prototypes;
 ///     Sounds collection for each <see cref="EmotePrototype"/>.
 ///     Different entities may use different sounds collections.
 /// </summary>
+<<<<<<< HEAD
 [Prototype("emoteSounds"), Serializable, NetSerializable]
 public sealed class EmoteSoundsPrototype : IPrototype
+=======
+[Prototype("emoteSounds")]
+public sealed partial class EmoteSoundsPrototype : IPrototype
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

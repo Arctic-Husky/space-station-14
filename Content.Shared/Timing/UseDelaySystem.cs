@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.GameStates;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Timing;
@@ -9,6 +12,7 @@ public sealed class UseDelaySystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
 
+<<<<<<< HEAD
     private const string DefaultId = "default";
 
     public override void Initialize()
@@ -151,15 +155,60 @@ public sealed class UseDelaySystem : EntitySystem
         var curTime = _gameTiming.CurTime;
         entry.StartTime = curTime;
         entry.EndTime = curTime - _metadata.GetPauseTime(ent) + entry.Length;
+=======
+    public void SetDelay(Entity<UseDelayComponent> ent, TimeSpan delay)
+    {
+        if (ent.Comp.Delay == delay)
+            return;
+
+        ent.Comp.Delay = delay;
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// Returns true if the entity has a currently active UseDelay.
+    /// </summary>
+    public bool IsDelayed(Entity<UseDelayComponent> ent)
+    {
+        return ent.Comp.DelayEndTime >= _gameTiming.CurTime;
+    }
+
+    /// <summary>
+    /// Cancels the current delay.
+    /// </summary>
+    public void CancelDelay(Entity<UseDelayComponent> ent)
+    {
+        ent.Comp.DelayEndTime = _gameTiming.CurTime;
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// Resets the UseDelay entirely for this entity if possible.
+    /// </summary>
+    /// <param name="checkDelayed">Check if the entity has an ongoing delay, return false if it does, return true if it does not.</param>
+    public bool TryResetDelay(Entity<UseDelayComponent> ent, bool checkDelayed = false)
+    {
+        if (checkDelayed && IsDelayed(ent))
+            return false;
+
+        var curTime = _gameTiming.CurTime;
+        ent.Comp.DelayStartTime = curTime;
+        ent.Comp.DelayEndTime = curTime - _metadata.GetPauseTime(ent) + ent.Comp.Delay;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Dirty(ent);
         return true;
     }
 
+<<<<<<< HEAD
     public bool TryResetDelay(EntityUid uid, bool checkDelayed = false, UseDelayComponent? component = null, string id = DefaultId)
+=======
+    public bool TryResetDelay(EntityUid uid, bool checkDelayed = false, UseDelayComponent? component = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(uid, ref component, false))
             return false;
 
+<<<<<<< HEAD
         return TryResetDelay((uid, component), checkDelayed, id);
     }
 
@@ -175,5 +224,8 @@ public sealed class UseDelaySystem : EntitySystem
             entry.EndTime = curTime - _metadata.GetPauseTime(ent) + entry.Length;
         }
         Dirty(ent);
+=======
+        return TryResetDelay((uid, component), checkDelayed);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

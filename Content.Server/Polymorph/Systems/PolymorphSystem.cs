@@ -199,7 +199,11 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var targetTransformComp = Transform(uid);
 
+<<<<<<< HEAD
         var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+=======
+        var child = Spawn(configuration.Entity, targetTransformComp.Coordinates);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         MakeSentientCommand.MakeSentient(child, EntityManager);
 

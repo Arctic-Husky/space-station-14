@@ -3,10 +3,17 @@ cuffable-component-cannot-remove-cuffs-too-far-message = Você está muito longe
 
 cuffable-component-start-uncuffing-self = Você começa a dolorosamente se contorcer de suas algemas.
 cuffable-component-start-uncuffing-observer = {$user} começa a desalgemar {$target}!
+<<<<<<< HEAD
 cuffable-component-start-uncuffing-target-message = Você começa desalgemar de {$targetName}.
 cuffable-component-start-uncuffing-by-other-message = {$otherName} começa a desalgemar você!
 
 cuffable-component-remove-cuffs-success-message = Você removeu as algemas com sucesso.
+=======
+cuffable-component-start-uncuffing-target-message = Você começa desalgemar {$targetName}.
+cuffable-component-start-uncuffing-by-other-message = {$otherName} começa a desalgemar você!
+
+cuffable-component-remove-cuffs-success-message = Você removeu as algemas.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 cuffable-component-remove-cuffs-by-other-success-message = {$otherName} desalgema suas mãos.
 cuffable-component-remove-cuffs-to-other-partial-success-message = Você remove uma algema. {$cuffedHandCount} das mãos do(a) {$otherName}'s continuam algemadas.
 cuffable-component-remove-cuffs-by-other-partial-success-message = {$otherName} remove uma algema. {$cuffedHandCount} das suas mãos continuam algemadas.

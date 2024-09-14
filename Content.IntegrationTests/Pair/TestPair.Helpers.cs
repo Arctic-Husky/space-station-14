@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+<<<<<<< HEAD
+=======
+using Content.Server.Preferences.Managers;
+using Content.Shared.Preferences;
+using Content.Shared.Roles;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -128,4 +134,32 @@ public sealed partial class TestPair
 
         return list;
     }
+<<<<<<< HEAD
+=======
+
+    /// <summary>
+    /// Helper method for enabling or disabling a antag role
+    /// </summary>
+    public async Task SetAntagPref(ProtoId<AntagPrototype> id, bool value)
+    {
+        var prefMan = Server.ResolveDependency<IServerPreferencesManager>();
+
+        var prefs = prefMan.GetPreferences(Client.User!.Value);
+        // what even is the point of ICharacterProfile if we always cast it to HumanoidCharacterProfile to make it usable?
+        var profile = (HumanoidCharacterProfile) prefs.SelectedCharacter;
+
+        Assert.That(profile.AntagPreferences.Any(preference => preference == id), Is.EqualTo(!value));
+        var newProfile = profile.WithAntagPreference(id, value);
+
+        await Server.WaitPost(() =>
+        {
+            prefMan.SetProfile(Client.User.Value, prefs.SelectedCharacterIndex, newProfile).Wait();
+        });
+
+        // And why the fuck does it always create a new preference and profile object instead of just reusing them?
+        var newPrefs = prefMan.GetPreferences(Client.User.Value);
+        var newProf = (HumanoidCharacterProfile) newPrefs.SelectedCharacter;
+        Assert.That(newProf.AntagPreferences.Any(preference => preference == id), Is.EqualTo(value));
+    }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

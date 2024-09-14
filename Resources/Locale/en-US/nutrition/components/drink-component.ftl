@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 drink-component-on-use-is-empty = {CAPITALIZE(THE($owner))} is empty!
+=======
+drink-component-on-use-is-empty = {$owner} is empty!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 drink-component-on-examine-is-empty = [color=gray]Empty[/color]
 drink-component-on-examine-is-opened = [color=yellow]Opened[/color]
 drink-component-on-examine-is-sealed = The seal is intact.

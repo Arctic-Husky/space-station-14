@@ -19,10 +19,17 @@
   id: AppraisalTool
 
 - type: Tag
+<<<<<<< HEAD
   id: Arrow
+=======
+  id: ArachneWeb
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: Tag
   id: ArtifactFragment
+
+- type: Tag
+  id: Arrow
 
 - type: Tag
   id: ATVKeys
@@ -223,6 +230,9 @@
   id: BoxHug
 
 - type: Tag
+  id: Burnt
+
+- type: Tag
   id: BrassInstrument
 
 - type: Tag
@@ -247,9 +257,12 @@
   id: BulletFoam
 
 - type: Tag
+<<<<<<< HEAD
   id: Burnt
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: BypassDropChecks
 
 - type: Tag
@@ -316,6 +329,57 @@
   id: CarrotFries
 
 - type: Tag
+<<<<<<< HEAD
+=======
+  id: Carpet
+
+- type: Tag
+  id: CarpetBlack
+
+- type: Tag
+  id: CarpetBlue
+
+- type: Tag
+  id: CarpetCyan
+
+- type: Tag
+  id: CarpetGreen
+
+- type: Tag
+  id: CarpetOrange
+
+- type: Tag
+  id: CarpetPurple
+
+- type: Tag
+  id: CarpetSBlue
+
+- type: Tag
+  id: CarpetPink
+
+- type: Tag
+  id: CarpetRed
+
+- type: Tag
+  id: CarpetWhite
+
+- type: Tag
+  id: CanPilot
+
+- type: Tag
+  id: CannonBall
+
+- type: Tag
+  id: CannonRestrict
+
+- type: Tag
+  id: CannotSuicide
+
+- type: Tag
+  id: CaptainSabre
+
+- type: Tag
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Carp
 
 - type: Tag
@@ -399,6 +463,7 @@
 
 - type: Tag
   id: ClownSuit
+<<<<<<< HEAD
 
 - type: Tag
   id: CluwneHappyHonk
@@ -408,11 +473,17 @@
 
 - type: Tag
   id: Cola
+=======
+
+- type: Tag
+  id: CluwneHorn
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: Tag
   id: Coldsauce
 
 - type: Tag
+<<<<<<< HEAD
   id: CombatKnife
 
 - type: Tag
@@ -425,6 +496,11 @@
   id: CoordinatesDisk
 
 - type: Tag #Ohioans die happy
+=======
+  id: CoordinatesDisk
+
+- type: Tag
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Corn
 
 - type: Tag
@@ -470,7 +546,29 @@
   id: Cryobeaker
 
 - type: Tag
+<<<<<<< HEAD
   id: CrystalBlue
+=======
+  id: CrystalCyan
+
+- type: Tag
+  id: CrystalBlue
+
+- type: Tag
+  id: CrystalPink
+
+- type: Tag
+  id: CrystalGreen
+
+- type: Tag
+  id: CrystalOrange
+
+- type: Tag
+  id: CrystalRed
+
+- type: Tag
+  id: ConveyorAssembly
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: Tag
   id: CrystalCyan
@@ -515,12 +613,25 @@
   id: Document
 
 - type: Tag
+<<<<<<< HEAD
+=======
+  id: DoorBumpOpener
+
+- type: Tag
+  id: DoorElectronics
+
+- type: Tag
+  id: DoorElectronicsConfigurator
+
+- type: Tag
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DonkPocket
 
 - type: Tag
   id: Donut
 
 - type: Tag
+<<<<<<< HEAD
   id: DoorBumpOpener
 
 - type: Tag
@@ -537,6 +648,15 @@
 
 - type: Tag
   id: DrinkSpaceGlue
+=======
+  id: DrinkCan
+
+- type: Tag
+  id: DrinkSpaceGlue
+
+- type: Tag
+  id: DrinkBottle
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: Tag
   id: Duck
@@ -575,6 +695,12 @@
   id: FireAxe
 
 - type: Tag
+<<<<<<< HEAD
+=======
+  id: Flesh
+
+- type: Tag
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: FirelockElectronics
 
 - type: Tag
@@ -611,6 +737,12 @@
   id: Fruit
 
 - type: Tag
+<<<<<<< HEAD
+=======
+  id: FullBodyOuter
+
+- type: Tag
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Galaxythistle
 
 - type: Tag
@@ -707,6 +839,12 @@
   id: HidesNose # for non-standard noses.
 
 - type: Tag
+<<<<<<< HEAD
+=======
+  id: HidesBeard # for full coverage helmet / masks where beard shouldn't show
+
+- type: Tag
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: HighRiskItem
 
 - type: Tag
@@ -802,6 +940,18 @@
 - type: Tag
   id: MacroBomb
 
+<<<<<<< HEAD
+=======
+- type: Tag
+  id: MimeBelt
+
+- type: Tag
+  id: MimeHappyHonk
+
+- type: Tag
+  id: Mineshaft
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # Magazines ordered by slot then caliber
 
 - type: Tag
@@ -855,8 +1005,11 @@
 - type: Tag
   id: MagazineGrenade
 
+<<<<<<< HEAD
 # Magazines end
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: Tag
   id: MailingUnitElectronics
 
@@ -870,9 +1023,12 @@
   id: Meat
 
 - type: Tag
+<<<<<<< HEAD
   id: Medal
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Medkit
 
 - type: Tag
@@ -888,21 +1044,27 @@
   id: MicrowaveMachineBoard
 
 - type: Tag
+<<<<<<< HEAD
   id: MimeBelt
 
 - type: Tag
   id: MimeHappyHonk
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: MindShield
 
 - type: Tag
   id: MindTransferTarget
 
 - type: Tag
+<<<<<<< HEAD
   id: Mineshaft
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ModularReceiver
 
 - type: Tag
@@ -939,16 +1101,34 @@
   id: Ointment
 
 - type: Tag
+  id: Oneirophage
+
+- type: Tag
   id: Ore
 
 - type: Tag
   id: Packet
+<<<<<<< HEAD
+
+- type: Tag
+  id: Paper
+=======
 
 - type: Tag
   id: Paper
 
 - type: Tag
+  id: Payload # for grenade/bomb crafting
+
+- type: Tag
   id: Pancake
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+
+- type: Tag
+  id: Pen
+
+- type: Tag
+  id: PepperShaker
 
 - type: Tag
   id: Payload # for grenade/bomb crafting
@@ -964,6 +1144,9 @@
 
 - type: Tag
   id: PetWearable
+
+- type: Tag
+  id: MonkeyWearable
 
 - type: Tag
   id: Pickaxe
@@ -1011,10 +1194,17 @@
   id: PlushieSharkBlue
 
 - type: Tag
+<<<<<<< HEAD
   id: PlushieSharkGrey
 
 - type: Tag
   id: PlushieSharkPink
+=======
+  id: PlushieSharkPink
+
+- type: Tag
+  id: PlushieSharkGrey
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: Tag
   id: Potato
@@ -1023,19 +1213,28 @@
   id: PotatoBattery
 
 - type: Tag
+<<<<<<< HEAD
   id: PowerCage
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: PowerCell
 
 - type: Tag
   id: PowerCellSmall
 
 - type: Tag
+  id: PowerCage
+
+- type: Tag
   id: Powerdrill
 
 - type: Tag
   id: PrisonUniform
+
+- type: Tag
+  id: PrizeTicket
 
 - type: Tag
   id: ProximitySensor
@@ -1120,9 +1319,12 @@
   id: Sidearm
 
 - type: Tag
+<<<<<<< HEAD
   id: SignalTrigger
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: SkeletonMotorcycleKeys
 
 - type: Tag
@@ -1138,9 +1340,18 @@
   id: Smokable
 
 - type: Tag
+<<<<<<< HEAD
   id: SnowyLabs
 
 - type: Tag
+=======
+  id: SnapPop
+
+- type: Tag
+  id: SnowyLabs
+
+- type: Tag
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Soap
 
 - type: Tag
@@ -1148,6 +1359,16 @@
 
 - type: Tag
   id: Soup
+<<<<<<< HEAD
+=======
+
+- type: Tag
+  id: SpookyFog
+
+- type: Tag
+  id: Spray
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: Tag
   id: Spear
 
@@ -1167,12 +1388,15 @@
   id: SpiderCraft
 
 - type: Tag
+<<<<<<< HEAD
   id: SpookyFog
 
 - type: Tag
   id: Spray
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: SpreaderIgnore
 
 - type: Tag
@@ -1185,15 +1409,21 @@
   id: StringInstrument
 
 - type: Tag
+  id: Steak
+
+- type: Tag
   id: SubdermalImplant
 
 - type: Tag
   id: SuitEVA
 
 - type: Tag
+<<<<<<< HEAD
   id: Sunglasses
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: SurgeryTool
 
 - type: Tag
@@ -1248,9 +1478,12 @@
   id: TrashBag
 
 - type: Tag
+<<<<<<< HEAD
   id: Truncheon
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Unimplantable
 
 - type: Tag
@@ -1290,9 +1523,12 @@
   id: WeaponShotgunKammerer
 
 - type: Tag
+<<<<<<< HEAD
   id: WeldingMask
 
 - type: Tag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: WetFloorSign
 
 - type: Tag
@@ -1308,7 +1544,11 @@
   id: Wine
 
 - type: Tag
+<<<<<<< HEAD
   id: Wirecutter
+=======
+  id: WizardWand # that evil vvizard vvand
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: Tag
   id: WizardStaff
@@ -1334,7 +1574,11 @@
 - type: Tag
   id: WriteIgnoreStamps
 
+<<<<<<< HEAD
 # ALPHABETICAL
 
 - type: Tag
   id: PreventLabel
+=======
+# PUT YOUR TAGS IN ALPHABETICAL ORDER
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

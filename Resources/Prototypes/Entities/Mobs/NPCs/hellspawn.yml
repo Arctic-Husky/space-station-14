@@ -12,8 +12,11 @@
     makeSentient: true
     name: ghost-role-information-hellspawn-name
     description: ghost-role-information-hellspawn-description
+<<<<<<< HEAD
     raffle:
       settings: default
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
@@ -55,7 +58,10 @@
   - type: Perishable
   - type: Reflect
     reflectProb: 0.7
+<<<<<<< HEAD
     innate: true
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     reflects:
       - Energy
   - type: Fixtures

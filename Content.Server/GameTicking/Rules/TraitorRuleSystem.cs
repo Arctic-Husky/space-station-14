@@ -6,7 +6,10 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.Mind;
+<<<<<<< HEAD
 using Content.Shared.NPC.Systems;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Objectives.Components;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
@@ -15,7 +18,13 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+<<<<<<< HEAD
 using Content.Server.GameTicking.Components;
+=======
+using Content.Shared.Mood;
+using Content.Server.GameTicking.Components;
+using Content.Server.Traitor.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -72,10 +81,22 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         //Grab the mind if it wasnt provided
         if (!_mindSystem.TryGetMind(traitor, out var mindId, out var mind))
             return false;
+<<<<<<< HEAD
 
         var briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers).Values);
 
+=======
+
+        var briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
+
+        if (TryComp<AutoTraitorComponent>(traitor, out var autoTraitorComponent))
+        {
+            giveUplink = autoTraitorComponent.GiveUplink;
+            giveObjectives = autoTraitorComponent.GiveObjectives;
+        }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Note[]? code = null;
         if (giveUplink)
         {
@@ -98,7 +119,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
         }
 
+<<<<<<< HEAD
         _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code, issuer), null, component.GreetSoundNotification);
+=======
+        _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code), null, component.GreetSoundNotification);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         component.TraitorMinds.Add(mindId);
 
@@ -111,6 +136,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         // Change the faction
         _npcFaction.RemoveFaction(traitor, component.NanoTrasenFaction, false);
         _npcFaction.AddFaction(traitor, component.SyndicateFaction);
+<<<<<<< HEAD
+=======
+
+        RaiseLocalEvent(traitor, new MoodEffectEvent("TraitorFocused"));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         // Give traitors their objectives
         if (giveObjectives)
@@ -143,10 +173,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", comp.Codewords)));
     }
 
+<<<<<<< HEAD
     private string GenerateBriefing(string[] codewords, Note[]? uplinkCode, string? objectiveIssuer = null)
     {
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+=======
+    private string GenerateBriefing(string[] codewords, Note[]? uplinkCode)
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine(Loc.GetString("traitor-role-greeting"));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         sb.AppendLine(Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
             sb.AppendLine(Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));

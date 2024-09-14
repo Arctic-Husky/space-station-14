@@ -322,17 +322,28 @@ public partial class SharedBodySystem
                     launchImpulseVariance:GibletLaunchImpulseVariance, launchCone: splatCone);
             }
         }
+<<<<<<< HEAD
 
         var bodyTransform = Transform(bodyId);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (TryComp<InventoryComponent>(bodyId, out var inventory))
         {
             foreach (var item in _inventory.GetHandOrInventoryEntities(bodyId))
             {
+<<<<<<< HEAD
                 SharedTransform.DropNextTo(item, (bodyId, bodyTransform));
                 gibs.Add(item);
             }
         }
         _audioSystem.PlayPredicted(gibSoundOverride, bodyTransform.Coordinates, null);
+=======
+                SharedTransform.AttachToGridOrMap(item);
+                gibs.Add(item);
+            }
+        }
+        _audioSystem.PlayPredicted(gibSoundOverride, Transform(bodyId).Coordinates, null);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         return gibs;
     }
 }

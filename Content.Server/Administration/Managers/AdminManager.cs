@@ -101,9 +101,13 @@ namespace Content.Server.Administration.Managers
         public void Stealth(ICommonSession session)
         {
             if (!_admins.TryGetValue(session, out var reg))
+<<<<<<< HEAD
             {
                 throw new ArgumentException($"Player {session} is not an admin");
             }
+=======
+                throw new ArgumentException($"Player {session} is not an admin");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (reg.Data.Stealth)
                 return;
@@ -120,9 +124,13 @@ namespace Content.Server.Administration.Managers
         public void UnStealth(ICommonSession session)
         {
             if (!_admins.TryGetValue(session, out var reg))
+<<<<<<< HEAD
             {
                 throw new ArgumentException($"Player {session} is not an admin");
             }
+=======
+                throw new ArgumentException($"Player {session} is not an admin");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (!reg.Data.Stealth)
                 return;
@@ -217,9 +225,13 @@ namespace Content.Server.Administration.Managers
                 }
 
                 if (player.ContentData()!.Stealthed)
+<<<<<<< HEAD
                 {
                     aData.Stealth = true;
                 }
+=======
+                    aData.Stealth = true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             SendPermsChangedEvent(player);
@@ -285,7 +297,13 @@ namespace Content.Server.Administration.Managers
                 _commandPermissions.LoadPermissionsFromStream(efs);
             }
 
-            if (_res.TryContentFileRead(new ResPath("/toolshedEngineCommandPerms.yml"), out var toolshedPerms))
+            var toolshedPermsPath = new ResPath("/toolshedEngineCommandPerms.yml");
+            if (_res.TryContentFileRead(toolshedPermsPath, out var toolshedPerms))
+            {
+                _commandPermissions.LoadPermissionsFromStream(toolshedPerms);
+            }
+            // This may or may not be necessary. We read the same file again and load the same permissions into a different manager.
+            if (_res.TryContentFileRead(toolshedPermsPath, out toolshedPerms))
             {
                 _toolshedCommandPermissions.LoadPermissionsFromStream(toolshedPerms);
             }
@@ -345,6 +363,7 @@ namespace Content.Server.Administration.Managers
                 if (_admins.Remove(e.Session, out var reg ) && _cfg.GetCVar(CCVars.AdminAnnounceLogout))
                 {
                     if (reg.Data.Stealth)
+<<<<<<< HEAD
                     {
                         _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-logout-message",
                             ("name", e.Session.Name)), flagWhitelist: AdminFlags.Stealth);
@@ -355,6 +374,13 @@ namespace Content.Server.Administration.Managers
                         _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-logout-message",
                             ("name", e.Session.Name)));
                     }
+=======
+                        _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-logout-message",
+                            ("name", e.Session.Name)), flagWhitelist: AdminFlags.Stealth);
+                    else
+                        _chat.SendAdminAnnouncement(Loc.GetString("admin-manager-admin-logout-message",
+                            ("name", e.Session.Name)));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 }
             }
         }
@@ -377,10 +403,17 @@ namespace Content.Server.Administration.Managers
 
             _admins.Add(session, reg);
 
+<<<<<<< HEAD
             if (session.ContentData()!.Stealthed)
                 reg.Data.Stealth = true;
 
             if (!session.ContentData()!.ExplicitlyDeadminned)
+=======
+            if (session.ContentData()?.Stealthed == true)
+                reg.Data.Stealth = true;
+
+            if (!session.ContentData()?.ExplicitlyDeadminned ?? true)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 reg.Data.Active = true;
 

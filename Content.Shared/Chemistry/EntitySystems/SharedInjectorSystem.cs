@@ -113,7 +113,11 @@ public abstract class SharedInjectorSystem : EntitySystem
         if (injector.Comp.InjectOnly)
             return;
 
+<<<<<<< HEAD
         if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out var solEnt, out var solution))
+=======
+        if (!SolutionContainers.TryGetSolution(injector.Owner, InjectorComponent.SolutionName, out var solEnt, out var solution))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         string msg;

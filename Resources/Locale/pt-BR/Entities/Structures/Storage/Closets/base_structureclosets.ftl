@@ -1,4 +1,5 @@
 ent-ClosetBase = armário
+<<<<<<< HEAD
     .desc = Uma unidade de armazenamento Nanotrasen padrão.
 
 ent-ClosetSteelBase = armário
@@ -30,3 +31,13 @@ ent-WardrobeBlackFilled = guarda-roupa preto
 
 ent-WardrobeGreenFilled = guarda-roupa verde
     .desc = Um guarda-roupa repleto de roupas verdes elegantes.
+=======
+    .desc = Uma unidade de armazenamento de nanotrasen em edição padrão.
+
+ent-BaseWallCloset = armário de parede
+    .desc = Uma unidade de armazenamento de nanotrasen de emissão padrão, agora nas paredes.
+
+ent-BaseWallLocker = armário de parede
+    .desc = Uma unidade de armazenamento de nanotrasen de emissão padrão, agora nas paredes.
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

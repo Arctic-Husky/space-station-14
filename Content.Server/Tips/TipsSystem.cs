@@ -47,7 +47,10 @@ public sealed class TipsSystem : EntitySystem
         Subs.CVar(_cfg, CCVars.TipFrequencyInRound, SetInRound, true);
         Subs.CVar(_cfg, CCVars.TipsEnabled, SetEnabled, true);
         Subs.CVar(_cfg, CCVars.TipsDataset, SetDataset, true);
+<<<<<<< HEAD
         Subs.CVar(_cfg, CCVars.TipsTippyChance, SetTippyChance, true);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         RecalculateNextTipTime();
         _conHost.RegisterCommand("tippy", Loc.GetString("cmd-tippy-desc"), Loc.GetString("cmd-tippy-help"), SendTippy, SendTippyHelper);

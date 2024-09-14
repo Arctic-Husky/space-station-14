@@ -12,7 +12,11 @@ using Content.Shared.Roles;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+<<<<<<< HEAD
 using Content.Server.Silicons.IPC;
+=======
+using Content.Server.Silicon.IPC;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Administration.Commands
 {
@@ -127,7 +131,11 @@ namespace Content.Server.Administration.Commands
                     handsSystem.TryPickup(target, inhandEntity, checkActionBlocker: false, handsComp: handsComponent);
                 }
             }
+<<<<<<< HEAD
             InternalEncryptionKeySpawner.TryInsertEncryptionKey(target, startingGear, entityManager, profile); // Parkstation - IPC
+=======
+            InternalEncryptionKeySpawner.TryInsertEncryptionKey(target, startingGear, entityManager, profile);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return true;
         }
     }

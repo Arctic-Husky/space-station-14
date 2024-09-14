@@ -22,7 +22,8 @@
       - Armory
       - Atmospherics
       - Bar
-      - Brig
+      #- Brig #Delta V: Removed Brig Access
+      - Boxer #Delta V: Add Boxer Access
       - Detective
       - Captain
       - Cargo
@@ -30,6 +31,8 @@
       - Chemistry
       - ChiefEngineer
       - ChiefMedicalOfficer
+      - Clown #Delta V: Add Clown Access
+      - Corpsman # DeltaV: Add Corpsman access
       - Command
       - Engineering
       - External
@@ -39,15 +42,29 @@
       - Janitor
       - Kitchen
       - Lawyer
+<<<<<<< HEAD
+=======
+      - Library #Delta V: Add Library Access
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - Maintenance
       - Medical
+      - Mime #Delta V: Add Mime Access
+      - Musician #Delta V: Add Musician Access
+      - Paramedic # Delta V - adds Paramedic access
+      - Psychologist #Delta V: Add Psychologist Access
       - Quartermaster
+      - Reporter #Delta V: Add Reporter Access
       - Research
       - ResearchDirector
       - Salvage
       - Security
       - Service
       - Theatre
+      - Zookeeper #Delta V: Add Zookeeper Access
+      - ChiefJustice  #Delta V: Add Chief Justice Access
+      - Prosecutor  #Delta V: Add Prosecutor Access
+      - Clerk # Pirata: Readicionar o Clerk
+      - Justice  #Delta V: Add Justice Access
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -62,12 +79,20 @@
       doAfter: 0.5
     - type: UserInterface
       interfaces:
+<<<<<<< HEAD
         enum.AccessOverriderUiKey.Key:
+=======
+        - key: enum.AccessOverriderUiKey.Key
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
           type: AccessOverriderBoundUserInterface
     - type: ActivatableUI
       key: enum.AccessOverriderUiKey.Key
       requireHands: true
+<<<<<<< HEAD
       requireActiveHand: false
+=======
+      closeOnHandDeselect: false
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       singleUser: true
     - type: ItemSlots
     - type: ContainerContainer

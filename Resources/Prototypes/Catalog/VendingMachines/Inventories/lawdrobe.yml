@@ -14,12 +14,21 @@
     ClothingShoesBootsLaceup: 2
     ClothingHeadsetService: 2
     ClothingNeckLawyerbadge: 2
+<<<<<<< HEAD
+=======
+    ClothingOuterCoatOvercoat: 2 # DeltaV - add overcoat to LawDrobe
+    RubberStampLawyer: 1 # DeltaV
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     BriefcaseBrown: 2
     LuxuryPen: 2
   contrabandInventory:
     ClothingOuterRobesJudge: 1
     ClothingHeadHatPwig: 1
+<<<<<<< HEAD
     # "Legally" obtained currency
     SpaceCash100: 2
+=======
+    SpaceCash100: 2 # "Legally" obtained currency
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   emaggedInventory:
     CyberPen: 1

@@ -26,8 +26,11 @@
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
+<<<<<<< HEAD
       raffle:
         settings: short
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ DeathSquadGear ]
@@ -120,8 +123,11 @@
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
       description: ghost-role-information-ert-leader-description
+<<<<<<< HEAD
       raffle:
         settings: short
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTLeaderGearEVALecter ]
@@ -153,8 +159,11 @@
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
       description: ghost-role-information-ert-chaplain-description
+<<<<<<< HEAD
       raffle:
         settings: short
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
@@ -184,8 +193,11 @@
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
       description: ghost-role-information-ert-chaplain-description
+<<<<<<< HEAD
       raffle:
         settings: short
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTChaplainGearEVA ]
@@ -399,8 +411,11 @@
     - type: GhostRole
       name: ghost-role-information-ert-security-name
       description: ghost-role-information-ert-security-description
+<<<<<<< HEAD
       raffle:
         settings: short
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTSecurityGearEVALecter ]
@@ -562,6 +577,8 @@
   id: NukeOp
   components:
     - type: NukeOperative
+    - type: Psionic
+      powerRollMultiplier: 7
 
 - type: entity
   id: RandomHumanoidSpawnerCluwne

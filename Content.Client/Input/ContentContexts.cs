@@ -38,7 +38,10 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.ZoomIn);
             common.AddFunction(ContentKeyFunctions.ResetZoom);
             common.AddFunction(ContentKeyFunctions.InspectEntity);
+<<<<<<< HEAD
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             // Not in engine, because engine cannot check for sanbox/admin status before starting placement.
             common.AddFunction(ContentKeyFunctions.EditorCopyObject);
@@ -60,7 +63,11 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.UseItemInHand);
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
             human.AddFunction(ContentKeyFunctions.OpenCharacterMenu);
+<<<<<<< HEAD
             human.AddFunction(ContentKeyFunctions.OpenEmotesMenu);
+=======
+            human.AddFunction(ContentKeyFunctions.OpenLanguageMenu);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             human.AddFunction(ContentKeyFunctions.ActivateItemInWorld);
             human.AddFunction(ContentKeyFunctions.ThrowItemInHand);
             human.AddFunction(ContentKeyFunctions.AltActivateItemInWorld);
@@ -73,6 +80,11 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.SmartEquipBelt);
             human.AddFunction(ContentKeyFunctions.OpenBackpack);
             human.AddFunction(ContentKeyFunctions.OpenBelt);
+<<<<<<< HEAD
+=======
+            human.AddFunction(ContentKeyFunctions.OfferItem);
+            human.AddFunction(ContentKeyFunctions.ToggleStanding);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
             human.AddFunction(ContentKeyFunctions.ArcadeUp);
             human.AddFunction(ContentKeyFunctions.ArcadeDown);

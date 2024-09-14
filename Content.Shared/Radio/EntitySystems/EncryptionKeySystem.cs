@@ -178,13 +178,19 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
+<<<<<<< HEAD
         // IPC-Start
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (!component.ExamineWhileLocked && !component.KeysUnlocked)
             return;
 
         if (!component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
             return;
+<<<<<<< HEAD
         // IPC-End
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (component.KeyContainer.ContainedEntities.Count == 0)
         {

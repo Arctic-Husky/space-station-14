@@ -63,12 +63,21 @@
     locPrefix: silicon
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
       enum.BorgUiKey.Key:
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+=======
+    - key: enum.SiliconLawsUiKey.Key
+      type: SiliconLawBoundUserInterface
+    - key: enum.BorgUiKey.Key
+      type: BorgBoundUserInterface
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -129,14 +138,21 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
+<<<<<<< HEAD
     speechSounds: Borg
+=======
+    speechSounds: Pai
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
   - type: UnblockableSpeech
+<<<<<<< HEAD
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBorg
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: Cyborg
     containers:
@@ -209,12 +225,16 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+<<<<<<< HEAD
     - FootstepSound
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - CanPilot
   - type: Emoting
   - type: GuideHelp
     guides:
       - Cyborgs
+<<<<<<< HEAD
   - type: StepTriggerImmune
 
 - type: entity
@@ -233,6 +253,20 @@
     intensitySlope: 20
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
+=======
+  - type: Eye
+    visMask:
+      - PsionicInvisibility
+      - Normal
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - RobotTalk
+    understands:
+    - GalacticCommon
+    - RobotTalk
+  - type: PsionicInsulation
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BaseBorgChassisNT
@@ -245,17 +279,25 @@
   - type: Access
     enabled: false
     groups:
+<<<<<<< HEAD
     - AllAccess
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
+=======
+    - AllAccessBorg
+  - type: AccessReader
+    access: [["Command"], ["Research"]]
+  - type: ShowSecurityIcons
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BaseBorgChassisSyndicate
   parent: BaseBorgChassis
   abstract: true
   components:
+<<<<<<< HEAD
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -281,3 +323,25 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
+=======
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Access
+      tags:
+       - NuclearOperative
+       - SyndicateAgent
+    - type: AccessReader
+      access: [["SyndicateAgent"], ["NuclearOperative"]]
+    - type: SiliconLawProvider
+      laws: SyndicateStatic
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Binary
+        - Syndicate
+    - type: ActiveRadio
+      channels:
+        - Syndicate
+    - type: ShowSyndicateIcons
+    - type: MovementAlwaysTouching
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

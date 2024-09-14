@@ -124,9 +124,15 @@ public sealed class WeatherSystem : SharedWeatherSystem
         comp.Occlusion = occlusion;
     }
 
+<<<<<<< HEAD
     protected override bool SetState(EntityUid uid, WeatherState state, WeatherComponent comp, WeatherData weather, WeatherPrototype weatherProto)
     {
         if (!base.SetState(uid, state, comp, weather, weatherProto))
+=======
+    protected override bool SetState(WeatherState state, WeatherComponent comp, WeatherData weather, WeatherPrototype weatherProto)
+    {
+        if (!base.SetState(state, comp, weather, weatherProto))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return false;
 
         if (!Timing.IsFirstTimePredicted)
@@ -164,7 +170,11 @@ public sealed class WeatherSystem : SharedWeatherSystem
                 continue;
 
             // New weather
+<<<<<<< HEAD
             StartWeather(uid, component, ProtoMan.Index<WeatherPrototype>(proto), weather.EndTime);
+=======
+            StartWeather(component, ProtoMan.Index<WeatherPrototype>(proto), weather.EndTime);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }

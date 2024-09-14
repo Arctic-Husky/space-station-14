@@ -31,6 +31,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server.GameTicking.Components;
+<<<<<<< HEAD
+=======
+using Content.Server.NPC.Components;
+using Content.Server.NPC.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -82,7 +87,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var eligibleQuery = EntityQueryEnumerator<StationEventEligibleComponent, NpcFactionMemberComponent>();
         while (eligibleQuery.MoveNext(out var eligibleUid, out var eligibleComp, out var member))
         {
+<<<<<<< HEAD
             if (!_npcFaction.IsFactionHostile(component.Faction, (eligibleUid, member)))
+=======
+            if (!_npcFaction.IsFactionHostile(component.Faction, eligibleUid, member))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 continue;
 
             eligible.Add((eligibleUid, eligibleComp, member));

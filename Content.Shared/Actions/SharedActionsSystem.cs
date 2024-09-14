@@ -8,13 +8,18 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
+<<<<<<< HEAD
 using Content.Shared.Rejuvenate;
+=======
+using Content.Shared.Mobs.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Rejuvenate;
 
 namespace Content.Shared.Actions;
 
@@ -144,6 +149,12 @@ public abstract class SharedActionsSystem : EntitySystem
 
     public void SetCooldown(EntityUid? actionId, TimeSpan start, TimeSpan end)
     {
+<<<<<<< HEAD
+=======
+        if (actionId == null)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (!TryGetActionData(actionId, out var action))
             return;
 
@@ -158,10 +169,51 @@ public abstract class SharedActionsSystem : EntitySystem
     }
 
     public void ClearCooldown(EntityUid? actionId)
+<<<<<<< HEAD
+=======
+    {
+        if (actionId == null)
+            return;
+
+        if (!TryGetActionData(actionId, out var action))
+            return;
+
+        if (action.Cooldown is not { } cooldown)
+            return;
+
+        action.Cooldown = (cooldown.Start, GameTiming.CurTime);
+        Dirty(actionId.Value, action);
+    }
+
+    public void StartUseDelay(EntityUid? actionId)
+    {
+        if (actionId == null)
+            return;
+
+        if (!TryGetActionData(actionId, out var action) || action.UseDelay == null)
+            return;
+
+        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + action.UseDelay.Value);
+        Dirty(actionId.Value, action);
+    }
+
+    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay)
+    {
+        if (!TryGetActionData(actionId, out var action) || action.UseDelay == delay)
+            return;
+
+        action.UseDelay = delay;
+        UpdateAction(actionId, action);
+        Dirty(actionId.Value, action);
+    }
+
+    public void ReduceUseDelay(EntityUid? actionId, TimeSpan? lowerDelay)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!TryGetActionData(actionId, out var action))
             return;
 
+<<<<<<< HEAD
         if (action.Cooldown is not { } cooldown)
             return;
 
@@ -179,8 +231,27 @@ public abstract class SharedActionsSystem : EntitySystem
             !TryGetActionData(actionId, out var action))
         {
             return;
-        }
+=======
+        if (action.UseDelay != null && lowerDelay != null)
+            action.UseDelay = action.UseDelay - lowerDelay;
 
+        if (action.UseDelay < TimeSpan.Zero)
+            action.UseDelay = null;
+
+        UpdateAction(actionId, action);
+        Dirty(actionId.Value, action);
+    }
+
+    private void OnRejuventate(EntityUid uid, ActionsComponent component, RejuvenateEvent args)
+    {
+        foreach (var act in component.Actions)
+        {
+            ClearCooldown(act);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+        }
+    }
+
+<<<<<<< HEAD
         var start = GameTiming.CurTime;
         var end = start + cooldown;
         if (action.Cooldown?.End > end)
@@ -235,6 +306,8 @@ public abstract class SharedActionsSystem : EntitySystem
         }
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     #region ComponentStateManagement
     protected virtual void UpdateAction(EntityUid? actionId, BaseActionComponent? action = null)
     {
@@ -478,6 +551,9 @@ public abstract class SharedActionsSystem : EntitySystem
             return false;
 
         if (action.Whitelist != null && !action.Whitelist.IsValid(target, EntityManager))
+            return false;
+
+        if (action.Blacklist != null && action.Blacklist.IsValid(target, EntityManager))
             return false;
 
         if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, target))

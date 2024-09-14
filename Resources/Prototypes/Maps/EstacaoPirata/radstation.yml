@@ -1,8 +1,30 @@
 - type: gameMap
+<<<<<<< HEAD
+<<<<<<<< HEAD:Resources/Prototypes/Maps/EstacaoPirata/radstation.yml
   id: RadStation
   mapName: 'Rad'
   mapPath: /Maps/EstacaoPirata/radstation.yml
   minPlayers: 30
+========
+  id: Aspid
+  mapName: 'NCS Aspid'
+  mapPath: /Maps/aspid.yml
+  minPlayers: 35
+  maxPlayers: 70
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Prototypes/Maps/aspid.yml
+=======
+<<<<<<<< HEAD:Resources/Prototypes/Maps/box.yml
+  id: Box
+  mapName: 'Box Station'
+  mapPath: /Maps/box.yml
+  minPlayers: 40
+========
+  id: Rad
+  mapName: 'RadStation'
+  mapPath: /Maps/EstacaoPirata/radstation.yml
+  minPlayers: 35
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Prototypes/Maps/EstacaoPirata/radstation.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   stations:
     RadStation:
       stationProto: StandardNanotrasenStation
@@ -25,34 +47,80 @@
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]
             Janitor: [ 2, 2 ]
+<<<<<<< HEAD
             Chaplain: [ 1, 1 ]
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:Resources/Prototypes/Maps/box.yml
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 5, 5 ]
+            TechnicalAssistant: [ 4, 4 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 2, 3 ]
+            MedicalDoctor: [ 4, 4 ]
+========
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             AtmosphericTechnician: [ 4, 4 ]
             StationEngineer: [ 3, 3 ]
             TechnicalAssistant: [ 2, 2 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
+<<<<<<< HEAD
             MedicalDoctor: [ 3, 3 ]
+=======
+            MedicalBorg: [ 2, 2 ]
+            MedicalDoctor: [ 3, 3 ]
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Prototypes/Maps/EstacaoPirata/radstation.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             Paramedic: [ 1, 1 ]
             MedicalIntern: [ 2, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
+<<<<<<< HEAD
             ResearchAssistant: [ 2, 2 ]
             Borg: [ 1, 1 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 5, 5 ]
+=======
+<<<<<<<< HEAD:Resources/Prototypes/Maps/box.yml
+            ResearchAssistant: [ 4, 4 ]
+            Borg: [ 2, 2 ]
+========
+            ResearchAssistant: [ 2, 2 ]
+            Borg: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Prototypes/Maps/EstacaoPirata/radstation.yml
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 5, 5 ]
+<<<<<<<< HEAD:Resources/Prototypes/Maps/box.yml
+========
+            Prisoner: [ 2, 3 ]
+            PrisonGuard: [ 2, 3 ]
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Prototypes/Maps/EstacaoPirata/radstation.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             Detective: [ 1, 1 ]
             SecurityCadet: [ 2, 2 ]
             Lawyer: [ 2, 2 ]
             #supply
             Quartermaster: [ 1, 1 ]
+<<<<<<< HEAD
+=======
+            MailCarrier: [ 1, 2 ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 5, 5 ]
             #civilian
@@ -60,6 +128,16 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+<<<<<<< HEAD
             Reporter: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             Blueshield: [ 1, 1 ]
+=======
+<<<<<<<< HEAD:Resources/Prototypes/Maps/box.yml
+
+========
+            Reporter: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
+            Blueshield: [ 1, 1 ]
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Prototypes/Maps/EstacaoPirata/radstation.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

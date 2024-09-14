@@ -11,7 +11,11 @@ namespace Content.Server.Eye.Blinding.EyeProtection
     {
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly BlindableSystem _blindingSystem = default!;
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public override void Initialize()
         {
             base.Initialize();

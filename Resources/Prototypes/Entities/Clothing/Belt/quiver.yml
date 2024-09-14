@@ -18,11 +18,17 @@
     whitelist:
       tags:
       - Arrow
+<<<<<<< HEAD
       - Plunger
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Appearance
   - type: StorageContainerVisuals
     maxFillLevels: 3
     fillBaseName: fill-
+<<<<<<< HEAD
   - type: Construction
     graph: Quiver
     node: Quiver
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

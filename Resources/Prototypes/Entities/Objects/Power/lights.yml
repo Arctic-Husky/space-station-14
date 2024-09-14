@@ -68,7 +68,11 @@
   - type: SpaceGarbage
   - type: WelderRefinable
     refineResult:
+<<<<<<< HEAD
     - SheetGlass1
+=======
+    - id: SheetGlass1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseLightbulb
@@ -234,6 +238,7 @@
   name: exterior light tube
   description: A high power high energy bulb for the depths of space. May contain mercury.
   id: ExteriorLightTube
+  noSpawn: true # DeltaV - Don't map these
   components:
   - type: LightBulb
     color: "#B4FCF0"
@@ -275,8 +280,13 @@
     node: icon
   - type: WelderRefinable
     refineResult:
+<<<<<<< HEAD
     - SheetGlass1
     - ShardCrystalCyan
+=======
+    - id: SheetGlass1
+    - id: ShardCrystalCyan
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -295,8 +305,13 @@
     node: icon
   - type: WelderRefinable
     refineResult:
+<<<<<<< HEAD
     - SheetGlass1
     - ShardCrystalBlue
+=======
+    - id: SheetGlass1
+    - id: ShardCrystalBlue
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -315,8 +330,13 @@
     node: icon
   - type: WelderRefinable
     refineResult:
+<<<<<<< HEAD
     - SheetGlass1
     - ShardCrystalPink
+=======
+    - id: SheetGlass1
+    - id: ShardCrystalPink
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -335,8 +355,13 @@
     node: icon
   - type: WelderRefinable
     refineResult:
+<<<<<<< HEAD
     - SheetGlass1
     - ShardCrystalOrange
+=======
+    - id: SheetGlass1
+    - id: ShardCrystalOrange
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -355,8 +380,13 @@
     node: icon
   - type: WelderRefinable
     refineResult:
+<<<<<<< HEAD
     - SheetGlass1
     - ShardCrystalRed
+=======
+    - id: SheetGlass1
+    - id: ShardCrystalRed
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: LightTubeCrystalCyan
@@ -375,5 +405,10 @@
     node: icon
   - type: WelderRefinable
     refineResult:
+<<<<<<< HEAD
     - SheetGlass1
     - ShardCrystalGreen
+=======
+    - id: SheetGlass1
+    - id: ShardCrystalGreen
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

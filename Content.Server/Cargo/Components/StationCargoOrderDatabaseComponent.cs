@@ -39,6 +39,7 @@ public sealed partial class StationCargoOrderDatabaseComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId PrinterOutput = "PaperCargoInvoice";
+<<<<<<< HEAD
 }
 
 /// <summary>
@@ -53,4 +54,6 @@ public record struct FulfillCargoOrderEvent(Entity<StationDataComponent> Station
 
     public EntityUid? FulfillmentEntity;
     public bool Handled = false;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

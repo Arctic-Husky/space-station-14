@@ -10,6 +10,7 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     attackRate: 1.5
     damage:
       types:
@@ -23,6 +24,24 @@
     reflectProb: 0.6
     velocityBeforeNotMaxProb: 1.0
     velocityBeforeMinProb: 3.0
+=======
+    attackRate: 1.25
+    range: 1.75
+    soundHit:
+      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
+    damage:
+      types:
+        Slash: 25 #Pirata - Cap precisa de dano!!
+    heavyRateModifier: 0.8
+    heavyRangeModifier: 1
+    heavyDamageBaseModifier: 1
+    heavyStaminaCost: 5
+    maxTargets: 7
+    angle: 80
+  - type: Reflect
+    enabled: true
+    reflectProb: .6
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     minReflectProb: 0.2
     spread: 90
   - type: Item
@@ -44,10 +63,11 @@
     tags:
     - Katana
   - type: Sprite
-    sprite: Objects/Weapons/Melee/katana.rsi
+    sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Slash: 15
@@ -56,6 +76,23 @@
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/katana.rsi
+=======
+    attackRate: 1.5
+    soundHit:
+      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
+    damage:
+      types:
+        Slash: 12
+    heavyRateModifier: 0.5
+    heavyRangeModifier: 3 #Superior Japanese folded steel
+    heavyDamageBaseModifier: 1.25
+    heavyStaminaCost: 10
+    maxTargets: 1
+    angle: 20
+  - type: Item
+    size: Normal
+    sprite: DeltaV/Objects/Weapons/Melee/katana.rsi #DeltaV
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: DisarmMalus
 
 - type: entity
@@ -71,7 +108,7 @@
     wideAnimationRotation: -60
     damage:
       types:
-        Slash: 30
+        Slash: 25
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/energykatana.rsi
@@ -107,9 +144,21 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Slash: 15
+=======
+    attackRate: 0.8
+    damage:
+      types:
+        Slash: 15
+    heavyRateModifier: 0.8
+    heavyRangeModifier: 1.25
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 10
+    angle: 80
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -129,10 +178,26 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     attackRate: 0.75
     damage:
       types:
         Slash: 20
+=======
+    attackRate: 0.65
+    range: 1.85
+    damage:
+      types:
+        Slash: 19
+        Blunt: 1
+    bluntStaminaDamageFactor: 25.0
+    heavyRateModifier: 0.5
+    heavyRangeModifier: 1
+    heavyDamageBaseModifier: 1
+    heavyStaminaCost: 20
+    maxTargets: 10
+    angle: 200
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -158,9 +223,22 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Slash: 15
+=======
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 12
+    heavyRateModifier: 0.8
+    heavyRangeModifier: 1.2
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 10
+    maxTargets: 3
+    angle: 40
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -172,7 +250,11 @@
   name: The Throngler
   parent: BaseItem
   id: Throngler
+<<<<<<< HEAD
   description: Why would someone make this?
+=======
+  description: Why would you make this?
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
     - type: Sharp
     - type: Sprite
@@ -193,10 +275,14 @@
         path: /Audio/Effects/explosion_small1.ogg
     - type: Reflect
       enabled: true
+<<<<<<< HEAD
       reflectProb: 0.5 # In robust hands, deflects as well as an e-sword
       velocityBeforeNotMaxProb: 1.0
       velocityBeforeMinProb: 3.0
       minReflectProb: 0.1
+=======
+      reflectProb: .25
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       spread: 90
     - type: Item
       size: Ginormous

@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
+=======
+using System.Numerics;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -55,6 +59,7 @@ public abstract class SharedNavMapSystem : EntitySystem
 
     public NavMapChunkType GetEntityType(EntityUid uid)
     {
+<<<<<<< HEAD
         if (_doorQuery.HasComp(uid))
             return  NavMapChunkType.Airlock;
 
@@ -190,4 +195,18 @@ public abstract class SharedNavMapSystem : EntitySystem
     public record struct NavMapBeacon(NetEntity NetEnt, Color Color, string Text, Vector2 Position);
 
     #endregion
+=======
+        public Dictionary<Vector2i, int> TileData = new();
+
+        public List<NavMapBeacon> Beacons = new();
+
+        public List<NavMapAirlock> Airlocks = new();
+    }
+
+    [Serializable, NetSerializable]
+    public readonly record struct NavMapBeacon(Color Color, string Text, Vector2 Position);
+
+    [Serializable, NetSerializable]
+    public readonly record struct NavMapAirlock(Vector2 Position);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

@@ -327,6 +327,7 @@
   - type: AccessReader
     access: [["Armory"]]
 
+<<<<<<< HEAD
 - type: entity
   id: LockableButtonBrig
   suffix: Brig
@@ -334,6 +335,15 @@
   components:
   - type: AccessReader
     access: [["Brig"]]
+=======
+#- type: entity
+#  id: LockableButtonBrig
+#  suffix: Brig
+#  parent: LockableButton
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: LockableButtonLawyer

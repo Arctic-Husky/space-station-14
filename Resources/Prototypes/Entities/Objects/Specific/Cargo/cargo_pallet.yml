@@ -58,13 +58,18 @@
 - type: entity
   id: CargoPalletSell
   name: cargo selling pallet
+<<<<<<< HEAD
   description: Designates valid items to sell.
+=======
+  description: Designates valid items to sell with a selling computer, or to CentCom when a shuttle is recalled.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: CargoPallet
   components:
   - type: CargoPallet
     palletType: sell
   - type: Sprite
     drawdepth: FloorTiles
+<<<<<<< HEAD
     sprite: Structures/cargo_pallets.rsi
   - type: Icon
     sprite: Structures/cargo_pallets.rsi
@@ -72,6 +77,12 @@
   - type: IconSmooth
     key: cargo_pallet_sell
     base: cargo_pallet_sell_
+=======
+    layers:
+    - sprite: Structures/cargo_pallets.rsi
+      state: cargo_pallet_sell
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: CargoPalletBuy
@@ -83,6 +94,7 @@
     palletType: buy
   - type: Sprite
     drawdepth: FloorTiles
+<<<<<<< HEAD
     sprite: Structures/cargo_pallets.rsi
   - type: Icon
     sprite: Structures/cargo_pallets.rsi
@@ -90,3 +102,9 @@
   - type: IconSmooth
     key: cargo_pallet_buy
     base: cargo_pallet_buy_
+=======
+    layers:
+    - sprite: Structures/cargo_pallets.rsi
+      state: cargo_pallet_buy
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

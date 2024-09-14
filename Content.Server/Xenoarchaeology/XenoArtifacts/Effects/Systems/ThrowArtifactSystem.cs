@@ -4,7 +4,10 @@ using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Throwing;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;

@@ -7,8 +7,13 @@ chat-manager-looc-chat-enabled-message = Chat LOOC foi habilitado.
 chat-manager-looc-chat-disabled-message = Chat LOOC foi desabilitado.
 chat-manager-dead-looc-chat-enabled-message = Jogadores mortos agora podem usar LOOC.
 chat-manager-dead-looc-chat-disabled-message = Jogadores mortos não podem mais usar LOOC.
+<<<<<<< HEAD
 chat-manager-crit-looc-chat-enabled-message = Jogadores em crit agora podem usar LOOC.
 chat-manager-crit-looc-chat-disabled-message = Jogadores em crit não podem mais usar LOOC.
+=======
+chat-manager-crit-looc-chat-enabled-message = Jogadores em estado critico agora podem usar LOOC.
+chat-manager-crit-looc-chat-disabled-message = Jogadores em estado critico não podem mais usar LOOC.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 chat-manager-admin-ooc-chat-enabled-message = Chat Admin OOC foi habilitado.
 chat-manager-admin-ooc-chat-disabled-message = Chat Admin OOC foi desabilitado.
 
@@ -121,3 +126,12 @@ chat-speech-verb-ghost-4 = murmura
 chat-speech-verb-electricity-1 = estalando
 chat-speech-verb-electricity-2 = zumbidas
 chat-speech-verb-electricity-3 = gritos
+<<<<<<< HEAD
+=======
+
+chat-speech-verb-name-oni=Oni
+chat-speech-verb-oni-1=grunhe
+chat-speech-verb-oni-2=berra
+chat-speech-verb-oni-3=ressoa
+chat-speech-verb-oni-4=troveja
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

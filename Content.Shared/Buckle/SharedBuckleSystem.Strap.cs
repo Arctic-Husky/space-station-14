@@ -20,7 +20,11 @@ public abstract partial class SharedBuckleSystem
     {
         SubscribeLocalEvent<StrapComponent, ComponentStartup>(OnStrapStartup);
         SubscribeLocalEvent<StrapComponent, ComponentShutdown>(OnStrapShutdown);
+<<<<<<< HEAD
         SubscribeLocalEvent<StrapComponent, ComponentRemove>((e, c, _) => StrapRemoveAll(e, c));
+=======
+        SubscribeLocalEvent<StrapComponent, ComponentRemove>((_, c, _) => StrapRemoveAll(c));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         SubscribeLocalEvent<StrapComponent, EntInsertedIntoContainerMessage>(OnStrapEntModifiedFromContainer);
         SubscribeLocalEvent<StrapComponent, EntRemovedFromContainerMessage>(OnStrapEntModifiedFromContainer);
@@ -35,7 +39,11 @@ public abstract partial class SharedBuckleSystem
         SubscribeLocalEvent<StrapComponent, FoldAttemptEvent>(OnAttemptFold);
 
         SubscribeLocalEvent<StrapComponent, MoveEvent>(OnStrapMoveEvent);
+<<<<<<< HEAD
         SubscribeLocalEvent<StrapComponent, MachineDeconstructedEvent>((e, c, _) => StrapRemoveAll(e, c));
+=======
+        SubscribeLocalEvent<StrapComponent, MachineDeconstructedEvent>((_, c, _) => StrapRemoveAll(c));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnStrapStartup(EntityUid uid, StrapComponent component, ComponentStartup args)
@@ -48,7 +56,11 @@ public abstract partial class SharedBuckleSystem
         if (LifeStage(uid) > EntityLifeStage.MapInitialized)
             return;
 
+<<<<<<< HEAD
         StrapRemoveAll(uid, component);
+=======
+        StrapRemoveAll(component);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnStrapEntModifiedFromContainer(EntityUid uid, StrapComponent component, ContainerModifiedMessage message)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - type: constructionGraph
   id: CottonObjects
   start: start
@@ -11,3 +12,18 @@
         doAfter: 3
   - node: cottoncloth
     entity: MaterialCloth1
+=======
+- type: constructionGraph
+  id: CottonObjects
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cottoncloth
+      steps:
+      - material: Cotton
+        amount: 4
+        doAfter: 3
+  - node: cottoncloth
+    entity: MaterialCloth1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

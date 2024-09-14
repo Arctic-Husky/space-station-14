@@ -4,9 +4,13 @@ using Content.Server.Salvage.Expeditions;
 using Content.Server.Salvage.Expeditions.Structure;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
+<<<<<<< HEAD
 using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Audio;
+=======
+using Content.Shared.Salvage.Expeditions;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.GameStates;
@@ -34,7 +38,10 @@ public sealed partial class SalvageSystem
         SubscribeLocalEvent<SalvageExpeditionConsoleComponent, EntParentChangedMessage>(OnSalvageConsoleParent);
         SubscribeLocalEvent<SalvageExpeditionConsoleComponent, ClaimSalvageMessage>(OnSalvageClaimMessage);
 
+<<<<<<< HEAD
         SubscribeLocalEvent<SalvageExpeditionComponent, MapInitEvent>(OnExpeditionMapInit);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         SubscribeLocalEvent<SalvageExpeditionComponent, ComponentShutdown>(OnExpeditionShutdown);
         SubscribeLocalEvent<SalvageExpeditionComponent, ComponentGetState>(OnExpeditionGetState);
 
@@ -67,12 +74,15 @@ public sealed partial class SalvageSystem
         _cooldown = obj;
     }
 
+<<<<<<< HEAD
     private void OnExpeditionMapInit(EntityUid uid, SalvageExpeditionComponent component, MapInitEvent args)
     {
         var selectedFile = _audio.GetSound(component.Sound);
         component.SelectedSong = new SoundPathSpecifier(selectedFile, component.Sound.Params);
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void OnExpeditionShutdown(EntityUid uid, SalvageExpeditionComponent component, ComponentShutdown args)
     {
         component.Stream = _audio.Stop(component.Stream);

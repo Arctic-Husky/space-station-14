@@ -88,6 +88,7 @@
     singleUser: true
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
@@ -98,6 +99,18 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+=======
+    - key: enum.PdaUiKey.Key
+      type: PdaBoundUserInterface
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+    - key: enum.RingerUiKey.Key
+      type: RingerBoundUserInterface
+    - key: enum.InstrumentUiKey.Key
+      type: InstrumentBoundUserInterface
+    - key: enum.HealthAnalyzerUiKey.Key
+      type: HealthAnalyzerBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -150,6 +163,12 @@
   - type: Pda
     id: MedicalInternIDCard
     state: pda-internmed
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#717059"
     accentVColor: "#447987"
@@ -173,6 +192,13 @@
     accentVColor: "#A32D26"
   - type: Icon
     state: pda-interncadet
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
@@ -301,23 +327,37 @@
 
 - type: entity
   name: chaplain PDA
-  parent: BasePDA
+  parent: SciencePDA # DeltaV - Chaplain is part of episetmics
   id: ChaplainPDA
   description: God's chosen PDA.
   components:
+  - type: Sprite # DeltaV - Give Chaplain PDA Epistemics colors
+    sprite: DeltaV/Objects/Devices/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Pda
     id: ChaplainIDCard
     state: pda-chaplain
   - type: PdaBorderColor
     borderColor: "#333333"
+    accentVColor: "#8900c9" # DeltaV - Give Chaplain PDA Epistemics colors
   - type: Icon
+    sprite: DeltaV/Objects/Devices/pda.rsi # DeltaV - Give Chaplain PDA Epistemics colors
     state: pda-chaplain
 
 - type: entity
-  name: quartermaster PDA
+  name: logistics officer PDA # DeltaV - Logistics Department replacing Cargo
   parent: BasePDA
   id: QuartermasterPDA
-  description: PDA for the guy that orders the guns.
+  description: PDA for the guy that directs logistics. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Pda
     id: QuartermasterIDCard
@@ -331,8 +371,8 @@
 - type: entity
   parent: BasePDA
   id: CargoPDA
-  name: cargo PDA
-  description: PDA for the guys that order the pizzas.
+  name: logistics PDA # DeltaV - Logistics Department replacing Cargo
+  description: PDA for the guys that order the pizzas. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Pda
     id: CargoIDCard
@@ -390,6 +430,12 @@
     borderColor: "#858585"
   - type: Icon
     state: pda-library
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
@@ -410,6 +456,13 @@
     borderColor: "#6f6192"
   - type: Icon
     state: pda-lawyer
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
@@ -505,6 +558,12 @@
   - type: Pda
     id: CMOIDCard
     state: pda-cmo
+    penSlot: # Fancy Pen Light
+      startingItem: CMOPenLight
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -521,6 +580,12 @@
   - type: Pda
     id: MedicalIDCard
     state: pda-medical
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#447987"
@@ -539,6 +604,12 @@
   - type: Pda
     id: ParamedicIDCard
     state: pda-paramedic
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#2a4b5b"
@@ -554,6 +625,12 @@
   - type: Pda
     id: ChemistIDCard
     state: pda-chemistry
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#B34200"
@@ -563,7 +640,7 @@
 - type: entity
   parent: BasePDA
   id: RnDPDA
-  name: research director PDA
+  name: mystagogue PDA # DeltaV - Epistemics Department replacing Science
   description: It appears surprisingly ordinary.
   components:
   - type: Pda
@@ -575,11 +652,17 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-rd
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
   id: SciencePDA
-  name: science PDA
+  name: epistemics PDA # DeltaV - Epistemics Department replacing Science
   description: It's covered with an unknown gooey substance.
   components:
   - type: Pda
@@ -590,6 +673,27 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-science
+  - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - GlimmerMonitorCartridge
+
+- type: entity
+  parent: SciencePDA
+  name: robotics PDA
+  id: RoboticsPDA
+  description: It has its back panel covered in duct tape.
+  components:
+  - type: Pda
+    id: RoboticsIDCard
+    state: pda-robotics
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#952004"
+  - type: Icon
+    state: pda-robotics
 
 - type: entity
   parent: BasePDA
@@ -605,6 +709,13 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
@@ -620,6 +731,13 @@
     accentVColor: "#949137"
   - type: Icon
     state: pda-warden
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
@@ -634,6 +752,13 @@
     borderColor: "#A32D26"
   - type: Icon
     state: pda-security
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BasePDA
@@ -855,6 +980,12 @@
   - type: Pda
     id: PsychologistIDCard
     state: pda-medical
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#447987"
@@ -923,6 +1054,13 @@
     borderColor: "#774705"
   - type: Icon
     state: pda-detective
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
 
 - type: entity
   parent: BaseMedicalPDA
@@ -933,12 +1071,28 @@
   - type: Pda
     id: BrigmedicIDCard
     state: pda-brigmedic
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#d7d7d0"
     accentVColor: "#d7d7d0"
   - type: Icon
     state: pda-brigmedic
+<<<<<<< HEAD
+=======
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClownPDA
@@ -1003,6 +1157,12 @@
   - type: Pda
     id: SeniorPhysicianIDCard
     state: pda-seniorphysician
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
@@ -1024,6 +1184,16 @@
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-seniorofficer
+<<<<<<< HEAD
+=======
+  - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - CrimeAssistCartridge
+      - SecWatchCartridge
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: SyndiPDA
@@ -1046,6 +1216,15 @@
   - type: Pda
     id: SyndicateIDCard
     state: pda-syndi-agent
+<<<<<<< HEAD
+=======
+    penSlot: # Pen Lights
+      startingItem: PenLightBase
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PdaBorderColor
     borderColor: "#891417"
   - type: Icon
@@ -1062,3 +1241,18 @@
       whitelist:
         components:
           - Cartridge
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: BasePDA
+  id: BlueshieldPDA
+  name: PDA de Blushield
+  description: A guerra nunca muda!.
+  components:
+  - type: Pda
+    id: BlueshieldIDCard
+    state: pda-blueshield
+  - type: Icon
+    state: pda-blueshield
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -24,6 +24,9 @@ using Content.Shared.Emag.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Content.Server.Announcements.Systems;
+using Robust.Shared.Player;
+using Content.Server.Station.Components;
 
 namespace Content.Server.Communications
 {
@@ -42,6 +45,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -82,8 +86,13 @@ namespace Content.Server.Communications
 
                 comp.UIUpdateAccumulator -= UIUpdateInterval;
 
+<<<<<<< HEAD
                 if (_uiSystem.IsUiOpen(uid, CommunicationsConsoleUiKey.Key))
                     UpdateCommsConsoleInterface(uid, comp);
+=======
+                if (_uiSystem.TryGetUi(uid, CommunicationsConsoleUiKey.Key, out var ui) && ui.SubscribedSessions.Count > 0)
+                    UpdateCommsConsoleInterface(uid, comp, ui);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             base.Update(frameTime);
@@ -136,8 +145,15 @@ namespace Content.Server.Communications
         /// <summary>
         /// Updates the UI for a particular comms console.
         /// </summary>
+<<<<<<< HEAD
         public void UpdateCommsConsoleInterface(EntityUid uid, CommunicationsConsoleComponent comp)
+=======
+        public void UpdateCommsConsoleInterface(EntityUid uid, CommunicationsConsoleComponent comp, PlayerBoundUserInterface? ui = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
+            if (ui == null && !_uiSystem.TryGetUi(uid, CommunicationsConsoleUiKey.Key, out ui))
+                return;
+
             var stationUid = _stationSystem.GetOwningStation(uid);
             List<string>? levels = null;
             string currentLevel = default!;
@@ -165,7 +181,11 @@ namespace Content.Server.Communications
                 }
             }
 
+<<<<<<< HEAD
             _uiSystem.SetUiState(uid, CommunicationsConsoleUiKey.Key, new CommunicationsConsoleInterfaceState(
+=======
+            _uiSystem.SetUiState(ui, new CommunicationsConsoleInterfaceState(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 CanAnnounce(comp),
                 CanCallOrRecall(comp),
                 levels,
@@ -216,7 +236,11 @@ namespace Content.Server.Communications
 
         private void OnSelectAlertLevelMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleSelectAlertLevelMessage message)
         {
+<<<<<<< HEAD
             if (message.Actor is not { Valid: true } mob)
+=======
+            if (message.Session.AttachedEntity is not { Valid: true } mob)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return;
 
             if (!CanUse(mob, uid))
@@ -267,14 +291,30 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
 
+<<<<<<< HEAD
             msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
             if (comp.Global)
             {
                 _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.Sound, colorOverride: comp.Color);
+=======
+            msg += $"\n{Loc.GetString("comms-console-announcement-sent-by")} {author}";
+            if (comp.Global)
+            {
+                _announcer.SendAnnouncement("announce", Filter.Broadcast(), msg, title, comp.Color);
+
+                if (message.Session.AttachedEntity != null)
+                    _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Session.AttachedEntity.Value):player} has sent the following global announcement: {msg}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;
             }
+<<<<<<< HEAD
+=======
+            if (TryComp<StationDataComponent>(_stationSystem.GetOwningStation(uid), out var stationData))
+                _announcer.SendAnnouncement("announce", _stationSystem.GetInStation(stationData), msg, title,
+                    comp.Color);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color);
 
@@ -297,12 +337,33 @@ namespace Content.Server.Communications
             _adminLogger.Add(LogType.DeviceNetwork, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following broadcast: {message.Message:msg}");
         }
 
+        private void OnBroadcastMessage(EntityUid uid, CommunicationsConsoleComponent component, CommunicationsConsoleBroadcastMessage message)
+        {
+            if (!TryComp<DeviceNetworkComponent>(uid, out var net))
+                return;
+
+            var payload = new NetworkPayload
+            {
+                [ScreenMasks.Text] = message.Message
+            };
+
+            _deviceNetworkSystem.QueuePacket(uid, null, payload, net.TransmitFrequency);
+
+            if (message.Session.AttachedEntity != null)
+                _adminLogger.Add(LogType.DeviceNetwork, LogImpact.Low, $"{ToPrettyString(message.Session.AttachedEntity.Value):player} has sent the following broadcast: {message.Message:msg}");
+        }
+
         private void OnCallShuttleMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleCallEmergencyShuttleMessage message)
         {
             if (!CanCallOrRecall(comp))
                 return;
 
+<<<<<<< HEAD
             var mob = message.Actor;
+=======
+            if (message.Session.AttachedEntity is not { Valid: true } mob)
+                return;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (!CanUse(mob, uid))
             {
@@ -327,7 +388,14 @@ namespace Content.Server.Communications
             if (!CanCallOrRecall(comp))
                 return;
 
+<<<<<<< HEAD
             if (!CanUse(message.Actor, uid))
+=======
+            if (message.Session.AttachedEntity is not { Valid: true } mob)
+                return;
+
+            if (!CanUse(mob, uid))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 _popupSystem.PopupEntity(Loc.GetString("comms-console-permission-denied"), uid, message.Actor);
                 return;

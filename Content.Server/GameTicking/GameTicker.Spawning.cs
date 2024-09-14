@@ -8,7 +8,10 @@ using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+<<<<<<< HEAD
 using Content.Shared.Mind;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
@@ -44,7 +47,11 @@ namespace Content.Server.GameTicking
         // Mainly to avoid allocations.
         private readonly List<EntityCoordinates> _possiblePositions = new();
 
+<<<<<<< HEAD
         private List<EntityUid> GetSpawnableStations()
+=======
+        public List<EntityUid> GetSpawnableStations()
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             var spawnableStations = new List<EntityUid>();
             var query = EntityQueryEnumerator<StationJobsComponent, StationSpawningComponent>();
@@ -56,9 +63,13 @@ namespace Content.Server.GameTicking
             return spawnableStations;
         }
 
+<<<<<<< HEAD
         private void SpawnPlayers(List<ICommonSession> readyPlayers,
             Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
             bool force)
+=======
+        private void SpawnPlayers(List<ICommonSession> readyPlayers, Dictionary<NetUserId, HumanoidCharacterProfile> profiles, bool force)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             // Allow game rules to spawn players by themselves if needed. (For example, nuke ops or wizard)
             RaiseLocalEvent(new RulePlayerSpawningEvent(readyPlayers, profiles, force));
@@ -119,6 +130,7 @@ namespace Content.Server.GameTicking
             RefreshLateJoinAllowed();
 
             // Allow rules to add roles to players who have been spawned in. (For example, on-station traitors)
+<<<<<<< HEAD
             RaiseLocalEvent(new RulePlayerJobsAssignedEvent(
                 assignedJobs.Keys.Select(x => _playerManager.GetSessionById(x)).ToArray(),
                 profiles,
@@ -130,6 +142,12 @@ namespace Content.Server.GameTicking
             string? jobId = null,
             bool lateJoin = true,
             bool silent = false)
+=======
+            RaiseLocalEvent(new RulePlayerJobsAssignedEvent(assignedJobs.Keys.Select(x => _playerManager.GetSessionById(x)).ToArray(), profiles, force));
+        }
+
+        private void SpawnPlayer(ICommonSession player, EntityUid station, string? jobId = null, bool lateJoin = true, bool silent = false)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             var character = GetPlayerProfile(player);
 
@@ -142,12 +160,16 @@ namespace Content.Server.GameTicking
             SpawnPlayer(player, character, station, jobId, lateJoin, silent);
         }
 
+<<<<<<< HEAD
         private void SpawnPlayer(ICommonSession player,
             HumanoidCharacterProfile character,
             EntityUid station,
             string? jobId = null,
             bool lateJoin = true,
             bool silent = false)
+=======
+        private void SpawnPlayer(ICommonSession player, HumanoidCharacterProfile character, EntityUid station, string? jobId = null, bool lateJoin = true, bool silent = false)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
@@ -218,13 +240,25 @@ namespace Content.Server.GameTicking
             _mind.SetUserId(newMind, data.UserId);
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+<<<<<<< HEAD
             var job = new JobComponent {Prototype = jobId};
+=======
+            var job = new JobComponent { Prototype = jobId };
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _roles.MindAddRole(newMind, job, silent: silent);
             var jobName = _jobs.MindTryGetJobName(newMind);
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character);
+            // Delta-V: Add AlwaysUseSpawner.
+            var spawnPointType = SpawnPointType.Unset;
+            if (jobPrototype.AlwaysUseSpawner)
+            {
+                lateJoin = false;
+                spawnPointType = SpawnPointType.Job;
+            }
+
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, spawnPointType: spawnPointType);
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
 
@@ -358,10 +392,19 @@ namespace Content.Server.GameTicking
                 _roles.MindAddRole(mind.Value, new ObserverRoleComponent());
             }
 
+<<<<<<< HEAD
             var ghost = _ghost.SpawnGhost(mind.Value);
             _adminLogger.Add(LogType.LateJoin,
                 LogImpact.Low,
                 $"{player.Name} late joined the round as an Observer with {ToPrettyString(ghost):entity}.");
+=======
+            var name = GetPlayerProfile(player).Name;
+            var ghost = SpawnObserverMob();
+            _metaData.SetEntityName(ghost, name);
+            _ghost.SetCanReturnToBody(ghost, false);
+            _mind.TransferTo(mind.Value, ghost);
+            _adminLogger.Add(LogType.LateJoin, LogImpact.Low, $"{player.Name} late joined the round as an Observer with {ToPrettyString(ghost):entity}.");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         #region Spawn Points
@@ -386,7 +429,12 @@ namespace Content.Server.GameTicking
                 var query = AllEntityQuery<MapGridComponent>();
                 while (query.MoveNext(out var uid, out var grid))
                 {
+<<<<<<< HEAD
                     if (!metaQuery.TryGetComponent(uid, out var meta) || meta.EntityPaused || TerminatingOrDeleted(uid))
+=======
+                    if (!metaQuery.TryGetComponent(uid, out var meta) ||
+                        meta.EntityPaused)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     {
                         continue;
                     }
@@ -456,11 +504,15 @@ namespace Content.Server.GameTicking
         public bool LateJoin { get; }
         public EntityUid Station { get; }
 
+<<<<<<< HEAD
         public PlayerBeforeSpawnEvent(ICommonSession player,
             HumanoidCharacterProfile profile,
             string? jobId,
             bool lateJoin,
             EntityUid station)
+=======
+        public PlayerBeforeSpawnEvent(ICommonSession player, HumanoidCharacterProfile profile, string? jobId, bool lateJoin, EntityUid station)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             Player = player;
             Profile = profile;
@@ -488,6 +540,7 @@ namespace Content.Server.GameTicking
         // Ex. If this is the 27th person to join, this will be 27.
         public int JoinOrder { get; }
 
+<<<<<<< HEAD
         public PlayerSpawnCompleteEvent(EntityUid mob,
             ICommonSession player,
             string? jobId,
@@ -495,6 +548,9 @@ namespace Content.Server.GameTicking
             int joinOrder,
             EntityUid station,
             HumanoidCharacterProfile profile)
+=======
+        public PlayerSpawnCompleteEvent(EntityUid mob, ICommonSession player, string? jobId, bool lateJoin, int joinOrder, EntityUid station, HumanoidCharacterProfile profile)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             Mob = mob;
             Player = player;

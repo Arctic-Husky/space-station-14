@@ -4,25 +4,39 @@ on:
   workflow_dispatch:
   schedule:
     - cron: 0 0 * * 0
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 jobs:
   get_credits:
     runs-on: ubuntu-latest
     # Hey there fork dev! If you like to include your own contributors in this then you can probably just change this to your own repo
     # Do this in dump_github_contributors.ps1 too into your own repo
+<<<<<<< HEAD
     if: github.repository == 'space-wizards/space-station-14'
     
+=======
+    if: github.repository == 'Simple-Station/Einstein-Engines'
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     steps:
       - uses: actions/checkout@v3.6.0
         with:
           ref: master
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - name: Get this week's Contributors
         shell: pwsh
         run: Tools/dump_github_contributors.ps1 > Resources/Credits/GitHub.txt
 
       # TODO
       #- name: Get this week's Patreons
+<<<<<<< HEAD
       #  run: Tools/script2dumppatreons > Resources/Credits/Patrons.yml        
       
       # MAKE SURE YOU ENABLED "Allow GitHub Actions to create and approve pull requests" IN YOUR ACTIONS, OTHERWISE IT WILL MOST LIKELY FAIL
@@ -32,21 +46,45 @@ jobs:
       # Uncomment this and comment the other line if you do this.
       # https://github.com/stefanzweifel/git-auto-commit-action#push-to-protected-branches
       
+=======
+      #  run: Tools/script2dumppatreons > Resources/Credits/Patrons.yml
+
+      # MAKE SURE YOU ENABLED "Allow GitHub Actions to create and approve pull requests" IN YOUR ACTIONS, OTHERWISE IT WILL MOST LIKELY FAIL
+
+
+      # For this you can use a pat token of an account with direct push access to the repo if you have protected branches.
+      # Uncomment this and comment the other line if you do this.
+      # https://github.com/stefanzweifel/git-auto-commit-action#push-to-protected-branches
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       #- name: Commit new credit files
       #  uses: stefanzweifel/git-auto-commit-action@v4
       #  with:
       #    commit_message: Update Credits
       #    commit_author: PJBot <pieterjan.briers+bot@gmail.com>
+<<<<<<< HEAD
       
       # This will make a PR
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
         
+=======
+
+      # This will make a PR
+      - name: Set current date as env variable
+        run: echo "NOW=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: Update Credits
           title: Update Credits
+<<<<<<< HEAD
           body: This is an automated Pull Request. This PR updates the github contributors in the credits section.
           author: PJBot <pieterjan.briers+bot@gmail.com>
+=======
+          body: This is an automated Pull Request. This PR updates the GitHub contributors in the credits section.
+          author: ${{ vars.CHANGELOG_USER }} <${{ vars.CHANGELOG_EMAIL }}>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
           branch: automated/credits-${{env.NOW}}

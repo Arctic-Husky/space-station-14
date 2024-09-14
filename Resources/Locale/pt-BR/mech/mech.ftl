@@ -15,4 +15,8 @@ mech-integrity-display = Integrity: {$amount}%
 mech-energy-display = Energy: {$amount}%
 mech-slot-display = Open Slots: {$amount}
 
+<<<<<<< HEAD
 mech-no-enter = Você não consegue pilotar isso.
+=======
+mech-no-enter = Você não consegue pilotar isso.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

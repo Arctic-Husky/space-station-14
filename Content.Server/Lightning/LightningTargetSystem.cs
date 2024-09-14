@@ -2,7 +2,10 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Lightning;
 using Content.Server.Lightning.Components;
 using Content.Shared.Damage;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Tesla.EntitySystems;
 
@@ -13,7 +16,10 @@ public sealed class LightningTargetSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly TransformSystem _transform = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -31,7 +37,11 @@ public sealed class LightningTargetSystem : EntitySystem
         if (uid.Comp.LightningExplode)
         {
             _explosionSystem.QueueExplosion(
+<<<<<<< HEAD
                 _transform.GetMapCoordinates(uid),
+=======
+                Transform(uid).MapPosition,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 uid.Comp.ExplosionPrototype,
                 uid.Comp.TotalIntensity, uid.Comp.Dropoff,
                 uid.Comp.MaxTileIntensity,

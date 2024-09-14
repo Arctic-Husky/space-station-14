@@ -6,7 +6,11 @@ using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
+<<<<<<< HEAD
 using Content.Server.Traits.Assorted;
+=======
+using Content.Shared.Chat;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;

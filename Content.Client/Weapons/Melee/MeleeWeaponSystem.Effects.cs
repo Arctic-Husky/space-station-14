@@ -56,6 +56,10 @@ public sealed partial class MeleeWeaponSystem
             if (meleeWeaponComponent.SwingLeft)
                 angle *= -1;
         }
+<<<<<<< HEAD
+=======
+        sprite.NoRotation = true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         sprite.Rotation = localPos.ToWorldAngle();
         var distance = Math.Clamp(localPos.Length() / 2f, 0.2f, 1f);
 
@@ -65,16 +69,26 @@ public sealed partial class MeleeWeaponSystem
         switch (arcComponent.Animation)
         {
             case WeaponArcAnimation.Slash:
+<<<<<<< HEAD
                 track = EnsureComp<TrackUserComponent>(animationUid);
                 track.User = user;
                 _animation.Play(animationUid, GetSlashAnimation(sprite, angle, spriteRotation), SlashAnimationKey);
+=======
+                _animation.Play(animationUid, GetSlashAnimation(sprite, angle, spriteRotation), SlashAnimationKey);
+                TransformSystem.SetParent(animationUid, xform, user, userXform);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 if (arcComponent.Fadeout)
                     _animation.Play(animationUid, GetFadeAnimation(sprite, 0.065f, 0.065f + 0.05f), FadeAnimationKey);
                 break;
             case WeaponArcAnimation.Thrust:
+<<<<<<< HEAD
                 track = EnsureComp<TrackUserComponent>(animationUid);
                 track.User = user;
                 _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);
+=======
+                _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);
+                TransformSystem.SetParent(animationUid, xform, user, userXform);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 if (arcComponent.Fadeout)
                     _animation.Play(animationUid, GetFadeAnimation(sprite, 0.05f, 0.15f), FadeAnimationKey);
                 break;
@@ -100,6 +114,10 @@ public sealed partial class MeleeWeaponSystem
         var endRotationOffset = endRotation.RotateVec(new Vector2(0f, -1f));
         startRotation += spriteRotation;
         endRotation += spriteRotation;
+<<<<<<< HEAD
+=======
+        sprite.NoRotation = true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         return new Animation()
         {

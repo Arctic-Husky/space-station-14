@@ -10,6 +10,11 @@ using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+<<<<<<< HEAD
+=======
+using Content.Server.Announcements.Systems;
+using Robust.Shared.Player;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.NukeOps;
 
@@ -25,6 +30,10 @@ public sealed class WarDeclaratorSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -55,9 +64,18 @@ public sealed class WarDeclaratorSystem : EntitySystem
 
     private void OnActivated(Entity<WarDeclaratorComponent> ent, ref WarDeclaratorActivateMessage args)
     {
+<<<<<<< HEAD
         var ev = new WarDeclaredEvent(ent.Comp.CurrentStatus, ent);
         RaiseLocalEvent(ref ev);
 
+=======
+        if (args.Session.AttachedEntity is not {} playerEntity)
+            return;
+
+        var ev = new WarDeclaredEvent(ent.Comp.CurrentStatus, ent);
+        RaiseLocalEvent(ref ev);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (ent.Comp.DisableAt < _gameTiming.CurTime)
             ev.Status = WarConditionStatus.NoWarTimeout;
 
@@ -71,8 +89,13 @@ public sealed class WarDeclaratorSystem : EntitySystem
         if (ev.Status == WarConditionStatus.WarReady)
         {
             var title = Loc.GetString(ent.Comp.SenderTitle);
+<<<<<<< HEAD
             _chat.DispatchGlobalAnnouncement(ent.Comp.Message, title, true, ent.Comp.Sound, ent.Comp.Color);
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(args.Actor):player} has declared war with this text: {ent.Comp.Message}");
+=======
+            _announcer.SendAnnouncement("war", Filter.Broadcast(), ent.Comp.Message, title, ent.Comp.Color);
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(playerEntity):player} has declared war with this text: {ent.Comp.Message}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         UpdateUI(ent, ev.Status);
@@ -80,8 +103,13 @@ public sealed class WarDeclaratorSystem : EntitySystem
 
     private void UpdateUI(Entity<WarDeclaratorComponent> ent, WarConditionStatus? status = null)
     {
+<<<<<<< HEAD
         _userInterfaceSystem.SetUiState(
             ent.Owner,
+=======
+        _userInterfaceSystem.TrySetUiState(
+            ent,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             WarDeclaratorUiKey.Key,
             new WarDeclaratorBoundUserInterfaceState(status, ent.Comp.DisableAt, ent.Comp.ShuttleDisabledTime));
     }

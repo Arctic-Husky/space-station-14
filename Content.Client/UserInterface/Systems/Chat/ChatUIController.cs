@@ -60,7 +60,11 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
+<<<<<<< HEAD
     [UISystemDependency] private readonly TransformSystem? _transform = default;
+=======
+    [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!; //Nyano - Summary: makes the psionic chat available.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [ValidatePrototypeId<ColorPalettePrototype>]
     private const string ChatNamePalette = "ChatNames";
@@ -80,7 +84,8 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
-        {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead}
+        {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
+        {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic} //Nyano - Summary: adds the telepathic prefix =.
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -93,7 +98,8 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
-        {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix}
+        {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
+        {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix } //Nyano - Summary: associates telepathic with =.
     };
 
     /// <summary>
@@ -174,6 +180,10 @@ public sealed class ChatUIController : UIController
         _sawmill = Logger.GetSawmill("chat");
         _sawmill.Level = LogLevel.Info;
         _admin.AdminStatusUpdated += UpdateChannelPermissions;
+<<<<<<< HEAD
+=======
+        _manager.PermissionsUpdated += UpdateChannelPermissions; //Nyano - Summary: the event for when permissions are updated for psionics.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _player.LocalPlayerAttached += OnAttachedChanged;
         _player.LocalPlayerDetached += OnAttachedChanged;
         _state.OnStateChanged += StateChanged;
@@ -293,15 +303,15 @@ public sealed class ChatUIController : UIController
 
         switch (UIManager.ActiveScreen)
         {
-            case DefaultGameScreen defaultScreen:
-                chatBox = defaultScreen.ChatBox;
-                chatSizeRaw = _config.GetCVar(CCVars.DefaultScreenChatSize);
-                SetChatSizing(chatSizeRaw, defaultScreen, setting);
-                break;
             case SeparatedChatGameScreen separatedScreen:
                 chatBox = separatedScreen.ChatBox;
                 chatSizeRaw = _config.GetCVar(CCVars.SeparatedScreenChatSize);
                 SetChatSizing(chatSizeRaw, separatedScreen, setting);
+                break;
+            case OverlayChatGameScreen overlayScreen:
+                chatBox = overlayScreen.ChatBox;
+                chatSizeRaw = _config.GetCVar(CCVars.OverlayScreenChatSize);
+                SetChatSizing(chatSizeRaw, overlayScreen, setting);
                 break;
             default:
                 // this could be better?
@@ -351,11 +361,11 @@ public sealed class ChatUIController : UIController
             $"{size.X.ToString(CultureInfo.InvariantCulture)},{size.Y.ToString(CultureInfo.InvariantCulture)}";
         switch (UIManager.ActiveScreen)
         {
-            case DefaultGameScreen _:
-                _config.SetCVar(CCVars.DefaultScreenChatSize, stringSize);
-                break;
             case SeparatedChatGameScreen _:
                 _config.SetCVar(CCVars.SeparatedScreenChatSize, stringSize);
+                break;
+            case OverlayChatGameScreen _:
+                _config.SetCVar(CCVars.OverlayScreenChatSize, stringSize);
                 break;
             default:
                 // do nothing
@@ -553,7 +563,16 @@ public sealed class ChatUIController : UIController
             FilterableChannels |= ChatChannel.AdminAlert;
             FilterableChannels |= ChatChannel.AdminChat;
             CanSendChannels |= ChatSelectChannel.Admin;
+            FilterableChannels |= ChatChannel.Telepathic; //Nyano - Summary: makes admins able to see psionic chat.
         }
+
+        // Nyano - Summary: - Begin modified code block to add telepathic as a channel for a psionic user.
+        if (_psionic != null && _psionic.IsPsionic)
+        {
+            FilterableChannels |= ChatChannel.Telepathic;
+            CanSendChannels |= ChatSelectChannel.Telepathic;
+        }
+        // /Nyano - End modified code block
 
         SelectableChannels = CanSendChannels;
 
@@ -626,7 +645,11 @@ public sealed class ChatUIController : UIController
         var predicate = static (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data)
             => uid == data.compOwner || uid == data.attachedEntity;
         var playerPos = player != null
+<<<<<<< HEAD
             ? _transform?.GetMapCoordinates(player.Value) ?? MapCoordinates.Nullspace
+=======
+            ? EntityManager.GetComponent<TransformComponent>(player.Value).MapPosition
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             : MapCoordinates.Nullspace;
 
         var occluded = player != null && _examine.IsOccluded(player.Value);
@@ -645,7 +668,11 @@ public sealed class ChatUIController : UIController
                 continue;
             }
 
+<<<<<<< HEAD
             var otherPos = _transform?.GetMapCoordinates(ent) ?? MapCoordinates.Nullspace;
+=======
+            var otherPos = EntityManager.GetComponent<TransformComponent>(ent).MapPosition;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (occluded && !_examine.InRangeUnOccluded(
                     playerPos,

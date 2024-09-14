@@ -21,8 +21,11 @@ public sealed partial class LatheMenu : DefaultWindow
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IResourceCache _resources = default!;
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private EntityUid _owner;
     private readonly SpriteSystem _spriteSystem;
     private readonly LatheSystem _lathe;
@@ -108,6 +111,7 @@ public sealed partial class LatheMenu : DefaultWindow
         RecipeList.Children.Clear();
         foreach (var prototype in sortedRecipesToShow)
         {
+<<<<<<< HEAD
             List<Texture> textures;
             if (_prototypeManager.TryIndex(prototype.Result, out EntityPrototype? entityProto) && entityProto != null)
             {
@@ -123,6 +127,14 @@ public sealed partial class LatheMenu : DefaultWindow
             var canProduce = _lathe.CanProduce(_owner, prototype, quantity);
 
             var control = new RecipeControl(prototype, () => GenerateTooltipText(prototype), canProduce, textures);
+=======
+            var icon = prototype.Icon == null
+                ? _spriteSystem.GetPrototypeIcon(prototype.Result).Default
+                : _spriteSystem.Frame0(prototype.Icon);
+            var canProduce = _lathe.CanProduce(_owner, prototype, quantity);
+
+            var control = new RecipeControl(prototype, () => GenerateTooltipText(prototype), canProduce, icon);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             control.OnButtonPressed += s =>
             {
                 if (!int.TryParse(AmountLineEdit.Text, out var amount) || amount <= 0)

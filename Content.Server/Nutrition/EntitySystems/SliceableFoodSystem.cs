@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+using Content.Server.Nutrition; // DeltaV
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Nutrition;
@@ -65,8 +69,13 @@ namespace Content.Server.Nutrition.EntitySystems
             FillSlice(sliceUid, lostSolution);
 
             _audio.PlayPvs(component.Sound, transform.Coordinates, AudioParams.Default.WithVolume(-2));
+<<<<<<< HEAD
             var ev = new SliceFoodEvent();
             RaiseLocalEvent(uid, ref ev);
+=======
+            var ev = new SliceFoodEvent(uid, user, usedItem);
+            RaiseLocalEvent(ev);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             // Decrease size of item based on count - Could implement in the future
             // Bug with this currently is the size in a container is not updated
@@ -110,8 +119,25 @@ namespace Content.Server.Nutrition.EntitySystems
 
             // try putting the slice into the container if the food being sliced is in a container!
             // this lets you do things like slice a pizza up inside of a hot food cart without making a food-everywhere mess
+<<<<<<< HEAD
             _xformSystem.DropNextTo(sliceUid, (uid, transform));
             _xformSystem.SetLocalRotation(sliceUid, 0);
+=======
+            if (_containerSystem.TryGetContainingContainer(uid, out var container) && _containerSystem.CanInsert(sliceUid, container))
+            {
+                _containerSystem.Insert(sliceUid, container);
+            }
+            else // puts it down "right-side up"
+            {
+                _xformSystem.AttachToGridOrMap(sliceUid);
+                _xformSystem.SetLocalRotation(sliceUid, 0);
+            }
+
+            // DeltaV - Begin deep frier related code
+            var sliceEvent = new SliceFoodEvent(user, uid, sliceUid);
+            RaiseLocalEvent(uid, sliceEvent);
+            // DeltaV - End deep frier related code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             return sliceUid;
         }
@@ -136,8 +162,20 @@ namespace Content.Server.Nutrition.EntitySystems
             var trashUid = Spawn(foodComp.Trash, _xformSystem.GetMapCoordinates(uid));
 
             // try putting the trash in the food's container too, to be consistent with slice spawning?
+<<<<<<< HEAD
             _xformSystem.DropNextTo(trashUid, uid);
             _xformSystem.SetLocalRotation(trashUid, 0);
+=======
+            if (_containerSystem.TryGetContainingContainer(uid, out var container) && _containerSystem.CanInsert(trashUid, container))
+            {
+                _containerSystem.Insert(trashUid, container);
+            }
+            else // puts it down "right-side up"
+            {
+                _xformSystem.AttachToGridOrMap(trashUid);
+                _xformSystem.SetLocalRotation(trashUid, 0);
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             QueueDel(uid);
         }

@@ -3,17 +3,28 @@
   name: job-name-musician
   description: job-description-musician
   playTimeTracker: JobMusician
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 7200 # DeltaV - 2 hours
   startingGear: MusicianGear
   icon: "JobIconMusician"
   supervisors: job-supervisors-hire
   access:
   - Maintenance # TODO Remove maint access for all gimmick jobs once access work is completed
   - Theatre
+<<<<<<< HEAD
 # Desativado até criarmos um feriado equivalente
 #   special:
 #   - !type:GiveItemOnHolidaySpecial
 #     holiday: MikuDay
 #     prototype: BoxPerformer
+=======
+  - Musician # DeltaV - Add Musician access
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: MikuDay
+    prototype: BoxPerformer
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: startingGear
   id: MusicianGear

@@ -5,7 +5,10 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Popups;
+<<<<<<< HEAD
 using Content.Shared.Examine;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 

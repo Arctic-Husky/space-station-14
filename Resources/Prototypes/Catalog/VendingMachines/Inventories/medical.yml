@@ -7,6 +7,11 @@
     Bloodpack: 5
     EpinephrineChemistryBottle: 3
     Syringe: 5
+<<<<<<< HEAD
+=======
+    Portafib: 1 # DeltaV - Add Portafibs, see Prototypes/DeltaV/Entities/Objects/Devices/Medical/portafib.yml
+    ClothingEyesGlasses: 5 # SimpleStation14 NearsightedTrait
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
 

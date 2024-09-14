@@ -10,7 +10,10 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
+<<<<<<< HEAD
 using Content.Shared.NPC.Systems;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -23,7 +26,10 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly CarpRiftsConditionSystem _carpRifts = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+<<<<<<< HEAD
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -56,7 +62,10 @@ public sealed partial class DragonSystem : EntitySystem
         SubscribeLocalEvent<DragonComponent, RefreshMovementSpeedModifiersEvent>(OnDragonMove);
         SubscribeLocalEvent<DragonComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<DragonComponent, GenericAntagCreatedEvent>(OnCreated);
+<<<<<<< HEAD
         SubscribeLocalEvent<DragonComponent, EntityZombifiedEvent>(OnZombified);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public override void Update(float frameTime)
@@ -165,7 +174,11 @@ public sealed partial class DragonSystem : EntitySystem
             return;
         }
 
+<<<<<<< HEAD
         var carpUid = Spawn(component.RiftPrototype, _transform.GetMapCoordinates(uid, xform: xform));
+=======
+        var carpUid = Spawn(component.RiftPrototype, xform.MapPosition);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         component.Rifts.Add(carpUid);
         Comp<DragonRiftComponent>(carpUid).Dragon = uid;
     }
@@ -204,12 +217,15 @@ public sealed partial class DragonSystem : EntitySystem
         }, mind);
     }
 
+<<<<<<< HEAD
     private void OnZombified(Entity<DragonComponent> ent, ref EntityZombifiedEvent args)
     {
         // prevent carp attacking zombie dragon
         _faction.AddFaction(ent.Owner, ent.Comp.Faction);
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void Roar(EntityUid uid, DragonComponent comp)
     {
         if (comp.SoundRoar != null)

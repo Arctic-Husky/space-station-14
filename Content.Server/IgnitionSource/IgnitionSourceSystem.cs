@@ -36,7 +36,11 @@ public sealed class IgnitionSourceSystem : EntitySystem
     /// </summary>
     public void SetIgnited(Entity<IgnitionSourceComponent?> ent, bool ignited = true)
     {
+<<<<<<< HEAD
         if (!Resolve(ent, ref ent.Comp, false))
+=======
+        if (!Resolve(ent, ref ent.Comp))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         ent.Comp.Ignited = ignited;

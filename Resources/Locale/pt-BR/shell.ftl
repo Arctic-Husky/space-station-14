@@ -23,6 +23,11 @@ shell-need-minimum-one-argument = Precisa de pelo menos um argumento!
 
 shell-argument-uid = EntityUid
 
+<<<<<<< HEAD
+=======
+shell-argument-uid = EntityUid
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ## Guards
 
 shell-entity-is-not-mob = A entidade alvo não é um mob!

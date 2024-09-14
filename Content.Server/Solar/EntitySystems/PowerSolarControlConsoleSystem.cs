@@ -35,7 +35,11 @@ namespace Content.Server.Solar.EntitySystems
                 _updateTimer -= 1;
                 var state = new SolarControlConsoleBoundInterfaceState(_powerSolarSystem.TargetPanelRotation, _powerSolarSystem.TargetPanelVelocity, _powerSolarSystem.TotalPanelPower, _powerSolarSystem.TowardsSun);
                 var query = EntityQueryEnumerator<SolarControlConsoleComponent, UserInterfaceComponent>();
+<<<<<<< HEAD
                 while (query.MoveNext(out var uid, out _, out var uiComp))
+=======
+                while (query.MoveNext(out var uid, out var _, out var uiComp))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 {
                     _uiSystem.SetUiState((uid, uiComp), SolarControlConsoleUiKey.Key, state);
                 }

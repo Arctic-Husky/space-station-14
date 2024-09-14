@@ -48,6 +48,7 @@
   - type: Appearance
 
 - type: entity
+<<<<<<< HEAD
   id: MagazineMagnumEmpty
   name: pistol magazine (.45 magnum any)
   suffix: empty
@@ -61,6 +62,8 @@
       map: ["enum.GunVisualLayers.Base"]
 
 - type: entity
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: MagazineMagnum
   name: pistol magazine (.45 magnum)
   parent: BaseMagazineMagnum
@@ -89,6 +92,23 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
+<<<<<<< HEAD
+=======
+  id: MagazineMagnumRubber
+  name: pistol magazine (.45 magnum rubber)
+  parent: BaseMagazineMagnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumRubber
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: MagazineMagnumUranium
   name: pistol magazine (.45 magnum uranium)
   parent: BaseMagazineMagnum
@@ -117,6 +137,7 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
+<<<<<<< HEAD
   id: MagazineMagnumSubMachineGunEmpty
   name: "Vector magazine (.45 magnum any)"
   suffix: empty
@@ -130,6 +151,8 @@
       map: ["enum.GunVisualLayers.Base"]
 
 - type: entity
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: MagazineMagnumSubMachineGun
   name: "Vector magazine (.45 magnum)"
   parent: BaseMagazineMagnumSubMachineGun
@@ -153,6 +176,34 @@
   - type: Sprite
     layers:
     - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineMagnumSubMachineGunUranium
+  name: "Vector magazine (.45 magnum uranium)"
+  parent: BaseMagazineMagnumSubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineMagnumSubMachineGunPiercing
+  name: "Vector magazine (.45 magnum armor-piercing)"
+  parent: BaseMagazineMagnumSubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumAP
+  - type: Sprite
+    layers:
+    - state: piercing
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

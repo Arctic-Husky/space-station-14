@@ -483,6 +483,10 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         }
 
         var state = new SurveillanceCameraMonitorUiState(GetNetEntity(monitor.ActiveCamera), monitor.KnownSubnets.Keys.ToHashSet(), monitor.ActiveCameraAddress, monitor.ActiveSubnet, monitor.KnownCameras);
+<<<<<<< HEAD
         _userInterface.SetUiState(uid, SurveillanceCameraMonitorUiKey.Key, state);
+=======
+        _userInterface.TrySetUiState(uid, SurveillanceCameraMonitorUiKey.Key, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

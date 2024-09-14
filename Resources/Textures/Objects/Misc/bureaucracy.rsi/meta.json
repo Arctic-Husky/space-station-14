@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432. paper_stamp-syndicate by Veritius. paper_receipt, paper_receipt_horizontal by eoineoineoin. pen_centcom is a resprited version of pen_cap by PuroSlavKing (Github). Luxury pen is drawn by Ubaser.",
+=======
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432. paper_stamp-syndicate by Veritius. paper_receipt, paper_receipt_horizontal by eoineoineoin. pen_centcom is a resprited version of pen_cap by PuroSlavKing (Github). Luxury pen is drawn by Ubaser. Lawyer and psychologist paper stamp resprited by Guess-My-Name. paper_stamp-signature by Mnemotechnician.",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   "size": {
     "x": 32,
     "y": 32
@@ -210,6 +214,7 @@
       "name": "paper_stamp-chaplain"
     },
     {
+<<<<<<< HEAD
       "name": "paper_stamp-lawyer"
     },
     {
@@ -249,10 +254,66 @@
       "name": "paper_stamp-trader"
     },
     {
+=======
+      "name": "paper_stamp-clown"
+    },
+    {
+      "name": "paper_stamp-cmo"
+    },
+    {
+      "name": "paper_stamp-deny"
+    },
+    {
+      "name": "paper_stamp-detective"
+    },
+    {
+      "name": "paper_stamp-hop"
+    },
+    {
+      "name": "paper_stamp-hos"
+    },
+    {
+      "name": "paper_stamp-ok"
+    },
+    {
+      "name": "paper_stamp-mime"
+    },
+    {
+      "name": "paper_stamp-qm"
+    },
+    {
+      "name": "paper_stamp-rd"
+    },
+    {
+      "name": "paper_stamp-syndicate"
+    },
+    {
+      "name": "paper_stamp-trader"
+    },
+    {
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       "name": "paper_stamp-warden"
     },
     {
       "name": "paper_stamp-generic"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "name": "paper_stamp-mantis"
+    },
+    {
+      "name": "paper_stamp-lawyer"
+    },
+    {
+      "name": "paper_stamp-psychologist"
+    },
+    {
+      "name": "paper_stamp-notary"
+    },
+    {
+      "name": "paper_stamp-signature"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
   ]
 }

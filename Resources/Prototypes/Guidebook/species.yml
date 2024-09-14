@@ -49,5 +49,9 @@
 
 - type: guideEntry
   id: IPCs
+<<<<<<< HEAD
   name: guide-entry-IPCs
+=======
+  name: species-name-ipc
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"

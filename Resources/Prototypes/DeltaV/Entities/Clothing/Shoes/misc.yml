@@ -1,4 +1,5 @@
 - type: entity
+<<<<<<< HEAD
   parent: ClothingShoesBase
   id: ClothingShoesClothwarp
   name: cloth footwraps
@@ -8,3 +9,14 @@
     sprite: Clothing/Shoes/Misc/clothwarp.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Misc/clothwarp.rsi
+=======
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesMiscWhite
+  name: white leather shoes
+  description: Impeccably shined white leather shoes. Don't tread on these tootsies.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Shoes/Misc/whiteleather.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Shoes/Misc/whiteleather.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

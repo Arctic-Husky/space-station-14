@@ -1,42 +1,67 @@
 - type: statusIcon
   id: SecurityIcon
   abstract: true
+<<<<<<< HEAD
   priority: 3
   offset: 1
   locationPreference: Right
+=======
+  offset: 1
+  locationPreference: Left
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   isShaded: true
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconDischarged
   icon:
+<<<<<<< HEAD
     sprite: /Textures/Interface/Misc/security_icons.rsi
+=======
+    sprite: Interface/Misc/security_icons.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     state: hud_discharged
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconIncarcerated
   icon:
+<<<<<<< HEAD
     sprite: /Textures/Interface/Misc/security_icons.rsi
+=======
+    sprite: Interface/Misc/security_icons.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     state: hud_incarcerated
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconParoled
   icon:
+<<<<<<< HEAD
     sprite: /Textures/Interface/Misc/security_icons.rsi
+=======
+    sprite: Interface/Misc/security_icons.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     state: hud_paroled
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconSuspected
   icon:
+<<<<<<< HEAD
     sprite: /Textures/Interface/Misc/security_icons.rsi
+=======
+    sprite: Interface/Misc/security_icons.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     state: hud_suspected
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconWanted
   icon:
+<<<<<<< HEAD
     sprite: /Textures/Interface/Misc/security_icons.rsi
+=======
+    sprite: Interface/Misc/security_icons.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     state: hud_wanted

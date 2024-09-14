@@ -978,8 +978,13 @@ namespace Content.Shared.Interaction
                 return false;
 
             DoContactInteraction(user, used, activateMsg);
+<<<<<<< HEAD
             // Still need to call this even without checkUseDelay in case this gets relayed from Activate.
             _useDelay.TryResetDelay(used, component: delayComponent);
+=======
+            if (delayComponent != null)
+                _useDelay.TryResetDelay((used, delayComponent));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (!activateMsg.WasLogged)
                 _adminLogger.Add(LogType.InteractActivate, LogImpact.Low, $"{ToPrettyString(user):user} activated {ToPrettyString(used):used}");
             return true;

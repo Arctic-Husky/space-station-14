@@ -30,6 +30,7 @@ namespace Content.Client.Options.UI.Tabs
 
             ApplyButton.OnPressed += OnApplyButtonPressed;
             ResetButton.OnPressed += OnResetButtonPressed;
+<<<<<<< HEAD
             MasterVolumeSlider.OnValueChanged += OnMasterVolumeSliderChanged;
             MidiVolumeSlider.OnValueChanged += OnMidiVolumeSliderChanged;
             AmbientMusicVolumeSlider.OnValueChanged += OnAmbientMusicVolumeSliderChanged;
@@ -41,26 +42,101 @@ namespace Content.Client.Options.UI.Tabs
             RestartSoundsCheckBox.OnToggled += OnRestartSoundsCheckToggled;
             EventMusicCheckBox.OnToggled += OnEventMusicCheckToggled;
             AdminSoundsCheckBox.OnToggled += OnAdminSoundsCheckToggled;
+=======
+
+            AttachUpdateChangesHandler(
+                MasterVolumeSlider,
+                MidiVolumeSlider,
+                AmbientMusicVolumeSlider,
+                AmbienceVolumeSlider,
+                AmbienceSoundsSlider,
+                LobbyVolumeSlider,
+                InterfaceVolumeSlider,
+                AnnouncerVolumeSlider,
+
+                LobbyMusicCheckBox,
+                RestartSoundsCheckBox,
+                EventMusicCheckBox,
+                AnnouncerDisableMultipleSoundsCheckBox,
+                AdminSoundsCheckBox
+            );
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             AmbienceSoundsSlider.MinValue = _cfg.GetCVar(CCVars.MinMaxAmbientSourcesConfigured);
             AmbienceSoundsSlider.MaxValue = _cfg.GetCVar(CCVars.MaxMaxAmbientSourcesConfigured);
 
             Reset();
+            return;
+
+            void AttachUpdateChangesHandler(params Control[] controls)
+            {
+                foreach (var control in controls)
+                {
+                    switch (control)
+                    {
+                        case Slider slider:
+                            slider.OnValueChanged += _ => UpdateChanges();
+                            break;
+                        case CheckBox checkBox:
+                            checkBox.OnToggled += _ => UpdateChanges();
+                            break;
+                    }
+                }
+            }
         }
 
         protected override void Dispose(bool disposing)
         {
             ApplyButton.OnPressed -= OnApplyButtonPressed;
             ResetButton.OnPressed -= OnResetButtonPressed;
+<<<<<<< HEAD
             MasterVolumeSlider.OnValueChanged -= OnMasterVolumeSliderChanged;
             MidiVolumeSlider.OnValueChanged -= OnMidiVolumeSliderChanged;
             AmbientMusicVolumeSlider.OnValueChanged -= OnAmbientMusicVolumeSliderChanged;
             AmbienceVolumeSlider.OnValueChanged -= OnAmbienceVolumeSliderChanged;
             LobbyVolumeSlider.OnValueChanged -= OnLobbyVolumeSliderChanged;
             InterfaceVolumeSlider.OnValueChanged -= OnInterfaceVolumeSliderChanged;
+=======
+
+            DetachUpdateChangesHandler(
+                MasterVolumeSlider,
+                MidiVolumeSlider,
+                AmbientMusicVolumeSlider,
+                AmbienceVolumeSlider,
+                AmbienceSoundsSlider,
+                LobbyVolumeSlider,
+                InterfaceVolumeSlider,
+                AnnouncerVolumeSlider,
+
+                LobbyMusicCheckBox,
+                RestartSoundsCheckBox,
+                EventMusicCheckBox,
+                AnnouncerDisableMultipleSoundsCheckBox,
+                AdminSoundsCheckBox
+            );
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             base.Dispose(disposing);
+            return;
+
+            void DetachUpdateChangesHandler(params Control[] controls)
+            {
+                foreach (var control in controls)
+                {
+                    switch (control)
+                    {
+                        case Slider slider:
+                            slider.OnValueChanged -= _ => UpdateChanges();
+                            break;
+                        case CheckBox checkBox:
+                            checkBox.OnToggled -= _ => UpdateChanges();
+                            break;
+                    }
+                }
+            }
         }
 
+<<<<<<< HEAD
         private void OnLobbyVolumeSliderChanged(Range obj)
         {
             UpdateChanges();
@@ -114,6 +190,8 @@ namespace Content.Client.Options.UI.Tabs
         {
             UpdateChanges();
         }
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         private void OnApplyButtonPressed(BaseButton.ButtonEventArgs args)
         {
@@ -125,12 +203,17 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.AmbientMusicVolume, AmbientMusicVolumeSlider.Value / 100f * ContentAudioSystem.AmbientMusicMultiplier);
             _cfg.SetCVar(CCVars.LobbyMusicVolume, LobbyVolumeSlider.Value / 100f * ContentAudioSystem.LobbyMultiplier);
             _cfg.SetCVar(CCVars.InterfaceVolume, InterfaceVolumeSlider.Value / 100f * ContentAudioSystem.InterfaceMultiplier);
+<<<<<<< HEAD
+=======
+            _cfg.SetCVar(CCVars.AnnouncerVolume, AnnouncerVolumeSlider.Value / 100f * ContentAudioSystem.AnnouncerMultiplier);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             _cfg.SetCVar(CCVars.MaxAmbientSources, (int)AmbienceSoundsSlider.Value);
 
             _cfg.SetCVar(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox.Pressed);
             _cfg.SetCVar(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.EventMusicEnabled, EventMusicCheckBox.Pressed);
+            _cfg.SetCVar(CCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox.Pressed);
             _cfg.SaveToFile();
             UpdateChanges();
@@ -149,12 +232,17 @@ namespace Content.Client.Options.UI.Tabs
             AmbientMusicVolumeSlider.Value = _cfg.GetCVar(CCVars.AmbientMusicVolume) * 100f / ContentAudioSystem.AmbientMusicMultiplier;
             LobbyVolumeSlider.Value = _cfg.GetCVar(CCVars.LobbyMusicVolume) * 100f / ContentAudioSystem.LobbyMultiplier;
             InterfaceVolumeSlider.Value = _cfg.GetCVar(CCVars.InterfaceVolume) * 100f / ContentAudioSystem.InterfaceMultiplier;
+<<<<<<< HEAD
+=======
+            AnnouncerVolumeSlider.Value = _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             AmbienceSoundsSlider.Value = _cfg.GetCVar(CCVars.MaxAmbientSources);
 
             LobbyMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.LobbyMusicEnabled);
             RestartSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.RestartSoundsEnabled);
             EventMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.EventMusicEnabled);
+            AnnouncerDisableMultipleSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
             UpdateChanges();
         }
@@ -174,14 +262,27 @@ namespace Content.Client.Options.UI.Tabs
                 Math.Abs(LobbyVolumeSlider.Value - _cfg.GetCVar(CCVars.LobbyMusicVolume) * 100f / ContentAudioSystem.LobbyMultiplier) < 0.01f;
             var isInterfaceVolumeSame =
                 Math.Abs(InterfaceVolumeSlider.Value - _cfg.GetCVar(CCVars.InterfaceVolume) * 100f / ContentAudioSystem.InterfaceMultiplier) < 0.01f;
+<<<<<<< HEAD
+=======
+            var isAnnouncerVolumeSame =
+                Math.Abs(AnnouncerVolumeSlider.Value - _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier) < 0.01f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             var isAmbientSoundsSame = (int)AmbienceSoundsSlider.Value == _cfg.GetCVar(CCVars.MaxAmbientSources);
             var isLobbySame = LobbyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.LobbyMusicEnabled);
             var isRestartSoundsSame = RestartSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.RestartSoundsEnabled);
             var isEventSame = EventMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.EventMusicEnabled);
+            var isAnnouncerDisableMultipleSoundsSame = AnnouncerDisableMultipleSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             var isAdminSoundsSame = AdminSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AdminSoundsEnabled);
+<<<<<<< HEAD
             var isEverythingSame = isMasterVolumeSame && isMidiVolumeSame && isAmbientVolumeSame && isAmbientMusicVolumeSame && isAmbientSoundsSame && isLobbySame && isRestartSoundsSame && isEventSame
                                    && isAdminSoundsSame && isLobbyVolumeSame && isInterfaceVolumeSame;
+=======
+            var isEverythingSame = isMasterVolumeSame && isMidiVolumeSame && isAmbientVolumeSame
+                && isAmbientMusicVolumeSame && isAmbientSoundsSame && isLobbySame && isRestartSoundsSame && isEventSame
+                && isAnnouncerDisableMultipleSoundsSame && isAdminSoundsSame && isLobbyVolumeSame
+                && isInterfaceVolumeSame && isAnnouncerVolumeSame;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             ApplyButton.Disabled = isEverythingSame;
             ResetButton.Disabled = isEverythingSame;
             MasterVolumeLabel.Text =
@@ -196,6 +297,11 @@ namespace Content.Client.Options.UI.Tabs
                 Loc.GetString("ui-options-volume-percent", ("volume", LobbyVolumeSlider.Value / 100));
             InterfaceVolumeLabel.Text =
                 Loc.GetString("ui-options-volume-percent", ("volume", InterfaceVolumeSlider.Value / 100));
+<<<<<<< HEAD
+=======
+            AnnouncerVolumeLabel.Text =
+                Loc.GetString("ui-options-volume-percent", ("volume", AnnouncerVolumeSlider.Value / 100));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             AmbienceSoundsLabel.Text = ((int)AmbienceSoundsSlider.Value).ToString();
         }
     }

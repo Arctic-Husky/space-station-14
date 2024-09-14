@@ -192,6 +192,19 @@
   result: HolofanProjectorEmpty
   category: Tools
   completetime: 8
+<<<<<<< HEAD
+=======
+  materials:
+    Steel: 300
+    Glass: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: RPED
+  result: RPED
+  category: Tools
+  completetime: 10
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   materials:
     Steel: 300
     Glass: 50

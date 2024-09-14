@@ -52,7 +52,12 @@ namespace Content.Server.Forensics
                 component.PrintCooldown,
                 component.PrintReadyAt);
 
+<<<<<<< HEAD
             _uiSystem.SetUiState(uid, ForensicScannerUiKey.Key, state);
+=======
+            if (!_uiSystem.TrySetUiState(uid, ForensicScannerUiKey.Key, state))
+                Log.Warning($"{ToPrettyString(uid)} was unable to set UI state.");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnDoAfter(EntityUid uid, ForensicScannerComponent component, DoAfterEvent args)
@@ -164,12 +169,28 @@ namespace Content.Server.Forensics
         {
             UpdateUserInterface(scanner, scanner.Comp);
 
+<<<<<<< HEAD
             _uiSystem.OpenUi(scanner.Owner, ForensicScannerUiKey.Key, user);
+=======
+            UpdateUserInterface(scanner, scanner.Comp);
+
+            _uiSystem.TryOpen(scanner, ForensicScannerUiKey.Key, actor.PlayerSession);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnPrint(EntityUid uid, ForensicScannerComponent component, ForensicScannerPrintMessage args)
         {
+<<<<<<< HEAD
             var user = args.Actor;
+=======
+            if (!args.Session.AttachedEntity.HasValue)
+            {
+                Log.Warning($"{ToPrettyString(uid)} got OnPrint without Session.AttachedEntity");
+                return;
+            }
+
+            var user = args.Session.AttachedEntity.Value;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (_gameTiming.CurTime < component.PrintReadyAt)
             {

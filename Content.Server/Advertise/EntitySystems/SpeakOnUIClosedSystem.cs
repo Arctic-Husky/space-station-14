@@ -2,9 +2,15 @@ using Content.Server.Advertise.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.UserInterface;
 using Content.Shared.Advertise;
+<<<<<<< HEAD
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using ActivatableUIComponent = Content.Shared.UserInterface.ActivatableUIComponent;
+=======
+using Content.Shared.Chat;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Advertise;
 

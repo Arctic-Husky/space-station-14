@@ -68,10 +68,16 @@ public sealed class GetItemActionsEvent : EntityEventArgs
         AddAction(ref actionId, prototypeId, Provider);
     }
 
+<<<<<<< HEAD
     public void AddAction(EntityUid? actionId)
     {
         if (actionId != null)
             Actions.Add(actionId.Value);
+=======
+    public void AddAction(EntityUid actionId)
+    {
+        Actions.Add(actionId);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }
 

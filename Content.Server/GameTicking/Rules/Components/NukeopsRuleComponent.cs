@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+using Content.Server.Maps;
+using Content.Server.NPC.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.RoundEnd;
 using Content.Shared.Dataset;
 using Content.Shared.NPC.Prototypes;
@@ -5,6 +10,7 @@ using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+
 
 namespace Content.Server.GameTicking.Rules.Components;
 
@@ -75,7 +81,11 @@ public sealed partial class NukeopsRuleComponent : Component
     ///     Minimal operatives count for war declaration
     /// </summary>
     [DataField]
+<<<<<<< HEAD
     public int WarDeclarationMinOps = 3;
+=======
+    public int WarDeclarationMinOps = 4;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [DataField]
     public WinType WinType = WinType.Neutral;

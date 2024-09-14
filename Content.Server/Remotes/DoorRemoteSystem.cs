@@ -16,7 +16,14 @@ namespace Content.Shared.Remotes
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly AirlockSystem _airlock = default!;
         [Dependency] private readonly DoorSystem _doorSystem = default!;
+<<<<<<< HEAD
         [Dependency] private readonly ExamineSystemShared _examine = default!;
+=======
+        [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+        [Dependency] private readonly ExamineSystemShared _examine = default!;
+        // I'm so sorry [Dependency] private readonly SharedAirlockSystem _sharedAirlockSystem = default!;
+        
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public override void Initialize()
         {
             base.Initialize();
@@ -58,7 +65,14 @@ namespace Content.Shared.Remotes
             switch (entity.Comp.Mode)
             {
                 case OperatingMode.OpenClose:
+<<<<<<< HEAD
                     if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, args.Used))
+=======
+                    // Note we provide args.User here to TryToggleDoor as the "user"
+                    // This means that the door will look at all access items carried by the player for access, including
+                    //   this remote, but also including anything else they are carrying such as a PDA or ID card.
+                    if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, args.User))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                         _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp.State}");
                     break;
                 case OperatingMode.ToggleBolts:
@@ -66,7 +80,11 @@ namespace Content.Shared.Remotes
                     {
                         if (!boltsComp.BoltWireCut)
                         {
+<<<<<<< HEAD
                             _doorSystem.SetBoltsDown((args.Target.Value, boltsComp), !boltsComp.BoltsDown, args.Used);
+=======
+                            _doorSystem.SetBoltsDown((args.Target.Value, boltsComp), !boltsComp.BoltsDown, args.User);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to {(boltsComp.BoltsDown ? "" : "un")}bolt it");
                         }
                     }

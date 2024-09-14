@@ -1,7 +1,10 @@
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Communications;
+<<<<<<< HEAD
 using Content.Shared.CriminalRecords.Components;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;

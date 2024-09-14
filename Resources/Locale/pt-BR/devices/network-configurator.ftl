@@ -25,6 +25,11 @@ network-configurator-title-saved-devices = Dispositivos salvos
 network-configurator-title-device-configuration = Configuração do dispositivo
 network-configurator-ui-clear-button = Limpar
 network-configurator-ui-count-label = {$count} Dispositivos
+<<<<<<< HEAD
+=======
+network-configurator-clear-network-link-overlays = Limpar sobreposições de link de rede
+network-configurator-clear-network-link-overlays-desc = Limpar sobreposições de link de rede.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # tooltips
 network-configurator-tooltip-set = Define a lista de dispositivos alvo

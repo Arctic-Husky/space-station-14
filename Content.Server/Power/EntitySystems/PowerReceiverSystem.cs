@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Power.Components;
+using Content.Server.Emp;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -11,6 +12,7 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
+using Content.Shared.Emp;
 
 namespace Content.Server.Power.EntitySystems
 {
@@ -38,6 +40,12 @@ namespace Content.Server.Power.EntitySystems
             SubscribeLocalEvent<ApcPowerReceiverComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
             SubscribeLocalEvent<PowerSwitchComponent, GetVerbsEvent<AlternativeVerb>>(AddSwitchPowerVerb);
 
+<<<<<<< HEAD
+=======
+            SubscribeLocalEvent<ApcPowerReceiverComponent, EmpPulseEvent>(OnEmpPulse);
+            SubscribeLocalEvent<ApcPowerReceiverComponent, EmpDisabledRemoved>(OnEmpEnd);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _recQuery = GetEntityQuery<ApcPowerReceiverComponent>();
             _provQuery = GetEntityQuery<ApcPowerProviderComponent>();
         }
@@ -131,7 +139,7 @@ namespace Content.Server.Power.EntitySystems
             {
                 Act = () =>
                 {
-                    TogglePower(uid, user: args.User);
+                    TryTogglePower(uid, user: args.User);
                 },
                 Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
                 Text = Loc.GetString("power-switch-component-toggle-verb"),
@@ -191,6 +199,37 @@ namespace Content.Server.Power.EntitySystems
             }
 
             return !receiver.PowerDisabled; // i.e. PowerEnabled
+        }
+
+        public bool TryTogglePower(EntityUid uid, bool playSwitchSound = true, ApcPowerReceiverComponent? receiver = null, EntityUid? user = null)
+        {
+            if (HasComp<EmpDisabledComponent>(uid))
+                return false;
+
+            return TogglePower(uid, playSwitchSound, receiver, user);
+        }
+
+        public void SetLoad(ApcPowerReceiverComponent comp, float load)
+        {
+            comp.Load = load;
+        }
+
+        private void OnEmpPulse(EntityUid uid, ApcPowerReceiverComponent component, ref EmpPulseEvent args)
+        {
+            if (!component.PowerDisabled)
+            {
+                args.Affected = true;
+                args.Disabled = true;
+                TogglePower(uid, false);
+            }
+        }
+
+        private void OnEmpEnd(EntityUid uid, ApcPowerReceiverComponent component, ref EmpDisabledRemoved args)
+        {
+            if (component.PowerDisabled)
+            {
+                TogglePower(uid, false);
+            }
         }
     }
 }

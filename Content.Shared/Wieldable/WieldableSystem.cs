@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using Content.Shared.Examine;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -16,7 +19,11 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
+<<<<<<< HEAD
 using Robust.Shared.Timing;
+=======
+using Robust.Shared.Player;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Wieldable;
 
@@ -30,7 +37,10 @@ public sealed class WieldableSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IGameTiming _timing = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -47,7 +57,10 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<GunWieldBonusComponent, ItemWieldedEvent>(OnGunWielded);
         SubscribeLocalEvent<GunWieldBonusComponent, ItemUnwieldedEvent>(OnGunUnwielded);
         SubscribeLocalEvent<GunWieldBonusComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
+<<<<<<< HEAD
         SubscribeLocalEvent<GunWieldBonusComponent, ExaminedEvent>(OnExamine);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
@@ -101,12 +114,15 @@ public sealed class WieldableSystem : EntitySystem
             args.AngleDecay += bonus.Comp.AngleDecay;
             args.AngleIncrease += bonus.Comp.AngleIncrease;
         }
+<<<<<<< HEAD
     }
 
     private void OnExamine(EntityUid uid, GunWieldBonusComponent component, ref ExaminedEvent args)
     {
         if (component.WieldBonusExamineMessage != null)
             args.PushText(Loc.GetString(component.WieldBonusExamineMessage));
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void AddToggleWieldVerb(EntityUid uid, WieldableComponent component, GetVerbsEvent<InteractionVerb> args)

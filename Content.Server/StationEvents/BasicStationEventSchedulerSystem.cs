@@ -1,12 +1,20 @@
 using System.Linq;
 using Content.Server.Administration;
+<<<<<<< HEAD
 using Content.Server.GameTicking;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Administration;
+<<<<<<< HEAD
+=======
+using Content.Shared.CCVar;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using JetBrains.Annotations;
+using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
@@ -22,6 +30,7 @@ namespace Content.Server.StationEvents
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly EventManagerSystem _event = default!;
+        [Dependency] private readonly IConfigurationManager _config = default!;
 
 	// Pirata
         public const float MinEventTime = 60 * 5;
@@ -68,7 +77,12 @@ namespace Content.Server.StationEvents
         /// </summary>
         private void ResetTimer(BasicStationEventSchedulerComponent component)
         {
+<<<<<<< HEAD
             component.TimeUntilNextEvent = _random.NextFloat(MinEventTime, MaxEventTime);
+=======
+            component.TimeUntilNextEvent = _random.Next(_config.GetCVar(CCVars.GameEventsBasicMinimumTime),
+                _config.GetCVar(CCVars.GameEventsBasicMaximumTime));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 
@@ -76,6 +90,7 @@ namespace Content.Server.StationEvents
     public sealed class StationEventCommand : ToolshedCommand
     {
         private EventManagerSystem? _stationEvent;
+<<<<<<< HEAD
         private BasicStationEventSchedulerSystem? _basicScheduler;
         private IRobustRandom? _random;
 
@@ -129,6 +144,8 @@ namespace Content.Server.StationEvents
 
             return occurrences.Select(p => (p.Key, (float) p.Value)).OrderByDescending(p => p.Item2);
         }
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         [CommandImplementation("lsprob")]
         public IEnumerable<(string, float)> LsProb()

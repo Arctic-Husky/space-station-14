@@ -1,10 +1,15 @@
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Preferences; // DeltaV
 using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+<<<<<<< HEAD
+=======
+using Content.Shared.Preferences; //DeltaV, used for Metempsychosis, Fugitive, and Paradox Anomaly
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Humanoid;
 
@@ -84,10 +89,29 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public Color? CachedFacialHairColor;
 
     /// <summary>
+<<<<<<< HEAD
     ///     Which layers of this humanoid that should be hidden on equipping a corresponding item..
     /// </summary>
     [DataField]
     public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
+=======
+    /// DeltaV - let paradox anomaly be cloned
+    /// </summary>
+    [ViewVariables]
+    public HumanoidCharacterProfile? LastProfileLoaded;
+
+    /// <summary>
+    ///     The height of this humanoid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Height = 1f;
+
+    /// <summary>
+    ///     The width of this humanoid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Width = 1f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }
 
 [DataDefinition]

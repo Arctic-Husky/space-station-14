@@ -36,9 +36,16 @@ public sealed partial class CleanTileReaction : ITileReaction
         FixedPoint2 reactVolume,
         IEntityManager entityManager)
     {
+<<<<<<< HEAD
         var entities = entityManager.System<EntityLookupSystem>().GetLocalEntitiesIntersecting(tile, 0f).ToArray();
         var puddleQuery = entityManager.GetEntityQuery<PuddleComponent>();
         var solutionContainerSystem = entityManager.System<SolutionContainerSystem>();
+=======
+        var entMan = IoCManager.Resolve<IEntityManager>();
+        var entities = entMan.System<EntityLookupSystem>().GetLocalEntitiesIntersecting(tile, 0f).ToArray();
+        var puddleQuery = entMan.GetEntityQuery<PuddleComponent>();
+        var solutionContainerSystem = entMan.System<SolutionContainerSystem>();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         // Multiply as the amount we can actually purge is higher than the react amount.
         var purgeAmount = reactVolume / CleanAmountMultiplier;
 

@@ -58,7 +58,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+<<<<<<< HEAD
         if (!_uiSystem.IsUiOpen(uid, CrewMonitoringUIKey.Key))
+=======
+        if (!_uiSystem.TryGetUi(uid, CrewMonitoringUIKey.Key, out var bui))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         // The grid must have a NavMapComponent to visualize the map in the UI
@@ -69,6 +73,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         // Update all sensors info
         var allSensors = component.ConnectedSensors.Values.ToList();
+<<<<<<< HEAD
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
+=======
+        _uiSystem.SetUiState(bui, new CrewMonitoringState(allSensors));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

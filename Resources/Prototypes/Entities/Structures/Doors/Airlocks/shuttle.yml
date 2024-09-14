@@ -131,6 +131,10 @@
   suffix: Glass, Docking
   description: Necessary for connecting two space craft together.
   components:
+<<<<<<< HEAD
+=======
+  - type: Docking
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
     snapCardinals: false

@@ -13,7 +13,11 @@ public sealed class MuzzleFlashEvent : EntityEventArgs
 
     public Angle Angle;
 
+<<<<<<< HEAD
     public MuzzleFlashEvent(NetEntity uid, string prototype, Angle angle)
+=======
+    public MuzzleFlashEvent(NetEntity uid, string prototype, bool matchRotation = false)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         Uid = uid;
         Prototype = prototype;

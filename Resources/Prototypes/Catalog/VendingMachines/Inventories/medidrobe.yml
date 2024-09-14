@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - type: vendingMachineInventory
   id: MediDrobeInventory
   startingInventory:
@@ -22,3 +23,34 @@
     ClothingHeadHatSurgcapBlue: 4
     ClothingHeadHatSurgcapPurple: 4
     ClothingShoesBootsWinterMed: 2
+=======
+- type: vendingMachineInventory
+  id: MediDrobeInventory
+  startingInventory:
+    ClothingBackpackDuffelMedical: 4
+    ClothingBackpackMedical: 4
+    ClothingBackpackSatchelMedical: 4
+    ClothingUniformJumpsuitMedicalDoctor: 4
+    ClothingUniformJumpskirtMedicalDoctor: 4
+    ClothingHeadHatBeretMedic: 4
+    ClothingHeadNurseHat: 4
+    ClothingOuterCoatLab: 4
+    ClothingShoesColorWhite: 4
+    ClothingHandsGlovesLatex: 4
+    ClothingHandsGlovesNitrile: 2
+    ClothingHeadsetMedical: 4
+    ClothingOuterWinterMed: 2
+    ClothingOuterHospitalGown: 5
+    UniformScrubsColorGreen: 4
+    UniformScrubsColorBlue: 4
+    UniformScrubsColorPurple: 4
+    ClothingHeadHatSurgcapGreen: 4 
+    ClothingHeadHatSurgcapBlue: 4
+    ClothingHeadHatSurgcapPurple: 4
+    ClothingShoesBootsWinterMed: 2
+  contrabandInventory: #DeltaV
+    UniformScrubsColorCybersun: 1 #DeltaV
+    ClothingHeadHatSurgcapCybersun: 1 #DeltaV
+    ClothingOuterCoatCybersunWindbreaker: 1 #DeltaV
+    ClothingShoesBootsWinterMed: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

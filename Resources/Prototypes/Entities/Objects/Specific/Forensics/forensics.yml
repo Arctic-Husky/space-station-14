@@ -18,3 +18,25 @@
   - type: GuideHelp
     guides:
     - Forensics
+<<<<<<< HEAD
+=======
+
+- type: entity
+  id: ScentTrackEffect
+  noSpawn: true
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    scale: "0.08, 0.08"
+    color: "#ffff00"
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

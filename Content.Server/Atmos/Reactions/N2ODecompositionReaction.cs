@@ -1,6 +1,9 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
+<<<<<<< HEAD
 using Content.Shared.Atmos.Reactions;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using JetBrains.Annotations;
 
 namespace Content.Server.Atmos.Reactions;

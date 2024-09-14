@@ -1,8 +1,11 @@
 using System.Linq;
 using Content.Shared.Atmos;
 using Robust.Shared.GameStates;
+<<<<<<< HEAD
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Pinpointer;
 
@@ -15,6 +18,21 @@ public sealed partial class NavMapComponent : Component
     /*
      * Don't need DataFields as this can be reconstructed
      */
+<<<<<<< HEAD
+=======
+
+    [ViewVariables]
+    public readonly Dictionary<Vector2i, NavMapChunk> Chunks = new();
+
+    [ViewVariables] public readonly List<SharedNavMapSystem.NavMapBeacon> Beacons = new();
+
+    [ViewVariables] public readonly List<SharedNavMapSystem.NavMapAirlock> Airlocks = new();
+}
+
+public sealed class NavMapChunk
+{
+    public readonly Vector2i Origin;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     /// Bitmasks that represent chunked tiles.

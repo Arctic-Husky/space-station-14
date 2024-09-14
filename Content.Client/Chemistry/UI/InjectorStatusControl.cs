@@ -32,7 +32,11 @@ public sealed class InjectorStatusControl : Control
     {
         base.FrameUpdate(args);
 
+<<<<<<< HEAD
         if (!_solutionContainers.TryGetSolution(_parent.Owner, _parent.Comp.SolutionName, out _, out var solution))
+=======
+        if (!_solutionContainers.TryGetSolution(_parent.Owner, InjectorComponent.SolutionName, out _, out var solution))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         // only updates the UI if any of the details are different than they previously were

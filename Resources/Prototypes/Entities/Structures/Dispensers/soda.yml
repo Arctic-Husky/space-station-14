@@ -1,4 +1,10 @@
 - type: entity
+<<<<<<< HEAD
+=======
+  id: soda_dispenser
+  name: soda dispenser
+  suffix: Filled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: ReagentDispenserBase
   id: SodaDispenser
   name: soda dispenser
@@ -24,9 +30,15 @@
     - Bartender
 
 - type: entity
+<<<<<<< HEAD
   parent: SodaDispenser
   id: SodaDispenserEmpty
   suffix: Empty
+=======
+  id: SodaDispenserEmpty
+  suffix: Empty
+  parent: soda_dispenser
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: ReagentDispenser
     storageWhitelist:

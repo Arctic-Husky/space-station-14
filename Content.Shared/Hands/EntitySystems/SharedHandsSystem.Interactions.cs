@@ -8,7 +8,10 @@ using Content.Shared.Localizations;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+<<<<<<< HEAD
 using Robust.Shared.Utility;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Hands.EntitySystems;
 
@@ -184,6 +187,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
     //TODO: Actually shows all items/clothing/etc.
     private void HandleExamined(EntityUid examinedUid, HandsComponent handsComp, ExaminedEvent args)
     {
+<<<<<<< HEAD
         var heldItemNames = EnumerateHeld(examinedUid, handsComp)
             .Where(entity => !HasComp<VirtualItemComponent>(entity))
             .Select(item => FormattedMessage.EscapeText(Identity.Name(item, EntityManager)))
@@ -197,6 +201,27 @@ public abstract partial class SharedHandsSystem : EntitySystem
         using (args.PushGroup(nameof(HandsComponent)))
         {
             args.PushMarkup(Loc.GetString(locKey, locUser, locItems));
+=======
+        var held = EnumerateHeld(uid, handsComp)
+            .Where(x => !HasComp<VirtualItemComponent>(x)).ToList();
+
+        using (args.PushGroup(nameof(HandsComponent)))
+        {
+            if (!held.Any())
+            {
+                args.PushText(Loc.GetString("comp-hands-examine-empty",
+                    ("user", Identity.Entity(uid, EntityManager))));
+                return;
+            }
+
+            var heldList = ContentLocalizationManager.FormatList(held
+                .Select(x => Loc.GetString("comp-hands-examine-wrapper",
+                    ("item", Identity.Entity(x, EntityManager)))).ToList());
+
+            args.PushMarkup(Loc.GetString("comp-hands-examine",
+                ("user", Identity.Entity(uid, EntityManager)),
+                ("items", heldList)));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }

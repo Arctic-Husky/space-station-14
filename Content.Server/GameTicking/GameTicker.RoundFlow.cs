@@ -20,6 +20,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server.Announcements.Systems;
 
 namespace Content.Server.GameTicking
 {
@@ -27,6 +28,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -165,7 +167,11 @@ namespace Content.Server.GameTicking
 
             var gridIds = _map.LoadMap(targetMapId, ev.GameMap.MapPath.ToString(), ev.Options);
 
+<<<<<<< HEAD
             _metaData.SetEntityName(_mapManager.GetMapEntityId(targetMapId), $"station map - {map.MapName}");
+=======
+            _metaData.SetEntityName(_mapManager.GetMapEntityId(targetMapId), "Station map");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             var gridUids = gridIds.ToList();
             RaiseLocalEvent(new PostGameMapLoad(map, targetMapId, gridUids, stationName));
@@ -287,6 +293,7 @@ namespace Content.Server.GameTicking
             AnnounceRound();
             UpdateInfoText();
             SendRoundStartedDiscordMessage();
+            RaiseLocalEvent(new RoundStartedEvent(RoundId));
 
 #if EXCEPTION_TOLERANCE
             }
@@ -434,6 +441,10 @@ namespace Content.Server.GameTicking
 
             _replayRoundPlayerInfo = listOfPlayerInfoFinal;
             _replayRoundText = roundEndText;
+<<<<<<< HEAD
+=======
+            RaiseLocalEvent(new RoundEndedEvent(RoundId, roundDuration));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private async void SendRoundEndDiscordMessage()
@@ -631,11 +642,16 @@ namespace Content.Server.GameTicking
 
             var proto = _robustRandom.Pick(options);
 
+<<<<<<< HEAD
             if (proto.Message != null)
                 _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
 
             if (proto.Sound != null)
                 _audio.PlayGlobal(proto.Sound, Filter.Broadcast(), true);
+=======
+            _announcer.SendAnnouncement(_announcer.GetAnnouncementId(proto.ID), Filter.Broadcast(),
+                proto.Message ?? "game-ticker-welcome-to-the-station");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private async void SendRoundStartedDiscordMessage()
@@ -795,7 +811,7 @@ namespace Content.Server.GameTicking
     }
 
     /// <summary>
-    ///     Event raised after players were assigned jobs by the GameTicker.
+    ///     Event raised after players were assigned jobs by the GameTicker and have been spawned in.
     ///     You can give on-station people special roles by listening to this event.
     /// </summary>
     public sealed class RulePlayerJobsAssignedEvent

@@ -25,5 +25,9 @@ reagent-desc-fat = Não importa como foi obtido, sua aplicação é importante.
 reagent-name-vomit = vomito
 reagent-desc-vomit = Você pode ver alguns pedaços da última refeição de alguém nele.
 
+<<<<<<< HEAD
 reagent-name-gray-matter = grey matter
 reagent-name-gray-matter = Suco de cérebro.
+=======
+reagent-name-gray-matter = Suco de cérebro.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

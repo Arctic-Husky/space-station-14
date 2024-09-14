@@ -5,7 +5,10 @@ using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
+<<<<<<< HEAD
 using Content.Shared.Damage.Systems;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Explosion;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -20,7 +23,10 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+<<<<<<< HEAD
 using Robust.Shared.Random;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -29,10 +35,17 @@ namespace Content.Server.Hands.Systems
     public sealed class HandsSystem : SharedHandsSystem
     {
         [Dependency] private readonly IGameTiming _timing = default!;
+<<<<<<< HEAD
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly VirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+=======
+        [Dependency] private readonly StackSystem _stackSystem = default!;
+        [Dependency] private readonly VirtualItemSystem _virtualItemSystem = default!;
+        [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+        [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
@@ -41,7 +54,11 @@ namespace Content.Server.Hands.Systems
         {
             base.Initialize();
 
+<<<<<<< HEAD
             SubscribeLocalEvent<HandsComponent, DisarmedEvent>(OnDisarmed, before: new[] {typeof(StunSystem), typeof(StaminaSystem)});
+=======
+            SubscribeLocalEvent<HandsComponent, DisarmedEvent>(OnDisarmed, before: new[] {typeof(StunSystem)});
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             SubscribeLocalEvent<HandsComponent, PullStartedMessage>(HandlePullStarted);
             SubscribeLocalEvent<HandsComponent, PullStoppedMessage>(HandlePullStopped);

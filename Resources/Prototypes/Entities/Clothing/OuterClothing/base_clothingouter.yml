@@ -23,6 +23,12 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+<<<<<<< HEAD
+=======
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -42,6 +48,65 @@
         type: StorageBoundUserInterface
   - type: StaticPrice
     price: 70
+<<<<<<< HEAD
+=======
+
+- type: entity
+  abstract: true
+  parent: [ClothingOuterStorageBase, BaseFoldable]
+  id: ClothingOuterStorageFoldableBase
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-zip-verb
+    foldVerbText: fold-unzip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: open
+    foldedHeldPrefix: open
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  abstract: true
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterStorageFoldableBaseOpened
+  suffix: opened
+  components:
+  - type: Foldable
+    folded: true
+  - type: Clothing
+    equippedPrefix: open
+  - type: Item
+    heldPrefix: open
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+      visible: false
+    - state: icon-open
+      map: ["foldedLayer"]
+      visible: true
+
+- type: entity
+  abstract: true
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterStorageToggleableBase
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterDefault
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -136,8 +201,21 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+    - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
+    - FullBodyOuter
+  - type: Clothing
+    equipDelay: 2.5 # Hardsuits are heavy and take a while to put on/off.
+    unequipDelay: 2.5
+  - type: Geiger
+    attachedToSuit: true
+    localSoundOnly: true
+  - type: StaminaDamageResistance
+    coefficient: 0.75 # 25%
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -156,8 +234,17 @@
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+  - type: Tag
+    tags:
+    - HidesHarpyWings #DeltaV: Used by harpies to help render their hardsuit sprites
+  - type: Clothing
+    equipDelay: 1.25 # Softsuits are easier to put on and off
+    unequipDelay: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterBase
@@ -180,4 +267,8 @@
   id: ClothingOuterBaseMedium
   components:
   - type: Item
+<<<<<<< HEAD
     size: Huge
+=======
+    size: Huge
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

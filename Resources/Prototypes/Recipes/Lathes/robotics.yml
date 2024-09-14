@@ -427,6 +427,7 @@
     Glass: 250
     Plastic: 250
 
+<<<<<<< HEAD
 - type: latheRecipe
   id: BorgModuleGrapplingGun
   result: BorgModuleGrapplingGun
@@ -437,6 +438,18 @@
     Glass: 500
     Plastic: 250
     Gold: 50
+=======
+#- type: latheRecipe
+#  id: BorgModuleGrapplingGun
+#  result: BorgModuleGrapplingGun
+#  category: Robotics
+#  completetime: 3
+#  materials:
+#    Steel: 500
+#    Glass: 500
+#    Plastic: 250
+#    Gold: 50
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: BorgModuleAdvancedTool
@@ -612,3 +625,30 @@
     Steel: 250
     Glass: 250
     Plastic: 250
+<<<<<<< HEAD
+=======
+
+- type: latheRecipe
+  id: BorgModulePka
+  result: BorgModulePka
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+    Silver: 100
+
+- type: latheRecipe
+  id: BorgModuleJetpack
+  result: BorgModuleJetpack
+  category: Robotics
+  completetime: 3
+  materials:
+    Steel: 250
+    Glass: 250
+    Plastic: 250
+    Gold: 100
+    Plasma: 1000
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

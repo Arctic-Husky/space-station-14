@@ -1,6 +1,16 @@
 # Traitor single items
 
 - type: stealTargetGroup
+<<<<<<< HEAD
+=======
+  id: SupermatterSliver
+  name: supermatter sliver
+  sprite:
+    sprite: Supermatter/supermatter_sliver.rsi
+    state: icon
+
+- type: stealTargetGroup
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Hypospray
   name: hypospray
   sprite:
@@ -55,13 +65,21 @@
   sprite:
     sprite: Objects/Consumable/Food/meat.rsi
     state: corgi
+<<<<<<< HEAD
     #
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: stealTargetGroup
   id: CaptainIDCard
   name: captain ID card
   sprite:
     sprite: Objects/Misc/id_cards.rsi
+<<<<<<< HEAD
     state: ert_commander #no one will know the difference.
+=======
+    state: gold
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: stealTargetGroup
   id: JetpackCaptainFilled
@@ -183,7 +201,11 @@
 
 - type: stealTargetGroup
   id: ClothingOuterHardsuitVoidParamed
+<<<<<<< HEAD
   name: paramedic void suit
+=======
+  name: paramedic hardsuit
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
@@ -332,7 +354,11 @@
 
 - type: stealTargetGroup
   id: PlantRD
+<<<<<<< HEAD
   name: RD's potted plant
+=======
+  name: Mystagogue's potted plant # DeltaV - Epistemics Department - Replace Research Director with Mystagogue
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   sprite:
     sprite: Structures/Furniture/potted_plants.rsi
     state: plant-25

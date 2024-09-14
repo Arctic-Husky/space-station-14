@@ -9,9 +9,9 @@
   description: Standard security gear. Protects the head from impacts.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/security.rsi
+    sprite: DeltaV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Head/Helmets/security.rsi
+    sprite: DeltaV/Clothing/Head/Helmets/security.rsi # DeltaV - resprite
   - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
     modifiers:
       coefficients:
@@ -79,9 +79,9 @@
   description: It's a helmet specifically designed to protect against close range attacks.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/light_riot.rsi
+    sprite: DeltaV/Clothing/Head/Helmets/light_riot.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Head/Helmets/light_riot.rsi
+    sprite: DeltaV/Clothing/Head/Helmets/light_riot.rsi # DeltaV - resprite
   - type: IngestionBlocker
   - type: Armor
     modifiers:
@@ -114,6 +114,19 @@
     slots:
     - Hair
     - Snout
+
+#Janitorial Bombsuit Helmet
+- type: entity
+  parent: ClothingHeadHelmetBombSuit
+  id: ClothingHeadHelmetJanitorBombSuit
+  name: janitorial bombsuit helmet
+  description: A heavy helmet designed to withstand explosions formed from reactions between chemicals.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/janitor_bombsuit.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/janitor_bombsuit.rsi
 
 #Janitorial Bombsuit Helmet
 - type: entity

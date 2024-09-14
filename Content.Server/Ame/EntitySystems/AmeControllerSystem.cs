@@ -133,7 +133,11 @@ public sealed class AmeControllerSystem : EntitySystem
             return;
 
         var state = GetUiState(uid, controller);
+<<<<<<< HEAD
         _userInterfaceSystem.SetUiState(uid, AmeControllerUiKey.Key, state);
+=======
+        _userInterfaceSystem.SetUiState(bui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         controller.NextUIUpdate = _gameTiming.CurTime + controller.UpdateUIPeriod;
     }

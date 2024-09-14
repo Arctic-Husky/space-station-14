@@ -20,7 +20,11 @@ namespace Content.Server.Entry
             "InventorySlots",
             "LightFade",
             "HolidayRsiSwap",
+<<<<<<< HEAD
             "OptionsVisualizer"
+=======
+            "OptionsVisualizer",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         };
     }
 }

@@ -13,7 +13,10 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
@@ -89,6 +92,7 @@ public sealed class DrainSystem : SharedDrainSystem
 
         // Try to transfer as much solution as possible to the drain
 
+<<<<<<< HEAD
         var amountToPutInDrain = drainSolution.AvailableVolume;
         var amountToSpillOnGround = containerSolution.Volume - drainSolution.AvailableVolume;
 
@@ -108,6 +112,21 @@ public sealed class DrainSystem : SharedDrainSystem
         {
             var solutionToSpill = _solutionContainerSystem.SplitSolution(containerSoln.Value, amountToSpillOnGround);
             _puddleSystem.TrySpillAt(Transform(target).Coordinates, solutionToSpill, out _);
+=======
+        var transferSolution = _solutionContainerSystem.SplitSolution(containerSoln.Value,
+            FixedPoint2.Min(containerSolution.Volume, drainSolution.AvailableVolume));
+
+        _solutionContainerSystem.TryAddSolution(drain.Solution.Value, transferSolution);
+
+        _audioSystem.PlayPvs(drain.ManualDrainSound, target);
+        _ambientSoundSystem.SetAmbience(target, true);
+
+        // If drain is full, spill
+
+        if (drainSolution.MaxVolume == drainSolution.Volume)
+        {
+            _puddleSystem.TrySpillAt(Transform(target).Coordinates, containerSolution, out _);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _popupSystem.PopupEntity(
                 Loc.GetString("drain-component-empty-verb-target-is-full-message", ("object", target)),
                 container);

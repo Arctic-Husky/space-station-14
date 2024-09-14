@@ -11,21 +11,41 @@
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     state: pickaxe
   - type: MeleeWeapon
+<<<<<<< HEAD
     attackRate: 0.7
+=======
+    attackRate: 0.75
+    range: 1.75
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     wideAnimationRotation: -135
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
       params:
         volume: -3
     damage:
+<<<<<<< HEAD
       groups:
         Brute: 5
+=======
+      types:
+        Blunt: 6
+        Pierce: 3
+    bluntStaminaDamageFactor: 2.0
+    heavyDamageBaseModifier: 1.75
+    heavyStaminaCost: 5
+    maxTargets: 2
+    angle: 60
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       groups:
         Brute: 10
       types:
+<<<<<<< HEAD
+=======
+        Blunt: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Structural: 30
   - type: Item
     size: Normal
@@ -52,13 +72,39 @@
     state: handdrill
   - type: MeleeWeapon
     autoAttack: true
+<<<<<<< HEAD
     angle: 0
     wideAnimationRotation: -90
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 3.5
+=======
+    wideAnimationRotation: -90
+    soundHit:
+      path: "/Audio/Items/drill_hit.ogg"
+    attackRate: 0.5
+    range: 1.4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       groups:
         Brute: 3
       types:
+<<<<<<< HEAD
         Structural: 12
+=======
+        Blunt: 9
+        Slash: 3
+        Structural: 12
+    bluntStaminaDamageFactor: 4.0
+    heavyRateModifier: 1
+    heavyRangeModifier: 2
+    heavyDamageBaseModifier: 1
+    heavyStaminaCost: 10
+    maxTargets: 3
+    angle: 20
+
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - MiningDrill
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

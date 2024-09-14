@@ -21,11 +21,19 @@ chat-manager-whisper-headset-on-message = You can't whisper on the radio!
 chat-manager-server-wrap-message = [bold]{$message}[/bold]
 chat-manager-sender-announcement-wrap-message = [font size=14][bold]{$sender} Announcement:[/font][font size=12]
                                                 {$message}[/bold][/font]
+<<<<<<< HEAD
 chat-manager-entity-say-wrap-message = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}, [font={$fontType} size={$fontSize}]"[BubbleContent]{$message}[/BubbleContent]"[/font]
 chat-manager-entity-say-bold-wrap-message = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}, [font={$fontType} size={$fontSize}]"[BubbleContent][bold]{$message}[/bold][/BubbleContent]"[/font]
 
 chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] whispers,"[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
 chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader]Someone[/BubbleHeader] whispers, "[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
+=======
+chat-manager-entity-say-wrap-message = [BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] {$verb}, "[BubbleContent][font="{$fontType}" size={$fontSize}][color={$color}]{$message}[/color][/font][/BubbleContent]"
+chat-manager-entity-say-bold-wrap-message = [BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] {$verb}, "[BubbleContent][font="{$fontType}" size={$fontSize}][color={$color}][bold]{$message}[/bold][/color][/font][/BubbleContent]"
+
+chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] whispers, "[BubbleContent][font="{$fontType}"][color={$color}]{$message}[/color][/font][/BubbleContent]"[/italic][/font]
+chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader]Someone[/BubbleHeader] whispers, "[BubbleContent][font="{$fontType}"][color={$color}]{$message}[/color][/font][/BubbleContent]"[/italic][/font]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # THE() is not used here because the entity and its name can technically be disconnected if a nameOverride is passed...
 chat-manager-entity-me-wrap-message = [italic]{ PROPER($entity) ->
@@ -33,16 +41,22 @@ chat-manager-entity-me-wrap-message = [italic]{ PROPER($entity) ->
      [true] {$entityName} {$message}[/italic]
     }
 
-chat-manager-entity-looc-wrap-message = LOOC: [bold]{$entityName}:[/bold] {$message}
-chat-manager-send-ooc-wrap-message = OOC: [bold]{$playerName}:[/bold] {$message}
-chat-manager-send-ooc-patron-wrap-message = OOC: [bold][color={$patronColor}]{$playerName}[/color]:[/bold] {$message}
+chat-manager-entity-looc-wrap-message = LOOC: {$entityName}: {$message}
+chat-manager-send-ooc-wrap-message = OOC: {$playerName}: {$message}
+chat-manager-send-ooc-patron-wrap-message = OOC: [color={$patronColor}]{$playerName}[/color]: {$message}
 
+<<<<<<< HEAD
 chat-manager-send-dead-chat-wrap-message = {$deadChannelName}: [bold][BubbleHeader]{$playerName}[/BubbleHeader]:[/bold] [BubbleContent]{$message}[/BubbleContent]
 chat-manager-send-admin-dead-chat-wrap-message = {$adminChannelName}: [bold]([BubbleHeader]{$userName}[/BubbleHeader]):[/bold] [BubbleContent]{$message}[/BubbleContent]
 chat-manager-send-admin-chat-wrap-message = {$adminChannelName}: [bold]{$playerName}:[/bold] {$message}
+=======
+chat-manager-send-dead-chat-wrap-message = {$deadChannelName}: [BubbleHeader]{$playerName}[/BubbleHeader]: [BubbleContent]{$message}[/BubbleContent]
+chat-manager-send-admin-dead-chat-wrap-message = {$adminChannelName}: ([BubbleHeader]{$userName}[/BubbleHeader]): [BubbleContent]{$message}[/BubbleContent]
+chat-manager-send-admin-chat-wrap-message = {$adminChannelName}: {$playerName}: {$message}
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 chat-manager-send-admin-announcement-wrap-message = [bold]{$adminChannelName}: {$message}[/bold]
 
-chat-manager-send-hook-ooc-wrap-message = OOC: [bold](D){$senderName}:[/bold] {$message}
+chat-manager-send-hook-ooc-wrap-message = OOC: (D){$senderName}: {$message}
 
 chat-manager-dead-channel-name = DEAD
 chat-manager-admin-channel-name = ADMIN
@@ -112,6 +126,15 @@ chat-speech-verb-vox-1 = screeches
 chat-speech-verb-vox-2 = shrieks
 chat-speech-verb-vox-3 = croaks
 
+<<<<<<< HEAD
+=======
+chat-speech-verb-name-oni = Oni
+chat-speech-verb-oni-1 = grunts
+chat-speech-verb-oni-2 = bellows
+chat-speech-verb-oni-3 = blares
+chat-speech-verb-oni-4 = rumbles
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 chat-speech-verb-name-canine = Canine
 chat-speech-verb-canine-1 = barks
 chat-speech-verb-canine-2 = woofs
@@ -150,7 +173,10 @@ chat-speech-verb-name-electricity = Electricity
 chat-speech-verb-electricity-1 = crackles
 chat-speech-verb-electricity-2 = buzzes
 chat-speech-verb-electricity-3 = screeches
+<<<<<<< HEAD
 
 chat-speech-verb-vulp-speech = Vulp Speech
 chat-speech-verb-meow = Meow
 chat-speech-verb-caw = Caw
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

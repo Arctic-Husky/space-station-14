@@ -4,6 +4,7 @@
   description: job-description-captain
   playTimeTracker: JobCaptain
   requirements:
+<<<<<<< HEAD
     - !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
       time: 21600 #6 hrs
@@ -19,6 +20,28 @@
     - !type:RoleTimeRequirement
       role: JobResearchDirector
       time: 21600 #6 hrs
+=======
+    - !type:CharacterDepartmentTimeRequirement
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
+      min: 18000 # DeltaV - 5 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: Engineering
+      min: 18000 # DeltaV - 5 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: Medical
+      min: 18000 # DeltaV - 5 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: Security
+      min: 18000 # DeltaV - 5 hours
+    - !type:CharacterDepartmentTimeRequirement # DeltaV - Epistemics dept time requirement
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      min: 18000 # 5 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: Command
+      min: 108000 # DeltaV - 30 hours
+    - !type:CharacterOverallTimeRequirement # DeltaV - Playtime requirement
+      min: 108000 # 30 hours
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -43,3 +66,9 @@
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtCaptain
+  satchel: ClothingBackpackSatchelCaptainFilled
+  duffelbag: ClothingBackpackDuffelCaptainFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

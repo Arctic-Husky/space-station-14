@@ -13,4 +13,8 @@ verb-toggle-start-on-stick = Alternar auto-ativação
 popup-start-on-stick-off = O dispositivo não será mais ativado automaticamente quando plantado
 popup-start-on-stick-on = O dispositivo será ativado automaticamente quando plantado
 
+<<<<<<< HEAD
 trigger-activated = Você ativa {THE($device)}
+=======
+trigger-activated = Você ativa {THE($device)}
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

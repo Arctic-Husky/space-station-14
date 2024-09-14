@@ -34,6 +34,13 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+<<<<<<< HEAD
+=======
+  # DeltaV - .38 special incendiary ammo - Add .38 special incendiary ammo to the research tree
+  - CartridgeSpecialIncendiary
+  - MagazineBoxSpecialIncendiary
+  # End of modified code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -57,10 +64,26 @@
   tier: 1
   cost: 5000
   recipeUnlocks:
+<<<<<<< HEAD
   - MagazineShotgunBeanbag
   - ShellTranquilizer 
   - BoxBeanbag 
   - WeaponDisabler
+=======
+  - ShellShotgunBeanbag
+  - CartridgePistolRubber
+  - CartridgeMagnumRubber
+  - CartridgeLightRifleRubber
+  - CartridgeRifleRubber
+  - MagazineBoxPistolRubber
+  - MagazineBoxMagnumRubber
+  - MagazineBoxLightRifleRubber
+  - MagazineBoxRifleRubber
+  # DeltaV - .38 special rubber ammo - Adds .38 special rubber ammo to the research tree
+  - CartridgeSpecialRubber
+  - MagazineBoxSpecialRubber
+  # End of modified code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: technology
   id: UraniumMunitions
@@ -72,15 +95,30 @@
   tier: 1
   cost: 7500
   recipeUnlocks:
+<<<<<<< HEAD
   - MagazineRifleUranium
   - MagazinePistolUranium
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
+=======
+  - ShellShotgunUranium
+  - CartridgePistolUranium
+  - CartridgeMagnumUranium
+  - CartridgeLightRifleUranium
+  - CartridgeRifleUranium
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
+<<<<<<< HEAD
   - BoxShotgunUranium
+=======
+  # DeltaV - .38 special uranium ammo - Adds .38 special uranium ammo to the research tree
+  - CartridgeSpecialUranium
+  - MagazineBoxSpecialUranium
+  # End of modified code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: technology
   id: AdvancedRiotControl
@@ -92,6 +130,10 @@
   tier: 1
   cost: 8000
   recipeUnlocks:
+<<<<<<< HEAD
+=======
+  - ClothingEyesGlassesSecurity
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - Truncheon
   - TelescopicShield
   - HoloprojectorSecurity
@@ -144,7 +186,11 @@
 - type: technology
   id: BasicShuttleArmament
   name: research-technology-basic-shuttle-armament
+<<<<<<< HEAD
   icon: 
+=======
+  icon:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     sprite: Structures/Power/cage_recharger.rsi
     state: full
   discipline: Arsenal
@@ -156,7 +202,10 @@
   - PowerCageMedium
   - MagazineGrenadeEmpty
   - GrenadeFlash
+<<<<<<< HEAD
   - GrenadeBlast
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
@@ -176,7 +225,10 @@
   cost: 15000
   recipeUnlocks:
   - WeaponAdvancedLaser
+<<<<<<< HEAD
   - PortableRecharger
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: technology
   id: ExperimentalBatteryAmmo
@@ -189,11 +241,19 @@
   cost: 15000
   recipeUnlocks:
   - WeaponLaserSvalinn
+<<<<<<< HEAD
   
 - type: technology
   id: AdvancedShuttleWeapon
   name: research-technology-advanced-shuttle-weapon
   icon: 
+=======
+
+- type: technology
+  id: AdvancedShuttleWeapon
+  name: research-technology-advanced-shuttle-weapon
+  icon:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
     state: icon
   discipline: Arsenal

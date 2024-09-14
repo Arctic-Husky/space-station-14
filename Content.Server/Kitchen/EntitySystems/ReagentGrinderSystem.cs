@@ -305,7 +305,11 @@ namespace Content.Server.Kitchen.EntitySystems
 
             reagentGrinder.AudioStream = _audioSystem.PlayPvs(sound, uid,
                 AudioParams.Default.WithPitchScale(1 / reagentGrinder.WorkTimeMultiplier)).Value.Entity; //slightly higher pitched
+<<<<<<< HEAD
             _userInterfaceSystem.ServerSendUiMessage(uid, ReagentGrinderUiKey.Key,
+=======
+            _userInterfaceSystem.TrySendUiMessage(uid, ReagentGrinderUiKey.Key,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 new ReagentGrinderWorkStartedMessage(program));
         }
 

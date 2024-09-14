@@ -129,7 +129,11 @@ public sealed class GatewaySystem : EntitySystem
             unlockTime
         );
 
+<<<<<<< HEAD
         _ui.SetUiState(uid, GatewayUiKey.Key, state);
+=======
+        _ui.TrySetUiState(uid, GatewayUiKey.Key, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void UpdateAppearance(EntityUid uid)
@@ -139,6 +143,7 @@ public sealed class GatewaySystem : EntitySystem
 
     private void OnOpenPortal(EntityUid uid, GatewayComponent comp, GatewayOpenPortalMessage args)
     {
+<<<<<<< HEAD
         if (GetNetEntity(uid) == args.Destination ||
             !comp.Enabled || !comp.Interactable)
         {
@@ -150,6 +155,17 @@ public sealed class GatewaySystem : EntitySystem
         if (CheckAccess(user, uid, comp))
             return;
 
+=======
+        if (args.Session.AttachedEntity == null || GetNetEntity(uid) == args.Destination ||
+            !comp.Enabled || !comp.Interactable)
+            return;
+
+        // if the gateway has an access reader check it before allowing opening
+        var user = args.Session.AttachedEntity.Value;
+        if (CheckAccess(user, uid, comp))
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         // can't link if portal is already open on either side, the destination is invalid or on cooldown
         var desto = GetEntity(args.Destination);
 

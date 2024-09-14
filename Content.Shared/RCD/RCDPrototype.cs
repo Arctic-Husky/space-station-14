@@ -9,7 +9,11 @@ namespace Content.Shared.RCD;
 /// Contains the parameters for a RCD construction / operation
 /// </summary>
 [Prototype("rcd")]
+<<<<<<< HEAD
 public sealed partial class RCDPrototype : IPrototype
+=======
+public sealed class RCDPrototype : IPrototype
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
@@ -51,7 +55,11 @@ public sealed partial class RCDPrototype : IPrototype
     public int Cost { get; private set; } = 1;
 
     /// <summary>
+<<<<<<< HEAD
     /// The length of the operation
+=======
+    /// The length of the operation 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float Delay { get; private set; } = 1f;
@@ -75,7 +83,11 @@ public sealed partial class RCDPrototype : IPrototype
     public CollisionGroup CollisionMask { get; private set; } = CollisionGroup.None;
 
     /// <summary>
+<<<<<<< HEAD
     /// Specifies a set of custom collision bounds for determining whether the entity prototype will fit into a target tile
+=======
+    /// Specifies a set of custom collision bounds for determining whether the entity prototype will fit into a target tile 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// </summary>
     /// <remarks>
     /// Should be set assuming that the entity faces south.
@@ -106,7 +118,11 @@ public sealed partial class RCDPrototype : IPrototype
     private Box2? _collisionBounds = null;
 
     /// <summary>
+<<<<<<< HEAD
     /// The polygon shape associated with the prototype CollisionBounds (if set)
+=======
+    /// The polygon shape associated with the prototype CollisionBounds (if set) 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public PolygonShape? CollisionPolygon { get; private set; } = null;

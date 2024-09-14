@@ -16,8 +16,13 @@ namespace Content.Shared._EstacaoPirata.Cards.Hand;
 /// </summary>
 public sealed class CardHandSystem : EntitySystem
 {
+<<<<<<< HEAD
     const string CardHandBaseName = "CardHandBase";
     const string CardDeckBaseName = "CardDeckBase";
+=======
+    public const string CardHandBaseName = "CardHandBase";
+    public const string CardDeckBaseName = "CardDeckBase";
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [Dependency] private readonly CardStackSystem _cardStack = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -64,7 +69,13 @@ public sealed class CardHandSystem : EntitySystem
         if (!_cardStack.TryRemoveCard(uid, GetEntity(args.Card), stack))
             return;
 
+<<<<<<< HEAD
         _hands.TryPickupAnyHand(args.Actor, GetEntity(args.Card));
+=======
+        if (args.Session.AttachedEntity == null)
+            return;
+        _hands.TryPickupAnyHand((EntityUid)args.Session.AttachedEntity, GetEntity(args.Card));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 
         if (stack.Cards.Count != 1)
@@ -72,7 +83,11 @@ public sealed class CardHandSystem : EntitySystem
         var lastCard = stack.Cards.Last();
         if (!_cardStack.TryRemoveCard(uid, lastCard, stack))
             return;
+<<<<<<< HEAD
         _hands.TryPickupAnyHand(args.Actor, lastCard);
+=======
+        _hands.TryPickupAnyHand((EntityUid)args.Session.AttachedEntity, lastCard);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     }
 
@@ -81,7 +96,14 @@ public sealed class CardHandSystem : EntitySystem
         if (!TryComp<ActorComponent>(user, out var actor))
             return;
 
+<<<<<<< HEAD
         _ui.OpenUi(hand, CardUiKey.Key, actor.PlayerSession);
+=======
+        if (!_ui.TryGetUi(hand, CardUiKey.Key, out var bui, null))
+            return;
+
+        _ui.OpenUi(bui, actor.PlayerSession);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     }
 
@@ -118,7 +140,11 @@ public sealed class CardHandSystem : EntitySystem
 
         var cardDeck = Spawn(CardDeckBaseName, Transform(hand).Coordinates);
 
+<<<<<<< HEAD
         bool isHoldingCards = _hands.IsHolding(user, hand);
+=======
+        bool isHoldingCards = _hands.IsHolding(user, hand, out var _, null);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         EnsureComp<CardStackComponent>(cardDeck, out var deckStack);
         if (!TryComp(hand, out CardStackComponent? handStack))

@@ -24,7 +24,11 @@ public sealed partial class StatusIconComponent : Component
 /// </summary>
 /// <param name="StatusIcons"></param>
 [ByRefEvent]
+<<<<<<< HEAD
 public record struct GetStatusIconsEvent(List<StatusIconData> StatusIcons, bool InContainer, bool HasStealthComponent);
+=======
+public record struct GetStatusIconsEvent(List<StatusIconData> StatusIcons, bool InContainer);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 /// <summary>
 /// Event raised on the Client-side to determine whether to display a status icon on an entity.

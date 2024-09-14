@@ -67,8 +67,13 @@ namespace Content.Server.Access.Systems
             if (!TryComp<IdCardComponent>(uid, out var idCard))
                 return;
 
+<<<<<<< HEAD
             var state = new AgentIDCardBoundUserInterfaceState(idCard.FullName ?? "", idCard.JobTitle ?? "", idCard.JobIcon ?? "", component.Icons);
             _uiSystem.SetUiState(uid, AgentIDCardUiKey.Key, state);
+=======
+            var state = new AgentIDCardBoundUserInterfaceState(idCard.FullName ?? "", idCard.JobTitle ?? "", component.Icons);
+            _uiSystem.SetUiState(ui, state, args.Session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnJobChanged(EntityUid uid, AgentIDCardComponent comp, AgentIDCardJobChangedMessage args)

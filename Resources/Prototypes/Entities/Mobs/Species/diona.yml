@@ -11,6 +11,7 @@
     baseDecayRate: 0.0083
   - type: Thirst
     baseDecayRate: 0.0083
+  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Diona/parts.rsi
     state: full
@@ -101,6 +102,21 @@
     actionPrototype: DionaGibAction
     allowedStates:
     - Dead
+<<<<<<< HEAD
+=======
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - RootSpeak
+    understands:
+    - GalacticCommon
+    - RootSpeak
+  - type: TraitSpeedModifier
+    sprintModifier: 0.75
+    walkModifier: 0.75
+  - type: SpeedModifierImmunity
+  - type: NoSlip
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseSpeciesDummy

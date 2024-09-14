@@ -346,6 +346,14 @@
         type: Add
         time: 10
         refresh: false
+<<<<<<< HEAD
+=======
+      - !type:ChemRemovePsionic #Nyano - Summary: removes psionics from the user at 20u.
+        conditions:
+          - !type:ReagentThreshold
+            reagent: MindbreakerToxin
+            min: 20
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -481,6 +489,10 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+<<<<<<< HEAD
+=======
+        reagent: Protein
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -641,6 +653,7 @@
       - !type:Electrocute
         probability: 0.8
 
+<<<<<<< HEAD
 - type: reagent
   id: Lipolicide
   name: reagent-name-lipolicide
@@ -661,3 +674,5 @@
             Poison: 2
       - !type:SatiateHunger
         factor: -6
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

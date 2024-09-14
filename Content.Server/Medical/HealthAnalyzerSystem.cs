@@ -82,8 +82,14 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, uid.Comp.ScanDelay, new HealthAnalyzerDoAfterEvent(), uid, target: args.Target, used: uid)
         {
+<<<<<<< HEAD
             NeedHand = true,
             BreakOnMove = true
+=======
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            NeedHand = true
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         });
     }
 
@@ -128,10 +134,17 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
     private void OpenUserInterface(EntityUid user, EntityUid analyzer)
     {
+<<<<<<< HEAD
         if (!_uiSystem.HasUi(analyzer, HealthAnalyzerUiKey.Key))
             return;
 
         _uiSystem.OpenUi(analyzer, HealthAnalyzerUiKey.Key, user);
+=======
+        if (!TryComp<ActorComponent>(user, out var actor) || !_uiSystem.TryGetUi(analyzer, HealthAnalyzerUiKey.Key, out var ui))
+            return;
+
+        _uiSystem.OpenUi(ui, actor.PlayerSession);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -172,7 +185,11 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// <param name="scanMode">True makes the UI show ACTIVE, False makes the UI show INACTIVE</param>
     public void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode)
     {
+<<<<<<< HEAD
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key))
+=======
+        if (!_uiSystem.TryGetUi(healthAnalyzer, HealthAnalyzerUiKey.Key, out var ui))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         if (!HasComp<DamageableComponent>(target))
@@ -194,7 +211,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bleeding = bloodstream.BleedAmount > 0;
         }
 
+<<<<<<< HEAD
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
+=======
+
+
+        _uiSystem.SendUiMessage(ui, new HealthAnalyzerScannedUserMessage(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             GetNetEntity(target),
             bodyTemperature,
             bloodAmount,

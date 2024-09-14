@@ -92,12 +92,24 @@ public sealed class NewsSystem : SharedNewsSystem
         if (msg.ArticleNum >= articles.Count)
             return;
 
+<<<<<<< HEAD
         var article = articles[msg.ArticleNum];
         if (CheckDeleteAccess(article, ent, msg.Actor))
         {
             _adminLogger.Add(
                 LogType.Chat, LogImpact.Medium,
                 $"{ToPrettyString(msg.Actor):actor} deleted news article {article.Title} by {article.Author}: {article.Content}"
+=======
+        if (msg.Session.AttachedEntity is not { } actor)
+            return;
+
+        var article = articles[msg.ArticleNum];
+        if (CheckDeleteAccess(article, ent, actor))
+        {
+            _adminLogger.Add(
+                LogType.Chat, LogImpact.Medium,
+                $"{ToPrettyString(actor):actor} deleted news article {article.Title} by {article.Author}: {article.Content}"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 );
 
             articles.RemoveAt(msg.ArticleNum);
@@ -135,11 +147,19 @@ public sealed class NewsSystem : SharedNewsSystem
         if (!TryGetArticles(ent, out var articles))
             return;
 
+<<<<<<< HEAD
         if (!_accessReader.FindStationRecordKeys(msg.Actor, out _))
             return;
 
         string? authorName = null;
         if (_idCardSystem.TryFindIdCard(msg.Actor, out var idCard))
+=======
+        if (msg.Session.AttachedEntity is not { } author)
+            return;
+
+        string? authorName = null;
+        if (_idCardSystem.TryFindIdCard(author, out var idCard))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             authorName = idCard.Comp.FullName;
 
         var title = msg.Title.Trim();
@@ -158,7 +178,11 @@ public sealed class NewsSystem : SharedNewsSystem
         _adminLogger.Add(
             LogType.Chat,
             LogImpact.Medium,
+<<<<<<< HEAD
             $"{ToPrettyString(msg.Actor):actor} created news article {article.Title} by {article.Author}: {article.Content}"
+=======
+            $"{ToPrettyString(author):actor} created news article {article.Title} by {article.Author}: {article.Content}"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             );
 
         articles.Add(article);
@@ -242,14 +266,22 @@ public sealed class NewsSystem : SharedNewsSystem
 
     private void UpdateWriterUi(Entity<NewsWriterComponent> ent)
     {
+<<<<<<< HEAD
         if (!_ui.HasUi(ent, NewsWriterUiKey.Key))
+=======
+        if (!_ui.TryGetUi(ent, NewsWriterUiKey.Key, out var ui))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         if (!TryGetArticles(ent, out var articles))
             return;
 
         var state = new NewsWriterBoundUserInterfaceState(articles.ToArray(), ent.Comp.PublishEnabled, ent.Comp.NextPublish);
+<<<<<<< HEAD
         _ui.SetUiState(ent.Owner, NewsWriterUiKey.Key, state);
+=======
+        _ui.SetUiState(ui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void UpdateReaderUi(Entity<NewsReaderCartridgeComponent> ent, EntityUid loaderUid)

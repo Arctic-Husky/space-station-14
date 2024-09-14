@@ -18,8 +18,18 @@ namespace Content.Client.Chemistry.UI
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+<<<<<<< HEAD
         public event Action<string>? OnDispenseReagentButtonPressed;
         public event Action<string>? OnEjectJugButtonPressed;
+=======
+        public event Action<BaseButton.ButtonEventArgs, DispenseReagentButton>? OnDispenseReagentButtonPressed;
+        public event Action<GUIMouseHoverEventArgs, DispenseReagentButton>? OnDispenseReagentButtonMouseEntered;
+        public event Action<GUIMouseHoverEventArgs, DispenseReagentButton>? OnDispenseReagentButtonMouseExited;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+
+        public event Action<BaseButton.ButtonEventArgs, EjectJugButton>? OnEjectJugButtonPressed;
+        public event Action<GUIMouseHoverEventArgs, EjectJugButton>? OnEjectJugButtonMouseEntered;
+        public event Action<GUIMouseHoverEventArgs, EjectJugButton>? OnEjectJugButtonMouseExited;
 
         /// <summary>
         /// Create and initialize the dispenser UI client-side. Creates the basic layout,
@@ -35,11 +45,16 @@ namespace Content.Client.Chemistry.UI
         /// Update the button grid of reagents which can be dispensed.
         /// </summary>
         /// <param name="inventory">Reagents which can be dispensed by this dispenser</param>
+<<<<<<< HEAD
         public void UpdateReagentsList(List<ReagentInventoryItem> inventory)
+=======
+        public void UpdateReagentsList(List<KeyValuePair<string, KeyValuePair<string, string>>> inventory)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (ReagentList == null)
                 return;
 
+<<<<<<< HEAD
             ReagentList.Children.Clear();
             //Sort inventory by reagentLabel
             inventory.Sort((x, y) => x.ReagentLabel.CompareTo(y.ReagentLabel));
@@ -50,6 +65,24 @@ namespace Content.Client.Chemistry.UI
                 card.OnPressed += OnDispenseReagentButtonPressed;
                 card.OnEjectButtonPressed += OnEjectJugButtonPressed;
                 ReagentList.Children.Add(card);
+=======
+            ChemicalList.Children.Clear();
+            //Sort inventory by reagentLabel
+            inventory.Sort((x, y) => x.Value.Key.CompareTo(y.Value.Key));
+
+            foreach (KeyValuePair<string, KeyValuePair<string, string>> entry in inventory)
+            {
+                var button = new DispenseReagentButton(entry.Key, entry.Value.Key, entry.Value.Value);
+                button.OnPressed += args => OnDispenseReagentButtonPressed?.Invoke(args, button);
+                button.OnMouseEntered += args => OnDispenseReagentButtonMouseEntered?.Invoke(args, button);
+                button.OnMouseExited += args => OnDispenseReagentButtonMouseExited?.Invoke(args, button);
+                ChemicalList.AddChild(button);
+                var ejectButton = new EjectJugButton(entry.Key);
+                ejectButton.OnPressed += args => OnEjectJugButtonPressed?.Invoke(args, ejectButton);
+                ejectButton.OnMouseEntered += args => OnEjectJugButtonMouseEntered?.Invoke(args, ejectButton);
+                ejectButton.OnMouseExited += args => OnEjectJugButtonMouseExited?.Invoke(args, ejectButton);
+                ChemicalList.AddChild(ejectButton);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -85,8 +118,11 @@ namespace Content.Client.Chemistry.UI
 
             if (state.OutputContainer is null)
             {
+<<<<<<< HEAD
                 ContainerInfoName.Text = "";
                 ContainerInfoFill.Text = "";
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 ContainerInfo.Children.Add(new Label { Text = Loc.GetString("reagent-dispenser-window-no-container-loaded-text") });
                 return;
             }
@@ -121,4 +157,31 @@ namespace Content.Client.Chemistry.UI
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+    public sealed class DispenseReagentButton : Button
+    {
+        public string ReagentId { get; }
+
+        public DispenseReagentButton(string reagentId, string text, string amount)
+        {
+            AddStyleClass("OpenRight");
+            ReagentId = reagentId;
+            Text = text + " " + amount;
+        }
+    }
+
+    public sealed class EjectJugButton : Button
+    {
+        public string ReagentId { get; }
+
+        public EjectJugButton(string reagentId)
+        {
+            AddStyleClass("OpenLeft");
+            ReagentId = reagentId;
+            Text = "⏏";
+        }
+    }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

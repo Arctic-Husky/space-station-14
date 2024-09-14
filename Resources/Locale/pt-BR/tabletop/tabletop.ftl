@@ -19,4 +19,10 @@ tabletop-backgammon-board-name = Gamão
 tabletop-checkers-board-name = Damas
 
 ## Battlemap
+<<<<<<< HEAD
 tabletop-battlemap-board-name = Battlemap
+=======
+tabletop-battlemap-board-name = Battlemap
+## Shogi
+tabletop-shogi-board-name = Shogi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

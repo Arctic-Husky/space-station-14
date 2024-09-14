@@ -554,6 +554,7 @@
       amount: 1
     Silicon:
       amount: 1
+<<<<<<< HEAD
   products:
     Insuzine: 3
 
@@ -581,6 +582,13 @@
 
   products:
     Opporozidone: 3
+=======
+    Benzene:
+      amount: 1
+  products:
+    Insuzine: 3
+    Ash: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reaction
   id: Necrosol
@@ -608,6 +616,7 @@
       amount: 2
   products:
       Aloxadone: 4
+<<<<<<< HEAD
 
 - type: reaction
   id: Psicodine
@@ -648,3 +657,5 @@
       catalyst: true
   products:
     Happiness: 4
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

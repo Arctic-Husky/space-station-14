@@ -72,6 +72,7 @@
     rewardMinAmount: 0
     rewardMaxAmount: 0
     possibleRewards:
+<<<<<<< HEAD
     - ToyMouse
     - ToyAi
     - ToyNuke
@@ -130,6 +131,17 @@
     - PlushieHuman
     - ClothingHeadHatCowboyRed
     - Whistle
+=======
+    - PrizeBall
+    - PrizeTicket10
+    - PrizeTicket10
+    - PrizeTicket10
+    - PrizeTicket10
+    - PrizeTicket10
+    - PrizeTicket30
+    - PrizeTicket30
+    - PrizeTicket60
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: WiresPanel
   - type: Wires
     layoutId: Arcade

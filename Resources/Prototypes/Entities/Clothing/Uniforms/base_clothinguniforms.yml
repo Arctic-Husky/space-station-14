@@ -36,7 +36,10 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
-
+  - type: Tag #DeltaV, needed for species with nonhuman legs/can only wear skirts
+    tags:
+    - Skirt
+    - ClothMade
 
 - type: entity
   abstract: true
@@ -50,6 +53,12 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: StationLimitedNetwork
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cloth_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cloth_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cloth_drop.ogg
 
 - type: entity
   abstract: true
@@ -62,3 +71,7 @@
   - type: Tag #DeltaV, needed for species with nonhuman legs/can only wear skirts
     tags:
     - Skirt
+<<<<<<< HEAD
+=======
+    - ClothMade # Delta-V - allows moths to eat this
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

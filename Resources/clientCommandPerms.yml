@@ -26,7 +26,6 @@
     - gc
     - gc_mode
     - cvar
-    - fuckrules
     - midipanic
     - replay_recording_start
     - replay_recording_stop
@@ -52,8 +51,11 @@
     - hidemechanisms
     - showmechanisms
     - menuvis
+<<<<<<< HEAD
     - resetent
     - resetallents
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - showhealthbars
     - toggledecals
     - nodevis
@@ -73,6 +75,7 @@
     - detachent
     - localdelete
     - fullstatereset
+    - fuckrules
 
 - Flags: MAPPING
   Commands:

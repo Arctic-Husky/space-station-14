@@ -7,13 +7,16 @@
   - type: Sprite
     sprite: Objects/Devices/communication.rsi
     layers:
-    - state: old-radio
+    - state: radio
   - type: GhostRole
     name: ghost-role-information-syndicate-reinforcement-name
     description: ghost-role-information-syndicate-reinforcement-description
     rules: ghost-role-information-syndicate-reinforcement-rules
+<<<<<<< HEAD
     raffle:
       settings: default
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgent
   - type: EmitSoundOnUse
@@ -31,14 +34,21 @@
 
 - type: entity
   parent: ReinforcementRadioSyndicate
+<<<<<<< HEAD
   id: ReinforcementRadioSyndicateAncestor
   name: syndicate genetic ancestor reinforcement radio
   description: Calls in a specially trained ancestor of your choosing to assist you.
+=======
+  id: ReinforcementRadioSyndicateMonkey
+  name: syndicate monkey reinforcement radio
+  description: Calls in a specially trained monkey to assist you.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: GhostRole
     name: ghost-role-information-syndicate-monkey-reinforcement-name
     description: ghost-role-information-syndicate-monkey-reinforcement-description
     rules: ghost-role-information-syndicate-monkey-reinforcement-rules
+<<<<<<< HEAD
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
@@ -48,11 +58,22 @@
 - type: entity
   parent: ReinforcementRadioSyndicateAncestor
   id: ReinforcementRadioSyndicateAncestorNukeops # Reinforcement radio exclusive to nukeops uplink
+=======
+  - type: GhostRoleMobSpawner
+    prototype: MobMonkeySyndicateAgent
+
+- type: entity
+  parent: ReinforcementRadioSyndicateMonkey
+  id: ReinforcementRadioSyndicateMonkeyNukeops # Reinforcement radio exclusive to nukeops uplink
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   suffix: NukeOps
   components:
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgentNukeops
+<<<<<<< HEAD
     selectablePrototypes: ["SyndicateMonkeyNukeops", "SyndicateKoboldNukeops"]
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ReinforcementRadioSyndicate
@@ -65,7 +86,10 @@
       name: Syndicate Assault Cyborg
       description: Nuclear operatives needs reinforcements. You, a cold silicon killing machine, will help them.
       rules: Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
+<<<<<<< HEAD
       raffle:
         settings: default
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateAssaultBattery

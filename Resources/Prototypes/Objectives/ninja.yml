@@ -32,7 +32,11 @@
   noSpawn: true
   parent: BaseNinjaObjective
   id: StealResearchObjective
+<<<<<<< HEAD
   description: Your gloves can be used to hack a research server and steal its precious data. If science has been slacking you'll have to get to work.
+=======
+  description: Your gloves can be used to hack a research server and steal its precious data. If epistemics has been slacking you'll have to get to work. # DeltaV - Epistemics Department replacing Science
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: Objective
     icon:
@@ -46,7 +50,11 @@
 
 - type: entity
   noSpawn: true
+<<<<<<< HEAD
   parent: [BaseNinjaObjective, BaseCodeObjective]
+=======
+  parent: BaseNinjaObjective
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: SpiderChargeObjective
   description: This bomb can be detonated in a specific location. Note that the bomb will not work anywhere else!
   components:
@@ -54,6 +62,10 @@
     icon:
       sprite: Objects/Weapons/Bombs/spidercharge.rsi
       state: icon
+<<<<<<< HEAD
+=======
+  - type: SpiderChargeCondition
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   noSpawn: true
@@ -69,7 +81,11 @@
 
 - type: entity
   noSpawn: true
+<<<<<<< HEAD
   parent: [BaseNinjaObjective, BaseCodeObjective]
+=======
+  parent: BaseNinjaObjective
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: TerrorObjective
   name: Call in a threat
   description: Use your gloves on a communication console in order to bring another threat to the station.
@@ -78,6 +94,7 @@
     icon:
       sprite: Objects/Fun/Instruments/otherinstruments.rsi
       state: red_phone
+<<<<<<< HEAD
 
 - type: entity
   noSpawn: true
@@ -90,3 +107,6 @@
     icon:
       sprite: Objects/Weapons/Melee/stunbaton.rsi
       state: stunbaton_on
+=======
+  - type: TerrorCondition
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

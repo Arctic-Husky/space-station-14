@@ -36,6 +36,7 @@ namespace Content.Server.Strip
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly ThievingSystem _thieving = default!;
 
         // TODO: ECS popups. Not all of these have ECS equivalents yet.
 
@@ -111,15 +112,27 @@ namespace Content.Server.Strip
             if (TryComp<CombatModeComponent>(user, out var mode) && mode.IsInCombatMode && !openInCombat)
                 return;
 
+<<<<<<< HEAD
             if (HasComp<StrippingComponent>(user))
             {
                 _userInterfaceSystem.OpenUi(strippable.Owner, StrippingUiKey.Key, user);
+=======
+            if (TryComp<ActorComponent>(user, out var actor) && HasComp<StrippingComponent>(user))
+            {
+                if (_userInterfaceSystem.SessionHasOpenUi(strippable, StrippingUiKey.Key, actor.PlayerSession))
+                    return;
+                _userInterfaceSystem.TryOpen(strippable, StrippingUiKey.Key, actor.PlayerSession);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
         private void OnStripButtonPressed(Entity<StrippableComponent> strippable, ref StrippingSlotButtonPressed args)
         {
+<<<<<<< HEAD
             if (args.Actor is not { Valid: true } user ||
+=======
+            if (args.Session.AttachedEntity is not { Valid: true } user ||
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 !TryComp<HandsComponent>(user, out var userHands))
                 return;
 
@@ -171,7 +184,11 @@ namespace Content.Server.Strip
 
         private void OnStripEnsnareMessage(EntityUid uid, EnsnareableComponent component, StrippingEnsnareButtonPressed args)
         {
+<<<<<<< HEAD
             if (args.Actor is not { Valid: true } user)
+=======
+            if (args.Session.AttachedEntity is not { Valid: true } user)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return;
 
             foreach (var entity in component.Container.ContainedEntities)
@@ -249,18 +266,35 @@ namespace Content.Server.Strip
 
             var (time, stealth) = GetStripTimeModifiers(user, target, slotDef.StripTime);
 
+<<<<<<< HEAD
             if (!stealth)
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-insert", ("user", Identity.Entity(user, EntityManager)), ("item", user.Comp.ActiveHandEntity!.Value)), target, target, PopupType.Large);
 
             var prefix = stealth ? "stealthily " : "";
+=======
+            bool hidden = stealth == ThievingStealth.Hidden;
+
+            if (!hidden)
+                StripPopup("strippable-component-alert-owner-insert", stealth, target, user: Identity.Entity(user, EntityManager), item: user.Comp.ActiveHandEntity!.Value);
+
+            var prefix = hidden ? "stealthily " : "";
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s {slot} slot");
 
             var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(true, true, slot), user, target, held)
             {
+<<<<<<< HEAD
                 Hidden = stealth,
                 AttemptFrequency = AttemptFrequency.EveryTick,
                 BreakOnDamage = true,
                 BreakOnMove = true,
+=======
+                Hidden = hidden,
+                AttemptFrequency = AttemptFrequency.EveryTick,
+                BreakOnDamage = true,
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 NeedHand = true,
                 DuplicateCondition = DuplicateConditions.SameTool
             };
@@ -337,6 +371,7 @@ namespace Content.Server.Strip
 
             var (time, stealth) = GetStripTimeModifiers(user, target, slotDef.StripTime);
 
+<<<<<<< HEAD
             if (!stealth)
             {
                 if (slotDef.StripHidden)
@@ -346,14 +381,35 @@ namespace Content.Server.Strip
             }
 
             var prefix = stealth ? "stealthily " : "";
+=======
+            bool hidden = stealth == ThievingStealth.Hidden;
+
+            if (!hidden)
+            {
+                if (slotDef.StripHidden)
+                    StripPopup("strippable-component-alert-owner-hidden", stealth, target, slot: slot);
+                else
+                    StripPopup("strippable-component-alert-owner", stealth, target, user: Identity.Entity(user, EntityManager), item: item);
+            }
+
+            var prefix = hidden ? "stealthily " : "";
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
 
             var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, true, slot), user, target, item)
             {
+<<<<<<< HEAD
                 Hidden = stealth,
                 AttemptFrequency = AttemptFrequency.EveryTick,
                 BreakOnDamage = true,
                 BreakOnMove = true,
+=======
+                Hidden = hidden,
+                AttemptFrequency = AttemptFrequency.EveryTick,
+                BreakOnDamage = true,
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 NeedHand = true,
                 BreakOnHandChange = false, // Allow simultaneously removing multiple items.
                 DuplicateCondition = DuplicateConditions.SameTool
@@ -370,7 +426,11 @@ namespace Content.Server.Strip
             EntityUid target,
             EntityUid item,
             string slot,
+<<<<<<< HEAD
             bool stealth)
+=======
+            bool hidden)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (!CanStripRemoveInventory(user, target, item, slot))
                 return;
@@ -380,7 +440,11 @@ namespace Content.Server.Strip
 
             RaiseLocalEvent(item, new DroppedEvent(user), true); // Gas tank internals etc.
 
+<<<<<<< HEAD
             _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: stealth);
+=======
+            _handsSystem.PickupOrDrop(user, item, animateUser: hidden, animate: hidden);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s {slot} slot");
         }
 
@@ -442,12 +506,22 @@ namespace Content.Server.Strip
 
             var (time, stealth) = GetStripTimeModifiers(user, target, targetStrippable.HandStripDelay);
 
+<<<<<<< HEAD
             var prefix = stealth ? "stealthily " : "";
+=======
+            bool hidden = stealth == ThievingStealth.Hidden;
+
+            var prefix = hidden ? "stealthily " : "";
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s hands");
 
             var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(true, false, handName), user, target, held)
             {
+<<<<<<< HEAD
                 Hidden = stealth,
+=======
+                Hidden = hidden,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 AttemptFrequency = AttemptFrequency.EveryTick,
                 BreakOnDamage = true,
                 BreakOnMove = true,
@@ -466,7 +540,11 @@ namespace Content.Server.Strip
             Entity<HandsComponent?> target,
             EntityUid held,
             string handName,
+<<<<<<< HEAD
             bool stealth)
+=======
+            bool hidden)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (!Resolve(user, ref user.Comp) ||
                 !Resolve(target, ref target.Comp))
@@ -476,7 +554,11 @@ namespace Content.Server.Strip
                 return;
 
             _handsSystem.TryDrop(user, checkActionBlocker: false, handsComp: user.Comp);
+<<<<<<< HEAD
             _handsSystem.TryPickup(target, held, handName, checkActionBlocker: false, animateUser: stealth, animate: stealth, handsComp: target.Comp);
+=======
+            _handsSystem.TryPickup(target, held, handName, checkActionBlocker: false, animateUser: hidden, animate: hidden, handsComp: target.Comp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has placed the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s hands");
 
             // Hand update will trigger strippable update.
@@ -496,7 +578,11 @@ namespace Content.Server.Strip
 
             if (!_handsSystem.TryGetHand(target, handName, out var handSlot, target.Comp))
             {
+<<<<<<< HEAD
                 _popupSystem.PopupCursor(Loc.GetString("strippable-component-item-slot-free-message", ("owner", Identity.Name(target, EntityManager, user))), user);
+=======
+                _popupSystem.PopupCursor(Loc.GetString("strippable-component-item-slot-free-message", ("owner", target)), user);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return false;
             }
 
@@ -511,7 +597,11 @@ namespace Content.Server.Strip
 
             if (!_handsSystem.CanDropHeld(target, handSlot, false))
             {
+<<<<<<< HEAD
                 _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop-message", ("owner", Identity.Name(target, EntityManager, user))), user);
+=======
+                _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop-message", ("owner", target)), user);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return false;
             }
 
@@ -538,18 +628,35 @@ namespace Content.Server.Strip
 
             var (time, stealth) = GetStripTimeModifiers(user, target, targetStrippable.HandStripDelay);
 
+<<<<<<< HEAD
             if (!stealth)
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner", ("user", Identity.Entity(user, EntityManager)), ("item", item)), target, target);
 
             var prefix = stealth ? "stealthily " : "";
+=======
+            bool hidden = stealth == ThievingStealth.Hidden;
+
+            if (!hidden)
+                StripPopup("strippable-component-alert-owner", stealth, target, user: Identity.Entity(user, EntityManager), item: item);
+
+            var prefix = hidden ? "stealthily " : "";
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):actor} is trying to {prefix}strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
 
             var doAfterArgs = new DoAfterArgs(EntityManager, user, time, new StrippableDoAfterEvent(false, false, handName), user, target, item)
             {
+<<<<<<< HEAD
                 Hidden = stealth,
                 AttemptFrequency = AttemptFrequency.EveryTick,
                 BreakOnDamage = true,
                 BreakOnMove = true,
+=======
+                Hidden = hidden,
+                AttemptFrequency = AttemptFrequency.EveryTick,
+                BreakOnDamage = true,
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 NeedHand = true,
                 BreakOnHandChange = false, // Allow simultaneously removing multiple items.
                 DuplicateCondition = DuplicateConditions.SameTool
@@ -566,7 +673,11 @@ namespace Content.Server.Strip
             Entity<HandsComponent?> target,
             EntityUid item,
             string handName,
+<<<<<<< HEAD
             bool stealth)
+=======
+            bool hidden)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (!Resolve(user, ref user.Comp) ||
                 !Resolve(target, ref target.Comp))
@@ -576,7 +687,11 @@ namespace Content.Server.Strip
                 return;
 
             _handsSystem.TryDrop(target, item, checkActionBlocker: false, handsComp: target.Comp);
+<<<<<<< HEAD
             _handsSystem.PickupOrDrop(user, item, animateUser: stealth, animate: stealth, handsComp: user.Comp);
+=======
+            _handsSystem.PickupOrDrop(user, item, animateUser: hidden, animate: hidden, handsComp: user.Comp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _adminLogger.Add(LogType.Stripping, LogImpact.Medium, $"{ToPrettyString(user):actor} has stripped the item {ToPrettyString(item):item} from {ToPrettyString(target):target}'s hands");
 
             // Hand update will trigger strippable update.

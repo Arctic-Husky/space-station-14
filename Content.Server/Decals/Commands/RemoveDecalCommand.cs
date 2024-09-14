@@ -1,7 +1,13 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+<<<<<<< HEAD
 using Robust.Shared.Map.Components;
+=======
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using SQLitePCL;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Decals.Commands
 {

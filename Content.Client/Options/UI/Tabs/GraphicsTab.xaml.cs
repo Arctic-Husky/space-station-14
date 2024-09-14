@@ -67,12 +67,15 @@ namespace Content.Client.Options.UI.Tabs
                 UpdateApplyButton();
             };
 
+<<<<<<< HEAD
             ViewportVerticalFitCheckBox.OnToggled += _ =>
             {
                 UpdateViewportScale();
                 UpdateApplyButton();
             };
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             IntegerScalingCheckBox.OnToggled += OnCheckBoxToggled;
             ViewportLowResCheckBox.OnToggled += OnCheckBoxToggled;
             ParallaxLowQualityCheckBox.OnToggled += OnCheckBoxToggled;

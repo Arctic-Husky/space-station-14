@@ -2,10 +2,12 @@
 - type: vendingMachineInventory
   id: ClothesMateInventory
   startingInventory:
-    ClothingBackpack: 5
-    ClothingBackpackDuffel: 5
-    ClothingBackpackSatchel: 3
+  # STOP! ADD NOTHING TO THIS! GO PUT YOUR CLOTHES IN LOADOUTS INSTEAD!
+    ClothingBackpack: 2
+    ClothingBackpackDuffel: 2
+    ClothingBackpackSatchel: 2
     ClothingBackpackSatchelLeather: 2
+<<<<<<< HEAD
     ClothingRandomSpawner: 8
     ClothingHeadHatBeret: 4
     ClothingHeadBandBlack: 2
@@ -75,11 +77,24 @@
     # DO NOT ADD MORE, USE UNIFORM DYING
     ClothingHeadHatBlacksoft: 2
     ClothingHeadHatPurplesoft: 2
+=======
+    ClothingRandomSpawner: 6
+    ClothingHeadBandBlack: 2
+    ClothingHeadHatGreyFlatcap: 2
+    ClothingUniformJumpsuitColorGrey: 2
+    ClothingUniformJumpskirtColorGrey: 2
+    ClothingShoesColorBlack: 4
+    ClothingHeadHatGreysoft: 2
+    ClothingUniformJumpsuitInter: 2
+    ClothingUniformJumpsuitGremio: 2
+    ClothingUniformJumpsuitBrasil: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     ClothingHeadHatCorpsoft: 2
-    ClothingHeadFishCap: 2
-    ClothingHeadRastaHat: 2
+    ClothingOuterWinterCoat: 2
+    ClothingOuterCorporateJacket: 2
     ClothingBeltStorageWaistbag: 3
     ClothingEyesGlasses: 6
+<<<<<<< HEAD
     ClothingShoesClothwarp: 5
     ClothingEyesGlassesSunglasses: 2
     ClothingEyesGlassesGreenglasses: 2
@@ -112,6 +127,11 @@
     ClothingSimpleUnderwear: 4
     ClothingEyesGlassesCheapSunglasses: 3
     # DO NOT ADD MORE, USE UNIFORM DYING
+=======
+    ClothingHandsGlovesColorBlack: 4
+    ClothingEyesGlassesCheapSunglasses: 2
+    ClothingClothWrap: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1

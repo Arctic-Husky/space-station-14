@@ -2,7 +2,11 @@
   id: ScarEyeRight
   bodyPart: Head
   markingCategory: Head
+<<<<<<< HEAD
   speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni] # Delta V - Felinid, Oni, Harpy
+=======
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Daengati] # Delta V - Felinid, Oni, Harpy
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -12,7 +16,11 @@
   id: ScarEyeLeft
   bodyPart: Head
   markingCategory: Head
+<<<<<<< HEAD
   speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni] # Delta V - Felinid, Oni, Harpy
+=======
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Daengati] # Delta V - Felinid, Oni, Harpy
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi
@@ -22,7 +30,11 @@
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
+<<<<<<< HEAD
   speciesRestriction: [Human, Dwarf]
+=======
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   sexRestriction: [Male]
   followSkinColor: true
   sprites:
@@ -33,7 +45,11 @@
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
+<<<<<<< HEAD
   speciesRestriction: [Human, Dwarf]
+=======
+  speciesRestriction: [Human, Dwarf, Felinid,  Oni, Daengati]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   sexRestriction: [Male]
   followSkinColor: true
   sprites:
@@ -44,7 +60,11 @@
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
+<<<<<<< HEAD
   speciesRestriction: [Human, Dwarf]
+=======
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/scars.rsi

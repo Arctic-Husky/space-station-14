@@ -34,7 +34,11 @@
 - type: entity
   id: LockerQuarterMaster
   parent: LockerBaseSecure
+<<<<<<< HEAD
   name: quartermaster's locker
+=======
+  name: logistics officer's locker # DeltaV - Logistics Department replacing Cargo
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -235,7 +239,7 @@
     stateDoorOpen: paramed_open
     stateDoorClosed: paramed_door
   - type: AccessReader
-    access: [ [ "Medical" ] ]
+    access: [ [ "Paramedic" ] ] # DeltaV - Change Medical access to Paramedic
 
 
 # Chemical
@@ -270,7 +274,7 @@
 - type: entity
   id: LockerResearchDirector
   parent: LockerBase
-  name: research director's locker
+  name: mystagogue's locker # DeltaV - Epistemics Department replacing Science
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -325,7 +329,7 @@
 - type: entity
   id: LockerBrigmedic
   parent: LockerBaseSecure
-  name: brigmedic locker
+  name: corpsman locker # DeltaV - rename brigmedic to corpsman
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -333,7 +337,7 @@
     stateDoorOpen: armory_open
     stateDoorClosed: brigmedic_door
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Corpsman"]] # DeltaV - add corpsman access
 
 # Security Officer
 - type: entity
@@ -380,6 +384,21 @@
   components:
   - type: AccessReader
     access: [["Security"]]
+
+# Blueshield
+- type: entity
+  id: LockerBS
+  parent: LockerBaseSecure
+  name: Armário do BS
+  components:
+  - type: Appearance
+    visuals:
+    - type: StorageVisualizer
+      state: bs
+      state_open: bs_open
+      state_closed: bs_door
+  - type: AccessReader
+    access: [["Command"]]
 
 # Syndicate
 - type: entity

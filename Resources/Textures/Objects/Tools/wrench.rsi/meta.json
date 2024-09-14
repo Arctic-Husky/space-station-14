@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/1cdfb0230cc96d0ba751fa002d04f8aa2f25ad7d, storage by EmoGarbage404 (github)",
+=======
+  "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/1cdfb0230cc96d0ba751fa002d04f8aa2f25ad7d, storage by EmoGarbage404 (github) // Icon Taken from Paradise at https://github.com/ParadiseSS13/Paradise",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   "size": {
     "x": 32,
     "y": 32

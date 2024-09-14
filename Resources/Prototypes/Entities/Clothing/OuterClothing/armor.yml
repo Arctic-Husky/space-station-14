@@ -1,9 +1,12 @@
 # Numbers for armor here largely taken from /tg/.
 # NOTE: Half of the kind of armor you're probably thinking of is in vests.yml. These should probably be merged some day.
 
-#Basic armor vest
 - type: entity
+<<<<<<< HEAD
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
+=======
+  parent: ClothingOuterBaseMedium
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingOuterArmorBasic
   name: armor vest
   description: A standard Type I armored vest that provides decent protection against most types of damage.
@@ -139,8 +142,14 @@
         Radiation: 0
         Caustic: 0.75
   - type: GroupExamine
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+  - type: Tag
+    tags:
+      - FullBodyOuter
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -187,7 +196,11 @@
     sprite: Clothing/OuterClothing/Armor/magusred.rsi
 
 - type: entity
+<<<<<<< HEAD
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
+=======
+  parent: ClothingOuterBaseLarge
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingOuterArmorCaptainCarapace
   name: "captain's carapace"
   description: "An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest."
@@ -237,8 +250,14 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: GroupExamine
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+  - type: Tag
+    tags:
+      - FullBodyOuter
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -265,8 +284,11 @@
   - type: Construction
     graph: BoneArmor
     node: armor
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -286,6 +308,9 @@
         Piercing: 0.6
         Heat: 0.5
   - type: GroupExamine
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

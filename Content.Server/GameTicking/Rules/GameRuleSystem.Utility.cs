@@ -1,10 +1,16 @@
 using System.Diagnostics.CodeAnalysis;
+<<<<<<< HEAD
 using System.Linq;
 using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Station.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Server.GameObjects;
+=======
+using Content.Server.GameTicking.Components;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Station.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -85,6 +91,7 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
         targetCoords = EntityCoordinates.Invalid;
         targetGrid = EntityUid.Invalid;
 
+<<<<<<< HEAD
         // Weight grid choice by tilecount
         var weights = new Dictionary<Entity<MapGridComponent>, float>();
         foreach (var possibleTarget in station.Comp.Grids)
@@ -96,12 +103,23 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
         }
 
         if (weights.Count == 0)
+=======
+        var possibleTargets = station.Comp.Grids;
+        if (possibleTargets.Count == 0)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             targetGrid = EntityUid.Invalid;
             return false;
         }
 
+<<<<<<< HEAD
         (targetGrid, var gridComp) = RobustRandom.Pick(weights);
+=======
+        targetGrid = RobustRandom.Pick(possibleTargets);
+
+        if (!TryComp<MapGridComponent>(targetGrid, out var gridComp))
+            return false;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         var found = false;
         var aabb = gridComp.LocalAABB;

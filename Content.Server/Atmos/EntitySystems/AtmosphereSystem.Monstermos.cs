@@ -5,11 +5,20 @@ using Content.Server.Doors.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Database;
+<<<<<<< HEAD
+=======
+using Content.Shared.Maps;
+using Robust.Shared.Map;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 namespace Content.Server.Atmos.EntitySystems
 {
     public sealed partial class AtmosphereSystem
@@ -137,7 +146,7 @@ namespace Content.Server.Atmos.EntitySystems
             var logN = MathF.Log2(tileCount);
 
             // Optimization - try to spread gases using an O(n log n) algorithm that has a chance of not working first to avoid O(n^2)
-            if (giverTilesLength > logN && takerTilesLength > logN)
+            if (!MonstermosUseExpensiveAirflow && giverTilesLength > logN && takerTilesLength > logN)
             {
                 // Even if it fails, it will speed up the next part.
                 Array.Sort(_equalizeTiles, 0, tileCount, _monstermosComparer);
@@ -550,7 +559,12 @@ namespace Content.Server.Atmos.EntitySystems
                 }
 
                 InvalidateVisuals(ent, otherTile);
+<<<<<<< HEAD
                 HandleDecompressionFloorRip(mapGrid, otherTile, otherTile.MonstermosInfo.CurrentTransferAmount);
+=======
+                if (MonstermosRipTiles && otherTile.PressureDifference > MonstermosRipTilesMinimumPressure)
+                    HandleDecompressionFloorRip(mapGrid, otherTile, otherTile.PressureDifference);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             if (GridImpulse && tileCount > 0)
@@ -682,14 +696,20 @@ namespace Content.Server.Atmos.EntitySystems
             adj.MonstermosInfo[idx.ToOppositeDir()] -= amount;
         }
 
-        private void HandleDecompressionFloorRip(MapGridComponent mapGrid, TileAtmosphere tile, float sum)
+        private void HandleDecompressionFloorRip(MapGridComponent mapGrid, TileAtmosphere tile, float delta)
         {
-            if (!MonstermosRipTiles)
+            if (!mapGrid.TryGetTileRef(tile.GridIndices, out var tileRef))
                 return;
+            var tileref = tileRef.Tile;
 
+<<<<<<< HEAD
             var chance = MathHelper.Clamp(0.01f + (sum / SpacingMaxWind) * 0.3f, 0.003f, 0.3f);
 
             if (sum > 20 && _robustRandom.Prob(chance))
+=======
+            var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileref.TypeId];
+            if (!tileDef.Reinforced && tileDef.TileRipResistance < delta * MonstermosRipTilesPressureOffset)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 PryTile(mapGrid, tile.GridIndices);
         }
 

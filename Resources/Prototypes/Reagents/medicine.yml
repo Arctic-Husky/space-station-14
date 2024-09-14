@@ -8,10 +8,22 @@
   color: "#081a80"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
+      - !type:GenericStatusEffect
+        key: PsionicallyInsulated #Nyano - Summary: makes the user psionically insulated from effects.
+        component: PsionicInsulation #Nyano - Summary: see above.
+        type: Add
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
+<<<<<<< HEAD
+=======
+      - !type:GenericStatusEffect
+        key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
+        component: PsionicsDisabled #Nyano - Summary: see above.
+        type: Add
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - !type:Drunk
         slurSpeech: false
         boozePower: 20
@@ -101,7 +113,7 @@
       effects:
       - !type:GenericStatusEffect
         key: Drunk
-        time: 2.0
+        time: 6.0
         type: Remove
       - !type:HealthChange
         damage:
@@ -181,7 +193,7 @@
           conditions:
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
-            max: 150.0
+            max: 213.0
           damage:
           # todo scale with temp like SS13
             groups:
@@ -204,7 +216,7 @@
         - !type:HealthChange
           conditions:
           - !type:Temperature
-            max: 150.0
+            max: 213.0
           damage:
             types:
              Cellular: -2
@@ -285,9 +297,9 @@
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
-          reagent: Lexorin
+          reagent: HeartbreakerToxin
           min: 1
-        reagent: Lexorin
+        reagent: HeartbreakerToxin
         amount: -3
       - !type:HealthChange
         conditions:
@@ -334,12 +346,12 @@
             Asphyxiation: 1
             Poison: 1
       - !type:AdjustReagent
-        reagent: Lexorin
+        reagent: HeartbreakerToxin
         amount: -2
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
-          reagent: Lexorin
+          reagent: HeartbreakerToxin
           min: 1
         reagent: Epinephrine
         amount: -1
@@ -347,7 +359,7 @@
         probability: 0.1
         conditions:
         - !type:ReagentThreshold
-          reagent: Lexorin
+          reagent: HeartbreakerToxin
           min: 1
         reagent: Histamine
         amount: 4
@@ -1033,6 +1045,7 @@
             Poison: 4
 
 - type: reagent
+<<<<<<< HEAD
   id: Holywater
   name: reagent-name-holywater
   group: Medicine
@@ -1070,6 +1083,8 @@
   - !type:ExtinguishTileReaction { }
 
 - type: reagent
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Pyrazine
   name: reagent-name-pyrazine
   group: Medicine
@@ -1150,6 +1165,7 @@
           min: 12
 
 - type: reagent
+<<<<<<< HEAD
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
   group: Medicine
@@ -1171,6 +1187,8 @@
             mobstate: Dead
 
 - type: reagent
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Necrosol
   name: reagent-name-necrosol
   group: Medicine
@@ -1220,6 +1238,7 @@
             Heat: -3.0
             Shock: -3.0
             Caustic: -1.0
+<<<<<<< HEAD
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
@@ -1284,3 +1303,5 @@
         - "psicodine-effect-anxieties-wash-away"
         - "psicodine-effect-at-peace"
         probability: 0.2
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

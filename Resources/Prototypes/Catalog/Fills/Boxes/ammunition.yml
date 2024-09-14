@@ -32,6 +32,20 @@
     contents:
       - id: MagazinePistolCaselessRiflePractice
         amount: 4
+<<<<<<< HEAD
+=======
+
+- type: entity
+  name: box of .25 caseless (rubber) magazines
+  parent: BoxMagazine
+  id: BoxMagazineCaselessRifleRubber
+  description: A box full of
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineCaselessRifleRubber
+        amount: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # LightRifle
 - type: entity
@@ -55,6 +69,20 @@
     contents:
       - id: MagazineLightRiflePractice
         amount: 4
+<<<<<<< HEAD
+=======
+
+- type: entity
+  name: box of .30 rifle (rubber) magazines
+  parent: BoxMagazine
+  id: BoxMagazineLightRifleRubber
+  description: A box full of .30 rifle (practice) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineLightRifleRubber
+        amount: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: box of Vector magazines
@@ -111,6 +139,20 @@
     contents:
       - id: MagazinePistolPractice
         amount: 4
+<<<<<<< HEAD
+=======
+
+- type: entity
+  name: box of pistol .35 auto (rubber) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolRubber
+  description: A box full of pistol .35 auto (rubber) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolRubber
+        amount: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: box of machine pistol .35 auto magazines
@@ -133,6 +175,21 @@
     contents:
       - id: MagazinePistolHighCapacityPractice
         amount: 4
+<<<<<<< HEAD
+=======
+
+- type: entity
+  name: box of machine pistol .35 auto (rubber) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolHighCapacityRubber
+  description: A box full of machine pistol .35 auto (rubber) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolHighCapacityRubber
+        amount: 4
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: box of SMG .35 auto magazines
@@ -223,3 +280,17 @@
     contents:
       - id: MagazineRiflePractice
         amount: 4
+<<<<<<< HEAD
+=======
+
+- type: entity
+  name: box of .20 rifle (rubber) magazines
+  parent: BoxMagazine
+  id: BoxMagazineRifleRubber
+  description: A box full of .20 rifle (rubber) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazineRifleRubber
+        amount: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

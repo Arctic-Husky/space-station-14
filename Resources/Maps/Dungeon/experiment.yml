@@ -7444,6 +7444,16 @@ entities:
     - type: Transform
       pos: 32.5,14.5
       parent: 1653
+<<<<<<< HEAD
+=======
+- proto: MachineTraversalDistorter
+  entities:
+  - uid: 1058
+    components:
+    - type: Transform
+      pos: 34.5,22.5
+      parent: 1653
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 867

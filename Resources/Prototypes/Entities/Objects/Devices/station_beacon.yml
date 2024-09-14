@@ -24,14 +24,23 @@
   - type: NavMapBeacon
     defaultText: station-beacon-general
     color: "#D4D4D496"
+<<<<<<< HEAD
   - type: WarpPoint
+=======
+  #- type: WarpPoint # Delta V - Removes in favor of Warp Point Markers
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ActivatableUI
     key: enum.NavMapBeaconUiKey.Key
     singleUser: true
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.NavMapBeaconUiKey.Key:
         type: NavMapBeaconBoundUserInterface
+=======
+    - key: enum.NavMapBeaconUiKey.Key
+      type: NavMapBeaconBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     size: Small
   - type: SubFloorHide
@@ -219,7 +228,11 @@
     defaultText: station-beacon-courtroom
 
 - type: entity
+<<<<<<< HEAD
   parent: DefaultStationBeaconSecurity
+=======
+  parent: DefaultStationBeaconService #Delta V - Lawer is Service until Justice Dept is a thing
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DefaultStationBeaconLawOffice
   suffix: Law Office
   components:
@@ -294,10 +307,17 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconScience
+<<<<<<< HEAD
   suffix: Science
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-science
+=======
+  suffix: Epistemics #Delta V - Renamed
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-epistemics #Delta V - Renamed
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     color: "#D381C9"
 
 - type: entity
@@ -319,10 +339,17 @@
 - type: entity
   parent: DefaultStationBeaconScience
   id: DefaultStationBeaconRDRoom
+<<<<<<< HEAD
   suffix: RD's Room
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-research-director
+=======
+  suffix: MG's Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mystagogue  #Delta V - Renamed
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DefaultStationBeaconScience
@@ -351,19 +378,33 @@
 - type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconSupply
+<<<<<<< HEAD
   suffix: Supply
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-supply
+=======
+  suffix: Logistics #Delta V - Renamed
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-logistics #Delta V - Renamed
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     color: "#A46106"
 
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconCargoReception
+<<<<<<< HEAD
   suffix: Cargo Reception
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-cargo
+=======
+  suffix: Logistics Reception #Delta V - Renamed
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-logistics-reception #Delta V - Renamed
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DefaultStationBeaconSupply
@@ -376,10 +417,17 @@
 - type: entity
   parent: DefaultStationBeaconSupply
   id: DefaultStationBeaconQMRoom
+<<<<<<< HEAD
   suffix: QM's Room
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-qm
+=======
+  suffix: LO #Delta V - Renamed
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lo #Delta V - Renamed
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DefaultStationBeaconSupply
@@ -517,7 +565,11 @@
   suffix: Janitor's Closet
   components:
   - type: NavMapBeacon
+<<<<<<< HEAD
     defaultText: station-beacon-janitor
+=======
+    defaultText: station-beacon-janitor-closet #Delta V - Add for closet/outpost
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DefaultStationBeacon
@@ -569,7 +621,11 @@
     defaultText: station-beacon-eva-storage
 
 - type: entity
+<<<<<<< HEAD
   parent: DefaultStationBeacon
+=======
+  parent: DefaultStationBeaconScience #Delta V - Chapel in Epi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DefaultStationBeaconChapel
   suffix: Chapel
   components:

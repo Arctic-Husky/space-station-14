@@ -10,7 +10,11 @@
 
 - type: alert
   id: Corporeal
+<<<<<<< HEAD
   icons: [ /Textures/Mobs/Ghosts/revenant.rsi/icon.png ]
+=======
+  icons: [ /Textures/DeltaV/Mobs/Ghosts/revenant.rsi/icon.png ] # DeltaV - Custom revenant sprite
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: alerts-revenant-corporeal-name
   description: alerts-revenant-corporeal-desc
 

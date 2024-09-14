@@ -75,6 +75,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public EntProtoId? ProductAction;
 
     /// <summary>
+<<<<<<< HEAD
     /// The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
     /// upgrade or to use standalone as an upgrade
     /// </summary>
@@ -83,6 +84,16 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
 
     /// <summary>
     /// Keeps track of the current action entity this is tied to, for action upgrades
+=======
+    ///     The listing ID of the related upgrade listing. Can be used to link a <see cref="ProductAction"/> to an
+    ///         upgrade or to use standalone as an upgrade
+    /// </summary>
+    [DataField]
+    public ProtoId<ListingPrototype>? ProductUpgradeID;
+
+    /// <summary>
+    ///     Keeps track of the current action entity this is tied to, for action upgrades
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// </summary>
     [DataField]
     [NonSerialized]
@@ -161,7 +172,11 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Priority = Priority,
             ProductEntity = ProductEntity,
             ProductAction = ProductAction,
+<<<<<<< HEAD
             ProductUpgradeId = ProductUpgradeId,
+=======
+            ProductUpgradeID = ProductUpgradeID,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
             PurchaseAmount = PurchaseAmount,

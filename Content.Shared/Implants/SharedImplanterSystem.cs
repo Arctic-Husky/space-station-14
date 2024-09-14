@@ -77,7 +77,11 @@ public abstract class SharedImplanterSystem : EntitySystem
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
         RaiseLocalEvent(target, ref ev);
 
+<<<<<<< HEAD
         Dirty(implanter, component);
+=======
+        Dirty(component);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public bool CanImplant(

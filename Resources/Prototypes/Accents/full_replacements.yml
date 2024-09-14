@@ -31,6 +31,7 @@
   - accent-words-mouse-6
   - accent-words-mouse-7
 
+<<<<<<< HEAD
 - type: accent
   id: mothroach
   fullReplacements:
@@ -39,6 +40,16 @@
   - accent-words-mouse-2
   - accent-words-mouse-3
   - accent-words-mouse-4
+=======
+#- type: accent
+#  id: mothroach
+#  fullReplacements:
+#  - accent-words-mothroach-1
+#  - accent-words-mouse-1
+#  - accent-words-mouse-2
+#  - accent-words-mouse-3
+#  - accent-words-mouse-4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: accent
   id: mumble

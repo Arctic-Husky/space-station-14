@@ -1,5 +1,6 @@
 # Definição de roupa iniciais para habitantes de Cidade e Planetas
 
+<<<<<<< HEAD
 # Cidadão
 - type: job
   id: Cidadao
@@ -25,6 +26,8 @@
   #satchel: ClothingBackpackSatchelFilled
   #duffelbag: ClothingBackpackDuffelFilled
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # Comerciante
 - type: job
   id: Comerciante
@@ -47,6 +50,7 @@
     shoes: ClothingShoesColorBrown
     id: ComercianteIDCard
     ears: ClothingHeadsetGrey
+<<<<<<< HEAD
   #innerClothingSkirt: ClothingUniformJumpskirtLawyerBlue
   #satchel: ClothingBackpackSatchelFilled
   #duffelbag: ClothingBackpackDuffelFilled
@@ -83,6 +87,12 @@
   #innerClothingSkirt: ClothingUniformJumpskirtColorDarkBlue
   #satchel: ClothingBackpackSatchelPolicia
   #duffelbag: ClothingBackpackDuffelPolicia
+=======
+    pocket1: RadioHandheld
+  innerclothingskirt: ClothingUniformJumpskirtLawyerBlue
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # Soldado
 - type: job
@@ -107,13 +117,23 @@
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
     back: ClothingBackpackSoldado
     shoes: ClothingShoesBootsCombatFilled
+<<<<<<< HEAD
     eyes: ClothingEyesGlassesSunglasses
+=======
+    eyes: ClothingEyesGlassesSecurity
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     outerClothing: ClothingOuterArmorHeavy
     id: SoldadoIDCard
     ears: ClothingHeadsetGrey
     belt: ClothingBeltMilitarySoldado
     pocket1: RadioHandheld
     pocket2: WeaponPistolMk58
+<<<<<<< HEAD
   #innerClothingSkirt: ClothingUniformJumpskirtColorDarkBlue
   #satchel: ClothingBackpackSatchelSoldado
   #duffelbag: ClothingBackpackDuffelSoldado
+=======
+  innerclothingskirt: ClothingUniformJumpskirtColorDarkBlue
+  satchel: ClothingBackpackSatchelSoldado
+  duffelbag: ClothingBackpackDuffelSoldado
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

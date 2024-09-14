@@ -37,6 +37,9 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerPowerMonitoring
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - PowerComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -119,6 +122,13 @@
       prototype: ComputerSalvageExpedition
     - type: StealTarget
       stealGroup: SalvageExpeditionsComputerCircuitboard
+<<<<<<< HEAD
+=======
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - SalvageExpeditionsComputerCircuitboard
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -173,6 +183,13 @@
       prototype: ComputerTelevision
     - type: Tag
       tags:
+<<<<<<< HEAD
+=======
+        - ComputerTelevisionCircuitboard
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         - ComputerTelevisionCircuitboard
 
 - type: entity
@@ -196,6 +213,10 @@
       state: cpu_science
     - type: ComputerBoard
       prototype: ComputerAnalysisConsole
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - AnalysisComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -207,6 +228,10 @@
     state: cpu_science
   - type: ComputerBoard
     prototype: ComputerTechnologyDiskTerminal
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - TechDiskComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -216,6 +241,10 @@
   components:
     - type: ComputerBoard
       prototype: ComputerCrewMonitoring
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - CrewMonitoringComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -271,6 +300,10 @@
   components:
   - type: ComputerBoard
     prototype: ComputerRadar
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+       - RadarConsoleCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -282,6 +315,10 @@
       state: cpu_engineering
     - type: ComputerBoard
       prototype: ComputerSolarControl
+    - type: ReverseEngineering # Nyano
+      difficulty: 2
+      recipes:
+        - SolarControlComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -320,6 +357,10 @@
   components:
     - type: ComputerBoard
       prototype: ComputerShuttle
+    - type: ReverseEngineering # Nyano
+      difficulty: 3
+      recipes:
+        - ShuttleConsoleCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -340,6 +381,10 @@
       state: cpu_medical
     - type: ComputerBoard
       prototype: ComputerCloningConsole
+    - type: ReverseEngineering # Nyano
+      difficulty: 3
+      recipes:
+        - CloningConsoleComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -373,6 +418,10 @@
       price: 150
     - type: ComputerBoard
       prototype: ComputerMassMedia
+    - type: ReverseEngineering # Nyano
+      difficulty: 3
+      recipes:
+        - ComputerMassMediaCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard

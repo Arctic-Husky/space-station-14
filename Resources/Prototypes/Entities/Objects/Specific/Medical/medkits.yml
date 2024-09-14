@@ -10,7 +10,11 @@
   - type: Storage
     maxItemSize: Small
     grid:
+<<<<<<< HEAD
     - 0,0,3,1
+=======
+    - 0,0,3,2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     size: Large
     sprite: Objects/Specific/Medical/firstaidkits.rsi

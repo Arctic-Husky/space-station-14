@@ -18,10 +18,13 @@ public sealed partial class GeneralStationRecordConsoleComponent : Component
     /// </summary>
     [DataField]
     public StationRecordsFilter? Filter;
+<<<<<<< HEAD
 
     /// <summary>
     /// Whether this Records Console is able to delete entries.
     /// </summary>
     [DataField]
     public bool CanDeleteEntries;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

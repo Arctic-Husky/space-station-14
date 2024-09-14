@@ -53,7 +53,14 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         args.Handled = true;
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.RemovalTime.Value,
+<<<<<<< HEAD
             new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid));
+=======
+            new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+        });
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnEmbedRemove(EntityUid uid, EmbeddableProjectileComponent component, RemoveEmbeddedProjectileEvent args)

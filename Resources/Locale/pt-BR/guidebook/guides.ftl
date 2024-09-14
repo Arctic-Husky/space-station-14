@@ -17,9 +17,16 @@ guide-entry-rtg = RTG
 guide-entry-controls = Controles
 guide-entry-radio = Radio
 guide-entry-jobs = Trabalhos
+<<<<<<< HEAD
 guide-entry-cargo = Carga
 guide-entry-cargo-bounties = Recompensas da Carga
 guide-entry-salvage = Salvamento
+=======
+guide-entry-cargo = Cargo
+guide-entry-cargo-bounties = Recompensas da Carga
+guide-entry-salvage = Salvamento
+guide-entry-justice = Justiça
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 guide-entry-survival = Sobrevivência
 guide-entry-chemicals = Substâncias Químicas
 guide-entry-ss14 = Space Station 14
@@ -46,11 +53,19 @@ guide-entry-artifact-reports = Relatórios de Artefatos
 guide-entry-traversal-distorter = Distortor Transversal
 guide-entry-machine-upgrading = Melhorando Máquinas
 guide-entry-robotics = Robótica
+<<<<<<< HEAD
 guide-entry-cyborgs = Ciborgues
 guide-entry-security = Segurança
 guide-entry-forensics = Forensics
 guide-entry-defusal = Desativação de Bomba Grande
 guide-entry-crimina-records = Registros Criminais
+=======
+guide-entry-cyborgs = ciborgues
+guide-entry-security = Segurança
+guide-entry-forensics = Forensics
+guide-entry-defusal = Desativação de Bomba Grande
+guide-entry-criminal-records = Registros Criminais
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 guide-entry-species = Espécies
 
 guide-entry-antagonists = Antagonistas
@@ -63,6 +78,7 @@ guide-entry-space-ninja = Ninja Espacial
 
 guide-entry-writing = Escrita
 guide-entry-lei-espacial = Lei Espacial
+<<<<<<< HEAD
 guide-entry-estacao-pirata = Estação Pirata
 guide-entry-pop = Procedimento Operacional Padrão
 guide-entry-pop-sec = POP Segurança
@@ -72,3 +88,52 @@ guide-entry-alertas-gerais = Alertas Gerais
 guide-entry-codigo-penal = Código Penal
 guide-entry-IPCs = IPCs
 guide-entry-glossary = Glossário
+=======
+guide-entry-codigo-penal = Código Penal
+guide-entry-IPCs = IPCs
+guide-entry-glossary = glossário
+guide-entry-machine-upgrading = Melhorando Máquinas
+guide-entry-reverse-engineering = Engenharia reversa
+guide-entry-epistemics = Epistêmica
+guide-entry-psionics = Psiônicos
+guide-entry-altars-golemancy = Altares e Golemância
+guide-entry-anomalous-research = Pesquisa Anômala
+guide-entry-scanners-and-vessels = Escaners e vassalos
+guide-entry-ape = A.P.E.
+guide-entry-xenoarchaeology = Xenoarqueologia
+guide-entry-artifact-reports = Relatórios de artefatos
+guide-entry-traversal-distorter = Distortor transversal
+guide-entry-space-law = Lei Espacial
+guide-entry-jurisdiction = Jurisdição
+guide-entry-trial-prodedure = Procedimento de julgamento
+guide-entry-charges-and-times = Acusações e Sentenças
+guide-entry-machine-upgrading = Melhorando Máquinas
+guide-entry-robotics = Robótica
+
+guide-entry-security = Segurança
+guide-entry-dna = DNA
+
+guide-entry-antagonists = Antagonistas
+guide-entry-nuclear-operatives = Operativos Nucleares
+
+
+guide-entry-chemistry = Química
+guide-entry-chef = Chefe de cozinha
+guide-entry-cookbook = O livro de receitas
+
+# Receitas
+
+guide-entry-burgers = Hambúrgueres
+guide-entry-cakes = Bolos
+guide-entry-pastries = Pastelaria
+guide-entry-pizzas = Pizza
+guide-entry-kebabs = Kebabs
+guide-entry-sandwiches = Pães e Sanduíches
+guide-entry-snacks = Lanches
+guide-entry-pasta = Macarrão e Arroz
+guide-entry-soups = Sopas
+guide-entry-salads = Saladas
+guide-entry-sauces = Condimentos
+
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

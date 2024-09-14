@@ -4,9 +4,21 @@
   id: Wirecutter
   description: This kills the wire.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/wirecutter_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/wirecutter_drop.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/wirecutter_drop.ogg
+      params:
+        volume: -2
   - type: Tag
     tags:
     - PlantSampleTaker
@@ -19,10 +31,19 @@
     - state: cutters-cutty-thingy
   - type: MeleeWeapon
     wideAnimationRotation: -90
+<<<<<<< HEAD
+=======
+    attackRate: 0.9
+    range: 1.6
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       types:
-        Piercing: 2
-    attackRate: 2 #open and close that shit on their arm like hell! because you sure aren't doing any damage with this
+        Blunt: 6.5
+    heavyRateModifier: 0.9
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 4
+    angle: 60
     soundHit:
       path: "/Audio/Items/wirecutter.ogg"
   - type: Tool
@@ -50,9 +71,21 @@
   id: Screwdriver
   description: Industrial grade torque in a small screwdriving package.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/screwdriver_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/screwdriver_drop.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/screwdriver_drop.ogg
+      params:
+        volume: -2
   - type: Tag
     tags:
     - Screwdriver
@@ -67,10 +100,19 @@
     storedRotation: -90
   - type: MeleeWeapon
     wideAnimationRotation: -90
+<<<<<<< HEAD
     attackRate: 1
+=======
+    attackRate: 1.35
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       types:
         Piercing: 6
+    heavyRateModifier: 0.75
+    heavyDamageBaseModifier: 1.5
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 20
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Tool
@@ -94,9 +136,21 @@
   id: Wrench
   description: 'A common tool for assembly and disassembly. Remember: righty tighty, lefty loosey.'
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/wrench_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/wrench_drop.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/wrench_drop.ogg
+      params:
+        volume: -2
   - type: Tag
     tags:
     - Wrench
@@ -110,10 +164,23 @@
       state: storage
   - type: MeleeWeapon
     wideAnimationRotation: 135
+<<<<<<< HEAD
     attackRate: 1.5
     damage:
       types:
         Blunt: 4.5
+=======
+    attackRate: 0.9
+    range: 1.6
+    damage:
+      types:
+        Blunt: 6.5
+    bluntStaminaDamageFactor: 1.5
+    heavyRateModifier: 0.75
+    heavyDamageBaseModifier: 1.75
+    heavyStaminaCost: 5
+    angle: 100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Tool
@@ -133,9 +200,21 @@
   id: Crowbar
   description: A multipurpose tool to pry open doors and fight interdimensional invaders.
   components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/crowbar_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/crowbar_drop.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -2
   - type: Tag
     tags:
     - Crowbar
@@ -150,9 +229,18 @@
       state: storage
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Blunt: 8
+=======
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 6
+    bluntStaminaDamageFactor: 2
+    heavyStaminaCost: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Tool
@@ -191,6 +279,10 @@
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines
   components:
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/multitool_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/multitool_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/multitool_drop.ogg
@@ -200,6 +292,16 @@
     - state: icon
     - state: green-unlit
       shader: unshaded
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Shock: 2
+    heavyRateModifier: 0.9
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 20
   - type: Item
     size: Small
   - type: Clothing
@@ -272,11 +374,19 @@
         - DoorElectronicsConfigurator
     - type: UserInterface
       interfaces:
+<<<<<<< HEAD
         enum.NetworkConfiguratorUiKey.List:
           type: NetworkConfiguratorBoundUserInterface
         enum.NetworkConfiguratorUiKey.Configure:
           type: NetworkConfiguratorBoundUserInterface
         enum.NetworkConfiguratorUiKey.Link:
+=======
+        - key: enum.NetworkConfiguratorUiKey.List
+          type: NetworkConfiguratorBoundUserInterface
+        - key: enum.NetworkConfiguratorUiKey.Configure
+          type: NetworkConfiguratorBoundUserInterface
+        - key: enum.NetworkConfiguratorUiKey.Link
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
           type: NetworkConfiguratorBoundUserInterface
     - type: StaticPrice
       price: 56
@@ -329,16 +439,35 @@
     materialComposition:
       Steel: 300
       Plastic: 100
+#  - type: DynamicPrice
+#    price: 100
   - type: StaticPrice
     price: 100
   - type: MeleeWeapon
     wideAnimationRotation: -90
+<<<<<<< HEAD
     attackRate: 1.5
     damage:
       types:
         Piercing: 10
+=======
+    attackRate: 0.9
+    range: 1.4
+    damage:
+      types:
+        Piercing: 8
+    heavyRateModifier: 0.9
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 20
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+  - type: ReverseEngineering # Nyano
+    difficulty: 2
+    recipes:
+      - PowerDrill
 
 - type: entity
   id: RCD
@@ -384,15 +513,26 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 600
-      Plastic: 100
+      Plastic: 150
   - type: StaticPrice
     price: 100
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.RcdUiKey.Key:
         type: RCDMenuBoundUserInterface
   - type: ActivatableUI
     key: enum.RcdUiKey.Key
+=======
+    - key: enum.RcdUiKey.Key
+      type: RCDMenuBoundUserInterface
+  - type: ActivatableUI
+    key: enum.RcdUiKey.Key
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - RCD
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: RCDEmpty
@@ -454,10 +594,16 @@
     heldPrefix: ammo
   - type: PhysicalComposition
     materialComposition:
-      Steel: 100
+      Steel: 300
       Plastic: 100
   - type: StaticPrice
     price: 60
+#  - type: DynamicPrice
+#    price: 60
+  - type: ReverseEngineering # Nyano
+    difficulty: 3
+    recipes:
+      - RCDAmmo
 
 - type: entity
   name: omnitool
@@ -536,9 +682,22 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 45
+<<<<<<< HEAD
     damage:
       types:
         Blunt: 14
+=======
+    attackRate: 0.8
+    range: 2.0
+    damage:
+      types:
+        Blunt: 8
+    bluntStaminaDamageFactor: 1.5
+    heavyRateModifier: 0.9
+    heavyDamageBaseModifier: 1.5
+    heavyStaminaCost: 10
+    angle: 100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Item
@@ -550,6 +709,16 @@
       Wood: 50
   - type: StaticPrice
     price: 25
+<<<<<<< HEAD
+=======
+  # Delta V: Adds tool quality for digging
+  - type: Tool
+    qualities:
+      - Digging
+    useSound:
+      path: /Audio/Nyanotrasen/Items/shovel_dig.ogg
+  - type: EarthDigging
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Shovel
 
 - type: entity
@@ -571,9 +740,22 @@
     - Belt
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Blunt: 7
+=======
+    attackRate: 0.9
+    damage:
+      types:
+        Blunt: 7
+    bluntStaminaDamageFactor: 2.0
+    heavyRateModifier: 0.8
+    heavyDamageBaseModifier: 1.5
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 20
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Tool

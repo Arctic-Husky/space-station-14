@@ -13,6 +13,10 @@ admin-smite-stomach-removal-self = Your stomach feels hollow...
 admin-smite-run-walk-swap-prompt = You have to press shift to run!
 admin-smite-super-speed-prompt = You move at mach 0.8!
 admin-smite-lung-removal-self = You can't breathe!
+<<<<<<< HEAD
+=======
+admin-smite-terminate-prompt = I'll be back
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ## Smite names
 
@@ -84,6 +88,10 @@ admin-smite-remove-gravity-description = Grants them anti-gravity.
 admin-smite-reptilian-species-swap-description = It changes their species to Reptilian. Useful for people who were being space racist.
 admin-smite-locker-stuff-description = Stuffs them in a (welded) locker.
 admin-smite-headstand-description = Vertically flips their sprite.
+<<<<<<< HEAD
+=======
+admin-smite-plasma-internals-description = Replaces the contents of their internals with plasma.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 admin-smite-become-mouse-description = They become a mouse. Squeak!
 admin-smite-maid-description = Forcibly converts them into a janitorial cat maid. This is actual torture for some players, use it wisely.
 admin-smite-zoom-in-description = Zooms in their view so that they can no longer see their surroundings.
@@ -98,7 +106,10 @@ admin-smite-garbage-can-description = Turn them into a garbage bin to emphasize 
 admin-smite-super-bonk-description = Slams them on every single table on the Station and beyond.
 admin-smite-super-bonk-lite-description= Slams them on every single table on the Station and beyond. Stops when the target is dead.
 admin-smite-terminate-description = Creates a Terminator ghost role with the sole objective of killing them.
+<<<<<<< HEAD
 admin-smite-super-slip-description = Slips them really, really hard.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ## Tricks descriptions
 

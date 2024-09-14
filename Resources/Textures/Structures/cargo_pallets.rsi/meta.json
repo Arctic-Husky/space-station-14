@@ -11,6 +11,7 @@
             "name": "cargo_pallet_buy"
         },
         {
+<<<<<<< HEAD
             "name": "cargo_pallet_buy_0",
             "directions": 4
         },
@@ -76,6 +77,9 @@
         {
             "name": "cargo_pallet_sell_7",
             "directions": 4
+=======
+            "name": "cargo_pallet_sell"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     ]
 }

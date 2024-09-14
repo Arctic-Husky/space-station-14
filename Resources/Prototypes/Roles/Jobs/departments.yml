@@ -1,11 +1,12 @@
 - type: department
-  id: Cargo
+  id: Logistics # DeltaV - Logistics Department replacing Cargo
   description: department-Cargo-description
   color: "#A46106"
   roles:
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
+  - MailCarrier # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
 
 - type: department
   id: Civilian
@@ -17,14 +18,13 @@
   - Borg
   - Botanist
   - Boxer
-  - Chaplain
+  # - Chaplain # DeltaV - Move Chaplain into Epistemics
   - Chef
   - Clown
   - HeadOfPersonnel
   - Blueshield
   - Janitor
-  - Lawyer
-  - Librarian
+  # - Lawyer # DeltaV - Move Lawyer into Justice
   - Mime
   - Musician
   - Passenger
@@ -32,6 +32,9 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
+  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
+  - Prisoner # Nyanotrasen - Prisoner, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
+  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
 
 - type: department
   id: Command
@@ -46,6 +49,11 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+<<<<<<< HEAD
+=======
+  - Blueshield
+  - ChiefJustice
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   primary: false
   weight: 100
 
@@ -70,6 +78,11 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+<<<<<<< HEAD
+=======
+  - SeniorPhysician
+  - MedicalBorg  # Delta V - Medical Borg, see Resources/Prototypes/DeltaV/Roles/Jobs/Medical/medicalborg.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: department
   id: Security
@@ -82,15 +95,21 @@
   - SecurityOfficer
   - Detective
   - Warden
+  - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
+  - Brigmedic # DeltaV - Brigmedic, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
 
 - type: department
-  id: Science
+  id: Epistemics # DeltaV - Epistemics Department replacing Science
   description: department-Science-description
   color: "#D381C9"
   roles:
   - ResearchDirector
   - Scientist
   - ResearchAssistant
+  - Chaplain # DeltaV - Move Chaplain into Epistemics
+  - ForensicMantis # Nyanotrasen - ForensicMantis, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Epistemics/forensicmantis.yml
+  - Librarian
+  - Roboticist
 
 - type: department
   id: Specific
@@ -102,4 +121,11 @@
   - Reporter
   - Zookeeper
   - Psychologist
+<<<<<<< HEAD
+=======
+  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
+  - Gladiator # Nyanotrasen - Gladiator, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/gladiator.yml
+  - Prisoner # Nyanotrasen - Prisoner, see Resrouces/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
+  - Brigmedic # DeltaV - Corpsman, see Resources/Prototypes/DeltaV/Roles/Jobs/Security/brigmedic.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   primary: false

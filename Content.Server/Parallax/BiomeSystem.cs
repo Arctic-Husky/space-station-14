@@ -39,7 +39,10 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     [Dependency] private readonly IConsoleHost _console = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IPrototypeManager _proto = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
@@ -120,9 +123,12 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             SetSeed(uid, component, _random.Next());
         }
 
+<<<<<<< HEAD
         if (_proto.TryIndex(component.Template, out var biome))
             SetTemplate(uid, component, biome);
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var xform = Transform(uid);
         var mapId = xform.MapID;
 
@@ -155,6 +161,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         }
     }
 
+<<<<<<< HEAD
     public void SetEnabled(Entity<BiomeComponent?> ent, bool enabled = true)
     {
         if (!Resolve(ent, ref ent.Comp) || ent.Comp.Enabled == enabled)
@@ -164,6 +171,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         Dirty(ent, ent.Comp);
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public void SetSeed(EntityUid uid, BiomeComponent component, int seed, bool dirty = true)
     {
         component.Seed = seed;
@@ -986,7 +995,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// <summary>
     /// Creates a simple planet setup for a map.
     /// </summary>
+<<<<<<< HEAD
     public void EnsurePlanet(EntityUid mapUid, BiomeTemplatePrototype biomeTemplate, int? seed = null, MetaDataComponent? metadata = null, Color? mapLight = null)
+=======
+    public void EnsurePlanet(EntityUid mapUid, BiomeTemplatePrototype biomeTemplate, int? seed = null, MetaDataComponent? metadata = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(mapUid, ref metadata))
             return;
@@ -1011,7 +1024,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         // Lava: #A34931
 
         var light = EnsureComp<MapLightComponent>(mapUid);
+<<<<<<< HEAD
         light.AmbientLightColor = mapLight ?? Color.FromHex("#D8B059");
+=======
+        light.AmbientLightColor = Color.FromHex("#D8B059");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Dirty(mapUid, light, metadata);
 
         var moles = new float[Atmospherics.AdjustedNumberOfGases];

@@ -109,7 +109,7 @@
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker
-    resistance: 3
+    resistance: 5
   - type: Occluder
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -137,9 +137,6 @@
     - board
   - type: PlacementReplacement
     key: walls
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
   - type: PaintableAirlock
     group: Standard
     department: Civilian
@@ -153,6 +150,12 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   - type: PryUnpowered
   - type: BlockWeather
+<<<<<<< HEAD
+=======
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   placement:
     mode: SnapgridCenter
 
@@ -200,7 +203,11 @@
   - type: PaintableAirlock
     group: Glass
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 2
+=======
+    resistance: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
       - GlassAirlock

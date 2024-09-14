@@ -19,8 +19,11 @@ namespace Content.Client.UserInterface.Controls
         public TextureButton StorageButton { get; }
         public CooldownGraphic CooldownDisplay { get; }
 
+<<<<<<< HEAD
         private SpriteView SpriteView { get; }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public EntityUid? Entity => SpriteView.Entity;
 
         private bool _slotNameSet;

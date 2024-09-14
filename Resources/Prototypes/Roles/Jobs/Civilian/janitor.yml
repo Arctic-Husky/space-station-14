@@ -21,8 +21,15 @@
   equipment:
     shoes: ClothingShoesGaloshes
     id: JanitorPDA
+    gloves: ClothingHandsGlovesJanitor
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtJanitor
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: startingGear
   id: JanitorMaidGear
@@ -33,3 +40,9 @@
     head: ClothingHeadHatCatEars
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtJanimaid
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

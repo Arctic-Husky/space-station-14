@@ -15,6 +15,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.Roles;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared.Abilities.Psionics;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
@@ -26,8 +27,11 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
+<<<<<<< HEAD
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
@@ -35,9 +39,15 @@ using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
 using Content.Shared.Prying.Components;
+<<<<<<< HEAD
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.SimpleStation14.Silicon.Components;
+=======
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Traits.Assorted.Components;
+using Content.Server.Abilities.Psionics;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Zombies
 {
@@ -61,6 +71,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly SharedRoleSystem _roles = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly PsionicAbilitiesSystem _psionic = default!;
 
         /// <summary>
         /// Handles an entity turning into a zombie when they die or go into crit
@@ -112,6 +123,14 @@ namespace Content.Server.Zombies
             RemComp<ReproductiveComponent>(target);
             RemComp<ReproductivePartnerComponent>(target);
             RemComp<LegsParalyzedComponent>(target);
+<<<<<<< HEAD
+=======
+
+            if (HasComp<PsionicComponent>(target)) // Prevent psionic zombies
+            {
+                _psionic.RemoveAllPsionicPowers(target, true);
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             //funny voice
             var accentType = "zombie";
@@ -135,7 +154,11 @@ namespace Content.Server.Zombies
             melee.AltDisarm = false;
             melee.Range = 1.2f;
             melee.Angle = 0.0f;
+<<<<<<< HEAD
             melee.HitSound = zombiecomp.BiteSound;
+=======
+            melee.SoundHit = zombiecomp.BiteSound;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (mobState.CurrentState == MobState.Alive)
             {
@@ -252,6 +275,12 @@ namespace Content.Server.Zombies
             }
             else
             {
+<<<<<<< HEAD
+=======
+                var htn = EnsureComp<HTNComponent>(target);
+                htn.RootTask = new HTNCompoundTask() { Task = "SimpleHostileCompound" };
+                htn.Blackboard.SetValue(NPCBlackboard.Owner, target);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 _npc.WakeNPC(target, htn);
             }
 

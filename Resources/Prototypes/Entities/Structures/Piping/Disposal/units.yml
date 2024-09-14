@@ -81,9 +81,16 @@
     containerId: disposals
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
   - type: RatKingRummageable
+=======
+    - key: enum.DisposalUnitUiKey.Key
+      type: DisposalUnitBoundUserInterface
+  - type: RatKingRummageable
+  - type: RequireProjectileTarget
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: MailingUnit

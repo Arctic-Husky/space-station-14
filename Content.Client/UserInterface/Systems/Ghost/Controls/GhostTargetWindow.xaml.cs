@@ -15,14 +15,20 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private string _searchText = string.Empty;
 
         public event Action<NetEntity>? WarpClicked;
+<<<<<<< HEAD
         public event Action? OnGhostnadoClicked;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public GhostTargetWindow()
         {
             RobustXamlLoader.Load(this);
             SearchBar.OnTextChanged += OnSearchTextChanged;
+<<<<<<< HEAD
 
             GhostnadoButton.OnPressed += _ => OnGhostnadoClicked?.Invoke();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         public void UpdateWarps(IEnumerable<GhostWarp> warps)

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Actions;
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Audio.Systems;
@@ -123,7 +127,11 @@ public sealed class EyeClosingSystem : EntitySystem
         if (_entityManager.TryGetComponent<EyeClosingComponent>(blindable, out var eyelids) && !eyelids.NaturallyCreated)
             return;
 
+<<<<<<< HEAD
         if (ev.Blur < BlurryVisionComponent.MaxMagnitude || ev.Blur >= blindable.Comp.MaxDamage)
+=======
+        if (ev.Blur < BlurryVisionComponent.MaxMagnitude || ev.Blur >= BlindableComponent.MaxDamage)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             RemCompDeferred<EyeClosingComponent>(blindable);
             return;

@@ -164,9 +164,12 @@
     solution: beaker
   - type: StaticPrice
     price: 10
+<<<<<<< HEAD
   - type: PhysicalComposition
     materialComposition:
       Glass: 50
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: beaker
@@ -215,9 +218,12 @@
     fillBaseName: beakerlarge
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
+<<<<<<< HEAD
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: StaticPrice
     price: 20
 
@@ -238,6 +244,10 @@
       beaker:
         maxVol: 60
         canReact: false
+  - type: ReverseEngineering # Delta
+    difficulty: 3
+    recipes:
+      - CryostasisBeaker
 
 - type: entity
   name: bluespace beaker
@@ -255,6 +265,14 @@
     solutions:
       beaker:
         maxVol: 1000
+<<<<<<< HEAD
+=======
+        canMix: true
+  - type: ReverseEngineering # Delta
+    difficulty: 4
+    recipes:
+      - BluespaceBeaker
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: dropper
@@ -411,6 +429,45 @@
     tags:
     - Syringe
     - Trash
+  - type: ReverseEngineering # Delta
+    difficulty: 4
+    recipes:
+      - SyringeBluespace
+
+- type: entity
+  id: SyringeCryostasis
+  parent: BaseSyringe
+  name: cryostasis syringe
+  description: A syringe used to contain chemicals or solutions without reactions.
+  components:
+  - type: Sprite
+    layers:
+    - state: syringe1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: cryo_base0
+      map: ["enum.SolutionContainerLayers.Base"]
+  - type: Icon
+    sprite: Objects/Specific/Chemistry/syringe.rsi
+    state: cryo_base0
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 10
+        canReact: false
+  - type: Injector
+    injectOnly: false
+    minTransferAmount: 5
+    maxTransferAmount: 10
+    transferAmount: 10
+  - type: Tag
+    tags:
+    - Syringe
+    - Trash
+  - type: ReverseEngineering # Delta
+    difficulty: 3
+    recipes:
+      - SyringeCryostasis
 
 - type: entity
   id: SyringeCryostasis

@@ -48,7 +48,12 @@ public sealed partial class HumanoidAppearanceSystem
     private void OnBaseLayersSet(EntityUid uid, HumanoidAppearanceComponent component,
         HumanoidMarkingModifierBaseLayersSetMessage message)
     {
+<<<<<<< HEAD
         if (!_adminManager.HasAdminFlag(message.Actor, AdminFlags.Fun))
+=======
+        if (message.Session is not { } player
+            || !_adminManager.HasAdminFlag(player, AdminFlags.Fun))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             return;
         }
@@ -80,7 +85,12 @@ public sealed partial class HumanoidAppearanceSystem
     private void OnMarkingsSet(EntityUid uid, HumanoidAppearanceComponent component,
         HumanoidMarkingModifierMarkingSetMessage message)
     {
+<<<<<<< HEAD
         if (!_adminManager.HasAdminFlag(message.Actor, AdminFlags.Fun))
+=======
+        if (message.Session is not { } player
+            || !_adminManager.HasAdminFlag(player, AdminFlags.Fun))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             return;
         }

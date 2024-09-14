@@ -194,7 +194,15 @@ namespace Content.Server.Guardian
                 return;
             }
 
+<<<<<<< HEAD
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.InjectionDelay, new GuardianCreatorDoAfterEvent(), injector, target: target, used: injector){BreakOnMove = true});
+=======
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.InjectionDelay, new GuardianCreatorDoAfterEvent(), injector, target: target, used: injector)
+            {
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true
+            });
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnDoAfter(EntityUid uid, GuardianCreatorComponent component, DoAfterEvent args)

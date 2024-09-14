@@ -12,6 +12,13 @@
                 TextureScale="2 2"
                 Mode="Tile"/>
         </PanelContainer.PanelOverride>
+<<<<<<< HEAD
+=======
+        <BoxContainer Orientation="Vertical" SeparationOverride="0">
+            <BoxContainer Name="StatusContents" Orientation="Vertical"/>
+            <Label Name="ItemNameLabel" StyleClasses="ItemStatus"/>
+        </BoxContainer>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     </PanelContainer>
     <PanelContainer Name="HighlightPanel">
         <PanelContainer.PanelOverride>

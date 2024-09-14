@@ -241,6 +241,29 @@
         type: Add
         time: 5
         refresh: false
+      - !type:ChemRerollPsionic #Nyano - Summary: lets the imbiber become psionic. 
+        conditions:
+        - !type:ReagentThreshold
+          reagent: SpaceDrugs
+          min: 15
+
+- type: reagent
+  id: Bananadine
+  name: reagent-name-bananadine
+  group: Narcotics
+  desc: reagent-desc-bananadine
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#ffff00"
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
 
 - type: reagent
   id: Bananadine
@@ -388,6 +411,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+<<<<<<< HEAD
 
 - type: reagent
   id: Happiness
@@ -438,3 +462,5 @@
         type: Add
         time: 5
         refresh: false
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -2,6 +2,10 @@
   id: BaseEnergyBall
   abstract: true
   components:
+<<<<<<< HEAD
+=======
+  - type: SupermatterImmune
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Clickable
   - type: Physics
     bodyType: KinematicController

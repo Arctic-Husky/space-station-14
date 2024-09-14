@@ -9,6 +9,7 @@ using Robust.Client.Animations;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Graphics;
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -97,8 +98,13 @@ public sealed partial class GunSystem
         {
             MinHeight = 15;
             HorizontalExpand = true;
+<<<<<<< HEAD
             VerticalAlignment = VAlignment.Center;
             AddChild(_bulletRender = new BulletRender
+=======
+            VerticalAlignment = Control.VAlignment.Center;
+            AddChild(new BoxContainer
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 HorizontalAlignment = HAlignment.Right,
                 VerticalAlignment = VAlignment.Bottom

@@ -164,11 +164,19 @@
     state: icon
 
 - type: construction
+<<<<<<< HEAD
   name: fire bomb
   id: firebomb
   graph: FireBomb
   startNode: start
   targetNode: firebomb
+=======
+  name: improvised explosive device
+  id: improvisedexplosive
+  graph: ImprovisedExplosive
+  startNode: start
+  targetNode: ied
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   category: construction-category-weapons
   objectType: Item
   description: A weak, improvised incendiary device.
@@ -201,6 +209,7 @@
     sprite: Clothing/Head/Hats/straw_hat.rsi
     state: icon
   objectType: Item
+<<<<<<< HEAD
 
 - type: construction
   name: pipe bomb
@@ -214,3 +223,5 @@
   icon:
     sprite: Objects/Weapons/Bombs/pipebomb.rsi
     state: icon
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

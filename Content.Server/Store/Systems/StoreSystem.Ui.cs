@@ -83,7 +83,11 @@ public sealed partial class StoreSystem
     /// <param name="store">The store entity itself</param>
     /// <param name="component">The store component being refreshed.</param>
     /// <param name="ui"></param>
+<<<<<<< HEAD
     public void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
+=======
+    public void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null, PlayerBoundUserInterface? ui = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(store, ref component))
             return;
@@ -114,12 +118,20 @@ public sealed partial class StoreSystem
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
         var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
+<<<<<<< HEAD
         _ui.SetUiState(store, StoreUiKey.Key, state);
+=======
+        _ui.SetUiState(ui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnRequestUpdate(EntityUid uid, StoreComponent component, StoreRequestUpdateInterfaceMessage args)
     {
+<<<<<<< HEAD
         UpdateUserInterface(args.Actor, GetEntity(args.Entity), component);
+=======
+        UpdateUserInterface(args.Session.AttachedEntity, GetEntity(args.Entity), component);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void BeforeActivatableUiOpen(EntityUid uid, StoreComponent component, BeforeActivatableUIOpenEvent args)
@@ -215,11 +227,19 @@ public sealed partial class StoreSystem
             {
                 HandleRefundComp(uid, component, actionId.Value);
 
+<<<<<<< HEAD
                 if (listing.ProductUpgradeId != null)
                 {
                     foreach (var upgradeListing in component.Listings)
                     {
                         if (upgradeListing.ID == listing.ProductUpgradeId)
+=======
+                if (listing.ProductUpgradeID != null)
+                {
+                    foreach (var upgradeListing in component.Listings)
+                    {
+                        if (upgradeListing.ID == listing.ProductUpgradeID)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                         {
                             upgradeListing.ProductActionEntity = actionId.Value;
                             break;
@@ -229,7 +249,11 @@ public sealed partial class StoreSystem
             }
         }
 
+<<<<<<< HEAD
         if (listing is { ProductUpgradeId: not null, ProductActionEntity: not null })
+=======
+        if (listing is { ProductUpgradeID: not null, ProductActionEntity: not null })
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (listing.ProductActionEntity != null)
             {
@@ -312,7 +336,11 @@ public sealed partial class StoreSystem
     {
         // TODO: Remove guardian/holopara
 
+<<<<<<< HEAD
         if (args.Actor is not { Valid: true } buyer)
+=======
+        if (args.Session.AttachedEntity is not { Valid: true } buyer)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         if (!IsOnStartingMap(uid, component))

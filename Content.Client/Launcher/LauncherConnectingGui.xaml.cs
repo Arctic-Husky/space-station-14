@@ -20,6 +20,7 @@ namespace Content.Client.Launcher
     {
         private const float RedialWaitTimeSeconds = 15f;
         private readonly LauncherConnecting _state;
+<<<<<<< HEAD
         private float _waitTime;
 
         // Pressing reconnect will redial instead of simply reconnecting.
@@ -29,6 +30,14 @@ namespace Content.Client.Launcher
         private readonly IPrototypeManager _prototype;
         private readonly IConfigurationManager _cfg;
 
+=======
+        private readonly IRobustRandom _random;
+        private readonly IPrototypeManager _prototype;
+        private readonly IConfigurationManager _cfg;
+
+        private float _redialWaitTime = RedialWaitTimeSeconds;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public LauncherConnectingGui(LauncherConnecting state, IRobustRandom random,
             IPrototypeManager prototype, IConfigurationManager config)
         {
@@ -44,8 +53,19 @@ namespace Content.Client.Launcher
             Stylesheet = IoCManager.Resolve<IStylesheetManager>().SheetSpace;
 
             ChangeLoginTip();
+<<<<<<< HEAD
             ReconnectButton.OnPressed += ReconnectButtonPressed;
             RetryButton.OnPressed += ReconnectButtonPressed;
+=======
+            ReconnectButton.OnPressed += _ => _state.RetryConnect();
+            // Redial shouldn't fail, but if it does, try a reconnect (maybe we're being run from debug)
+            RedialButton.OnPressed += _ =>
+            {
+                if (!_state.Redial())
+                    _state.RetryConnect();
+            };
+            RetryButton.OnPressed += _ => _state.RetryConnect();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             ExitButton.OnPressed += _ => _state.Exit();
             RedirectButton.OnPressed += _ => _state.Redirect();
 
@@ -124,6 +144,29 @@ namespace Content.Client.Launcher
                 }
 
             }
+        }
+
+        private void ChangeLoginTip()
+        {
+            var tipsDataset = _cfg.GetCVar(CCVars.LoginTipsDataset);
+            var loginTipsEnabled = _prototype.TryIndex<DatasetPrototype>(tipsDataset, out var tips);
+
+            LoginTips.Visible = loginTipsEnabled;
+            if (!loginTipsEnabled)
+            {
+                return;
+            }
+
+            var tipList = tips!.Values;
+
+            if (tipList.Count == 0)
+                return;
+
+            var randomIndex = _random.Next(tipList.Count);
+            var tip = tipList[randomIndex];
+            LoginTip.SetMessage(tip);
+
+            LoginTipTitle.Text = Loc.GetString("connecting-window-tip", ("numberTip", randomIndex));
         }
 
         private void ChangeLoginTip()

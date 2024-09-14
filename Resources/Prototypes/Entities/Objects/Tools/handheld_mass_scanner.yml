@@ -34,10 +34,21 @@
     singleUser: true
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
   - type: StaticPrice
     price: 150
+=======
+      - key: enum.RadarConsoleUiKey.Key
+        type: RadarConsoleBoundUserInterface
+  - type: StaticPrice
+    price: 150
+  - type: ReverseEngineering # Delta
+    difficulty: 3
+    recipes:
+      - HandHeldMassScanner
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: HandHeldMassScannerEmpty

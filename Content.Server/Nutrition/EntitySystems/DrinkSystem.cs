@@ -5,9 +5,15 @@ using Content.Server.Chemistry.ReagentEffects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Inventory;
+<<<<<<< HEAD
+=======
+using Content.Server.Nutrition.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Popups;
+using Content.Server.Traits.Assorted.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -23,9 +29,17 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+<<<<<<< HEAD
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+=======
+using Content.Shared.Throwing;
+using Content.Shared.Verbs;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -51,6 +65,10 @@ public sealed class DrinkSystem : SharedDrinkSystem
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly ForensicsSystem _forensics = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly IConfigurationManager _config = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -61,12 +79,44 @@ public sealed class DrinkSystem : SharedDrinkSystem
         SubscribeLocalEvent<DrinkComponent, ComponentInit>(OnDrinkInit);
         // run before inventory so for bucket it always tries to drink before equipping (when empty)
         // run after openable so its always open -> drink
+<<<<<<< HEAD
         SubscribeLocalEvent<DrinkComponent, UseInHandEvent>(OnUse, before: [typeof(ServerInventorySystem)], after: [typeof(OpenableSystem)]);
         SubscribeLocalEvent<DrinkComponent, AfterInteractEvent>(AfterInteract);
         SubscribeLocalEvent<DrinkComponent, GetVerbsEvent<AlternativeVerb>>(AddDrinkVerb);
+=======
+        SubscribeLocalEvent<DrinkComponent, UseInHandEvent>(OnUse, before: new[] { typeof(ServerInventorySystem) }, after: new[] { typeof(OpenableSystem) });
+        SubscribeLocalEvent<DrinkComponent, AfterInteractEvent>(AfterInteract);
+        SubscribeLocalEvent<DrinkComponent, GetVerbsEvent<AlternativeVerb>>(AddDrinkVerb);
+        // put drink amount after opened
+        SubscribeLocalEvent<DrinkComponent, ExaminedEvent>(OnExamined, after: new[] { typeof(OpenableSystem) });
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         SubscribeLocalEvent<DrinkComponent, ConsumeDoAfterEvent>(OnDoAfter);
+
+        SubscribeLocalEvent<PressurizedDrinkComponent, LandEvent>(OnPressurizedDrinkLand);
     }
 
+<<<<<<< HEAD
+=======
+    private FixedPoint2 DrinkVolume(EntityUid uid, DrinkComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return FixedPoint2.Zero;
+
+        if (!_solutionContainer.TryGetSolution(uid, component.Solution, out _, out var sol))
+            return FixedPoint2.Zero;
+
+        return sol.Volume;
+    }
+
+    public bool IsEmpty(EntityUid uid, DrinkComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return true;
+
+        return DrinkVolume(uid, component) <= 0;
+    }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// <summary>
     /// Get the total hydration factor contained in a drink's solution.
     /// </summary>
@@ -101,6 +151,41 @@ public sealed class DrinkSystem : SharedDrinkSystem
         return total;
     }
 
+<<<<<<< HEAD
+=======
+    private void OnExamined(Entity<DrinkComponent> entity, ref ExaminedEvent args)
+    {
+        TryComp<OpenableComponent>(entity, out var openable);
+        if (_openable.IsClosed(entity.Owner, null, openable) || !args.IsInDetailsRange || !entity.Comp.Examinable)
+            return;
+
+        var empty = IsEmpty(entity, entity.Comp);
+        if (empty)
+        {
+            args.PushMarkup(Loc.GetString("drink-component-on-examine-is-empty"));
+            return;
+        }
+
+        if (HasComp<ExaminableSolutionComponent>(entity))
+        {
+            //provide exact measurement for beakers
+            args.PushText(Loc.GetString("drink-component-on-examine-exact-volume", ("amount", DrinkVolume(entity, entity.Comp))));
+        }
+        else
+        {
+            //general approximation
+            var remainingString = (int) _solutionContainer.PercentFull(entity) switch
+            {
+                100 => "drink-component-on-examine-is-full",
+                > 66 => "drink-component-on-examine-is-mostly-full",
+                > 33 => HalfEmptyOrHalfFull(args),
+                _ => "drink-component-on-examine-is-mostly-empty",
+            };
+            args.PushMarkup(Loc.GetString(remainingString));
+        }
+    }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void AfterInteract(Entity<DrinkComponent> entity, ref AfterInteractEvent args)
     {
         if (args.Handled || args.Target == null || !args.CanReach)
@@ -117,6 +202,28 @@ public sealed class DrinkSystem : SharedDrinkSystem
         args.Handled = TryDrink(args.User, args.User, entity.Comp, entity);
     }
 
+<<<<<<< HEAD
+=======
+    private void OnPressurizedDrinkLand(Entity<PressurizedDrinkComponent> entity, ref LandEvent args)
+    {
+        if (!TryComp<DrinkComponent>(entity, out var drink) || !TryComp<OpenableComponent>(entity, out var openable))
+            return;
+
+        if (!openable.Opened &&
+            _random.Prob(entity.Comp.BurstChance) &&
+            _solutionContainer.TryGetSolution(entity.Owner, drink.Solution, out var soln, out var interactions))
+        {
+            // using SetOpen instead of TryOpen to not play 2 sounds
+            _openable.SetOpen(entity, true, openable);
+
+            var solution = _solutionContainer.SplitSolution(soln.Value, interactions.Volume);
+            _puddle.TrySpillAt(entity, solution, out _);
+
+            _audio.PlayPvs(entity.Comp.BurstSound, entity);
+        }
+    }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void OnDrinkInit(Entity<DrinkComponent> entity, ref ComponentInit args)
     {
         if (TryComp<DrainableSolutionComponent>(entity, out var existingDrainable))
@@ -197,9 +304,19 @@ public sealed class DrinkSystem : SharedDrinkSystem
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(user, drinkSolution);
 
+<<<<<<< HEAD
         var doAfterEventArgs = new DoAfterArgs(EntityManager,
             user,
             forceDrink ? drink.ForceFeedDelay : drink.Delay,
+=======
+        var drinkDelay = drink.Delay;
+        if (TryComp<ConsumeDelayModifierComponent>(target, out var delayModifier))
+            drinkDelay *= delayModifier.DrinkDelayMultiplier;
+
+        var doAfterEventArgs = new DoAfterArgs(EntityManager,
+            user,
+            forceDrink ? drink.ForceFeedDelay : drinkDelay,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             new ConsumeDoAfterEvent(drink.Solution, flavors),
             eventTarget: item,
             target: target,
@@ -319,7 +436,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
 
         _forensics.TransferDna(entity, args.Target.Value);
 
-        if (!forceDrink && solution.Volume > 0)
+        if (_config.GetCVar(CCVars.GameAutoEatDrinks) && !forceDrink && solution.Volume > 0)
             args.Repeat = true;
     }
 

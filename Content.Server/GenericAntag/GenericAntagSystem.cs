@@ -57,6 +57,17 @@ public sealed class GenericAntagSystem : EntitySystem
             _mind.TryAddObjective(mindId, mind, id);
         }
     }
+<<<<<<< HEAD
+=======
+
+    /// <summary>
+    /// DeltaV - used by paradox anomaly
+    /// </summary>
+    public void MakeAntag(EntityUid uid, string rule)
+    {
+        AddComp<GenericAntagComponent>(uid).Rule = rule;
+    }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }
 
 /// <summary>

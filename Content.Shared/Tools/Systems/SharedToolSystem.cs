@@ -1,4 +1,5 @@
 using Content.Shared.Administration.Logs;
+<<<<<<< HEAD
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -7,6 +8,12 @@ using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Components;
 using JetBrains.Annotations;
+=======
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
+using Content.Shared.Maps;
+using Content.Shared.Tools.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -19,11 +26,16 @@ public abstract partial class SharedToolSystem : EntitySystem
 {
     [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly IPrototypeManager _protoMan = default!;
+<<<<<<< HEAD
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
+=======
+    [Dependency] protected   readonly ISharedAdminLogManager AdminLogger = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private   readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private   readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private   readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] protected readonly SharedInteractionSystem InteractionSystem = default!;
+<<<<<<< HEAD
     [Dependency] protected readonly SharedItemToggleSystem ItemToggle = default!;
     [Dependency] private   readonly SharedMapSystem _maps = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
@@ -32,12 +44,21 @@ public abstract partial class SharedToolSystem : EntitySystem
     [Dependency] private   readonly TileSystem _tiles = default!;
     [Dependency] private   readonly TurfSystem _turfs = default!;
     [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
+=======
+    [Dependency] private   readonly SharedMapSystem _maps = default!;
+    [Dependency] private   readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private   readonly TileSystem _tiles = default!;
+    [Dependency] private   readonly TurfSystem _turfs = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
         InitializeMultipleTool();
         InitializeTile();
+<<<<<<< HEAD
         InitializeWelder();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         SubscribeLocalEvent<ToolComponent, ToolDoAfterEvent>(OnDoAfter);
     }
 
@@ -134,7 +155,11 @@ public abstract partial class SharedToolSystem : EntitySystem
         if (!CanStartToolUse(tool, user, target, fuel, toolQualitiesNeeded, toolComponent))
             return false;
 
+<<<<<<< HEAD
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
+=======
+        var toolEvent = new ToolDoAfterEvent(doAfterEv, GetNetEntity(target));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay / toolComponent.SpeedModifier, toolEvent, tool, target: target, used: tool)
         {
             BreakOnDamage = true,
@@ -160,7 +185,10 @@ public abstract partial class SharedToolSystem : EntitySystem
     /// <param name="toolQualityNeeded">The quality needed for this tool to work.</param>
     /// <param name="doAfterEv">The event that will be raised when the tool has finished (including cancellation). Event
     /// will be directed at the tool target.</param>
+<<<<<<< HEAD
     /// <param name="fuel">Amount of fuel that should be taken from the tool.</param>
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// <param name="toolComponent">The tool component.</param>
     /// <returns>Returns true if any interaction takes place.</returns>
     public bool UseTool(
@@ -252,7 +280,11 @@ public abstract partial class SharedToolSystem : EntitySystem
         {
         }
 
+<<<<<<< HEAD
         public ToolDoAfterEvent(float fuel, DoAfterEvent wrappedEvent, NetEntity? originalTarget)
+=======
+        public ToolDoAfterEvent(DoAfterEvent wrappedEvent, NetEntity? originalTarget)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             DebugTools.Assert(wrappedEvent.GetType().HasCustomAttribute<NetSerializableAttribute>(), "Tool event is not serializable");
 
@@ -276,7 +308,11 @@ public abstract partial class SharedToolSystem : EntitySystem
     [Serializable, NetSerializable]
     protected sealed partial class LatticeCuttingCompleteEvent : DoAfterEvent
     {
+<<<<<<< HEAD
         [DataField(required:true)]
+=======
+        [DataField("coordinates", required:true)]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public NetCoordinates Coordinates;
 
         private LatticeCuttingCompleteEvent()

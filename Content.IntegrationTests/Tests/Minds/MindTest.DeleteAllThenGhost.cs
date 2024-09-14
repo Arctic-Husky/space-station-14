@@ -34,7 +34,11 @@ public sealed partial class MindTests
             Console.WriteLine(pair.Client.EntMan.ToPrettyString(ent));
         }
 
+<<<<<<< HEAD
         Assert.That(pair.Client.EntMan.EntityCount, Is.EqualTo(0));
+=======
+        Assert.That(pair.Client.EntMan.EntityCount, Is.AtMost(1)); // Tolerate at most one client entity
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         // Create a new map.
         int mapId = 1;

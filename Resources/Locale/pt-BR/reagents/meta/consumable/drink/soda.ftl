@@ -7,9 +7,14 @@ reagent-desc-changeling-sting = Você da um minúsculo gole e sente uma sensaç�
 reagent-name-dr-gibb = Dr. Gibb
 reagent-desc-dr-gibb = Uma mistura deliciosa de 42 sabores difirentes.
 
+<<<<<<< HEAD
 # Deixei a referência cultural mais clara
 reagent-name-energy-drink = energético
 reagent-desc-energy-drink = Uma dose de energia! A Nanotransen não é responsável em te dar aasaas!~
+=======
+reagent-name-energy-drink = energético
+reagent-desc-energy-drink = Uma dose de energia! A Nanotransen não é responsável se você crescer apêndices de ave.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 reagent-name-grape-soda = refri de uva
 reagent-desc-grape-soda = Chupa que é de uva!
@@ -41,5 +46,10 @@ reagent-desc-starkist = Um refrigerante doce sabor laranja.
 reagent-name-fourteen-loko = Fourteen Loko
 reagent-desc-fourteen-loko = Uma substânica líquida altamente processada passando por pouco os parâmetros de saúde intergaláticos de um refrigerante.
 
+<<<<<<< HEAD
 reagent-name-shamblers-juice = Suco Shambler
 reagent-desc-shamblers-juice = ~Quebre os padrões com Suco Shambler!~
+=======
+reagent-name-shamblers-juice = Shambler's Juice
+reagent-desc-shamblers-juice = ~Agite-me um pouco desse Shambler's Juice!~
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

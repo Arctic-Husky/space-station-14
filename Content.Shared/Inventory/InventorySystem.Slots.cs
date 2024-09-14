@@ -65,6 +65,7 @@ public partial class InventorySystem : EntitySystem
             var container = _containerSystem.EnsureContainer<ContainerSlot>(uid, slot.Name);
             container.OccludesLight = false;
             component.Containers[i] = container;
+<<<<<<< HEAD
         }
     }
 
@@ -76,6 +77,8 @@ public partial class InventorySystem : EntitySystem
         if (TryGetSlotEntity(uid, ev.Slot, out var entityUid) && TryComp<StorageComponent>(entityUid, out var storageComponent))
         {
             _storageSystem.OpenStorageUI(entityUid.Value, uid, storageComponent);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 
@@ -151,6 +154,10 @@ public partial class InventorySystem : EntitySystem
             slotDefinitions = null;
             return false;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         slotDefinitions = inv.Slots;
         return true;
     }

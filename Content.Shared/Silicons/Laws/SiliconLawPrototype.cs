@@ -39,6 +39,7 @@ public partial class SiliconLaw : IComparable<SiliconLaw>
         return Order.CompareTo(other.Order);
     }
 
+<<<<<<< HEAD
     public bool Equals(SiliconLaw other)
     {
         return LawString == other.LawString
@@ -46,6 +47,8 @@ public partial class SiliconLaw : IComparable<SiliconLaw>
                && LawIdentifierOverride == other.LawIdentifierOverride;
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// <summary>
     /// Return a shallow clone of this law.
     /// </summary>

@@ -12,5 +12,31 @@ health-analyzer-window-damage-type-duplicate-text = {$damageType}: {$amount} (du
 health-analyzer-window-scan-mode-text = Scan Mode:
 health-analyzer-window-scan-mode-active = ACTIVE
 health-analyzer-window-scan-mode-inactive = INACTIVE
+<<<<<<< HEAD
 
+=======
+
+health-analyzer-window-damage-group-Brute = Brute
+health-analyzer-window-damage-type-Blunt = Blunt
+health-analyzer-window-damage-type-Slash = Slash
+health-analyzer-window-damage-type-Piercing = Piercing
+
+health-analyzer-window-damage-group-Burn = Burn
+health-analyzer-window-damage-type-Heat = Heat
+health-analyzer-window-damage-type-Shock = Shock
+health-analyzer-window-damage-type-Cold = Cold
+health-analyzer-window-damage-type-Caustic = Caustic
+
+health-analyzer-window-damage-group-Airloss = Airloss
+health-analyzer-window-damage-type-Asphyxiation = Asphyxiation
+health-analyzer-window-damage-type-Bloodloss = Bloodloss
+
+health-analyzer-window-damage-group-Toxin = Toxin
+health-analyzer-window-damage-type-Poison = Poison
+health-analyzer-window-damage-type-Radiation = Radiation
+
+health-analyzer-window-damage-group-Genetic = Genetic
+health-analyzer-window-damage-type-Cellular = Cellular
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 health-analyzer-window-malnutrition = Severely malnourished

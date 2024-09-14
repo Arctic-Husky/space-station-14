@@ -18,6 +18,18 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     /// </summary>
     [DataField("analysisDuration", customTypeSerializer: typeof(TimespanSerializer))]
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
+<<<<<<< HEAD
+=======
+
+    // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
+    /// <summary>
+    /// Ratio of research points to glimmer.
+    /// Each is 150 and added to this, so
+    /// 550 / 700 / 850 / 1000
+    /// </summary>
+    public int ExtractRatio = 400;
+    // Nyano - End modified code block.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     /// The corresponding console entity.

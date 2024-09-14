@@ -2,7 +2,11 @@
   id: TattooHiveChest
   bodyPart: Chest
   markingCategory: Chest
+<<<<<<< HEAD
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -16,7 +20,11 @@
   id: TattooNightlingChest
   bodyPart: Chest
   markingCategory: Chest
+<<<<<<< HEAD
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -29,8 +37,13 @@
 - type: marking
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
+<<<<<<< HEAD
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  markingCategory: LeftLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -43,8 +56,13 @@
 - type: marking
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
+<<<<<<< HEAD
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  markingCategory: RightLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -57,8 +75,13 @@
 - type: marking
   id: TattooCampbellLeftArm
   bodyPart: LArm
+<<<<<<< HEAD
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  markingCategory: LeftArm
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -71,8 +94,13 @@
 - type: marking
   id: TattooCampbellRightArm
   bodyPart: RArm
+<<<<<<< HEAD
   markingCategory: Arms
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  markingCategory: RightArm
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -85,8 +113,13 @@
 - type: marking
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
+<<<<<<< HEAD
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  markingCategory: LeftLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -99,8 +132,13 @@
 - type: marking
   id: TattooCampbellRightLeg
   bodyPart: RLeg
+<<<<<<< HEAD
   markingCategory: Legs
   speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+=======
+  markingCategory: RightLeg
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Daengati] # Delta V - Felinid, Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:

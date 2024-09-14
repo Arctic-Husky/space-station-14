@@ -6,9 +6,18 @@
   abstract: true
   components:
   - type: HumanoidAppearance
+<<<<<<< HEAD
     species: HumanoidFoxes
   - type: Hunger
 #  - type: Carriable # Carrying system from nyanotrasen.
+=======
+    species: Vulpkanin
+  - type: Hunger
+    baseDecayRate: 0.02083333332 # 25% more than default
+  - type: Carriable # Carrying system from nyanotrasen.
+  - type: Inventory # Allows vulps to wear properly shaped helmets
+    speciesId: vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Thirst
   - type: Icon
     sprite: DeltaV/Mobs/Species/Vulpkanin/parts.rsi
@@ -87,7 +96,10 @@
   - type: Perishable
   - type: Damageable
     damageModifierSet: Vulpkanin
+<<<<<<< HEAD
 #  - type: Carriable
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: TemperatureProtection
     coefficient: 0.1
   - type: Vocal
@@ -95,6 +107,7 @@
       Male: MaleVulpkanin
       Female: FemaleVulpkanin
       Unsexed: MaleVulpkanin
+<<<<<<< HEAD
   - type: Flammable
     damage:
       types:
@@ -102,6 +115,27 @@
   - type: Wagging
     
 
+=======
+  - type: DogVision
+  - type: ScentTracker
+  - type: Flashable
+    eyeDamageChance: 0.3
+    eyeDamage: 1
+    durationMultiplier: 1.5
+  - type: Wagging
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Canilunzt
+    understands:
+    - GalacticCommon
+    - Canilunzt
+  - type: ConsumeDelayModifier
+    foodDelayMultiplier: 0.5
+    drinkDelayMultiplier: 0.5
+  - type: Flammable
+    fireStackIncreaseMultiplier: 1.25
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   save: false
@@ -112,4 +146,8 @@
   description: A dummy vulpkanin meant to be used in character setup.
   components:
   - type: HumanoidAppearance
+<<<<<<< HEAD
     species: HumanoidFoxes
+=======
+    species: Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

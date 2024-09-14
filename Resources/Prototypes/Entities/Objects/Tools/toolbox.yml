@@ -7,6 +7,13 @@
     layers:
       - map: [ base ]
         state: icon
+<<<<<<< HEAD
+=======
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/toolbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/toolbox_drop.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/toolbox_drop.ogg
@@ -17,9 +24,15 @@
   - type: Item
     size: Ginormous
   - type: MeleeWeapon
+    attackRate: 0.9
+    range: 1.75
     damage:
       types:
-        Blunt: 12
+        Blunt: 9
+    bluntStaminaDamageFactor: 2.0
+    heavyRateModifier: 0.8
+    heavyStaminaCost: 10
+    angle: 80.5
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Tag
@@ -130,7 +143,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 20
+        Blunt: 11.5
 
 - type: entity
   name: golden toolbox
@@ -143,6 +156,13 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+<<<<<<< HEAD
+=======
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: ToolboxThief
@@ -167,5 +187,9 @@
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.ThiefBackpackUIKey.Key:
+=======
+      - key: enum.ThiefBackpackUIKey.Key
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         type: ThiefBackpackBoundUserInterface

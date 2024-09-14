@@ -177,7 +177,12 @@ public sealed class MailingUnitSystem : EntitySystem
             return;
 
         var state = new MailingUnitBoundUserInterfaceState(component.DisposalUnitInterfaceState, component.Target, component.TargetList, component.Tag);
+<<<<<<< HEAD
         _userInterfaceSystem.SetUiState(uid, MailingUnitUiKey.Key, state);
+=======
+        if (_userInterfaceSystem.TryGetUi(uid, MailingUnitUiKey.Key, out var bui))
+            _userInterfaceSystem.SetUiState(bui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnTargetSelected(EntityUid uid, MailingUnitComponent component, TargetSelectedMessage args)

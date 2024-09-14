@@ -6,5 +6,12 @@ action-name-show-radar-console = Interface de escaneador de massa
 action-description-show-radar-console = Ver a interface de escaneador de massa.
 action-name-show-cargo-console = Interface de encomenda da Carga
 action-description-show-cargo-console = Ver a interface de encomenda da Carga.
+<<<<<<< HEAD
 action-name-show-crew-monitoring-console = Interface de monitoramento da tripulação
 action-description-crew-monitoring-console = Ver a interface de monitoramento da tripulação
+=======
+action-name-show-crew-monitoring-console = Interface de monitoramento da tripulação.
+action-description-crew-monitoring-console = Ver a interface de monitoramento da tripulação.
+action-name-show-station-records-console = Interface de Registros da Estação
+action-description-show-station-records-console = Ver uma interface de registros da estação
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

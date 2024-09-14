@@ -211,7 +211,11 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     /// </remarks>
     public uint? GetRecordByName(EntityUid station, string name, StationRecordsComponent? records = null)
     {
+<<<<<<< HEAD
         if (!Resolve(station, ref records, false))
+=======
+        if (!Resolve(station, ref records))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return null;
 
         foreach (var (id, record) in GetRecordsOfType<GeneralStationRecord>(station, records))
@@ -221,6 +225,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         }
 
         return null;
+<<<<<<< HEAD
     }
 
     /// <summary>
@@ -232,6 +237,8 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
            return string.Empty;
 
         return record.Name;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>

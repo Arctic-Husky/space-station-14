@@ -16,6 +16,12 @@ reagent-desc-thc = The main psychoactive compound in cannabis.
 reagent-name-bananadine = bananadine
 reagent-desc-bananadine = A mild psychedelic that is found in small traces in banana peels.
 
+<<<<<<< HEAD
+=======
+reagent-name-bananadine = bananadine
+reagent-desc-bananadine = A mild psychedelic that is found in small traces in banana peels.
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 reagent-name-nicotine = nicotine
 reagent-desc-nicotine = Dangerous and highly addictive, but that's what the propaganda says.
 
@@ -36,6 +42,9 @@ reagent-desc-norepinephric-acid = A smooth chemical that blocks the optical rece
 
 reagent-name-tear-gas = tear gas
 reagent-desc-tear-gas = A chemical that causes severe irritation and crying, commonly used in riot control.
+<<<<<<< HEAD
 
 reagent-name-happiness = happiness
 reagent-desc-happiness = Fills you with ecstatic numbness and causes minor brain damage. Highly addictive. If overdosed causes sudden mood swings.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

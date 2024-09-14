@@ -487,9 +487,17 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         configurator.ActiveDeviceList = targetUid;
         Dirty(configuratorUid, configurator);
 
+<<<<<<< HEAD
         if (_uiSystem.TryOpenUi(configuratorUid, NetworkConfiguratorUiKey.Configure, userUid))
         {
             _uiSystem.SetUiState(configuratorUid, NetworkConfiguratorUiKey.Configure, new DeviceListUserInterfaceState(
+=======
+        if (!_uiSystem.TryGetUi(configuratorUid, NetworkConfiguratorUiKey.Configure, out var bui))
+            return;
+
+        if (_uiSystem.OpenUi(bui, actor.PlayerSession))
+            _uiSystem.SetUiState(bui, new DeviceListUserInterfaceState(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 _deviceListSystem.GetDeviceList(configurator.ActiveDeviceList.Value)
                     .Select(v => (v.Key, MetaData(v.Value).EntityName)).ToHashSet()
             ));
@@ -521,7 +529,12 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             component.Devices.Remove(invalidDevice);
         }
 
+<<<<<<< HEAD
         _uiSystem.SetUiState(uid, NetworkConfiguratorUiKey.List, new NetworkConfiguratorUserInterfaceState(devices));
+=======
+        if (_uiSystem.TryGetUi(uid, NetworkConfiguratorUiKey.List, out var bui))
+            _uiSystem.SetUiState(bui, new NetworkConfiguratorUserInterfaceState(devices));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -562,10 +575,17 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     /// </summary>
     private void OnRemoveDevice(EntityUid uid, NetworkConfiguratorComponent component, NetworkConfiguratorRemoveDeviceMessage args)
     {
+<<<<<<< HEAD
         if (component.Devices.TryGetValue(args.Address, out var removedDevice))
         {
             _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low,
                 $"{ToPrettyString(args.Actor):actor} removed buffered device {ToPrettyString(removedDevice):subject} from {ToPrettyString(uid):tool}");
+=======
+        if (component.Devices.TryGetValue(args.Address, out var removedDevice) && args.Session.AttachedEntity != null)
+        {
+            _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low,
+                $"{ToPrettyString(args.Session.AttachedEntity.Value):actor} removed buffered device {ToPrettyString(removedDevice):subject} from {ToPrettyString(uid):tool}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         component.Devices.Remove(args.Address);
@@ -580,8 +600,15 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     /// </summary>
     private void OnClearDevice(EntityUid uid, NetworkConfiguratorComponent component, NetworkConfiguratorClearDevicesMessage args)
     {
+<<<<<<< HEAD
         _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low,
             $"{ToPrettyString(args.Actor):actor} cleared buffered devices from {ToPrettyString(uid):tool}");
+=======
+        if (args.Session.AttachedEntity != null)
+            _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low,
+                $"{ToPrettyString(args.Session.AttachedEntity.Value):actor} cleared buffered devices from {ToPrettyString(uid):tool}");
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         ClearDevices(uid, component);
         UpdateListUiState(uid, component);
@@ -746,8 +773,14 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
                 result = _deviceListSystem.UpdateDeviceList(component.ActiveDeviceList.Value, new HashSet<EntityUid>());
                 break;
             case NetworkConfiguratorButtonKey.Copy:
+<<<<<<< HEAD
                 _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low,
                     $"{ToPrettyString(args.Actor):actor} copied devices from {ToPrettyString(component.ActiveDeviceList.Value):subject} to {ToPrettyString(uid):tool}");
+=======
+                if (args.Session.AttachedEntity != null)
+                    _adminLogger.Add(LogType.DeviceLinking, LogImpact.Low,
+                        $"{ToPrettyString(args.Session.AttachedEntity.Value):actor} copied devices from {ToPrettyString(component.ActiveDeviceList.Value):subject} to {ToPrettyString(uid):tool}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 ClearDevices(uid, component);
 

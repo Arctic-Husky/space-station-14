@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ent-WindoorAssembly = porta de vidro inacabada
     .desc = Ela abre, fecha, e tu consegue ver por ela!
 
@@ -124,3 +125,10 @@ ent-AirlockAssemblyShuttleSyndicateGlass = porta hermética inacabada com janela
 ent-AirlockAssemblyHighSec = porta hermética inacabada
     .desc = Ela abre, ela fecha, talvez ela te esmague.
 
+=======
+ent-WindoorAssembly = porta de vidro incompleta
+    .desc = Ela abre, fecha, e tu consegue ver por ela!
+
+ent-WindoorAssemblySecure = porta de vidro reforçado incompleta
+    .desc = Ela abre, fecha, e tu consegue ver por ela! Mas essa parece bem forte.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -67,7 +67,11 @@ public sealed partial class ParticleAcceleratorSystem
         FireEmitter(comp.StarboardEmitter!.Value, strength);
     }
 
+<<<<<<< HEAD
     public void SwitchOn(EntityUid uid, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+=======
+    public void SwitchOn(EntityUid uid, ICommonSession? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -90,7 +94,11 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(uid, comp);
     }
 
+<<<<<<< HEAD
     public void SwitchOff(EntityUid uid, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+=======
+    public void SwitchOff(EntityUid uid, ICommonSession? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -138,7 +146,11 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(uid, comp);
     }
 
+<<<<<<< HEAD
     public void SetStrength(EntityUid uid, ParticleAcceleratorPowerState strength, EntityUid? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+=======
+    public void SetStrength(EntityUid uid, ParticleAcceleratorPowerState strength, ICommonSession? user = null, ParticleAcceleratorControlBoxComponent? comp = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(uid, ref comp))
             return;
@@ -248,7 +260,11 @@ public sealed partial class ParticleAcceleratorSystem
             receive = powerConsumer.ReceivedPower;
         }
 
+<<<<<<< HEAD
         _uiSystem.SetUiState(uid, ParticleAcceleratorControlBoxUiKey.Key, new ParticleAcceleratorUIState(
+=======
+        _uiSystem.SetUiState(bui, new ParticleAcceleratorUIState(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             comp.Assembled,
             comp.Enabled,
             comp.SelectedStrength,
@@ -362,10 +378,17 @@ public sealed partial class ParticleAcceleratorSystem
         if (msg.Enabled)
         {
             if (comp.Assembled)
+<<<<<<< HEAD
                 SwitchOn(uid, msg.Actor, comp);
         }
         else
             SwitchOff(uid, msg.Actor, comp);
+=======
+                SwitchOn(uid, msg.Session, comp);
+        }
+        else
+            SwitchOff(uid, msg.Session, comp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         UpdateUI(uid, comp);
     }
@@ -379,7 +402,11 @@ public sealed partial class ParticleAcceleratorSystem
         if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && !apcPower.Powered)
             return;
 
+<<<<<<< HEAD
         SetStrength(uid, msg.State, msg.Actor, comp);
+=======
+        SetStrength(uid, msg.State, msg.Session, comp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         UpdateUI(uid, comp);
     }
@@ -393,7 +420,11 @@ public sealed partial class ParticleAcceleratorSystem
         if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPower) && !apcPower.Powered)
             return;
 
+<<<<<<< HEAD
         RescanParts(uid, msg.Actor, comp);
+=======
+        RescanParts(uid, msg.Session, comp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         UpdateUI(uid, comp);
     }

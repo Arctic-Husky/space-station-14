@@ -29,7 +29,7 @@ on:
 jobs:
   build:
     name: Test Packaging
-    if: github.actor != 'PJBot' && github.event.pull_request.draft == false
+    if: github.actor != 'PJBot' && github.event.pull_request.draft == false && github.actor != 'DeltaV-Bot' && github.actor != 'SimpleStation14'
     runs-on: ubuntu-latest
 
     steps:
@@ -51,7 +51,11 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3.2.0
         with:
+<<<<<<< HEAD
           dotnet-version: 8.0.x
+=======
+          dotnet-version: 8.0.100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
       - name: Install dependencies
         run: dotnet restore

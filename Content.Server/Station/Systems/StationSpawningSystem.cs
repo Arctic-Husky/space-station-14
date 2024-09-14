@@ -6,8 +6,14 @@ using Content.Server.IdentityManagement;
 using Content.Server.Mind.Commands;
 using Content.Server.PDA;
 using Content.Server.Shuttles.Systems;
+<<<<<<< HEAD
 using Content.Server.Silicons.IPC;
 using Content.Server.Spawners.EntitySystems;
+=======
+using Content.Server.Silicon.IPC;
+using Content.Server.Spawners.EntitySystems;
+using Content.Server.Spawners.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -59,7 +65,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+<<<<<<< HEAD
         base.Initialize();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Subs.CVar(_configurationManager, CCVars.ICRandomCharacters, e => _randomizeCharacters = e, true);
 
         _spawnerCallbacks = new Dictionary<SpawnPriorityPreference, Action<PlayerSpawningEvent>>()
@@ -76,17 +85,22 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="job">The job to assign, if any.</param>
     /// <param name="profile">The character profile to use, if any.</param>
     /// <param name="stationSpawning">Resolve pattern, the station spawning component for the station.</param>
+    /// <param name="spawnPointType">Delta-V: Set desired spawn point type.</param>
     /// <returns>The resulting player character, if any.</returns>
     /// <exception cref="ArgumentException">Thrown when the given station is not a station.</exception>
     /// <remarks>
     /// This only spawns the character, and does none of the mind-related setup you'd need for it to be playable.
     /// </remarks>
-    public EntityUid? SpawnPlayerCharacterOnStation(EntityUid? station, JobComponent? job, HumanoidCharacterProfile? profile, StationSpawningComponent? stationSpawning = null)
+    public EntityUid? SpawnPlayerCharacterOnStation(EntityUid? station, JobComponent? job, HumanoidCharacterProfile? profile, StationSpawningComponent? stationSpawning = null, SpawnPointType spawnPointType = SpawnPointType.Unset)
     {
         if (station != null && !Resolve(station.Value, ref stationSpawning))
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
+<<<<<<< HEAD
         var ev = new PlayerSpawningEvent(job, profile, station);
+=======
+        var ev = new PlayerSpawningEvent(job, profile, station, spawnPointType);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (station != null && profile != null)
         {
@@ -107,9 +121,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             {
                 // Call all of them in the typical order.
                 foreach (var typicalSpawner in _spawnerCallbacks.Values)
+<<<<<<< HEAD
                 {
                     typicalSpawner(ev);
                 }
+=======
+                    typicalSpawner(ev);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -161,13 +179,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             speciesId = weights.Pick(_random);
         }
         else if (profile != null)
-        {
             speciesId = profile.Species;
-        }
         else
-        {
             speciesId = SharedHumanoidAppearanceSystem.DefaultSpecies;
-        }
 
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {speciesId}");
@@ -175,15 +189,20 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         entity ??= Spawn(species.Prototype, coordinates);
 
         if (_randomizeCharacters)
-        {
             profile = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
-        }
 
         if (prototype?.StartingGear != null)
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
+<<<<<<< HEAD
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
             InternalEncryptionKeySpawner.TryInsertEncryptionKey(entity.Value, startingGear, EntityManager, profile); // Parkstation - IPC
+=======
+            EquipStartingGear(entity.Value, startingGear);
+            if (profile != null)
+                EquipIdCard(entity.Value, profile.Name, prototype, station);
+                InternalEncryptionKeySpawner.TryInsertEncryptionKey(entity.Value, startingGear, EntityManager, profile); // Parkstation - IPC
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         // Run loadouts after so stuff like storage loadouts can get
@@ -309,11 +328,16 @@ public sealed class PlayerSpawningEvent : EntityEventArgs
     /// The target station, if any.
     /// </summary>
     public readonly EntityUid? Station;
+    /// <summary>
+    /// Desired SpawnPointType, if any.
+    /// </summary>
+    public readonly SpawnPointType DesiredSpawnPointType;
 
-    public PlayerSpawningEvent(JobComponent? job, HumanoidCharacterProfile? humanoidCharacterProfile, EntityUid? station)
+    public PlayerSpawningEvent(JobComponent? job, HumanoidCharacterProfile? humanoidCharacterProfile, EntityUid? station, SpawnPointType spawnPointType = SpawnPointType.Unset)
     {
         Job = job;
         HumanoidCharacterProfile = humanoidCharacterProfile;
         Station = station;
+        DesiredSpawnPointType = spawnPointType;
     }
 }

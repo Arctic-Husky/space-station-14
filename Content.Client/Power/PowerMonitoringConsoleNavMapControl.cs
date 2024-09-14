@@ -5,7 +5,10 @@ using Robust.Client.Graphics;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using System.Numerics;
+<<<<<<< HEAD
 using static Content.Shared.Power.SharedPowerMonitoringConsoleSystem;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Client.Power;
 
@@ -24,6 +27,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
 
     public PowerMonitoringCableNetworksComponent? PowerMonitoringCableNetworks;
     public List<PowerMonitoringConsoleLineGroup> HiddenLineGroups = new();
+<<<<<<< HEAD
     public List<PowerMonitoringConsoleLine> PowerCableNetwork = new();
     public List<PowerMonitoringConsoleLine> FocusCableNetwork = new();
 
@@ -31,6 +35,10 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
     private Dictionary<Vector2i, Vector2i>[] _horizLinesReversed = [new(), new(), new()];
     private Dictionary<Vector2i, Vector2i>[] _vertLines = [new(), new(), new()];
     private Dictionary<Vector2i, Vector2i>[] _vertLinesReversed = [new(), new(), new()];
+=======
+    public Dictionary<Vector2i, List<PowerMonitoringConsoleLine>>? PowerCableNetwork;
+    public Dictionary<Vector2i, List<PowerMonitoringConsoleLine>>? FocusCableNetwork;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     private MapGridComponent? _grid;
 
@@ -54,15 +62,26 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
         if (!_entManager.TryGetComponent<PowerMonitoringCableNetworksComponent>(Owner, out var cableNetworks))
             return;
 
+<<<<<<< HEAD
         PowerCableNetwork = GetDecodedPowerCableChunks(cableNetworks.AllChunks);
         FocusCableNetwork = GetDecodedPowerCableChunks(cableNetworks.FocusChunks);
+=======
+        if (!_entManager.TryGetComponent(MapUid, out _grid))
+            return;
+
+        PowerCableNetwork = GetDecodedPowerCableChunks(cableNetworks.AllChunks, _grid);
+        FocusCableNetwork = GetDecodedPowerCableChunks(cableNetworks.FocusChunks, _grid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public void DrawAllCableNetworks(DrawingHandleScreen handle)
     {
+<<<<<<< HEAD
         if (!_entManager.TryGetComponent(MapUid, out _grid))
             return;
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         // Draw full cable network
         if (PowerCableNetwork != null && PowerCableNetwork.Count > 0)
         {
@@ -75,6 +94,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
             DrawCableNetwork(handle, FocusCableNetwork, Color.White);
     }
 
+<<<<<<< HEAD
     public void DrawCableNetwork(DrawingHandleScreen handle, List<PowerMonitoringConsoleLine> fullCableNetwork, Color modulator)
     {
         if (!_entManager.TryGetComponent(MapUid, out _grid))
@@ -82,11 +102,18 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
 
         var offset = GetOffset();
         offset = offset with { Y = -offset.Y };
+=======
+    public void DrawCableNetwork(DrawingHandleScreen handle, Dictionary<Vector2i, List<PowerMonitoringConsoleLine>> fullCableNetwork, Color modulator)
+    {
+        var offset = GetOffset();
+        var area = new Box2(-WorldRange, -WorldRange, WorldRange + 1f, WorldRange + 1f).Translated(offset);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (WorldRange / WorldMaxRange > 0.5f)
         {
             var cableNetworks = new ValueList<Vector2>[3];
 
+<<<<<<< HEAD
             foreach (var line in fullCableNetwork)
             {
                 if (HiddenLineGroups.Contains(line.Group))
@@ -98,6 +125,29 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
 
                 cableNetworks[(int) line.Group].Add(start);
                 cableNetworks[(int) line.Group].Add(end);
+=======
+            foreach ((var chunk, var chunkedLines) in fullCableNetwork)
+            {
+                var offsetChunk = new Vector2(chunk.X, chunk.Y) * SharedNavMapSystem.ChunkSize;
+
+                if (offsetChunk.X < area.Left - SharedNavMapSystem.ChunkSize || offsetChunk.X > area.Right)
+                    continue;
+
+                if (offsetChunk.Y < area.Bottom - SharedNavMapSystem.ChunkSize || offsetChunk.Y > area.Top)
+                    continue;
+
+                foreach (var chunkedLine in chunkedLines)
+                {
+                    if (HiddenLineGroups.Contains(chunkedLine.Group))
+                        continue;
+
+                    var start = ScalePosition(chunkedLine.Origin - new Vector2(offset.X, -offset.Y));
+                    var end = ScalePosition(chunkedLine.Terminus - new Vector2(offset.X, -offset.Y));
+
+                    cableNetworks[(int) chunkedLine.Group].Add(start);
+                    cableNetworks[(int) chunkedLine.Group].Add(end);
+                }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             for (int cableNetworkIdx = 0; cableNetworkIdx < cableNetworks.Length; cableNetworkIdx++)
@@ -123,6 +173,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
         {
             var cableVertexUVs = new ValueList<Vector2>[3];
 
+<<<<<<< HEAD
             foreach (var line in fullCableNetwork)
             {
                 if (HiddenLineGroups.Contains(line.Group))
@@ -156,6 +207,50 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                 cableVertexUVs[(int) line.Group].Add(leftTop);
                 cableVertexUVs[(int) line.Group].Add(rightBottom);
                 cableVertexUVs[(int) line.Group].Add(rightTop);
+=======
+            foreach ((var chunk, var chunkedLines) in fullCableNetwork)
+            {
+                var offsetChunk = new Vector2(chunk.X, chunk.Y) * SharedNavMapSystem.ChunkSize;
+
+                if (offsetChunk.X < area.Left - SharedNavMapSystem.ChunkSize || offsetChunk.X > area.Right)
+                    continue;
+
+                if (offsetChunk.Y < area.Bottom - SharedNavMapSystem.ChunkSize || offsetChunk.Y > area.Top)
+                    continue;
+
+                foreach (var chunkedLine in chunkedLines)
+                {
+                    if (HiddenLineGroups.Contains(chunkedLine.Group))
+                        continue;
+
+                    var leftTop = ScalePosition(new Vector2
+                        (Math.Min(chunkedLine.Origin.X, chunkedLine.Terminus.X) - 0.1f,
+                        Math.Min(chunkedLine.Origin.Y, chunkedLine.Terminus.Y) - 0.1f)
+                        - new Vector2(offset.X, -offset.Y));
+
+                    var rightTop = ScalePosition(new Vector2
+                        (Math.Max(chunkedLine.Origin.X, chunkedLine.Terminus.X) + 0.1f,
+                        Math.Min(chunkedLine.Origin.Y, chunkedLine.Terminus.Y) - 0.1f)
+                        - new Vector2(offset.X, -offset.Y));
+
+                    var leftBottom = ScalePosition(new Vector2
+                        (Math.Min(chunkedLine.Origin.X, chunkedLine.Terminus.X) - 0.1f,
+                        Math.Max(chunkedLine.Origin.Y, chunkedLine.Terminus.Y) + 0.1f)
+                        - new Vector2(offset.X, -offset.Y));
+
+                    var rightBottom = ScalePosition(new Vector2
+                        (Math.Max(chunkedLine.Origin.X, chunkedLine.Terminus.X) + 0.1f,
+                        Math.Max(chunkedLine.Origin.Y, chunkedLine.Terminus.Y) + 0.1f)
+                        - new Vector2(offset.X, -offset.Y));
+
+                    cableVertexUVs[(int) chunkedLine.Group].Add(leftBottom);
+                    cableVertexUVs[(int) chunkedLine.Group].Add(leftTop);
+                    cableVertexUVs[(int) chunkedLine.Group].Add(rightBottom);
+                    cableVertexUVs[(int) chunkedLine.Group].Add(leftTop);
+                    cableVertexUVs[(int) chunkedLine.Group].Add(rightBottom);
+                    cableVertexUVs[(int) chunkedLine.Group].Add(rightTop);
+                }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             for (int cableNetworkIdx = 0; cableNetworkIdx < cableVertexUVs.Length; cableNetworkIdx++)
@@ -178,6 +273,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
         }
     }
 
+<<<<<<< HEAD
     public List<PowerMonitoringConsoleLine> GetDecodedPowerCableChunks(Dictionary<Vector2i, PowerCableChunk>? chunks)
     {
         var decodedOutput = new List<PowerMonitoringConsoleLine>();
@@ -207,14 +303,42 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                 for (var chunkIdx = 0; chunkIdx < ChunkSize * ChunkSize; chunkIdx++)
                 {
                     var value = 1 << chunkIdx;
+=======
+    public Dictionary<Vector2i, List<PowerMonitoringConsoleLine>>? GetDecodedPowerCableChunks(Dictionary<Vector2i, PowerCableChunk>? chunks, MapGridComponent? grid)
+    {
+        if (chunks == null || grid == null)
+            return null;
+
+        var decodedOutput = new Dictionary<Vector2i, List<PowerMonitoringConsoleLine>>();
+
+        foreach ((var chunkOrigin, var chunk) in chunks)
+        {
+            var list = new List<PowerMonitoringConsoleLine>();
+
+            for (int cableIdx = 0; cableIdx < chunk.PowerCableData.Length; cableIdx++)
+            {
+                var chunkMask = chunk.PowerCableData[cableIdx];
+
+                Vector2 offset = _powerCableOffsets[cableIdx];
+
+                for (var chunkIdx = 0; chunkIdx < SharedNavMapSystem.ChunkSize * SharedNavMapSystem.ChunkSize; chunkIdx++)
+                {
+                    var value = (int) Math.Pow(2, chunkIdx);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     var mask = chunkMask & value;
 
                     if (mask == 0x0)
                         continue;
 
+<<<<<<< HEAD
                     var relativeTile = GetTileFromIndex(chunkIdx);
                     var tile = (chunk.Origin * ChunkSize + relativeTile) * _grid.TileSize;
                     tile = tile with { Y = -tile.Y };
+=======
+                    var relativeTile = SharedNavMapSystem.GetTile(mask);
+                    var tile = (chunk.Origin * SharedNavMapSystem.ChunkSize + relativeTile) * grid.TileSize;
+                    var position = new Vector2(tile.X, -tile.Y);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                     PowerCableChunk neighborChunk;
                     bool neighbor;
@@ -222,6 +346,7 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                     // Note: we only check the north and east neighbors
 
                     // East
+<<<<<<< HEAD
                     if (relativeTile.X == ChunkSize - 1)
                     {
                         neighbor = chunks.TryGetValue(chunkOrigin + new Vector2i(1, 0), out neighborChunk) &&
@@ -230,12 +355,23 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                     else
                     {
                         var flag = GetFlag(relativeTile + new Vector2i(1, 0));
+=======
+                    if (relativeTile.X == SharedNavMapSystem.ChunkSize - 1)
+                    {
+                        neighbor = chunks.TryGetValue(chunkOrigin + new Vector2i(1, 0), out neighborChunk) &&
+                                    (neighborChunk.PowerCableData[cableIdx] & SharedNavMapSystem.GetFlag(new Vector2i(0, relativeTile.Y))) != 0x0;
+                    }
+                    else
+                    {
+                        var flag = SharedNavMapSystem.GetFlag(relativeTile + new Vector2i(1, 0));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                         neighbor = (chunkMask & flag) != 0x0;
                     }
 
                     if (neighbor)
                     {
                         // Add points
+<<<<<<< HEAD
                         AddOrUpdateNavMapLine(tile, tile + new Vector2i(_grid.TileSize, 0), horizLines, horizLinesReversed);
                     }
 
@@ -248,17 +384,46 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                     else
                     {
                         var flag = GetFlag(relativeTile + new Vector2i(0, 1));
+=======
+                        var line = new PowerMonitoringConsoleLine
+                            (position + offset + new Vector2(grid.TileSize * 0.5f, -grid.TileSize * 0.5f),
+                            position + new Vector2(1f, 0f) + offset + new Vector2(grid.TileSize * 0.5f, -grid.TileSize * 0.5f),
+                            (PowerMonitoringConsoleLineGroup) cableIdx);
+
+                        list.Add(line);
+                    }
+
+                    // North
+                    if (relativeTile.Y == SharedNavMapSystem.ChunkSize - 1)
+                    {
+                        neighbor = chunks.TryGetValue(chunkOrigin + new Vector2i(0, 1), out neighborChunk) &&
+                                    (neighborChunk.PowerCableData[cableIdx] & SharedNavMapSystem.GetFlag(new Vector2i(relativeTile.X, 0))) != 0x0;
+                    }
+                    else
+                    {
+                        var flag = SharedNavMapSystem.GetFlag(relativeTile + new Vector2i(0, 1));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                         neighbor = (chunkMask & flag) != 0x0;
                     }
 
                     if (neighbor)
                     {
                         // Add points
+<<<<<<< HEAD
                         AddOrUpdateNavMapLine(tile + new Vector2i(0, -_grid.TileSize), tile, vertLines, vertLinesReversed);
+=======
+                        var line = new PowerMonitoringConsoleLine
+                            (position + offset + new Vector2(grid.TileSize * 0.5f, -grid.TileSize * 0.5f),
+                            position + new Vector2(0f, -1f) + offset + new Vector2(grid.TileSize * 0.5f, -grid.TileSize * 0.5f),
+                            (PowerMonitoringConsoleLineGroup) cableIdx);
+
+                        list.Add(line);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     }
                 }
 
             }
+<<<<<<< HEAD
         }
 
         var gridOffset = new Vector2(_grid.TileSize * 0.5f, -_grid.TileSize * 0.5f);
@@ -281,6 +446,11 @@ public sealed partial class PowerMonitoringConsoleNavMapControl : NavMapControl
                 decodedOutput.Add(new PowerMonitoringConsoleLine(origin + gridOffset, terminal + gridOffset,
                     (PowerMonitoringConsoleLineGroup) index));
             }
+=======
+
+            if (list.Count > 0)
+                decodedOutput.Add(chunkOrigin, list);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         return decodedOutput;

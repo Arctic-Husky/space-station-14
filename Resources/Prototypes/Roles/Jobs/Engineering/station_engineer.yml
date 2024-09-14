@@ -3,10 +3,15 @@
   name: job-name-engineer
   description: job-description-engineer
   playTimeTracker: JobStationEngineer
+  antagAdvantage: 3 # DeltaV - Reduced TC: External Access + Engineering
   requirements:
-    - !type:DepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement
       department: Engineering
+<<<<<<< HEAD
       time: 5400
+=======
+      min: 14400 #4 hrs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
@@ -20,6 +25,19 @@
 - type: startingGear
   id: StationEngineerGear
   equipment:
+<<<<<<< HEAD
     eyes: ClothingEyesGlassesMeson
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
+=======
+    jumpsuit: ClothingUniformJumpsuitEngineering
+    back: ClothingBackpackEngineeringFilled
+    shoes: ClothingShoesBootsWork
+    id: EngineerPDA
+    eyes: ClothingEyesGlassesMeson
+    belt: ClothingBeltUtilityEngineering
+    ears: ClothingHeadsetEngineering
+  innerClothingSkirt: ClothingUniformJumpskirtEngineering
+  satchel: ClothingBackpackSatchelEngineeringFilled
+  duffelbag: ClothingBackpackDuffelEngineeringFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -41,6 +41,24 @@
         amount: 0.05
 
 - type: reagent
+  id: HotCocoa
+  name: reagent-name-hot-cocoa
+  parent: BaseDrink
+  desc: reagent-desc-hot-cocoa
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: chocolate
+  color: "#664300"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.05
+
+- type: reagent
   id: Cream
   name: reagent-name-cream
   group: Drinks
@@ -106,9 +124,15 @@
   flavor: tea
   color: "#7EB626"
   metamorphicSprite:
+<<<<<<< HEAD
     sprite: Objects/Consumable/Drinks/greenteaglass.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
+=======
+    sprite: Objects/Consumable/Drinks/glass_green.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
 
@@ -155,7 +179,11 @@
   flavor: icedtea
   color: "#5B821B"
   metamorphicSprite:
+<<<<<<< HEAD
     sprite: Objects/Consumable/Drinks/icedgreenteaglass.rsi
+=======
+    sprite: Objects/Consumable/Drinks/glass_green.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
@@ -519,7 +547,10 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+<<<<<<< HEAD
   fizziness: 0.3
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagent
   id: Rewriter
@@ -535,7 +566,10 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+<<<<<<< HEAD
   fizziness: 0.3
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagent
   id: Mopwata

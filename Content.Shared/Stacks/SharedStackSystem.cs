@@ -23,8 +23,8 @@ namespace Content.Shared.Stacks
         [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
         [Dependency] protected readonly SharedHandsSystem Hands = default!;
         [Dependency] protected readonly SharedTransformSystem Xform = default!;
-        [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-        [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+        [Dependency] private   readonly EntityLookupSystem _entityLookup = default!;
+        [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
         [Dependency] protected readonly SharedPopupSystem Popup = default!;
         [Dependency] private readonly SharedStorageSystem _storage = default!;
 

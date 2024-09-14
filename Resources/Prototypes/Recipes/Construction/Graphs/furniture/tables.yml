@@ -283,6 +283,15 @@
               icon:
                 sprite: Objects/Tiles/tile.rsi
                 state: carpet-white
+<<<<<<< HEAD
+=======
+
+        - to: TableWoodReinforced #Nyano - See Resources/Prototypes/Nyanotrasen/Entities/Furniture/Tables/tables.yml
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     - node: TableCarpet
       entity: TableCarpet
@@ -403,6 +412,21 @@
           steps:
             - tool: Prying
               doAfter: 1
+<<<<<<< HEAD
+=======
+
+    - node: TableWoodReinforced #Nyano - See Resources/Prototypes/Nyanotrasen/Entities/Furniture/Tables/tables.yml
+      entity: TableWoodReinforced
+      edges:
+        - to: TableWood
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     - node: CounterMetal
       entity: TableCounterMetal

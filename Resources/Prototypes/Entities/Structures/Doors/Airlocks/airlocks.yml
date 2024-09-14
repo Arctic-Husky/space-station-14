@@ -31,12 +31,16 @@
 - type: entity
   parent: Airlock
   id: AirlockCargo
-  suffix: Cargo
+  suffix: Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/cargo.rsi
   - type: PaintableAirlock
+<<<<<<< HEAD
     department: Cargo
+=======
+    department: Logistics
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Wires
     layoutId: AirlockCargo
 
@@ -68,12 +72,16 @@
 - type: entity
   parent: Airlock
   id: AirlockScience
-  suffix: Science
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/science.rsi
   - type: PaintableAirlock
+<<<<<<< HEAD
     department: Science
+=======
+    department: Epistemics
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Wires
     layoutId: AirlockScience
 
@@ -185,12 +193,16 @@
 - type: entity
   parent: AirlockGlass
   id: AirlockCargoGlass
-  suffix: Cargo
+  suffix: Logistics # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/cargo.rsi
   - type: PaintableAirlock
+<<<<<<< HEAD
     department: Cargo
+=======
+    department: Logistics
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Wires
     layoutId: AirlockCargo
 
@@ -222,12 +234,16 @@
 - type: entity
   parent: AirlockGlass
   id: AirlockScienceGlass
-  suffix: Science
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/science.rsi
   - type: PaintableAirlock
+<<<<<<< HEAD
     department: Science
+=======
+    department: Epistemics
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Wires
     layoutId: AirlockScience
 

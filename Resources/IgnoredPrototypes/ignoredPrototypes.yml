@@ -6,3 +6,13 @@
 #
 # - /Prototypes/Guidebook
 # - /Prototypes/Catalog/uplink_catalog.yml
+<<<<<<< HEAD
+=======
+
+# 2024/02/15
+- /Prototypes/Maps/salvage.yml
+# Replaced by
+# /Prototypes/Nyanotrasen/Maps/salvage.yml
+# /Prototypes/DeltaV/Maps/salvage_modified.yml
+# /Prototypes/DeltaV/Maps/salvage.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

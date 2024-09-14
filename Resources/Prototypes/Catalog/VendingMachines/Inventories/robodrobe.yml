@@ -10,3 +10,7 @@
     ClothingHeadBandSkull: 2
     ClothingHeadsetRobotics: 2
     ClothingOuterWinterRobo: 2
+    ClothingShoesBootsWinterRobo: 2 #Delta V: Add departmental winter boots
+    ClothingBackpackRobotics: 2
+    ClothingBackpackSatchelRobotics: 2
+    ClothingBackpackDuffelRobotics: 2

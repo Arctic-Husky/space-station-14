@@ -29,6 +29,8 @@ namespace Content.Server.PDA.Ringer
 
         private readonly Dictionary<NetUserId, TimeSpan> _lastSetRingtoneAt = new();
 
+        private readonly Dictionary<NetUserId, TimeSpan> _lastSetRingtoneAt = new();
+
         public override void Initialize()
         {
             base.Initialize();
@@ -82,10 +84,14 @@ namespace Content.Server.PDA.Ringer
 
         private void OnSetRingtone(EntityUid uid, RingerComponent ringer, RingerSetRingtoneMessage args)
         {
+<<<<<<< HEAD
             if (!TryComp(args.Actor, out ActorComponent? actorComp))
                 return;
 
             ref var lastSetAt = ref CollectionsMarshal.GetValueRefOrAddDefault(_lastSetRingtoneAt, actorComp.PlayerSession.UserId, out var exists);
+=======
+            ref var lastSetAt = ref CollectionsMarshal.GetValueRefOrAddDefault(_lastSetRingtoneAt, args.Session.UserId, out var exists);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             // Delay on the client is 0.333, 0.25 is still enough and gives some leeway in case of small time differences
             if (exists && lastSetAt > _gameTiming.CurTime - TimeSpan.FromMilliseconds(250))
@@ -185,10 +191,18 @@ namespace Content.Server.PDA.Ringer
 
         private void UpdateRingerUserInterface(EntityUid uid, RingerComponent ringer, bool isPlaying)
         {
+<<<<<<< HEAD
             _ui.SetUiState(uid, RingerUiKey.Key, new RingerUpdateState(isPlaying, ringer.Ringtone));
         }
 
         public bool ToggleRingerUI(EntityUid uid, EntityUid actor)
+=======
+            if (_ui.TryGetUi(uid, RingerUiKey.Key, out var bui))
+                _ui.SetUiState(bui, new RingerUpdateState(isPlaying, ringer.Ringtone));
+        }
+
+        public bool ToggleRingerUI(EntityUid uid, ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             _ui.TryToggleUi(uid, RingerUiKey.Key, actor);
             return true;

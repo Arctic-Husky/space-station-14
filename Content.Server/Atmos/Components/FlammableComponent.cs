@@ -11,11 +11,19 @@ namespace Content.Server.Atmos.Components
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
+<<<<<<< HEAD
         public bool OnFire;
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public float FireStacks;
+=======
+        public bool OnFire { get; set; }
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        public float FireStacks { get; set; }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
@@ -77,5 +85,14 @@ namespace Content.Server.Atmos.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FirestackFade = -0.1f;
+<<<<<<< HEAD
+=======
+
+        /// <summary>
+        ///     How stronger will firestack increases be?
+        /// </summary>
+        [DataField]
+        public float FireStackIncreaseMultiplier = 1f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

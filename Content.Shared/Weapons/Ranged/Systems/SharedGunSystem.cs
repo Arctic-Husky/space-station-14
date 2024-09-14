@@ -11,6 +11,7 @@ using Content.Shared.Examine;
 using Content.Shared.Gravity;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Item; // Delta-V: Felinids in duffelbags can't shoot.
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
@@ -127,7 +128,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (user == null ||
             !_combatMode.IsInCombatMode(user) ||
-            !TryGetGun(user.Value, out var ent, out var gun))
+            !TryGetGun(user.Value, out var ent, out var gun) ||
+            HasComp<ItemComponent>(user)) // Delta-V: Felinids in duffelbags can't shoot.
         {
             return;
         }
@@ -136,6 +138,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
+<<<<<<< HEAD
+=======
+        Log.Debug($"Set shoot coordinates to {gun.ShootCoordinates}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         gun.Target = GetEntity(msg.Target);
         AttemptShoot(user.Value, ent, gun);
     }
@@ -202,6 +208,14 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     /// <summary>
+    /// Sets the targeted entity of the gun. Should be called before attempting to shoot to avoid shooting over the target.
+    /// </summary>
+    public void SetTarget(GunComponent gun, EntityUid target)
+    {
+        gun.Target = target;
+    }
+
+    /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
     public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates)
@@ -239,7 +253,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         var prevention = new ShotAttemptedEvent
         {
             User = user,
+<<<<<<< HEAD
             Used = (gunUid, gun)
+=======
+            Used = gunUid
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         };
         RaiseLocalEvent(gunUid, ref prevention);
         if (prevention.Cancelled)
@@ -350,11 +368,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gunUid, ref shotEv);
 
-        if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
-        {
-            if (_gravity.IsWeightless(user, userPhysics))
-                CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
-        }
+        if (gun.DoRecoil
+            && userImpulse
+            && TryComp<PhysicsComponent>(user, out var userPhysics)
+            && _gravity.IsWeightless(user, userPhysics))
+            CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
 
         Dirty(gunUid, gun);
     }
@@ -439,7 +457,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             Angle ejectAngle = angle.Value;
             ejectAngle += 3.7f; // 212 degrees; casings should eject slightly to the right and behind of a gun
-            ThrowingSystem.TryThrow(entity, ejectAngle.ToVec().Normalized() / 100, 5f);
+            ThrowingSystem.TryThrow(entity, ejectAngle.ToVec(), 625f);
         }
         if (playSound && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
         {
@@ -473,7 +491,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (sprite == null)
             return;
 
+<<<<<<< HEAD
         var ev = new MuzzleFlashEvent(GetNetEntity(gun), sprite, worldAngle);
+=======
+        var ev = new MuzzleFlashEvent(GetNetEntity(gun), sprite, user == gun);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         CreateEffect(gun, ev, user);
     }
 
@@ -522,7 +544,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         Dirty(gun);
     }
 
+<<<<<<< HEAD
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
+=======
+    protected abstract void CreateEffect(EntityUid uid, MuzzleFlashEvent message, EntityUid? user = null);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     /// Used for animated effects on the client.

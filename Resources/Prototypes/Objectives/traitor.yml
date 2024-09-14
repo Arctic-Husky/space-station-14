@@ -49,6 +49,7 @@
       state: shuttle
   - type: EscapeShuttleCondition
 
+<<<<<<< HEAD
 - type: entity
   noSpawn: true
   parent: BaseTraitorObjective
@@ -67,6 +68,26 @@
       - EscapeShuttleCondition
       - StealCondition
   - type: DieCondition
+=======
+##- type: entity # DeltaV
+#  noSpawn: true
+#  parent: BaseTraitorObjective
+#  id: DieObjective
+#  name: Die a glorious death
+#  description: Die.
+#  components:
+#  - type: Objective
+#    difficulty: 0.5
+#    icon:
+#      sprite: Mobs/Ghosts/ghost_human.rsi
+#      state: icon
+#  - type: ObjectiveBlacklistRequirement
+#    blacklist:
+#      components:
+#      - EscapeShuttleCondition
+#      - StealCondition
+#  - type: DieCondition
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 #- type: entity
 #  noSpawn: true
@@ -191,9 +212,12 @@
   components:
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitRd
+<<<<<<< HEAD
   - type: Objective
     # This item must be worn or stored in a slowing duffelbag, very hard to hide.
     difficulty: 3
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   noSpawn: true
@@ -312,3 +336,18 @@
   - type: StealCondition
     stealGroup: NukeDisk
     owner: objective-condition-steal-station
+<<<<<<< HEAD
+=======
+
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: StealSupermatterSliverObjective
+  components:
+  - type: Objective
+    difficulty: 3.5
+  - type: StealCondition
+    stealGroup: SupermatterSliver
+    objectiveNoOwnerText: objective-condition-steal-smsliver-title
+    descriptionText: objective-condition-steal-smsliver-description
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

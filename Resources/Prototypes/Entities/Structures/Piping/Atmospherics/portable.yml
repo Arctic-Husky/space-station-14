@@ -1,6 +1,10 @@
 - type: entity
   id: PortableScrubber
+<<<<<<< HEAD
   parent: [BaseMachinePowered, ConstructibleMachine, StructureWheeled]
+=======
+  parent: [BaseMachinePowered, SmallConstructibleMachine, StructureWheeled]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: portable scrubber
   description: It scrubs, portably!
   components:
@@ -144,8 +148,13 @@
   - type: WiresVisuals
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.SpaceHeaterUiKey.Key:
         type: SpaceHeaterBoundUserInterface
+=======
+    - key: enum.SpaceHeaterUiKey.Key
+      type: SpaceHeaterBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ActivatableUI
     inHandsOnly: false
     key: enum.SpaceHeaterUiKey.Key

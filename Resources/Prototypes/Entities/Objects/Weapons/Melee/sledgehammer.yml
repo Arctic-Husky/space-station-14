@@ -9,10 +9,25 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Blunt: 10
         Structural: 10
+=======
+    attackRate: 0.8
+    range: 1.75
+    damage:
+      types:
+        Blunt: 6
+        Structural: 10
+    bluntStaminaDamageFactor: 2.0
+    heavyRateModifier: 0.75
+    heavyDamageBaseModifier: 1.75
+    heavyStaminaCost: 15
+    maxTargets: 10
+    angle: 120
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Wieldable

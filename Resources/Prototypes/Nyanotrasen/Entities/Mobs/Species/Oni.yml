@@ -1,11 +1,19 @@
 - type: entity
+<<<<<<< HEAD
   parent: BaseMobSpeciesOrganic
+=======
+  parent: BaseMobHuman
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: Urist McOni
   id: MobOniBase
   abstract: true
   components:
   - type: Speech
     speechSounds: Baritone
+<<<<<<< HEAD
+=======
+    speechVerb: Oni
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: HumanoidAppearance
     species: Oni
   - type: Sprite
@@ -26,7 +34,11 @@
       fix1:
         shape:
           !type:PhysShapeCircle
+<<<<<<< HEAD
           radius: 0.42
+=======
+          radius: 0.35
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         density: 220
         restitution: 0.0
         mask:
@@ -35,6 +47,18 @@
         - MobLayer
   - type: Stamina
     critThreshold: 115
+<<<<<<< HEAD
+=======
+  - type: TypingIndicator
+    proto: oni
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Nekomimetic
+    understands:
+    - GalacticCommon
+    - Nekomimetic
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   save: false

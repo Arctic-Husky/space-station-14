@@ -30,7 +30,10 @@ cargo-console-snip-snip = Order trimmed to capacity
 cargo-console-insufficient-funds = Insufficient funds (require {$cost})
 cargo-console-unfulfilled = No room to fulfill order
 cargo-console-trade-station = Sent to {$destination}
+<<<<<<< HEAD
 cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmount}[/bold], which cost [bold]{$cost}[/bold], was approved by [bold]{$approverName}, {$approverJob}[/bold]
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 cargo-console-paper-print-name = Order #{$orderNumber}
 cargo-console-paper-print-text =

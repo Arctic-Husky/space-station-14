@@ -3,24 +3,42 @@
   name: job-name-lawyer
   description: job-description-lawyer
   playTimeTracker: JobLawyer
+  antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+    - !type:CharacterOverallTimeRequirement
+      min: 36000 # 10 hrs
+    - !type:CharacterDepartmentTimeRequirement # DeltaV - Security dept time requirement
+      department: Security
+      min: 14400 # 4 hours
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-cj  # Delta V - Change supervisor to chief justice
   access:
   - Service
   - Lawyer
+<<<<<<< HEAD
   - Brig
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - Maintenance
 
 - type: startingGear
   id: LawyerGear
   equipment:
+<<<<<<< HEAD
+=======
+    jumpsuit: ClothingUniformJumpsuitLawyerBlack  # TODO change jumpsuit to randomiser of the 4 variants
+    back: ClothingBackpackLawyerFilled #DeltaV - stamp included
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     shoes: ClothingShoesBootsLaceup
     id: LawyerPDA
     ears: ClothingHeadsetSecurity
     # TODO add copy of space law
   inhand:
     - BriefcaseBrownFilled
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtLawyerBlack
+  satchel: ClothingBackpackSatchelLawyerFilled #DeltaV - stamp included
+  duffelbag: ClothingBackpackDuffelLawyerFilled #DeltaV - stamp included
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

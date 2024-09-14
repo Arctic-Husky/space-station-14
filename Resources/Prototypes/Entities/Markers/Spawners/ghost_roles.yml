@@ -92,8 +92,17 @@
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
     rules: ghost-role-information-loneop-rules
+<<<<<<< HEAD
     raffle:
       settings: default
+=======
+    requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 172800 # DeltaV - 48 hours
+    - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+      department: Security
+      time: 36000 # DeltaV - 10 hours
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: GhostRoleAntagSpawner
   - type: Sprite
     sprite: Markers/jobs.rsi
@@ -133,8 +142,11 @@
     name: ghost-role-information-space-ninja-name
     description: ghost-role-information-space-ninja-description
     rules: ghost-role-information-space-ninja-rules
+<<<<<<< HEAD
     raffle:
       settings: default
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: GhostRoleMobSpawner
     prototype: MobHumanSpaceNinja
   - type: Sprite
@@ -143,3 +155,20 @@
     - state: green
     - sprite: Objects/Weapons/Melee/energykatana.rsi
       state: icon
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostTerminator
+  name: terminator spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-exterminator-name
+    description: ghost-role-information-exterminator-description
+    rules: ghost-role-information-exterminator-rules
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanTerminator
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Terminator/parts.rsi
+      state: full

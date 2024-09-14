@@ -1,3 +1,4 @@
+using Content.Shared.Customization.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -42,5 +43,9 @@ public sealed partial class AntagPrototype : IPrototype
     ///     Requirements that must be met to opt in to this antag role.
     /// </summary>
     [DataField("requirements")]
+<<<<<<< HEAD
     public HashSet<JobRequirement>? Requirements;
+=======
+    public List<CharacterRequirement>? Requirements;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ent-AirlockMaint = acesso para manutenção
     .desc = { "Ela abre, ela fecha, talvez ela te esmague." }
 
@@ -113,3 +114,169 @@ ent-AirlockHatch = escotilha hermética
 
 ent-AirlockHatchMaintenance = escotilha para manutenção
     .desc = Ela abre, ela fecha, talvez ela te esmague.
+=======
+ent-AirlockMaint = escotilha de manuteção
+    .desc = { "" }
+    .suffix = Security
+
+ent-AirlockGlass = porta com janela
+    .desc = { "" }
+    .suffix = Security
+
+ent-AirlockEngineeringGlass = porta com janela
+    .desc = { "" }
+    .suffix = Engineering
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockMaintGlass = porta com janela
+    .desc = { "" }
+    .suffix = Maintenance
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockMaintGlass = porta com janela
+    .desc = { "" }
+    .suffix = Maintenance
+
+ent-AirlockAtmosphericsGlass = porta com janela
+    .desc = { "" }
+    .suffix = Atmospherics
+
+ent-AirlockCargoGlass = porta com janela
+    .desc = { "" }
+    .suffix = Cargo
+
+ent-AirlockMedicalGlass = porta com janela
+    .desc = { "" }
+    .suffix = Medical
+
+ent-AirlockVirologyGlass = porta com janela
+    .desc = { "" }
+    .suffix = Virology
+
+ent-AirlockScienceGlass = porta com janela
+    .desc = { "" }
+    .suffix = Science
+
+ent-AirlockCommandGlass = porta com janela
+    .desc = { "" }
+    .suffix = Command
+
+ent-AirlockSecurityGlass = porta com janela
+    .desc = { "" }
+    .suffix = Security
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

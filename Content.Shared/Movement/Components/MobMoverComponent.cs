@@ -13,6 +13,7 @@ namespace Content.Shared.Movement.Components
         [DataField] public float GrabRange = 1.0f;
 
         [DataField] public float PushStrength = 600f;
+<<<<<<< HEAD
 
         [DataField, AutoNetworkedField]
         public float StepSoundMoveDistanceRunning = 2;
@@ -22,6 +23,8 @@ namespace Content.Shared.Movement.Components
 
         [DataField, AutoNetworkedField]
         public float FootstepVariation;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         [ViewVariables(VVAccess.ReadWrite)]
         public EntityCoordinates LastPosition { get; set; }

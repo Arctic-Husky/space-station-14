@@ -17,6 +17,10 @@ namespace Content.Shared.Chemistry.EntitySystems;
 /// </summary>
 public sealed class SolutionTransferSystem : EntitySystem
 {
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly INetManager _net = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
@@ -41,7 +45,11 @@ public sealed class SolutionTransferSystem : EntitySystem
         var newTransferAmount = FixedPoint2.Clamp(message.Value, ent.Comp.MinimumTransferAmount, ent.Comp.MaximumTransferAmount);
         ent.Comp.TransferAmount = newTransferAmount;
 
+<<<<<<< HEAD
         if (message.Actor is { Valid: true } user)
+=======
+        if (message.Session.AttachedEntity is { Valid: true } user)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _popup.PopupClient(Loc.GetString("comp-solution-transfer-set-amount", ("amount", newTransferAmount)), ent, user);
     }
 
@@ -52,9 +60,16 @@ public sealed class SolutionTransferSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || !comp.CanChangeTransferAmount || args.Hands == null)
             return;
 
+<<<<<<< HEAD
         // Custom transfer verb
         var @event = args;
 
+=======
+        if (!TryComp<ActorComponent>(args.User, out var actor))
+            return;
+
+        // Custom transfer verb
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         args.Verbs.Add(new AlternativeVerb()
         {
             Text = Loc.GetString("comp-solution-transfer-verb-custom-amount"),
@@ -62,7 +77,12 @@ public sealed class SolutionTransferSystem : EntitySystem
             // TODO: remove server check when bui prediction is a thing
             Act = () =>
             {
+<<<<<<< HEAD
                 _ui.OpenUi(uid, TransferAmountUiKey.Key, @event.User);
+=======
+                if (_net.IsServer)
+                    _ui.TryOpen(uid, TransferAmountUiKey.Key, actor.PlayerSession);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             },
             Priority = 1
         });

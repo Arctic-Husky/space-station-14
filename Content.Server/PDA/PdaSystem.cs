@@ -4,6 +4,10 @@ using Content.Server.Chat.Managers;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Instruments;
 using Content.Server.Light.EntitySystems;
+<<<<<<< HEAD
+=======
+using Content.Server.Light.Events;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.PDA.Ringer;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Components;
@@ -11,7 +15,10 @@ using Content.Server.Store.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
+<<<<<<< HEAD
 using Content.Shared.Light;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.PDA;
@@ -147,7 +154,11 @@ namespace Content.Server.PDA
             if (!Resolve(uid, ref pda, false))
                 return;
 
+<<<<<<< HEAD
             if (!_ui.HasUi(uid, PdaUiKey.Key))
+=======
+            if (!_ui.TryGetUi(uid, PdaUiKey.Key, out var ui))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return;
 
             var address = GetDeviceNetAddress(uid);
@@ -184,6 +195,7 @@ namespace Content.Server.PDA
                 hasInstrument,
                 address);
 
+<<<<<<< HEAD
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }
 
@@ -193,6 +205,9 @@ namespace Content.Server.PDA
                 return;
 
             UpdatePdaUi(ent.Owner, ent.Comp);
+=======
+            _ui.SetUiState(ui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaRequestUpdateInterfaceMessage msg)
@@ -219,7 +234,11 @@ namespace Content.Server.PDA
                 return;
 
             if (HasComp<RingerComponent>(uid))
+<<<<<<< HEAD
                 _ringer.ToggleRingerUI(uid, msg.Actor);
+=======
+                _ringer.ToggleRingerUI(uid, msg.Session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowMusicMessage msg)
@@ -228,7 +247,11 @@ namespace Content.Server.PDA
                 return;
 
             if (TryComp<InstrumentComponent>(uid, out var instrument))
+<<<<<<< HEAD
                 _instrument.ToggleInstrumentUi(uid, msg.Actor, instrument);
+=======
+                _instrument.ToggleInstrumentUi(uid, msg.Session, instrument);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowUplinkMessage msg)

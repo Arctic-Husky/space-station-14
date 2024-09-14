@@ -1,4 +1,5 @@
 ent-PowerCellRecharger = recarregador de célula
+<<<<<<< HEAD
 
 ent-WeaponCapacitorRecharger = recarregador
 
@@ -11,3 +12,12 @@ ent-BorgCharger = estação de recarga de ciborgues
     .desc = Um carregador fixo para várias entidades robóticas e ciborgues. Surpreendentemente espaçoso.
 
 ent-PowerCageRecharger = recarregador de tanque
+=======
+    .desc = { "" }
+
+ent-WeaponCapacitorRecharger = recarregador
+    .desc = { "" }
+
+ent-WallWeaponCapacitorRecharger = recarregador de parede
+    .desc = { "" }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

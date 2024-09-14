@@ -1,5 +1,26 @@
+<<<<<<< HEAD
 - type: entity
   parent: DrinkBottleGlassBaseFull
+=======
+# Base para garrafa plastica (nao quebra no impacto, nem da dano)
+- type: entity
+  parent: DrinkBase
+  id: DrinkPlasticBottleBaseFull
+  abstract: true
+  components:
+  - type: Drink
+    openSounds:
+      collection: bottleOpenSounds
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+  - type: Sprite
+    state: icon
+
+- type: entity
+  parent: DrinkPlasticBottleBaseFull
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkCachacaBottleFull
   name: cachaça bottle
   description: Aah, cachaça.
@@ -14,7 +35,11 @@
       sprite: EstacaoPirata/Objects/Consumable/Drinks/cachacabottle.rsi
 
 - type: entity
+<<<<<<< HEAD
   parent: DrinkBottlePlasticBaseFull
+=======
+  parent: DrinkPlasticBottleBaseFull
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkGuaranaBottleFull
   name: guaraná bottle
   description: Um doce e carbonatado refrigerante. Livre de cafeína.
@@ -39,7 +64,11 @@
       fillBaseName: icon-
 
 - type: entity
+<<<<<<< HEAD
   parent: DrinkBottlePlasticBaseFull
+=======
+  parent: DrinkPlasticBottleBaseFull
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkCoroteBottleFull
   name: corote
   description: Introduzindo adolescentes ao alcoolismo desde 1958

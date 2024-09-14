@@ -162,12 +162,17 @@ namespace Content.Client.Popups
             PopupEntity(message, uid, type);
         }
 
+<<<<<<< HEAD
         public override void PopupClient(string? message, EntityUid? recipient, PopupType type = PopupType.Small)
+=======
+        public override void PopupClient(string? message, EntityUid uid, EntityUid? recipient, PopupType type = PopupType.Small)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (recipient == null)
                 return;
 
             if (_timing.IsFirstTimePredicted)
+<<<<<<< HEAD
                 PopupCursor(message, recipient.Value, type);
         }
 
@@ -189,6 +194,11 @@ namespace Content.Client.Popups
                 PopupCoordinates(message, coordinates, recipient.Value, type);
         }
 
+=======
+                PopupEntity(message, uid, recipient.Value, type);
+        }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public override void PopupEntity(string? message, EntityUid uid, PopupType type = PopupType.Small)
         {
             if (TryComp(uid, out TransformComponent? transform))

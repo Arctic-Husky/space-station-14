@@ -6,8 +6,14 @@ job-name-detective = detetive
 job-name-brigmedic = médico do brig
 job-name-borg = ciborgue
 job-name-scientist = cientista
+<<<<<<< HEAD
 job-name-research-assistant = assistente de pesquisa
 job-name-rd = diretor de pesquisa
+=======
+job-name-research-assistant = Research Assistant
+job-name-rd = diretor de pesquisa
+job-name-roboticist = Roboticista
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 job-name-psychologist = psicólogo
 job-name-intern = médico estagiário
 job-name-doctor = médico
@@ -47,6 +53,27 @@ job-name-boxer = boxeador
 job-name-zookeeper = funcionário do zoológico
 job-name-visitor = visitante
 
+<<<<<<< HEAD
+=======
+
+#Nyano
+job-name-mystagogue = mystagogue
+job-name-mantis = mantis forênsica
+job-name-epistemologist = acólito
+job-name-mail-carrier = carteiro
+job-name-cataloguer = arquivista
+job-name-robot = robo
+job-name-medical-robot = robo medico
+job-name-salvage-technician = técnico em salvamento
+job-name-gladiator = gladiador
+job-name-fugitive = fugitivo
+job-name-prisoner = prisioneiro
+job-name-valet = valet
+job-name-paramedic = paramédico
+job-name-guard = Guarda prisional
+job-name-martialartist =  artista marcial
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = técnico atmosférico
 JobBartender = bartender
@@ -95,3 +122,17 @@ JobVisitor = visitor
 JobWarden = carcereiro
 JobBoxer = boxeador
 JobZookeeper = funcionário do zoológico
+<<<<<<< HEAD
+=======
+
+# Nyano role timers
+JobCataloguer = arquivista
+JobCyborg = borgue
+JobEpistemologist = acólito
+JobForensicMantis = mantis forênsica
+JobMailCarrier = carteiro
+JobMystagogue = mystagogue
+JobPrisoner = prisioneiro
+JobSalvageTechnician = técnico em salvamento
+JobValet = valet
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -45,6 +45,7 @@
     controlsLocked: false
     randomMode: false
     mode: SensorCords
+<<<<<<< HEAD
 
 - type: entity
   parent: ClothingUniformBase
@@ -56,6 +57,8 @@
     sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingUniformBase
@@ -72,7 +75,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCargo
   name: cargo tech jumpsuit
-  description: A sturdy jumpsuit, issued to members of the Cargo department.
+  description: A sturdy jumpsuit, issued to members of the Logistics department. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
@@ -86,9 +89,9 @@
   description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi # DeltaV - Salvage better looking uniform
 
 - type: entity
   parent: ClothingUniformBase
@@ -334,12 +337,12 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoS
   name: head of security's jumpsuit
-  description: It's bright red and rather crisp, much like security's victims tend to be.
+  description: A standard Station Security uniform, adorned with gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -356,23 +359,23 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSBlue
   name: head of security's blue jumpsuit
-  description: A blue jumpsuit of Head of Security.
+  description: A blue Station Security shirt with charcoal trousers. Features gold emblems and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_blue.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSGrey
   name: head of security's grey jumpsuit
-  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
+  description: A grey Station Security shirt with charcoal trousers. Stands out with red highlights, gold emblems, and commander's epaulettes. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hos_grey.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -406,17 +409,6 @@
     sprite: Clothing/Uniforms/Jumpsuit/janitor.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/janitor.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitKimono
-  name: kimono
-  description: traditional chinese clothing
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/kimono.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/kimono.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -454,13 +446,13 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBrigmedic
-  name: brigmedic jumpsuit
+  name: corpsman jumpsuit # DeltaV - rename brigmedic to corpsman
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/brigmedic.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/brigmedic.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/brigmedic.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/brigmedic.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -504,7 +496,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQM
-  name: quartermaster's jumpsuit
+  name: logistics officer's jumpsuit # DeltaV - Logistics Department replacing Cargo
   description: 'What can brown do for you?'
   components:
   - type: Sprite
@@ -515,7 +507,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQMTurtleneck
-  name: quartermasters's turtleneck
+  name: logistics officer's turtleneck # DeltaV - Logistics Department replacing Cargo
   description: A sharp turtleneck made for the hardy work environment of supply.
   components:
     - type: Sprite
@@ -526,8 +518,15 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQMFormal
+<<<<<<< HEAD
   name: quartermasters's formal suit
   description: Inspired by the quartermasters of military's past, the perfect outfit for supplying a formal occasion.
+=======
+  # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
+  name: logistics officer's formal suit
+  description: Inspired by the logistics officers of military's past, the perfect outfit for supplying a formal occasion.
+  # End of modified code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi
@@ -537,8 +536,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: mystagogue's turtleneck # DeltaV - Epistemics Department replacing Science
+  description: It's a turtleneck worn by those with the know-how to achieve the position of Mystagogue. Its fabric provides minor protection from biological contaminants. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
@@ -582,45 +581,49 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSec
   name: security jumpsuit
-  description: A jumpsuit made of strong material, providing robust protection.
+  description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/security.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/security.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecBlue
-  name: blue shirt and tie
-  description: I'm a little busy right now, Calhoun.
+  name: blue security jumpsuit # DeltaV - renamed to mirror other security uniforms
+  description: A cool blue shirt over charcoal trousers, for the calm and collected security officer. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_blue.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecGrey
   name: grey security jumpsuit
-  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
+  description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/security_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/security_grey.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
 
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitWarden
-  name: warden's uniform
-  description: A formal security suit for officers complete with Nanotrasen belt buckle.
+  name: warden's jumpsuit # DeltaV - renamed to mirror other security uniforms
+  description: Red shirt on charcoal trousers, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden.rsi # DeltaV - resprite
   - type: Clothing
+<<<<<<< HEAD
     sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
+=======
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/warden.rsi # DeltaV - resprite
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingUniformBase
@@ -903,28 +906,6 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitMonasticRobeDark
-  name: dark monastic robe
-  description: It's a dark robe, often worn by religious folk.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_dark.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_dark.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitMonasticRobeLight
-  name: light monastic robe
-  description: It's a light robe, often worn by religious folk.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
-
-- type: entity
-  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMusician
   name: musician's tuxedo
   description: A fancy tuxedo for the musically inclined.  Perfect for any lounge act!
@@ -1074,7 +1055,8 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHawaiRed
   name: red hawaiian shirt
-  description: Red as a juicy watermelons.
+# Fixed typo, "Red as a juicy watermelons."
+  description: Red as a juicy watermelon.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
@@ -1107,7 +1089,8 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFlannel
   name: flannel jumpsuit
-  description: Smells like someones been grillin'.
+# Fixed a typo, there should be an apostrophe before the s in 'someone's."
+  description: Smells like someone's been grillin'.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/flannel.rsi
@@ -1129,7 +1112,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorResearcher
   name: senior researcher jumpsuit
-  description: A sign of skill and prestige within the science department.
+  description: A sign of skill and prestige within the epistemics department. # DeltaV - Epistemics Department replacing Science
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/senior_researcher.rsi
@@ -1202,6 +1185,7 @@
 
 - type: entity
   parent: ClothingUniformBase
+<<<<<<< HEAD
   id: ClothingUniformJumpsuitGladiator
   name: gladiator uniform
   description: Made for true gladiators (or Ash Walkers).
@@ -1213,6 +1197,8 @@
 
 - type: entity
   parent: ClothingUniformBase
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingUniformJumpsuitCasualBlue
   name: casual blue jumpsuit
   description: A loose worn blue shirt with a grey pants, perfect for someone looking to relax.
@@ -1314,6 +1300,7 @@
 
 - type: entity
   parent: ClothingUniformBase
+<<<<<<< HEAD
   id: ClothingUniformJumpsuitCasualWhite
   name: casual white jumpsuit
   description: A loose worn white shirt with a grey pants, perfect for someone looking to relax.
@@ -1392,3 +1379,13 @@
         color: "#eb0b00"
 
 
+=======
+  id: ClothingUniformJumpsuitBlueshield
+  name: Macacão de Blueshield
+  description: Um uniforme simples azul com uma braçadeira Amarela escrita Blueshield.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/blueshield.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/blueshield.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

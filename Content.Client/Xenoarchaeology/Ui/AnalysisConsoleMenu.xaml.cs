@@ -30,6 +30,13 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
     private bool _paused;
 
+    // For rendering the progress bar, updated from BUI state
+    private TimeSpan? _startTime;
+    private TimeSpan? _totalTime;
+    private TimeSpan? _accumulatedRunTime;
+
+    private bool _paused;
+
     public AnalysisConsoleMenu()
     {
         RobustXamlLoader.Load(this);
@@ -69,7 +76,11 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ProgressBar.Value = Math.Clamp(1.0f - (float) remaining.Divide(total), 0.0f, 1.0f);
     }
 
+<<<<<<< HEAD
     public void SetButtonsDisabled(AnalysisConsoleUpdateState state)
+=======
+    public void SetButtonsDisabled(AnalysisConsoleScanUpdateState state)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         ScanButton.Disabled = !state.CanScan;
         PrintButton.Disabled = !state.CanPrint;

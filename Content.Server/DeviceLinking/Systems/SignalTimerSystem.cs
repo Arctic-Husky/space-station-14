@@ -50,7 +50,11 @@ public sealed class SignalTimerSystem : EntitySystem
 
         if (_ui.HasUi(uid, SignalTimerUiKey.Key))
         {
+<<<<<<< HEAD
             _ui.SetUiState(uid, SignalTimerUiKey.Key, new SignalTimerBoundUserInterfaceState(component.Label,
+=======
+            _ui.SetUiState(bui, new SignalTimerBoundUserInterfaceState(component.Label,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 TimeSpan.FromSeconds(component.Delay).Minutes.ToString("D2"),
                 TimeSpan.FromSeconds(component.Delay).Seconds.ToString("D2"),
                 component.CanEditLabel,
@@ -70,9 +74,15 @@ public sealed class SignalTimerSystem : EntitySystem
         _audio.PlayPvs(signalTimer.DoneSound, uid);
         _signalSystem.InvokePort(uid, signalTimer.TriggerPort);
 
+<<<<<<< HEAD
         if (_ui.HasUi(uid, SignalTimerUiKey.Key))
         {
             _ui.SetUiState(uid, SignalTimerUiKey.Key, new SignalTimerBoundUserInterfaceState(signalTimer.Label,
+=======
+        if (_ui.TryGetUi(uid, SignalTimerUiKey.Key, out var bui))
+        {
+            _ui.SetUiState(bui, new SignalTimerBoundUserInterfaceState(signalTimer.Label,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 TimeSpan.FromSeconds(signalTimer.Delay).Minutes.ToString("D2"),
                 TimeSpan.FromSeconds(signalTimer.Delay).Seconds.ToString("D2"),
                 signalTimer.CanEditLabel,

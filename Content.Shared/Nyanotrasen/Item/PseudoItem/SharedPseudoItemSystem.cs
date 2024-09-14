@@ -1,14 +1,27 @@
+<<<<<<< HEAD
+=======
+using Content.Shared.Actions;
+using Content.Shared.Bed.Sleep;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Item.PseudoItem;
+<<<<<<< HEAD
+=======
+using Content.Shared.Popups;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Prototypes;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Nyanotrasen.Item.PseudoItem;
 
@@ -18,9 +31,19 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+<<<<<<< HEAD
 
     [ValidatePrototypeId<TagPrototype>]
     private const string PreventTag = "PreventLabel";
+=======
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
+    [ValidatePrototypeId<TagPrototype>]
+    private const string PreventTag = "PreventLabel";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string SleepActionId = "ActionSleep"; // The action used for sleeping inside bags. Currently uses the default sleep action (same as beds)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -64,7 +87,11 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+<<<<<<< HEAD
     private bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component,
+=======
+    public bool TryInsert(EntityUid storageUid, EntityUid toInsert, PseudoItemComponent component,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         StorageComponent? storage = null)
     {
         if (!Resolve(storageUid, ref storage))
@@ -87,6 +114,13 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
             return false;
         }
 
+<<<<<<< HEAD
+=======
+        // If the storage allows sleeping inside, add the respective action
+        if (HasComp<AllowsSleepInsideComponent>(storageUid))
+            _actions.AddAction(toInsert, ref component.SleepAction, SleepActionId, toInsert);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         component.Active = true;
         return true;
     }
@@ -98,9 +132,17 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
 
         RemComp<ItemComponent>(uid);
         component.Active = false;
+<<<<<<< HEAD
     }
 
     private void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
+=======
+
+        _actions.RemoveAction(uid, component.SleepAction); // Remove sleep action if it was added
+    }
+
+    protected virtual void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         GettingPickedUpAttemptEvent args)
     {
         if (args.User == args.Item)
@@ -149,11 +191,24 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         var ev = new PseudoItemInsertDoAfterEvent();
         var args = new DoAfterArgs(EntityManager, inserter, 5f, ev, toInsert, toInsert, storageEntity)
         {
+<<<<<<< HEAD
             BreakOnMove = true,
             NeedHand = true
         };
 
         _doAfter.TryStartDoAfter(args);
+=======
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            NeedHand = true
+        };
+
+        if (_doAfter.TryStartDoAfter(args))
+        {
+            // Show a popup to the person getting picked up
+            _popupSystem.PopupEntity(Loc.GetString("carry-started", ("carrier", inserter)), toInsert, toInsert);
+        }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnAttackAttempt(EntityUid uid, PseudoItemComponent component, AttackAttemptEvent args)

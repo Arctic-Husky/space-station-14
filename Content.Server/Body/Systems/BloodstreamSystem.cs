@@ -12,7 +12,10 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.FixedPoint;
+<<<<<<< HEAD
 using Content.Shared.HealthExaminable;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
@@ -114,12 +117,27 @@ public sealed class BloodstreamSystem : EntitySystem
                 continue;
 
             bloodstream.NextUpdate += bloodstream.UpdateInterval;
+<<<<<<< HEAD
 
             if (!_solutionContainerSystem.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
                 continue;
 
             // Adds blood to their blood level if it is below the maximum; Blood regeneration. Must be alive.
             if (bloodSolution.Volume < bloodSolution.MaxVolume && !_mobStateSystem.IsDead(uid))
+=======
+
+            if (!_solutionContainerSystem.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
+                continue;
+
+            // Removes blood for Blood Deficiency constantly.
+            if (bloodstream.HasBloodDeficiency)
+            {
+                if (!_mobStateSystem.IsDead(uid))
+                    RemoveBlood(uid, bloodstream.BloodMaxVolume * bloodstream.BloodDeficiencyLossPercentage, bloodstream);
+            }
+            // Adds blood to their blood level if it is below the maximum.
+            else if (bloodSolution.Volume < bloodSolution.MaxVolume && !_mobStateSystem.IsDead(uid))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 TryModifyBloodLevel(uid, bloodstream.BloodRefreshAmount, bloodstream);
             }
@@ -242,20 +260,41 @@ public sealed class BloodstreamSystem : EntitySystem
         if (ent.Comp.BleedAmount > ent.Comp.MaxBleedAmount / 2)
         {
             args.Message.PushNewline();
+<<<<<<< HEAD
             args.Message.AddMarkup(Loc.GetString("bloodstream-component-profusely-bleeding", ("target", ent.Owner)));
+=======
+            if (!args.IsSelfAware)
+                args.Message.AddMarkup(Loc.GetString("bloodstream-component-profusely-bleeding", ("target", ent.Owner)));
+            else
+                args.Message.AddMarkup(Loc.GetString("bloodstream-component-selfaware-profusely-bleeding"));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
         // Shows bleeding message when bleeding, but less than profusely.
         else if (ent.Comp.BleedAmount > 0)
         {
             args.Message.PushNewline();
+<<<<<<< HEAD
             args.Message.AddMarkup(Loc.GetString("bloodstream-component-bleeding", ("target", ent.Owner)));
+=======
+            if (!args.IsSelfAware)
+                args.Message.AddMarkup(Loc.GetString("bloodstream-component-bleeding", ("target", ent.Owner)));
+            else
+                args.Message.AddMarkup(Loc.GetString("bloodstream-component-selfaware-bleeding"));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         // If the mob's blood level is below the damage threshhold, the pale message is added.
         if (GetBloodLevelPercentage(ent, ent) < ent.Comp.BloodlossThreshold)
         {
             args.Message.PushNewline();
+<<<<<<< HEAD
             args.Message.AddMarkup(Loc.GetString("bloodstream-component-looks-pale", ("target", ent.Owner)));
+=======
+            if (!args.IsSelfAware)
+                args.Message.AddMarkup(Loc.GetString("bloodstream-component-looks-pale", ("target", ent.Owner)));
+            else
+                args.Message.AddMarkup(Loc.GetString("bloodstream-component-selfaware-looks-pale"));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 
@@ -332,6 +371,14 @@ public sealed class BloodstreamSystem : EntitySystem
             return;
 
         comp.BloodlossThreshold = threshold;
+    }
+
+    public void SetBloodMaxVolume(EntityUid uid, FixedPoint2 volume, BloodstreamComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.BloodMaxVolume = volume;
     }
 
     /// <summary>
@@ -462,5 +509,20 @@ public sealed class BloodstreamSystem : EntitySystem
 
         if (currentVolume > 0)
             _solutionContainerSystem.TryAddReagent(component.BloodSolution.Value, component.BloodReagent, currentVolume, out _);
+<<<<<<< HEAD
+=======
+    }
+
+    /// <summary>
+    ///   Remove blood from an entity, without spilling it.
+    /// </summary>
+    private void RemoveBlood(EntityUid uid, FixedPoint2 amount, BloodstreamComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, logMissing: false)
+            || !_solutionContainerSystem.ResolveSolution(uid, component.BloodSolutionName, ref component.BloodSolution, out var bloodSolution))
+            return;
+
+        bloodSolution.RemoveReagent(component.BloodReagent, amount);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

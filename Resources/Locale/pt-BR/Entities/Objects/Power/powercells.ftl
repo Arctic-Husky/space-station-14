@@ -1,11 +1,19 @@
 ent-PowerCellPotato = bateria de batata
      .desc = Alguém enfiou dois pregos e um pouco de arame em uma batata grande. De alguma forma, isso fornece uma pequena carga.
 
+<<<<<<< HEAD
 ent-PowerCellSmall = célula de energia de baixa capacidade
      .desc = Uma célula de energia recarregável. Este é o tipo mais barato que você pode encontrar.
      .suffix = Completo
 
 ent-PowerCellSmallPrinted = célula de energia de baixa capacidade
+=======
+ent-PowerCellSmall = célula de energia de pequena capacidade
+     .desc = Uma célula de energia recarregável. Este é o tipo mais barato que você pode encontrar.
+     .suffix = Completo
+
+ent-PowerCellSmallPrinted = célula de energia de pequena capacidade
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      .desc = Uma célula de energia recarregável. Este é o tipo mais barato que você pode encontrar.
      .suffix = Vazio
 
@@ -37,6 +45,7 @@ ent-PowerCellMicroreactor = pequena célula de microrreator
      .desc = Uma célula de microrreator padronizada recarregável. Destinado a dispositivos de baixo consumo de energia, ele recarrega sozinho lentamente.
      .suffix = Completo
 
+<<<<<<< HEAD
 ent-PowerCellMicroreactorPrinted = pequena célula de microrreator
     .desc = Uma célula de microrreator padronizada recarregável. Destinado a dispositivos de baixo consumo de energia, ele recarrega sozinho lentamente.
     .suffix = Vazio
@@ -62,3 +71,8 @@ ent-PowerCageHigh = tanque de energia de alta capacidade
 
 ent-PowerCageHighEmpty = tanque de energia de alta capacidade
     .desc = Uma bateria cilindrica de energia recarregável para dispositivos grandes. Maior capacidade para maiores níveis de potência.
+=======
+ent-PowerCellAntiqueProto = protótipo de célula de energia antiga
+     .desc = Uma pequena célula que se recarrega automaticamente. Usado em pesquisas antigas sobre armas a laser.
+     .suffix = Completo
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

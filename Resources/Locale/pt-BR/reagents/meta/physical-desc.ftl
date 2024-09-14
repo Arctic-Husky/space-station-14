@@ -56,18 +56,31 @@ reagent-physical-desc-shiny = brilhante
 reagent-physical-desc-dark-red = vermelho escuro
 reagent-physical-desc-ionizing = ionizante
 reagent-physical-desc-nondescript = indescritível
+<<<<<<< HEAD
 reagent-physical-desc-burning = queimante
 reagent-physical-desc-porous = porosa
+=======
+reagent-physical-desc-burning = queimando
+reagent-physical-desc-porous = poroso
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 reagent-physical-desc-powdery = em pó
 reagent-physical-desc-creamy = cremosa
 reagent-physical-desc-sticky = pegajosa
 reagent-physical-desc-bubbly = borbulhante
 reagent-physical-desc-rocky = rochosa
 reagent-physical-desc-lemony-fresh = de limão fresco
+<<<<<<< HEAD
 reagent-physical-desc-crisp = crocante
 reagent-physical-desc-citric = cítrica
 reagent-physical-desc-acidic = ácida
 reagent-physical-desc-buzzy = zumbida
+=======
+reagent-physical-desc-soapy = sabão
+reagent-physical-desc-crisp = crocante
+reagent-physical-desc-citric = cítrica
+reagent-physical-desc-acidic = ácida
+reagent-physical-desc-buzzy = zumbido
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 reagent-physical-desc-fibrous = fibrosa
 reagent-physical-desc-strong-smelling = de cheiro forte
 reagent-physical-desc-fizzy-and-creamy = efervescente e cremosa
@@ -83,6 +96,7 @@ reagent-physical-desc-electric = elétrica
 reagent-physical-desc-chewy = mastigável
 reagent-physical-desc-volatile = volátil
 reagent-physical-desc-inky = tintoso
+<<<<<<< HEAD
 reagent-physical-desc-enigmatic = enigmática
 reagent-physical-desc-exotic-smelling = de odor exótico
 reagent-physical-desc-energizing = energizante
@@ -95,3 +109,20 @@ reagent-physical-desc-reflective = reflexiva
 reagent-physical-desc-holy = sagrada
 reagent-physical-desc-slimy = viscosa
 reagent-physical-desc-neural = neuronal
+=======
+reagent-physical-desc-enigmatic = enigmático
+reagent-physical-desc-porous = poroso
+reagent-physical-desc-exotic-smelling = de odor exótico
+reagent-physical-desc-ethereal = etérea
+reagent-physical-desc-glittery = brilhante
+reagent-physical-desc-energizing = energizante
+reagent-physical-desc-exhilarating = hilariante
+reagent-physical-desc-vibrant = vibrante
+reagent-physical-desc-fluffy = fofinho
+reagent-physical-desc-funny = engraçado
+reagent-physical-desc-alkaline = alcalino
+reagent-physical-desc-reflective = reflexivo
+reagent-physical-desc-holy = sagrado
+reagent-physical-desc-slimy = viscoso
+reagent-physical-desc-neural = neuronal
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

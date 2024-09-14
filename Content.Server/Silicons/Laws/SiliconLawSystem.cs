@@ -95,7 +95,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         var radioChannels = intrinsicRadio?.Channels;
 
         var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels);
+<<<<<<< HEAD
         _userInterface.SetUiState(args.Entity, SiliconLawsUiKey.Key, state);
+=======
+        _userInterface.TrySetUiState(args.Entity, SiliconLawsUiKey.Key, state, args.Session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnPlayerSpawnComplete(EntityUid uid, SiliconLawBoundComponent component, PlayerSpawnCompleteEvent args)
@@ -152,6 +156,20 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
+<<<<<<< HEAD
+=======
+    }
+
+    private void OnExamined(EntityUid uid, EmagSiliconLawComponent component, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange || !HasComp<EmaggedComponent>(uid))
+            return;
+
+        if (component.RequireOpenPanel && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
+            return;
+
+        args.PushMarkup(Loc.GetString("laws-compromised-examine"));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     protected override void OnGotEmagged(EntityUid uid, EmagSiliconLawComponent component, ref GotEmaggedEvent args)

@@ -33,8 +33,28 @@
     solution: drink
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
+=======
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DrinkBase
@@ -81,8 +101,8 @@
 
 # Transformable container - normal glass
 - type: entity
-  name: metamorphic glass
-  description: A metamorphic glass that automagically turns into a glass appropriate for the drink within. There's a sanded off patent number on the bottom.
+  name: glass cup
+  description: A glass cup, able to hold a variety of liquids for your drinking pleasure.
   parent: DrinkGlassBase
   id: DrinkGlass
   components:
@@ -505,6 +525,7 @@
 
 - type: entity
   parent: DrinkGlass
+<<<<<<< HEAD
   id: BudgetInsulsDrinkGlass
   suffix: budget insuls
   components:
@@ -521,6 +542,8 @@
 
 - type: entity
   parent: DrinkGlass
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkCarrotJuice
   suffix: carrot juice
   components:
@@ -553,6 +576,7 @@
 
 - type: entity
   parent: DrinkGlass
+<<<<<<< HEAD
   id: RubberneckGlass
   suffix: rubberneck
   components:
@@ -569,6 +593,8 @@
 
 - type: entity
   parent: DrinkGlass
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkCoconutRum
   suffix: coconut rum
   components:
@@ -1095,6 +1121,7 @@
 
 - type: entity
   parent: DrinkGlass
+<<<<<<< HEAD
   id: IrishBoolGlass
   suffix: irish bool
   components:
@@ -1111,6 +1138,8 @@
 
 - type: entity
   parent: DrinkGlass
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkIrishCarBomb
   suffix: irish car bomb
   components:
@@ -1647,6 +1676,7 @@
   parent: DrinkGlass
   id: DrinkRoyRogersGlass
   suffix: roy rogers
+<<<<<<< HEAD
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1663,14 +1693,36 @@
   parent: DrinkGlass
   id: DrinkSakeGlass
   suffix: sake
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: Sake
+        - ReagentId: RoyRogers
           Quantity: 30
+<<<<<<< HEAD
+=======
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/royrogers.rsi
+    state: icon
+
+##Commented out in favor of Nyano sake/soju
+#- type: entity
+#  parent: DrinkGlass
+#  id: DrinkSakeGlass
+#  suffix: sake
+#  components:
+#  - type: SolutionContainerManager
+#    solutions:
+#      drink:
+#        maxVol: 30
+#        reagents:
+#        - ReagentId: Sake
+#          Quantity: 30
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DrinkGlass
@@ -2104,6 +2156,7 @@
 
 - type: entity
   parent: DrinkGlass
+<<<<<<< HEAD
   id: DrinkVodkaRedBool
   suffix: vodka red bool
   components:
@@ -2120,6 +2173,8 @@
 
 - type: entity
   parent: DrinkGlass
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkVodkaTonicGlass
   suffix: vodka tonic
   components:
@@ -2166,6 +2221,7 @@
 
 - type: entity
   parent: DrinkGlass
+<<<<<<< HEAD
   id: DrinkWatermelonWakeup
   suffix: watermelon wakeup
   components:
@@ -2182,6 +2238,8 @@
 
 - type: entity
   parent: DrinkGlass
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DrinkWhiskeyColaGlass
   suffix: whiskey cola
   components:
@@ -2259,6 +2317,7 @@
   - type: Icon
     sprite: Objects/Consumable/Drinks/wineglass.rsi
     state: icon
+<<<<<<< HEAD
 
 - type: entity
   parent: DrinkGlass
@@ -2275,6 +2334,8 @@
   - type: Icon
     sprite: Objects/Consumable/Drinks/xenobasher.rsi
     state: icon
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # TODO: MOVE
 
@@ -2381,3 +2442,65 @@
     - type: Icon
       sprite: Objects/Consumable/Drinks/bloodglass.rsi
       state: icon
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: DrinkBase
+  id: DrinkBasePlastic
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+
+- type: entity
+  parent: DrinkBasePlastic
+  id: DrinkFitnessShakerBlack
+  name: fitness shaker
+  description: Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shakerblack.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkFitnessShakerBlack
+  id: DrinkFitnessShakerRed
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shakerred.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkFitnessShakerBlack
+  id: DrinkFitnessShakerBlue
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/shakerblue.rsi
+    state: icon
+
+- type: reagent
+  id: MilkChoco
+  name: reagent-name-milk-choco
+  group: Drinks
+  desc: reagent-desc-milk-choco
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: chocolate
+  color: "#664300"
+  recognizable: true
+  plantMetabolism:
+    - !type:PlantAdjustNutrition
+      amount: 0.1
+    - !type:PlantAdjustWater
+      amount: 0.9
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

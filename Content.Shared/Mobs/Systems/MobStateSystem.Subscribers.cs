@@ -46,7 +46,10 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
+<<<<<<< HEAD
         SubscribeLocalEvent<MobStateComponent, PreventCollideEvent>(OnPreventCollide);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnStateExitSubscribers(EntityUid target, MobStateComponent component, MobState state)
@@ -179,6 +182,7 @@ public partial class MobStateSystem
         args.Cancelled = true;
     }
 
+<<<<<<< HEAD
     private void OnPreventCollide(Entity<MobStateComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
@@ -195,5 +199,7 @@ public partial class MobStateSystem
         }
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     #endregion
 }

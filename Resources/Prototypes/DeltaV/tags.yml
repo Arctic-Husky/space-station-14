@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - type: Tag
   id: Skirt
   
@@ -6,3 +7,54 @@
 
 - type: Tag
   id: HidesHarpyWings
+=======
+## This is for Nyano and Delta V tags
+
+- type: Tag
+  id: BeltSlotNotBelt #not a 'belt'
+
+- type: Tag
+  id: BulletBB
+
+- type: Tag
+  id: CartridgeSpecial # For the .38 special ammo and revolver
+
+- type: Tag
+  id: Directional
+
+- type: Tag
+  id: ForensicBeltEquip
+
+- type: Tag
+  id: Gavel
+
+- type: Tag
+  id: GasPipeHalf #Craftable Musket
+
+- type: Tag
+  id: HandLabeler
+
+- type: Tag
+  id: HidesHarpyWings
+
+- type: Tag
+  id: MagazinePistolSpecial # For the .38 special ammo and pistol
+
+- type: Tag
+  id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
+
+- type: Tag
+  id: SpeedLoaderSpecial
+
+- type: Tag
+  id: PreventLabel
+
+- type: Tag
+  id: BionicSyrinxImplant
+
+- type: Tag
+  id: PaperSlip
+
+- type: Tag
+  id: Skirt
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

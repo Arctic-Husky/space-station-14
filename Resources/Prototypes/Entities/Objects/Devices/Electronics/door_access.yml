@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Command
 - type: entity
   parent: DoorElectronics
@@ -55,6 +56,16 @@
   components:
   - type: AccessReader
     access: [["Chapel"]]
+=======
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsService
+  suffix: Service, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DoorElectronics
@@ -66,6 +77,7 @@
 
 - type: entity
   parent: DoorElectronics
+<<<<<<< HEAD
   id: DoorElectronicsKitchen
   suffix: Kitchen, Locked
   components:
@@ -79,6 +91,13 @@
   components:
   - type: AccessReader
     access: [["Kitchen"], ["Hydroponics"]]
+=======
+  id: DoorElectronicsChapel
+  suffix: Chapel, Locked
+  components:
+  - type: AccessReader
+    access: [["Chapel"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DoorElectronics
@@ -90,6 +109,33 @@
 
 - type: entity
   parent: DoorElectronics
+<<<<<<< HEAD
+=======
+  id: DoorElectronicsKitchen
+  suffix: Kitchen, Locked
+  components:
+  - type: AccessReader
+    access: [["Kitchen"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsBar
+  suffix: Bar, Locked
+  components:
+  - type: AccessReader
+    access: [["Bar"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsHydroponics
+  suffix: Hydroponics, Locked
+  components:
+  - type: AccessReader
+    access: [["Hydroponics"]]
+
+- type: entity
+  parent: DoorElectronics
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: DoorElectronicsLawyer
   suffix: Lawyer, Locked
   components:
@@ -98,6 +144,7 @@
 
 - type: entity
   parent: DoorElectronics
+<<<<<<< HEAD
   id: DoorElectronicsService
   suffix: Service, Locked
   components:
@@ -120,6 +167,21 @@
   components:
   - type: AccessReader
     access: [["Salvage"]]
+=======
+  id: DoorElectronicsCaptain
+  suffix: Captain, Locked
+  components:
+  - type: AccessReader
+    access: [["Captain"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsExternal
+  suffix: External, Locked
+  components:
+  - type: AccessReader
+    access: [["External"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DoorElectronics
@@ -129,6 +191,7 @@
   - type: AccessReader
     access: [["Cargo"]]
 
+<<<<<<< HEAD
 # Engineering
 - type: entity
   parent: DoorElectronics
@@ -137,6 +200,15 @@
   components:
   - type: AccessReader
     access: [["ChiefEngineer"]]
+=======
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEngineering
+  suffix: Engineering, Locked
+  components:
+  - type: AccessReader
+    access: [["Engineering"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DoorElectronics
@@ -148,6 +220,7 @@
 
 - type: entity
   parent: DoorElectronics
+<<<<<<< HEAD
   id: DoorElectronicsEngineering
   suffix: Engineering, Locked
   components:
@@ -162,6 +235,93 @@
   components:
   - type: AccessReader
     access: [["Medical"], ["Detective"], ["Chapel"]]
+=======
+  id: DoorElectronicsFreezer
+  suffix: Freezer, Locked
+  components:
+  - type: AccessReader
+    access: [["Kitchen"], ["Hydroponics"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsSalvage
+  suffix: Salvage, Locked
+  components:
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMedical
+  suffix: Medical, Locked
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsChemistry
+  suffix: Chemistry, Locked
+  components:
+  - type: AccessReader
+    access: [["Chemistry"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsResearch
+  suffix: Research, Locked
+  components:
+  - type: AccessReader
+    access: [["Research"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsScience
+  suffix: Science, Locked
+  components:
+  - type: AccessReader
+    access: [["Research"], ["Medical"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCommand
+  suffix: Command, Locked
+  components:
+  - type: AccessReader
+    access: [["Command"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCentralCommand
+  suffix: CentralCommand, Locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsChiefMedicalOfficer
+  suffix: ChiefMedicalOfficer, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsChiefEngineer
+  suffix: ChiefEngineer, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefEngineer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsHeadOfSecurity
+  suffix: HeadOfSecurity, Locked
+  components:
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DoorElectronics
@@ -173,6 +333,7 @@
 
 - type: entity
   parent: DoorElectronics
+<<<<<<< HEAD
   id: DoorElectronicsMedicalResearch
   suffix: Medical/Science, Locked
   components:
@@ -211,6 +372,21 @@
   components:
   - type: AccessReader
     access: [["Detective"]]
+=======
+  id: DoorElectronicsHeadOfPersonnel
+  suffix: HeadOfPersonnel, Locked
+  components:
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsQuartermaster
+  suffix: Quartermaster, Locked
+  components:
+  - type: AccessReader
+    access: [["Quartermaster"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DoorElectronics
@@ -230,6 +406,7 @@
 
 - type: entity
   parent: DoorElectronics
+<<<<<<< HEAD
   id: DoorElectronicsBrig
   suffix: Brig, Locked
   components:
@@ -294,6 +471,37 @@
   components:
   - type: AccessReader
     access: [["External"]]
+=======
+  id: DoorElectronicsDetective
+  suffix: Detective, Locked
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
+
+#- type: entity
+#  parent: DoorElectronics
+#  id: DoorElectronicsBrig
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsArmory
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsVault
+  suffix: Vault, Locked
+  components:
+  - type: AccessReader
+    access: [["Security"], ["Command"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DoorElectronics
@@ -305,8 +513,146 @@
 
 - type: entity
   parent: DoorElectronics
+<<<<<<< HEAD
   id: DoorElectronicsVault
   suffix: Vault, Locked
   components:
   - type: AccessReader
     access: [["Security"], ["Command"]]
+=======
+  id: DoorElectronicsSyndicateAgent
+  suffix: SyndicateAgent, Locked
+  components:
+  - type: AccessReader
+    access: [["SyndicateAgent"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsNukeop
+  suffix: Nukeop, Locked
+  components:
+  - type: AccessReader
+    access: [["NuclearOperative"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsRnDMed
+  suffix: Medical/Science, Locked
+  components:
+  - type: AccessReader
+    access: [["Research"], ["Medical"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsChiefJustice
+  suffix: ChiefJustice, Locked
+  components:
+  - type: AccessReader
+    access: [["ChiefJustice"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsJustice
+  suffix: Justice, Locked
+  components:
+  - type: AccessReader
+    access: [["Justice"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsProsecutor
+  suffix: Prosecutor, Locked
+  components:
+  - type: AccessReader
+    access: [["Prosecutor"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsClerk
+  suffix: Clerk, Locked
+  components:
+  - type: AccessReader
+    access: [["Clerk"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMantis
+  suffix: Mantis, Locked
+  components:
+  - type: AccessReader
+    access: [["Mantis"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCorpsman
+  suffix: Corpsman, Locked
+  components:
+  - type: AccessReader
+    access: [["Corpsman"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsBoxer
+  suffix: Boxer, Locked
+  components:
+  - type: AccessReader
+    access: [["Boxer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsClown
+  suffix: Clown, Locked
+  components:
+  - type: AccessReader
+    access: [["Clown"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMime
+  suffix: Mime, Locked
+  components:
+  - type: AccessReader
+    access: [["Mime"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMusician
+  suffix: Musician, Locked
+  components:
+  - type: AccessReader
+    access: [["Musician"]]
+
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsReporter
+  suffix: Reporter, Locked
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]
+
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsLibrary
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Library"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsZookeeper
+  suffix: Zookeeper, Locked
+  components:
+  - type: AccessReader
+    access: [["Zookeeper"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsPsychologist
+  suffix: Psychologist, Locked
+  components:
+  - type: AccessReader
+    access: [["Psychologist"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

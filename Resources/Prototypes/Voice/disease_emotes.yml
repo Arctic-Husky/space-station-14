@@ -2,13 +2,18 @@
   id: Sneeze
   name: chat-emote-name-sneeze
   category: Vocal
+<<<<<<< HEAD
   chatMessages: ["chat-emote-msg-sneeze"]
+=======
+  chatMessages: [ sneezes ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: Cough
   name: chat-emote-name-cough
   icon: Interface/Emotes/cough.png
   category: Vocal
+<<<<<<< HEAD
   whitelist:
     components:
     - Vocal
@@ -16,39 +21,58 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-cough"]
+=======
+  chatMessages: [ coughs ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - cough
     - coughs
 
 - type: emote
   id: CatMeow
   name: chat-emote-name-catmeow
   category: Vocal
+<<<<<<< HEAD
   chatMessages: ["chat-emote-msg-catmeow"]
+=======
+  chatMessages: [ meows ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: CatHisses
   name: chat-emote-name-cathisses
   category: Vocal
+<<<<<<< HEAD
   chatMessages: ["chat-emote-msg-cathisses"]
+=======
+  chatMessages: [ hisses ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: MonkeyScreeches
   name: chat-emote-name-monkeyscreeches
   category: Vocal
+<<<<<<< HEAD
   chatMessages: ["chat-emote-msg-monkeyscreeches"]
+=======
+  chatMessages: [ screeches ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: RobotBeep
   name: chat-emote-name-robotbeep
   category: Vocal
+<<<<<<< HEAD
   chatMessages: ["chat-emote-msg-beep"]
+=======
+  chatMessages: [ beeps ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: Yawn
   name: chat-emote-name-yawn
   icon: Interface/Emotes/yawn.png
   category: Vocal
+<<<<<<< HEAD
   whitelist:
     components:
     - Vocal
@@ -56,12 +80,18 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-yawn"]
+=======
+  chatMessages: [ yawns ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - yawn
     - yawns
 
 - type: emote
   id: Snore
   name: chat-emote-name-snore
   category: Vocal
+<<<<<<< HEAD
   chatMessages: ["chat-emote-msg-snore"]
+=======
+  chatMessages: [ snores ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

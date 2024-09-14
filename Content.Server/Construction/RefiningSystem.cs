@@ -2,7 +2,11 @@ using Content.Server.Construction.Components;
 using Content.Server.Stack;
 using Content.Shared.Construction;
 using Content.Shared.Interaction;
+<<<<<<< HEAD
 using Content.Shared.Stacks;
+=======
+using Content.Shared.Storage;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
 namespace Content.Server.Construction
@@ -10,7 +14,6 @@ namespace Content.Server.Construction
     public sealed class RefiningSystem : EntitySystem
     {
         [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -36,14 +39,18 @@ namespace Content.Server.Construction
             EntityManager.DeleteEntity(uid);
 
             // spawn each result after refine
-            foreach (var result in component.RefineResult!)
+            foreach (var ent in EntitySpawnCollection.GetSpawns(component.RefineResult))
             {
+<<<<<<< HEAD
                 var droppedEnt = Spawn(result, resultPosition);
 
                 // TODO: If something has a stack... Just use a prototype with a single thing in the stack.
                 // This is not a good way to do it.
                 if (TryComp<StackComponent>(droppedEnt, out var stack))
                     _stackSystem.SetCount(droppedEnt, 1, stack);
+=======
+                Spawn(ent, resultPosition);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
     }

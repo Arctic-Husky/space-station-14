@@ -102,6 +102,7 @@ marking-VulpTailTip-vulp = Vulpkanin tail (base)
 marking-VulpTailTip-vulp-tip = Vulpkanin tail (tip)
 marking-VulpTailTip = Vulpkanin (tip)
 
+<<<<<<< HEAD
 marking-VulpTailWag-vulp_wag = Vulpkanin tail (base)
 marking-VulpTailWag-vulp_wag-fade = Vulpkanin tail (fade)
 marking-VulpTailWag = Vulpkanin (wag)
@@ -110,6 +111,8 @@ marking-VulpTailWagTip-vulp_wag = Vulpkanin tail (base)
 marking-VulpTailWagTip-vulp_wag-tip = Vulpkanin tail (tip)
 marking-VulpTailWagTip = Vulpkanin (wag, tip)
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 marking-VulpTailAlt-vulp_alt = Vulpkanin tail (base)
 marking-VulpTailAlt-vulp_alt-fade = Vulpkanin tail (fade)
 marking-VulpTailAlt = Vulpkanin (alt)
@@ -130,6 +133,7 @@ marking-VulpTailFoxTip-fox = Fox tail (base)
 marking-VulpTailFoxTip-fox-tip = Fox tail (fade)
 marking-VulpTailFoxTip = Vulpkanin Fox (tip)
 
+<<<<<<< HEAD
 marking-VulpTailFoxWag-fox_wag = Fox tail (base)
 marking-VulpTailFoxWag-fox_wag-fade = Fox tail (fade)
 marking-VulpTailFoxWag = Vulpkanin Fox (wag)
@@ -153,6 +157,14 @@ marking-VulpTailCoyoteWag = Vulpkanin Coyote (wag)
 marking-VulpTailCorgiWag-corgi_wag = Crogi tail
 marking-VulpTailCorgiWag = Vulpkanin Corgi (wag)
 
+=======
+marking-VulpTailBushy-bushfluff = Bush tail
+marking-VulpTailBushy = Vulpkanin Bush
+
+marking-VulpTailCoyote-coyote = Coyote tail
+marking-VulpTailCoyote = Vulpkanin Coyote
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 marking-VulpTailHusky-husky-inner = Husky tail (inner)
 marking-VulpTailHusky-husky-outer = Husky tail (outer)
 marking-VulpTailHusky = Vulpkanin Husky
@@ -176,8 +188,16 @@ marking-VulpTailOtie = Vulpkanin Otie
 marking-VulpTailFluffy-fluffy = Fluffy tail
 marking-VulpTailFluffy = Vulpkanin Fluffy
 
+<<<<<<< HEAD
 marking-VulpTailDalmatianWag-dalmatian_wag = Dalmatian tail
 marking-VulpTailDalmatianWag = Vulpkanin Dalmatian (wag)
+=======
+marking-VulpTailCorgi-corgi = Crogi tail
+marking-VulpTailCorgi = Vulpkanin Corgi
+
+marking-VulpTailDalmatian-dalmatian = Dalmatian tail
+marking-VulpTailDalmatian = Vulpkanin Dalmatian
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 
 marking-VulpBellyCrest-belly_crest = Belly

@@ -19,7 +19,10 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+<<<<<<< HEAD
 using Robust.Shared.Map;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -43,10 +46,13 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+<<<<<<< HEAD
         [Dependency] private readonly MetaDataSystem _metaData = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public override void Initialize()
         {
@@ -78,6 +84,29 @@ namespace Content.Server.Ghost
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
+        }
+
+        private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
+        {
+            args.Handled = true;
+
+            if (HasComp<GhostHearingComponent>(uid))
+            {
+                RemComp<GhostHearingComponent>(uid);
+                _actions.SetToggled(component.ToggleGhostHearingActionEntity, true);
+            }
+            else
+            {
+                AddComp<GhostHearingComponent>(uid);
+                _actions.SetToggled(component.ToggleGhostHearingActionEntity, false);
+            }
+
+            var str = HasComp<GhostHearingComponent>(uid)
+                ? Loc.GetString("ghost-gui-toggle-hearing-popup-on")
+                : Loc.GetString("ghost-gui-toggle-hearing-popup-off");
+
+            Popup.PopupEntity(str, uid, uid);
+            Dirty(uid, component);
         }
 
         private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
@@ -251,7 +280,11 @@ namespace Content.Server.Ghost
         private void OnGhostReturnToBodyRequest(GhostReturnToBodyRequest msg, EntitySessionEventArgs args)
         {
             if (args.SenderSession.AttachedEntity is not {Valid: true} attached
+<<<<<<< HEAD
                 || !_ghostQuery.TryComp(attached, out var ghost)
+=======
+                || !TryComp(attached, out GhostComponent? ghost)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 || !ghost.CanReturnToBody
                 || !TryComp(attached, out ActorComponent? actor))
             {
@@ -267,7 +300,11 @@ namespace Content.Server.Ghost
         private void OnGhostWarpsRequest(GhostWarpsRequestEvent msg, EntitySessionEventArgs args)
         {
             if (args.SenderSession.AttachedEntity is not {Valid: true} entity
+<<<<<<< HEAD
                 || !_ghostQuery.HasComp(entity))
+=======
+                || !HasComp<GhostComponent>(entity))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 Log.Warning($"User {args.SenderSession.Name} sent a {nameof(GhostWarpsRequestEvent)} without being a ghost.");
                 return;
@@ -280,7 +317,11 @@ namespace Content.Server.Ghost
         private void OnGhostWarpToTargetRequest(GhostWarpToTargetRequestEvent msg, EntitySessionEventArgs args)
         {
             if (args.SenderSession.AttachedEntity is not {Valid: true} attached
+<<<<<<< HEAD
                 || !_ghostQuery.HasComp(attached))
+=======
+                || !TryComp(attached, out GhostComponent? _))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to warp to {msg.Target} without being a ghost.");
                 return;
@@ -294,6 +335,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
+<<<<<<< HEAD
             WarpTo(attached, target);
         }
 
@@ -325,6 +367,19 @@ namespace Content.Server.Ghost
             _transformSystem.AttachToGridOrMap(uid, xform);
             if (_physicsQuery.TryComp(uid, out var physics))
                 _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
+=======
+            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target))
+            {
+                _followerSystem.StartFollowingEntity(attached, target);
+                return;
+            }
+
+            var xform = Transform(attached);
+            _transformSystem.SetCoordinates(attached, xform, Transform(target).Coordinates);
+            _transformSystem.AttachToGridOrMap(attached, xform);
+            if (TryComp(attached, out PhysicsComponent? physics))
+                _physics.SetLinearVelocity(attached, Vector2.Zero, body: physics);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private IEnumerable<GhostWarp> GetLocationWarps()
@@ -401,6 +456,7 @@ namespace Content.Server.Ghost
 
             return ghostBoo.Handled;
         }
+<<<<<<< HEAD
 
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityUid targetEntity,
             bool canReturn = false)
@@ -455,5 +511,7 @@ namespace Content.Server.Ghost
             Log.Debug($"Spawned ghost \"{ToPrettyString(ghost)}\" for {mind.Comp.CharacterName}.");
             return ghost;
         }
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

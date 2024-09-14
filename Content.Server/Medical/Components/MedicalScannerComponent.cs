@@ -15,5 +15,11 @@ namespace Content.Server.Medical.Components
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float CloningFailChanceMultiplier = 1f;
+<<<<<<< HEAD
+=======
+        
+        // Nyano, needed for Metem Machine.
+        public float MetemKarmaBonus = 0.25f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

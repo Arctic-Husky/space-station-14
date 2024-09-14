@@ -35,8 +35,12 @@
     solutions:
       beaker:
         maxVol: 30
+<<<<<<< HEAD
   - type: MixableSolution
     solution: beaker
+=======
+        canMix: true
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: RefillableSolution
     solution: beaker
   - type: DrainableSolution
@@ -48,12 +52,19 @@
   - type: SolutionTransfer
     maxTransferAmount: 30
     canChangeTransferAmount: true
+<<<<<<< HEAD
   - type: SolutionItemStatus
     solution: beaker
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
+=======
+  - type: UserInterface
+    interfaces:
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     size: Tiny
     sprite: Objects/Specific/Chemistry/vial.rsi

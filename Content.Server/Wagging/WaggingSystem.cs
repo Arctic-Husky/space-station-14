@@ -65,6 +65,11 @@ public sealed class WaggingSystem : EntitySystem
 
         wagging.Wagging = !wagging.Wagging;
 
+<<<<<<< HEAD
+=======
+        _actions.SetToggled(wagging.ActionEntity, wagging.Wagging);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         for (var idx = 0; idx < markings.Count; idx++) // Animate all possible tails
         {
             var currentMarkingId = markings[idx].MarkingId;

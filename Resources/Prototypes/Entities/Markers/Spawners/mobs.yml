@@ -75,6 +75,20 @@
       - MobRaccoonMorticia
 
 - type: entity
+<<<<<<< HEAD
+=======
+  name: Drone Spawner
+  id: SpawnMobDrone
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Silicon/drone.rsi
+        state: shell
+
+- type: entity
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: Fox Renault Spawner
   id: SpawnMobFoxRenault
   parent: MarkerBase
@@ -835,6 +849,7 @@
   - type: ConditionalSpawner
     prototypes:
     - MobLuminousEntity
+<<<<<<< HEAD
 
 - type: entity
   name: clown spider spawner
@@ -849,3 +864,5 @@
   - type: ConditionalSpawner
     prototypes:
     - MobClownSpider
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

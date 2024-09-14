@@ -110,12 +110,27 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
+<<<<<<< HEAD
   id: MagazineLightRifleIncendiary
   name: "magazine (.30 rifle incendiary)"
   parent: MagazineLightRifle
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
+=======
+  id: MagazineLightRifleUranium
+  name: "magazine (.30 rifle uranium)"
+  parent: BaseMagazineLightRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: MagazineLightRifleMaxim

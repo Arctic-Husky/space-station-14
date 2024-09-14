@@ -16,6 +16,11 @@ using Content.Shared.Mobs.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Configuration;
+using Robust.Shared.Map;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
@@ -43,7 +48,14 @@ public sealed partial class CargoSystem : SharedCargoSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly RadioSystem _radio = default!;
+=======
+    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<CargoSellBlacklistComponent> _blacklistQuery;

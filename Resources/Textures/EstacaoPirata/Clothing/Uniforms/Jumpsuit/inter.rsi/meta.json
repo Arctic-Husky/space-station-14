@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Made by Criso https://github.com/CRISOOOOO",
+=======
+  "copyright": "Made by Criso",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   "size": {
     "x": 32,
     "y": 32

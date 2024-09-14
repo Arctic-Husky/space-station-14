@@ -3,7 +3,10 @@ using Content.Server.Popups;
 using Content.Shared.UserInterface;
 using Content.Shared.Lock;
 using Content.Server.UserInterface;
+<<<<<<< HEAD
 using ActivatableUISystem = Content.Shared.UserInterface.ActivatableUISystem;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Lock.EntitySystems;
 public sealed class ActivatableUIRequiresLockSystem : EntitySystem

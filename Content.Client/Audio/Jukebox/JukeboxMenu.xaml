@@ -1,10 +1,15 @@
 <ui:FancyWindow xmlns="https://spacestation14.io" xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+<<<<<<< HEAD
                 SetSize="600 500" Title="{Loc 'jukebox-menu-title'}">
+=======
+                SetSize="400 500" Title="{Loc 'jukebox-menu-title'}">
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     <BoxContainer Margin="4 0" Orientation="Vertical">
         <ItemList Name="MusicList" SelectMode="Button" Margin="3 3 3 3"
         HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="8"/>
         <BoxContainer Orientation="Vertical">
             <Label Name="SongSelected" Text="{Loc 'jukebox-menu-selectedsong'}" />
+<<<<<<< HEAD
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
                           VerticalExpand="False" SizeFlagsStretchRatio="1">
                 <Label Name="SongName" Text="---" />
@@ -27,6 +32,16 @@
                 <Button Name="PlayButton" Text="{Loc 'jukebox-menu-buttonplay'}" />
                 <Button Name="StopButton" Text="{Loc 'jukebox-menu-buttonstop'}" />
             </BoxContainer>
+=======
+            <Label Name="SongName" Text="---" />
+            <Slider Name="PlaybackSlider" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+        VerticalExpand="False" SizeFlagsStretchRatio="1">
+            <Button Name="PlayButton" Text="{Loc 'jukebox-menu-buttonplay'}" />
+            <Button Name="StopButton" Text="{Loc 'jukebox-menu-buttonstop'}" />
+            <Label Name="DurationLabel" Text="00:00 / 00:00" HorizontalAlignment="Right" HorizontalExpand="True"/>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         </BoxContainer>
     </BoxContainer>
 </ui:FancyWindow>

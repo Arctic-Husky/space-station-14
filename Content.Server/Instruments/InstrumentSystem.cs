@@ -231,7 +231,11 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         var instrumentQuery = EntityManager.GetEntityQuery<InstrumentComponent>();
 
         if (!TryComp(uid, out InstrumentComponent? originInstrument)
+<<<<<<< HEAD
             || originInstrument.InstrumentPlayer is not {} originPlayer)
+=======
+            || originInstrument.InstrumentPlayer?.AttachedEntity is not {} originPlayer)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return Array.Empty<(NetEntity, string)>();
 
         // It's probably faster to get all possible active instruments than all entities in range
@@ -373,7 +377,12 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
                 var entity = GetEntity(request.Entity);
 
                 var nearby = GetBands(entity);
+<<<<<<< HEAD
                 _bui.ServerSendUiMessage(entity, request.UiKey, new InstrumentBandResponseBuiMessage(nearby), request.Actor);
+=======
+                _bui.TrySendUiMessage(entity, request.UiKey, new InstrumentBandResponseBuiMessage(nearby),
+                    request.Session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             _bandRequestQueue.Clear();
@@ -421,7 +430,11 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
                 // Just in case
                 Clean(uid);
+<<<<<<< HEAD
                 _bui.CloseUi(uid, InstrumentUiKey.Key);
+=======
+                _bui.TryCloseAll(uid, InstrumentUiKey.Key);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             instrument.Timer += frameTime;
@@ -435,12 +448,26 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         }
     }
 
+<<<<<<< HEAD
     public void ToggleInstrumentUi(EntityUid uid, EntityUid actor, InstrumentComponent? component = null)
+=======
+    public void ToggleInstrumentUi(EntityUid uid, ICommonSession session, InstrumentComponent? component = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(uid, ref component))
             return;
 
         _bui.TryToggleUi(uid, InstrumentUiKey.Key, actor);
+    }
+
+    public override bool ResolveInstrument(EntityUid uid, ref SharedInstrumentComponent? component)
+    {
+        if (component is not null)
+            return true;
+
+        TryComp<InstrumentComponent>(uid, out var localComp);
+        component = localComp;
+        return component != null;
     }
 
     public override bool ResolveInstrument(EntityUid uid, ref SharedInstrumentComponent? component)

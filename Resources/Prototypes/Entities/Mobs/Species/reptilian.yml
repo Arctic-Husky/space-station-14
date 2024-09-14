@@ -11,6 +11,7 @@
   - type: Puller
     needsHands: false
   - type: Thirst
+  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: full
@@ -58,6 +59,16 @@
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: Wagging
+<<<<<<< HEAD
+=======
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Draconic
+    understands:
+    - GalacticCommon
+    - Draconic
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -141,7 +141,11 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             return;
         }
 
+<<<<<<< HEAD
         RemovePilot(args.Actor);
+=======
+        RemovePilot(user);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnConsoleUIOpenAttempt(EntityUid uid, ShuttleConsoleComponent component,
@@ -253,6 +257,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         {
             navState = GetNavState(entity.Value, dockState.Docks);
             mapState = GetMapState(shuttleGridUid.Value);
+<<<<<<< HEAD
         }
         else
         {
@@ -268,6 +273,23 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         {
             _ui.SetUiState(consoleUid, ShuttleConsoleUiKey.Key, new ShuttleBoundUserInterfaceState(navState, mapState, dockState));
         }
+=======
+        }
+        else
+        {
+            navState = new NavInterfaceState(0f, null, null, new Dictionary<NetEntity, List<DockingPortState>>());
+            mapState = new ShuttleMapInterfaceState(
+                FTLState.Invalid,
+                default,
+                new List<ShuttleBeaconObject>(),
+                new List<ShuttleExclusionObject>());
+        }
+
+        if (_ui.TryGetUi(consoleUid, ShuttleConsoleUiKey.Key, out var bui))
+        {
+            _ui.SetUiState(bui, new ShuttleBoundUserInterfaceState(navState, mapState, dockState));
+        }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public override void Update(float frameTime)

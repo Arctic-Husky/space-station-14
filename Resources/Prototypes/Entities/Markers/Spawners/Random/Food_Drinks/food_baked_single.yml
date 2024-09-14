@@ -69,6 +69,7 @@
       - FoodPieMeatSlice
       - FoodPieCherrySlice
       - FoodPieFrostySlice
+      - FoodPiePumpkinSlice # DeltaV - Pumpkin Pie
       - FoodTartGrape
       - FoodTartCoco
       - FoodBakedBrownie
@@ -86,5 +87,7 @@
       - FoodTartGapple
       - FoodBreadMeatXenoSlice
       - FoodPieXenoSlice
-      - FoodBakedCannabisBrownie
+      - FoodMothMothmallowSlice # Nyanotrasen - Moth Recipes
+      - FoodMothMoffin # Nyanotrasen - Moth Recipes
+      - FoodBakedCannabisBrownie # Nyanotrasen - Canabis Brownie
     rareChance: 0.05

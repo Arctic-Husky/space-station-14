@@ -1,5 +1,6 @@
 # Mochilas customizada para eventos
 
+<<<<<<< HEAD
 # Policia
 - type: entity
   parent: ClothingBackpackSecurity
@@ -38,6 +39,8 @@
       - id: MagazinePistol
 
 # Soldado
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: entity
   parent: ClothingBackpackSecurity
   id: ClothingBackpackSoldado
@@ -69,4 +72,8 @@
     contents:
       - id: BoxSurvival
       - id: WeaponRifleLecter
+<<<<<<< HEAD
       - id: Stunbaton
+=======
+      - id: Stunbaton
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

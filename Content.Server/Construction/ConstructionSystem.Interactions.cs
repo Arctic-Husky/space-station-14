@@ -11,6 +11,10 @@ using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Prying.Systems;
 using Content.Shared.Radio.EntitySystems;
+<<<<<<< HEAD
+=======
+using Content.Shared.Tools.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
@@ -367,8 +371,12 @@ namespace Content.Server.Construction
                         TimeSpan.FromSeconds(toolInsertStep.DoAfter),
                         new [] { toolInsertStep.Tool },
                         new ConstructionInteractDoAfterEvent(EntityManager, interactUsing),
+<<<<<<< HEAD
                         out var doAfter,
                         toolInsertStep.Fuel);
+=======
+                        out var doAfter);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                     return result && doAfter != null ? HandleResult.DoAfter : HandleResult.False;
                 }

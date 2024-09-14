@@ -1,11 +1,17 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules.Components;
+<<<<<<< HEAD
 using Content.Server.GridPreloader;
 using Content.Server.Spawners.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Map;
+=======
+using Content.Server.Spawners.Components;
+using Robust.Server.GameObjects;
+using Robust.Server.Maps;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules;
@@ -13,12 +19,18 @@ namespace Content.Server.GameTicking.Rules;
 public sealed class LoadMapRuleSystem : GameRuleSystem<LoadMapRuleComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly GridPreloaderSystem _gridPreloader = default!;
+=======
+    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -46,9 +58,13 @@ public sealed class LoadMapRuleSystem : GameRuleSystem<LoadMapRuleComponent>
         if (comp.Map != null)
             return;
 
+<<<<<<< HEAD
         // grid preloading needs map to init after moving it
         var mapUid = comp.PreloadedGrid != null ? _map.CreateMap(out var mapId, false) : _map.CreateMap(out mapId);
         _metaData.SetEntityName(mapUid, $"LoadMapRule destination for rule {ToPrettyString(uid)}");
+=======
+        _map.CreateMap(out var mapId);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         comp.Map = mapId;
 
         if (comp.GameMap != null)
@@ -58,6 +74,7 @@ public sealed class LoadMapRuleSystem : GameRuleSystem<LoadMapRuleComponent>
         }
         else if (comp.MapPath != null)
         {
+<<<<<<< HEAD
             if (!_mapLoader.TryLoad(comp.Map.Value,
                     comp.MapPath.Value.ToString(),
                     out var roots,
@@ -81,6 +98,10 @@ public sealed class LoadMapRuleSystem : GameRuleSystem<LoadMapRuleComponent>
             _transform.SetParent(loadedShuttle.Value, mapUid);
             comp.MapGrids.Add(loadedShuttle.Value);
             _map.InitializeMap(mapId);
+=======
+            if (_mapLoader.TryLoad(comp.Map.Value, comp.MapPath.Value.ToString(), out var roots, new MapLoadOptions { LoadMap = true }))
+                comp.MapGrids.AddRange(roots);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
         else
         {

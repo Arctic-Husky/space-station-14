@@ -1,11 +1,16 @@
 using System.Numerics;
+<<<<<<< HEAD
 using Content.Shared.Traits.Assorted;
+=======
+using Content.Shared.Traits.Assorted.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Random;
 using Robust.Client.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Traits.Assorted.Components;
 
 namespace Content.Client.Traits;
 

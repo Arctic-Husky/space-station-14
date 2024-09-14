@@ -20,6 +20,10 @@ namespace Content.Client.Options.UI
             Tabs.SetTabTitle(2, Loc.GetString("ui-options-tab-controls"));
             Tabs.SetTabTitle(3, Loc.GetString("ui-options-tab-audio"));
             Tabs.SetTabTitle(4, Loc.GetString("ui-options-tab-network"));
+<<<<<<< HEAD
+=======
+            Tabs.SetTabTitle(5, Loc.GetString("ui-options-tab-deltav")); // DeltaV specific settings
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             UpdateTabs();
         }

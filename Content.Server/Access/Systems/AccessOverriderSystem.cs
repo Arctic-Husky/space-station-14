@@ -28,6 +28,7 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
     public override void Initialize()
     {
@@ -155,14 +156,28 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
 
     private List<ProtoId<AccessLevelPrototype>> ConvertAccessHashSetsToList(List<HashSet<ProtoId<AccessLevelPrototype>>> accessHashsets)
     {
+<<<<<<< HEAD
         var accessList = new List<ProtoId<AccessLevelPrototype>>();
+=======
+        List<ProtoId<AccessLevelPrototype>> accessList = new List<ProtoId<AccessLevelPrototype>>();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (accessHashsets.Count <= 0)
             return accessList;
 
         foreach (var hashSet in accessHashsets)
         {
+<<<<<<< HEAD
             accessList.AddRange(hashSet);
+=======
+            foreach (HashSet<ProtoId<AccessLevelPrototype>> hashSet in accessHashsets)
+            {
+                foreach (ProtoId<AccessLevelPrototype> hash in hashSet.ToArray())
+                {
+                    accessList.Add(hash);
+                }
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         return accessList;

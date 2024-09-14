@@ -9,6 +9,12 @@
     shoes: ClothingShoesWizard
     id: PassengerPDA
     ears: ClothingHeadsetService
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtColorDarkBlue
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: startingGear
   id: WizardRedGear
@@ -20,6 +26,12 @@
     shoes: ClothingShoesWizard
     id: PassengerPDA
     ears: ClothingHeadsetService
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtColorRed
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: startingGear
   id: WizardVioletGear
@@ -31,6 +43,12 @@
     shoes: ClothingShoesWizard
     id: PassengerPDA
     ears: ClothingHeadsetService
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtColorPurple
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: startingGear
   id: WizardHardsuitGear
@@ -41,3 +59,9 @@
     shoes: ClothingShoesWizard
     id: PassengerPDA
     ears: ClothingHeadsetService
+<<<<<<< HEAD
+=======
+  innerClothingSkirt: ClothingUniformJumpskirtColorPurple
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

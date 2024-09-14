@@ -91,12 +91,15 @@
     speedModifierThresholds:
       250: 0.7
       400: 0.5
+<<<<<<< HEAD
   # disable taking damage from fire, since its a fire breathing dragon
   - type: Flammable
     damage:
       types: {}
   - type: Temperature
     heatDamageThreshold: 800
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
@@ -147,9 +150,12 @@
     spawnRiftAction: ActionSpawnRift
   - type: GenericAntag
     rule: Dragon
+<<<<<<< HEAD
   - type: ActionGun
     action: ActionDragonsBreath
     gunProto: DragonsBreathGun
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: GuideHelp
     guides:
     - MinorAntagonists
@@ -181,8 +187,11 @@
   components:
   - type: GhostRole
     description: ghost-role-information-space-dragon-dungeon-description
+<<<<<<< HEAD
     raffle:
       settings: default
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: SlowOnDamage
     speedModifierThresholds:
       100: 0.7

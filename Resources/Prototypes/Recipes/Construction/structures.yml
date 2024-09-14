@@ -543,6 +543,7 @@
   canRotate: false
 
 - type: construction
+<<<<<<< HEAD
   name: shuttle window
   id: ShuttleWindow
   graph: Window
@@ -562,6 +563,8 @@
   canRotate: false
 
 - type: construction
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: diagonal plasma window
   id: PlasmaWindowDiagonal
   graph: WindowDiagonal
@@ -1626,6 +1629,26 @@
     - !type:TileNotBlocked
 
 - type: construction
+<<<<<<< HEAD
+=======
+  name: airtight plastic flaps
+  id: PlasticFlapsAirtight
+  graph: PlasticFlapsGraph
+  startNode: start
+  targetNode: airtightFlaps
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  description: An airtight plastic flap to let items through and keep people out.
+  objectType: Structure
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/plastic_flaps.rsi
+    state: plasticflaps
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: opaque plastic flaps
   id: PlasticFlapsOpaque
   graph: PlasticFlapsGraph
@@ -1643,6 +1666,26 @@
     - !type:TileNotBlocked
 
 - type: construction
+<<<<<<< HEAD
+=======
+  name: airtight opaque plastic flaps
+  id: PlasticFlapsAirtightOpaque
+  graph: PlasticFlapsGraph
+  startNode: start
+  targetNode: airtightopaqueFlaps
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  description: An opaque, airtight plastic flap to let items through and keep people out.
+  objectType: Structure
+  canBuildInImpassable: false
+  icon:
+    sprite: Structures/plastic_flaps.rsi
+    state: plasticflaps
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: bananium clown statue
   id: BananiumClownStatue
   graph: BananiumStatueClown

@@ -12,7 +12,11 @@ stamp-component-stamped-name-approved = APROVADO
 stamp-component-stamped-name-hop = Chefe dos Funcionários
 stamp-component-stamped-name-hos = Segurança Chefe
 stamp-component-stamped-name-qm = Intendente de Carga
+<<<<<<< HEAD
 stamp-component-stamped-name-rd = Diretor de Pesquisa
+=======
+stamp-component-stamped-name-rd = Mistagogo
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 stamp-component-stamped-name-warden = Diretor de Segurança
 stamp-component-stamped-name-trader = Mercante
 stamp-component-stamped-name-syndicate = Sindicato

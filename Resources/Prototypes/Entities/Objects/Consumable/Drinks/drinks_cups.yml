@@ -38,6 +38,15 @@
     damage:
       types:
         Blunt: 0
+<<<<<<< HEAD
+=======
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DrinkBaseCup
@@ -314,14 +323,19 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkLean
+<<<<<<< HEAD
   name: grape Juice
   description: Damn, no fun allowed.
+=======
+  name: Lean # Delta V : Re-adds Lean
+  description: Often paired with doja sweet, drinking this concoction is the staple of a trill O.G. # Delta V : Re-Re-adds Lean
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
-        - ReagentId: Water
+        - ReagentId: Lean # Delta V : Re-adds Lean
           Quantity: 20
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lean.rsi

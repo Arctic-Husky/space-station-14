@@ -44,4 +44,9 @@ nuke-slot-component-slot-name-disk = Disk
 
 ## Examine
 nuke-examine-armed = Aí, porquê aquela [color=red]luz vermelha[/color] tá piscando?
+<<<<<<< HEAD
 nuke-examine-exploding = É... Acho que é tarde demais amigo.
+=======
+nuke-examine-exploding = É... Acho que é tarde demais amigo.
+nuke-codes-fax-paper-name = códigos de autenticação nuclear
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

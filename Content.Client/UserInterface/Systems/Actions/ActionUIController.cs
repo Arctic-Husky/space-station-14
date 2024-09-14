@@ -43,7 +43,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IInputManager _input = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
@@ -238,7 +241,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         var entity = args.EntityUid;
 
+<<<<<<< HEAD
         if (!_actionsSystem.ValidateEntityTarget(user, entity, (actionId, action)))
+=======
+        if (!_actionsSystem.ValidateEntityTarget(user, entity, action))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (action.DeselectOnMiss)
                 StopTargeting();
@@ -360,10 +367,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         QueueWindowUpdate();
 
+<<<<<<< HEAD
         // TODO ACTIONS allow buttons to persist across state applications
         // Then we don't have to interrupt drags any time the buttons get rebuilt.
         _menuDragHelper.EndDrag();
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
     }
@@ -524,8 +534,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             button.ClearData();
             if (_container?.TryGetButtonIndex(button, out position) ?? false)
             {
+<<<<<<< HEAD
                 if (_actions.Count > position && position >= 0)
                     _actions.RemoveAt(position);
+=======
+                _actions.RemoveAt(position);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
         else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
@@ -548,16 +562,31 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void DragAction()
     {
+<<<<<<< HEAD
         if (_menuDragHelper.Dragged is not {ActionId: {} action} dragged)
         {
             _menuDragHelper.EndDrag();
             return;
+=======
+        EntityUid? swapAction = null;
+        if (UIManager.CurrentlyHovered is ActionButton button)
+        {
+            if (!_menuDragHelper.IsDragging || _menuDragHelper.Dragged?.ActionId is not { } type)
+            {
+                _menuDragHelper.EndDrag();
+                return;
+            }
+
+            swapAction = button.ActionId;
+            SetAction(button, type, false);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         EntityUid? swapAction = null;
         var currentlyHovered = UIManager.MouseGetControl(_input.MouseScreenPosition);
         if (currentlyHovered is ActionButton button)
         {
+<<<<<<< HEAD
             swapAction = button.ActionId;
             SetAction(button, action, false);
         }
@@ -565,6 +594,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (dragged.Parent is ActionButtonContainer)
             SetAction(dragged, swapAction, false);
 
+=======
+            SetAction(old, swapAction, false);
+        }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
 
@@ -646,7 +680,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick || _actionsSystem == null)
             return;
 
+<<<<<<< HEAD
         args.Handle();
+=======
+        //todo: make dragging onto the same spot NOT trigger again
+        if (UIManager.CurrentlyHovered == button)
+        {
+            _menuDragHelper.EndDrag();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (_menuDragHelper.IsDragging)
         {

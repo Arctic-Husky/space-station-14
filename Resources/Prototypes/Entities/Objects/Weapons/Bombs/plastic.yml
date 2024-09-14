@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿- type: entity
+=======
+- type: entity
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: BasePlasticExplosive
   parent: BaseItem
   abstract: true
@@ -65,6 +69,7 @@
     maxIntensity: 30
     canCreateVacuum: false
   - type: ExplodeOnTrigger
+<<<<<<< HEAD
 # Desativado até criarmos um feriado equivalente
 #   - type: HolidayVisuals
 #     holidays:
@@ -73,6 +78,15 @@
 #   - type: HolidayRsiSwap
 #     sprite:
 #       festive: Objects/Weapons/Bombs/c4gift.rsi
+=======
+  - type: HolidayVisuals
+    holidays:
+      festive:
+      - FestiveSeason
+  - type: HolidayRsiSwap
+    sprite:
+      festive: Objects/Weapons/Bombs/c4gift.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: seismic charge
@@ -107,3 +121,35 @@
     maxIntensity: 30
     canCreateVacuum: false
   - type: ExplodeOnTrigger
+<<<<<<< HEAD
+=======
+
+- type: entity
+  name: breaching charge
+  description: A breaching explosive for security officers to break through walls.
+  parent: SeismicCharge
+  id: BreachingCharge
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/breaching.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: OnUseTimerTrigger
+    delay: 10
+    delayOptions: [10, 15, 20, 25]
+    initialBeepDelay: 0
+    beepSound:
+      path: /Audio/Effects/Cargo/buzz_two.ogg
+      params:
+        volume: -6
+    startOnStick: true
+    canToggleStartOnStick: true
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 10
+    intensitySlope: 10
+    maxIntensity: 10
+    canCreateVacuum: false
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -40,7 +40,17 @@ public sealed class ActivatableUIRequiresVisionSystem : EntitySystem
 
         var toClose = new ValueList<(EntityUid Entity, Enum Key)>();
 
+<<<<<<< HEAD
         foreach (var bui in _userInterfaceSystem.GetActorUis(uid))
+=======
+        var uiList = _userInterfaceSystem.GetAllUIsForSession(actor.PlayerSession);
+        if (uiList == null)
+            return;
+
+        Queue<PlayerBoundUserInterface> closeList = new(); // foreach collection modified moment
+
+        foreach (var ui in uiList)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (HasComp<ActivatableUIRequiresVisionComponent>(bui.Entity))
             {

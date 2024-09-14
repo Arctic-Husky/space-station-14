@@ -23,6 +23,7 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
             subs.Event<BoundUIOpenedEvent>(UpdateUserInterface);
             subs.Event<SelectStationRecord>(OnKeySelected);
             subs.Event<SetStationRecordFilter>(OnFiltersChanged);
+<<<<<<< HEAD
             subs.Event<DeleteStationRecord>(OnRecordDelete);
         });
     }
@@ -39,6 +40,11 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         UpdateUserInterface(ent); // Apparently an event does not get raised for this.
     }
 
+=======
+        });
+    }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void UpdateUserInterface<T>(Entity<GeneralStationRecordConsoleComponent> ent, ref T args)
     {
         UpdateUserInterface(ent);
@@ -70,7 +76,11 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
 
         if (!TryComp<StationRecordsComponent>(owningStation, out var stationRecords))
         {
+<<<<<<< HEAD
             _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, new GeneralStationRecordConsoleState());
+=======
+            _ui.TrySetUiState(uid, GeneralStationRecordConsoleKey.Key, new GeneralStationRecordConsoleState());
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
         }
 
@@ -79,11 +89,18 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         switch (listing.Count)
         {
             case 0:
+<<<<<<< HEAD
                 _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, new GeneralStationRecordConsoleState());
                 return;
             default:
                 if (console.ActiveKey == null)
                     console.ActiveKey = listing.Keys.First();
+=======
+                _ui.TrySetUiState(uid, GeneralStationRecordConsoleKey.Key, new GeneralStationRecordConsoleState());
+                return;
+            case 1:
+                console.ActiveKey = listing.Keys.First();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 break;
         }
 
@@ -93,7 +110,12 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         var key = new StationRecordKey(id, owningStation.Value);
         _stationRecords.TryGetRecord<GeneralStationRecord>(key, out var record, stationRecords);
 
+<<<<<<< HEAD
         GeneralStationRecordConsoleState newState = new(id, record, listing, console.Filter, ent.Comp.CanDeleteEntries);
         _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, newState);
+=======
+        GeneralStationRecordConsoleState newState = new(id, record, listing, console.Filter);
+        _ui.TrySetUiState(uid, GeneralStationRecordConsoleKey.Key, newState);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

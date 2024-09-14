@@ -6,7 +6,10 @@
   - DrinkColaBottleFull
   - DrinkCreamCartonXL
   - DrinkDrGibbJug
+<<<<<<< HEAD
   - DrinkEnergyDrinkJug
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - DrinkGreenTeaJug
   - DrinkIceJug
   - DrinkJuiceLimeCartonXL
@@ -20,7 +23,10 @@
   - DrinkTeaJug
   - DrinkTonicWaterBottleFull
   - DrinkWaterMelonJuiceJug
+<<<<<<< HEAD
   #- Guarana
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagentDispenserInventory
   id: BoozeDispenserInventory
@@ -37,4 +43,7 @@
   - DrinkVodkaBottleFull
   - DrinkWhiskeyBottleFull
   - DrinkWineBottleFull
+<<<<<<< HEAD
   #- Cachaca
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

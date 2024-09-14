@@ -52,7 +52,11 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
         if (fuelGenerator.On)
             return;
 
+<<<<<<< HEAD
         _switchable.Cycle(uid, args.Actor);
+=======
+        _switchable.Cycle(uid, args.Session.AttachedEntity.Value);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void GeneratorStopMessage(EntityUid uid, PortableGeneratorComponent component, PortableGeneratorStopMessage args)
@@ -225,7 +229,11 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
         if (powerSupplier.Net is { IsConnectedNetwork: true } net)
             networkStats = (net.NetworkNode.LastCombinedLoad, net.NetworkNode.LastCombinedSupply);
 
+<<<<<<< HEAD
         _uiSystem.SetUiState(
+=======
+        _uiSystem.TrySetUiState(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             uid,
             GeneratorComponentUiKey.Key,
             new PortableGeneratorComponentBuiState(fuelComp, fuel, clogged, networkStats));

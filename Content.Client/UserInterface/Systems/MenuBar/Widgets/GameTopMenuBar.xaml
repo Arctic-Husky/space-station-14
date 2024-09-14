@@ -44,6 +44,7 @@
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
     <ui:MenuButton
+<<<<<<< HEAD
         Name="EmotesButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/Interface/emotes.svg.192dpi.png'}"
@@ -54,6 +55,8 @@
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
     <ui:MenuButton
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Name="CraftingButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/Interface/hammer.svg.192dpi.png'}"
@@ -69,6 +72,16 @@
         Icon="{xe:Tex '/Textures/Interface/fist.svg.192dpi.png'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenActionsMenu}"
         ToolTip="{Loc 'game-hud-open-actions-menu-button-tooltip'}"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        />
+    <ui:MenuButton
+        Name="LanguageButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/Interface/language.png'}"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
+        ToolTip="Open the Language Menu"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"

@@ -136,12 +136,15 @@ public sealed partial class RevenantSystem
             return;
         }
 
+<<<<<<< HEAD
         if(_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
         {
             _popup.PopupEntity(Loc.GetString("revenant-in-solid"), uid, uid);
             return;
         }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var doAfter = new DoAfterArgs(EntityManager, uid, revenant.HarvestDebuffs.X, new HarvestEvent(), uid, target: target)
         {
             DistanceThreshold = 2,

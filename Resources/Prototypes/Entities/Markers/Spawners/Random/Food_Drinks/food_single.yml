@@ -46,6 +46,15 @@
       - FoodPizzaSassysageSlice
       - FoodPizzaPineappleSlice
       - FoodPizzaMoldySlice
+<<<<<<< HEAD
+=======
+      - FoodMothGreenLasagneSlice # Nyanotrasen - Moth Recipes
+      - FoodMothBakedRicePortion # Nyanotrasen - Moth Recipes
+      - FoodMothPizzaFirecrackerSlice # Nyanotrasen - Moth Recipes
+      - FoodMothPizzaFiveCheeseSlice # Nyanotrasen - Moth Recipes
+      - FoodMothPizzaPestoSlice # Nyanotrasen - Moth Recipes
+      - FoodMothPizzaCottonSlice # Nyanotrasen - Moth Recipes
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - FoodBakedDumplings
       - FoodBakedChevreChaud
       - FoodBakedNugget
@@ -54,6 +63,10 @@
       - FoodTacoFish
       - FoodTacoBeefSupreme
       - FoodTacoChickenSupreme
+<<<<<<< HEAD
+=======
+      - FoodMealGrilledCheese  # Delta V
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     chance: 0.8
     offset: 0.0
     #rare
@@ -76,5 +89,9 @@
       - FoodMeatRatdoubleKebab
       - FoodMeatSnakeKebab
       - FoodPizzaArnoldSlice
+<<<<<<< HEAD
+=======
+      - FoodPizzaCorncobSlice # Nyanotrasen - Corncob Pizza
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - FoodTacoRat
     rareChance: 0.05

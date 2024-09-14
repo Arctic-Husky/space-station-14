@@ -19,7 +19,11 @@ public sealed class EmoteSystem : EntitySystem
         if (component.Enabled == value)
             return;
 
+<<<<<<< HEAD
         Dirty(uid, component);
+=======
+        Dirty(component);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnEmoteAttempt(EmoteAttemptEvent args)

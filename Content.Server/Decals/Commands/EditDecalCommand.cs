@@ -2,6 +2,10 @@ using System.Numerics;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Map;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Decals;

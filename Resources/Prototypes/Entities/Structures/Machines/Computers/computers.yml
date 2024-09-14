@@ -306,8 +306,13 @@
   - type: CriminalRecordsConsole
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.CriminalRecordsConsoleKey.Key:
         type: CriminalRecordsConsoleBoundUserInterface
+=======
+    - key: enum.CriminalRecordsConsoleKey.Key
+      type: CriminalRecordsConsoleBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ActivatableUI
     key: enum.CriminalRecordsConsoleKey.Key
   - type: Sprite
@@ -751,7 +756,7 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["Cargo"]]
+    access: [["Orders"]] # DeltaV - see Resources/Prototypes/DeltaV/Access/cargo.yml
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
@@ -1031,8 +1036,13 @@
     anchored: true
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
         enum.NewsWriterUiKey.Key:
           type: NewsWriterBoundUserInterface
+=======
+      - key: enum.NewsWriterUiKey.Key
+        type: NewsWriterBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseComputer

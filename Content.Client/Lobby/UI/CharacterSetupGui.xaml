@@ -16,6 +16,13 @@
                         HorizontalAlignment="Right" />
                 <Button Name="RulesButton"
                         Text="{Loc 'character-setup-gui-character-setup-rules-button'}"
+<<<<<<< HEAD:Content.Client/Lobby/UI/CharacterSetupGui.xaml
+=======
+                        StyleClasses="ButtonBig"/>
+                <Button Name="SaveButton"
+                        Access="Public"
+                        Text="{Loc 'character-setup-gui-character-setup-save-button'}"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Content.Client/Preferences/UI/CharacterSetupGui.xaml
                         StyleClasses="ButtonBig"/>
                 <Button Name="CloseButton"
                         Access="Public"

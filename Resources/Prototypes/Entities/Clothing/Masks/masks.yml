@@ -15,10 +15,14 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
     hideOnToggle: true
+=======
+    - HidesNose
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskGas
@@ -200,10 +204,15 @@
     tags:
     - ClownMask
     - WhitelistChameleon
+<<<<<<< HEAD
     - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -214,9 +223,13 @@
     - ClownMask
     - HamsterWearable
     - WhitelistChameleon
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+    - HidesNose
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskClown
@@ -230,7 +243,10 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -246,10 +262,15 @@
   - type: IdentityBlocker
   - type: Tag
     tags:
+<<<<<<< HEAD
     - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -267,10 +288,15 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+<<<<<<< HEAD
     - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -284,12 +310,18 @@
     sprite: Clothing/Mask/sterile.rsi
   - type: IngestionBlocker
   - type: Item
+<<<<<<< HEAD
     size: Tiny
   - type: IdentityBlocker
     coverage: MOUTH
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+=======
+    storedRotation: -90
+  - type: IdentityBlocker
+    coverage: MOUTH
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -324,10 +356,16 @@
   - type: BreathMask
   - type: IngestionBlocker
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
     hideOnToggle: true
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -357,11 +395,16 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Hair
     - Snout
     hideOnToggle: true
+=======
+    - HidesHair
+    - HidesNose
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskGasExplorer
@@ -387,11 +430,16 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Hair
     - Snout
     hideOnToggle: true
+=======
+    - HidesHair
+    - HidesNose
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskGasERT
@@ -424,12 +472,19 @@
   - type: BreathMask
   - type: Tag
     tags:
+<<<<<<< HEAD
     - IPCMaskWearable
     - HamsterWearable
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+    - IPCMaskWearable # Estacao Pirata - IPCs
+    - HamsterWearable
+    - WhitelistChameleon
+    - HidesNose
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: IdentityBlocker
 
 - type: entity
@@ -444,12 +499,19 @@
     sprite: Clothing/Mask/fox.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
   - type: Tag
     tags:
     - IPCMaskWearable
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -463,12 +525,19 @@
     sprite: Clothing/Mask/bee.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
   - type: Tag
     tags:
     - IPCMaskWearable
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -482,12 +551,19 @@
     sprite: Clothing/Mask/bear.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
   - type: Tag
     tags:
     - IPCMaskWearable
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -501,12 +577,19 @@
     sprite: Clothing/Mask/raven.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
   - type: Tag
     tags:
     - IPCMaskWearable
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -520,12 +603,19 @@
     sprite: Clothing/Mask/jackal.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
   - type: Tag
     tags:
     - IPCMaskWearable
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -539,12 +629,19 @@
     sprite: Clothing/Mask/bat.rsi
   - type: BreathMask
   - type: IdentityBlocker
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
   - type: Tag
     tags:
     - IPCMaskWearable
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -561,7 +658,11 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+<<<<<<< HEAD
     - IPCMaskWearable
+=======
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -617,6 +718,7 @@
   - type: Clothing
     sprite: Clothing/Mask/scaredmime.rsi
 
+<<<<<<< HEAD
 # Disgusting racial stereotype
 #- type: entity
 #  parent: ClothingMaskBase
@@ -633,6 +735,23 @@
 #  - type: AddAccentClothing
 #    accent: ReplacementAccent
 #    replacement: italian
+=======
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskItalianMoustache
+  name: italian moustache
+  description: Made from authentic Italian moustache hairs. Gives the wearer an irresistable urge to gesticulate wildly.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/italian_moustache.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/italian_moustache.rsi
+  - type: Item
+    storedRotation: -90
+  - type: AddAccentClothing
+    accent: ReplacementAccent
+    replacement: italian
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingMaskBase
@@ -651,4 +770,8 @@
   - type: IdentityBlocker
   - type: Tag
     tags:
+<<<<<<< HEAD
     - IPCMaskWearable
+=======
+    - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

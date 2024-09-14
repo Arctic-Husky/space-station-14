@@ -1,15 +1,23 @@
 using Content.Server.Communications;
 using Content.Server.Chat.Managers;
+<<<<<<< HEAD
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.GenericAntag;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
+=======
+using Content.Server.GameTicking.Rules.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Server.Research.Systems;
 using Content.Server.Roles;
+<<<<<<< HEAD
+=======
+using Content.Server.GenericAntag;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Alert;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Doors.Components;
@@ -22,6 +30,10 @@ using Content.Shared.Rounding;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
+<<<<<<< HEAD
+=======
+using Content.Server.Objectives.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Ninja.Systems;
@@ -38,7 +50,10 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+<<<<<<< HEAD
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly RoleSystem _role = default!;
@@ -221,6 +236,7 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
 
     private void OnThreatCalledIn(Entity<SpaceNinjaComponent> ent, ref ThreatCalledInEvent args)
     {
+<<<<<<< HEAD
         _codeCondition.SetCompleted(ent.Owner, ent.Comp.TerrorObjective);
     }
 
@@ -235,5 +251,11 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
     public void DetonatedSpiderCharge(Entity<SpaceNinjaComponent> ent)
     {
         _codeCondition.SetCompleted(ent.Owner, ent.Comp.SpiderChargeObjective);
+=======
+        if (_mind.TryGetObjectiveComp<TerrorConditionComponent>(uid, out var obj))
+        {
+            obj.CalledInThreat = true;
+        }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

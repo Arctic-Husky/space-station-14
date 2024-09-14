@@ -37,7 +37,11 @@ public sealed class BlindableSystem : EntitySystem
         var old = blindable.Comp.IsBlind;
 
         // Don't bother raising an event if the eye is too damaged.
+<<<<<<< HEAD
         if (blindable.Comp.EyeDamage >= blindable.Comp.MaxDamage)
+=======
+        if (blindable.Comp.EyeDamage >= BlindableComponent.MaxDamage)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             blindable.Comp.IsBlind = true;
         }
@@ -62,6 +66,7 @@ public sealed class BlindableSystem : EntitySystem
             return;
 
         blindable.Comp.EyeDamage += amount;
+<<<<<<< HEAD
         UpdateEyeDamage(blindable, true);
     }
     private void UpdateEyeDamage(Entity<BlindableComponent?> blindable, bool isDamageChanged)
@@ -86,6 +91,14 @@ public sealed class BlindableSystem : EntitySystem
 
         blindable.Comp.MinDamage = amount;
         UpdateEyeDamage(blindable, false);
+=======
+        blindable.Comp.EyeDamage = Math.Clamp(blindable.Comp.EyeDamage, 0, BlindableComponent.MaxDamage);
+        Dirty(blindable);
+        UpdateIsBlind(blindable);
+
+        var ev = new EyeDamageChangedEvent(blindable.Comp.EyeDamage);
+        RaiseLocalEvent(blindable.Owner, ref ev);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }
 

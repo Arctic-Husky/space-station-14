@@ -19,3 +19,11 @@ log-probe-scan = Downloaded logs from {$device}!
 log-probe-label-time = Time
 log-probe-label-accessor = Accessed by
 log-probe-label-number = #
+<<<<<<< HEAD
+=======
+
+glimmer-monitor-program-name = Glimmer Monitor
+glimmer-monitor-current-glimmer = Current Glimmer: {$glimmer}Ψ
+glimmer-monitor-interval = Interval
+glimmer-monitor-sync = Sync
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

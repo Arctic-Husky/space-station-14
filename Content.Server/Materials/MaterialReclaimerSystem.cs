@@ -130,7 +130,11 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             return false;
 
         Container.Remove(item, active.ReclaimingContainer);
+<<<<<<< HEAD
         Dirty(uid, component);
+=======
+        Dirty(component);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         // scales the output if the process was interrupted.
         var completion = 1f - Math.Clamp((float) Math.Round((active.EndTime - Timing.CurTime) / active.Duration),

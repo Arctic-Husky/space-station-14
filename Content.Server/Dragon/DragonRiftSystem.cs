@@ -14,6 +14,10 @@ using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
+<<<<<<< HEAD
+=======
+using Content.Server.Announcements.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Dragon;
 
@@ -28,6 +32,10 @@ public sealed class DragonRiftSystem : EntitySystem
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -68,12 +76,20 @@ public sealed class DragonRiftSystem : EntitySystem
             if (comp.State < DragonRiftState.AlmostFinished && comp.Accumulator > comp.MaxAccumulator / 2f)
             {
                 comp.State = DragonRiftState.AlmostFinished;
+<<<<<<< HEAD
                 Dirty(uid, comp);
 
                 var msg = Loc.GetString("carp-rift-warning",
                     ("location", FormattedMessage.RemoveMarkup(_navMap.GetNearestBeaconString((uid, xform)))));
                 _chat.DispatchGlobalAnnouncement(msg, playSound: false, colorOverride: Color.Red);
                 _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+=======
+                Dirty(comp);
+
+                var location = xform.LocalPosition;
+                _announcer.SendAnnouncement(_announcer.GetAnnouncementId("CarpRift"), Filter.Broadcast(),
+                    "carp-rift-warning", colorOverride: Color.Red, localeArgs: ("location", location));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 _navMap.SetBeaconEnabled(uid, true);
             }
 

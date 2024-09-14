@@ -20,7 +20,11 @@
   id: Kudzu
   name: kudzu
   parent: BaseKudzu
+<<<<<<< HEAD
   description: Uma planta perigosa e de rápido crescimento. Por que você está parando para olhar?!
+=======
+  description: A rapidly growing, dangerous plant. WHY ARE YOU STOPPING TO LOOK AT IT?!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
     - type: MeleeSound
       soundGroups:
@@ -163,7 +167,10 @@
 - type: entity
   id: FleshKudzu
   name: tendões
+<<<<<<< HEAD
   parent: BaseKudzu
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   description: Um aglomerado de tendões carnudos que cresce rapidamente. Por que você está parando para olhar?!
   placement:
     mode: SnapgridCenter

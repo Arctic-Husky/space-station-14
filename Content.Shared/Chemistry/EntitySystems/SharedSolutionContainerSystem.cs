@@ -11,13 +11,19 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+<<<<<<< HEAD
 using System.Numerics;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using System.Runtime.CompilerServices;
 using System.Text;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+<<<<<<< HEAD
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Dependency = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Shared.Chemistry.EntitySystems;
@@ -60,8 +66,12 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     [Dependency] protected readonly SharedAppearanceSystem AppearanceSystem = default!;
     [Dependency] protected readonly SharedHandsSystem Hands = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
+<<<<<<< HEAD
     [Dependency] protected readonly MetaDataSystem MetaDataSys = default!;
     [Dependency] protected readonly INetManager NetManager = default!;
+=======
+    [Dependency] protected readonly MetaDataSystem MetaData = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -70,6 +80,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         InitializeRelays();
 
         SubscribeLocalEvent<SolutionComponent, ComponentInit>(OnComponentInit);
+<<<<<<< HEAD
         SubscribeLocalEvent<SolutionComponent, ComponentStartup>(OnSolutionStartup);
         SubscribeLocalEvent<SolutionComponent, ComponentShutdown>(OnSolutionShutdown);
         SubscribeLocalEvent<SolutionContainerManagerComponent, ComponentInit>(OnContainerManagerInit);
@@ -82,6 +93,15 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             SubscribeLocalEvent<SolutionContainerManagerComponent, ComponentShutdown>(OnContainerManagerShutdown);
             SubscribeLocalEvent<ContainedSolutionComponent, ComponentShutdown>(OnContainedSolutionShutdown);
         }
+=======
+        SubscribeLocalEvent<SolutionComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<SolutionComponent, ComponentShutdown>(OnComponentShutdown);
+
+        SubscribeLocalEvent<SolutionContainerManagerComponent, ComponentInit>(OnComponentInit);
+
+        SubscribeLocalEvent<ExaminableSolutionComponent, ExaminedEvent>(OnExamineSolution);
+        SubscribeLocalEvent<ExaminableSolutionComponent, GetVerbsEvent<ExamineVerb>>(OnSolutionExaminableVerb);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
 
@@ -130,6 +150,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     /// <param name="name">The name of the solution entity to fetch.</param>
     /// <param name="entity">Returns the solution entity that was fetched.</param>
     /// <param name="solution">Returns the solution state of the solution entity that was fetched.</param>
+<<<<<<< HEAD
     /// /// <param name="errorOnMissing">Should we print an error if the solution specified by name is missing</param>
     /// <returns></returns>
     public bool TryGetSolution(
@@ -138,6 +159,10 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         [NotNullWhen(true)] out Entity<SolutionComponent>? entity,
         [NotNullWhen(true)] out Solution? solution,
         bool errorOnMissing = false)
+=======
+    /// <returns></returns>
+    public bool TryGetSolution(Entity<SolutionContainerManagerComponent?> container, string? name, [NotNullWhen(true)] out Entity<SolutionComponent>? entity, [NotNullWhen(true)] out Solution? solution)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!TryGetSolution(container, name, out entity))
         {
@@ -150,11 +175,15 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     }
 
     /// <inheritdoc cref="TryGetSolution"/>
+<<<<<<< HEAD
     public bool TryGetSolution(
         Entity<SolutionContainerManagerComponent?> container,
         string? name,
         [NotNullWhen(true)] out Entity<SolutionComponent>? entity,
         bool errorOnMissing = false)
+=======
+    public bool TryGetSolution(Entity<SolutionContainerManagerComponent?> container, string? name, [NotNullWhen(true)] out Entity<SolutionComponent>? entity)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (TryComp(container, out BlockSolutionAccessComponent? blocker))
         {
@@ -174,18 +203,24 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         else
         {
             entity = null;
+<<<<<<< HEAD
             if (!errorOnMissing)
                 return false;
             Log.Error($"{ToPrettyString(container)} does not have a solution with ID: {name}");
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return false;
         }
 
         if (!TryComp(uid, out SolutionComponent? comp))
         {
             entity = null;
+<<<<<<< HEAD
             if (!errorOnMissing)
                 return false;
             Log.Error($"{ToPrettyString(container)} does not have a solution with ID: {name}");
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return false;
         }
 
@@ -196,6 +231,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     /// <summary>
     /// Version of TryGetSolution that doesn't take or return an entity.
     /// Used for prototypes and with old code parity.
+<<<<<<< HEAD
     public bool TryGetSolution(SolutionContainerManagerComponent container,
         string name,
         [NotNullWhen(true)] out Solution? solution,
@@ -208,6 +244,15 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return false;
         Log.Error($"{container} does not have a solution with ID: {name}");
         return false;
+=======
+    public bool TryGetSolution(SolutionContainerManagerComponent container, string name, [NotNullWhen(true)] out Solution? solution)
+    {
+        solution = null;
+        if (container.Solutions == null)
+            return false;
+
+        return container.Solutions.TryGetValue(name, out solution);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public IEnumerable<(string? Name, Entity<SolutionComponent> Solution)> EnumerateSolutions(Entity<SolutionContainerManagerComponent?> container, bool includeSelf = true)
@@ -733,17 +778,29 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         entity.Comp.Solution.ValidateSolution();
     }
 
+<<<<<<< HEAD
     private void OnSolutionStartup(Entity<SolutionComponent> entity, ref ComponentStartup args)
+=======
+    private void OnComponentStartup(Entity<SolutionComponent> entity, ref ComponentStartup args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         UpdateChemicals(entity);
     }
 
+<<<<<<< HEAD
     private void OnSolutionShutdown(Entity<SolutionComponent> entity, ref ComponentShutdown args)
+=======
+    private void OnComponentShutdown(Entity<SolutionComponent> entity, ref ComponentShutdown args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         RemoveAllSolution(entity);
     }
 
+<<<<<<< HEAD
     private void OnContainerManagerInit(Entity<SolutionContainerManagerComponent> entity, ref ComponentInit args)
+=======
+    private void OnComponentInit(Entity<SolutionContainerManagerComponent> entity, ref ComponentInit args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (entity.Comp.Containers is not { Count: > 0 } containers)
             return;
@@ -763,7 +820,11 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return;
         }
 
+<<<<<<< HEAD
         if (!CanSeeHiddenSolution(entity, args.Examiner))
+=======
+        if (!CanSeeHiddenSolution(entity,args.Examiner))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         var primaryReagent = solution.GetPrimaryReagentId();
@@ -862,7 +923,11 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return;
         }
 
+<<<<<<< HEAD
         if (!CanSeeHiddenSolution(entity, args.User))
+=======
+        if (!CanSeeHiddenSolution(entity,args.User))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         var target = args.Target;
@@ -911,9 +976,12 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
                 , ("amount", quantity)));
         }
 
+<<<<<<< HEAD
         msg.PushNewline();
         msg.AddMarkup(Loc.GetString("scannable-solution-temperature", ("temperature", Math.Round(solution.Temperature))));
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         return msg;
     }
 
@@ -934,6 +1002,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         return true;
     }
 
+<<<<<<< HEAD
     private void OnMapInit(Entity<SolutionContainerManagerComponent> entity, ref MapInitEvent args)
     {
         EnsureAllSolutions(entity);
@@ -1203,4 +1272,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             dissolvedReagentAmount += overflow;
         return dissolvedReagentAmount;
     }
+=======
+    #endregion Event Handlers
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

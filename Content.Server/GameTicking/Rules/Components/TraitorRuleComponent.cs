@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 using Content.Shared.Dataset;
 ﻿using Content.Shared.NPC.Prototypes;
+=======
+﻿using Content.Server.NPC.Components;
+using Content.Shared.Dataset;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Random;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
@@ -30,9 +35,12 @@ public sealed partial class TraitorRuleComponent : Component
 
     [DataField]
     public ProtoId<DatasetPrototype> CodewordVerbs = "verbs";
+<<<<<<< HEAD
 
     [DataField]
     public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public int TotalTraitors => TraitorMinds.Count;
     public string[] Codewords = new string[3];

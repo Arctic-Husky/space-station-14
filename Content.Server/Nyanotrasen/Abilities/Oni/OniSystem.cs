@@ -21,7 +21,11 @@ namespace Content.Server.Abilities.Oni
             SubscribeLocalEvent<OniComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<OniComponent, MeleeHitEvent>(OnOniMeleeHit);
             SubscribeLocalEvent<HeldByOniComponent, MeleeHitEvent>(OnHeldMeleeHit);
+<<<<<<< HEAD
             SubscribeLocalEvent<HeldByOniComponent, StaminaMeleeHitEvent>(OnStamHit);
+=======
+            SubscribeLocalEvent<HeldByOniComponent, TakeStaminaDamageEvent>(OnStamHit);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnEntInserted(EntityUid uid, OniComponent component, EntInsertedIntoContainerMessage args)
@@ -68,7 +72,11 @@ namespace Content.Server.Abilities.Oni
             args.ModifiersList.Add(oni.MeleeModifiers);
         }
 
+<<<<<<< HEAD
         private void OnStamHit(EntityUid uid, HeldByOniComponent component, StaminaMeleeHitEvent args)
+=======
+        private void OnStamHit(EntityUid uid, HeldByOniComponent component, TakeStaminaDamageEvent args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (!TryComp<OniComponent>(component.Holder, out var oni))
                 return;

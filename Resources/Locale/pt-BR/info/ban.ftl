@@ -82,3 +82,7 @@ ban-panel-erase = Apagar mensagens de bate-papo e o jogador da rodada
 server-ban-string = {$admin} criou um ban de servidor de gravidade {$severity} que expira em {$expires} para [{$name}, {$ip}, {$hwid}], com razão: {$reason}
 server-ban-string-no-pii = {$admin} criou um ban de servidor de gravidade {$severity} que expira em {$expires} para {$name} com razão: {$reason}
 server-ban-string-never = nunca
+<<<<<<< HEAD
+=======
+cmd-ban_exemption_get-arg-player = <player>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

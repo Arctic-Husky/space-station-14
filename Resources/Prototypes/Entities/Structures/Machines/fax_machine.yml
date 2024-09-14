@@ -46,7 +46,14 @@
       ejectSound: /Audio/Machines/tray_eject.ogg
       whitelist:
         components:
+<<<<<<< HEAD
           - FaxableObject #used to be PaperComponent - brainfood1183
+=======
+          - Paper
+      blacklist:
+        tags:
+          - PaperSlip # DeltaV - Prevent the faxing of paper slips.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
@@ -66,6 +73,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: Fax
     transmitFrequencyId: Fax
+  - type: RequireProjectileTarget
 
 # Special
 - type: entity
@@ -109,5 +117,12 @@
     - type: FaxMachine
       name: "Captain's Office"
       receiveNukeCodes: true
+<<<<<<< HEAD
     - type: StealTarget
       stealGroup: FaxMachineCaptain
+=======
+      receiveStationGoal: true
+    - type: StealTarget
+      stealGroup: FaxMachineCaptain
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

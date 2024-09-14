@@ -15,6 +15,10 @@ using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Audio;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
@@ -267,11 +271,14 @@ public sealed class ReflectSystem : EntitySystem
     {
         comp.Enabled = args.Activated;
         Dirty(uid, comp);
+<<<<<<< HEAD
 
         if (comp.Enabled)
             EnableAlert(uid);
         else
             DisableAlert(uid);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>

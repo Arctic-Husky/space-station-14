@@ -91,7 +91,10 @@
       types:
         Blunt: 8
     bluntStaminaDamageFactor: 0.0 # so blunt doesn't deal stamina damage at all
+<<<<<<< HEAD
     mustBeEquippedToUse: true
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingHandsBase
@@ -233,7 +236,6 @@
   - type: FingerprintMask
   - type: Thieving
     stripTimeReduction: 1
-    stealthy: true
   - type: NinjaGloves
 
 - type: entity
@@ -242,12 +244,15 @@
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
   components:
+<<<<<<< HEAD
   - type: Sprite
     sprite: Clothing/Hands/Gloves/combat.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/combat.rsi
   - type: GloveHeatResistance
     heatResistance: 1400
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -340,7 +345,10 @@
     tags: [] # ignore "WhitelistChameleon" tag
   - type: Thieving
     stripTimeReduction: 1.5
+<<<<<<< HEAD
     stealthy: true
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingHandsGlovesColorWhite
@@ -364,9 +372,16 @@
   - type: MeleeWeapon
     autoAttack: true
     attackRate: 4
+    heavyStaminaCost: 2
+    heavyDamageBaseModifier: 1.05
+    maxTargets: 1
     damage:
       types:
+<<<<<<< HEAD
        Blunt: 5
+=======
+       Blunt: 8
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: Punch
     animation: WeaponArcFist

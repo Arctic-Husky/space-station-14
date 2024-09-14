@@ -727,6 +727,7 @@
   completetime: 3.2
   materials:
     Cloth: 500
+<<<<<<< HEAD
     Durathread: 300
 
 - type: latheRecipe
@@ -735,6 +736,8 @@
   completetime: 3.2
   materials:
     Cloth: 500
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     Durathread: 300
 
 - type: latheRecipe
@@ -1306,6 +1309,7 @@
   completetime: 1
   materials:
     Cloth: 100
+<<<<<<< HEAD
 
 # Pirata
 - type: latheRecipe
@@ -1321,3 +1325,5 @@
   completetime: 4
   materials:
     Cloth: 300
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

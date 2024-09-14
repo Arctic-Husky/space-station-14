@@ -170,6 +170,12 @@ public sealed partial class PowerMonitoringWindow : FancyWindow
             NavMap.TrackedEntities[mon.Value] = blip;
         }
 
+<<<<<<< HEAD
+=======
+        // Update nav map
+        NavMap.ForceNavMapUpdate();
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         // If the entry group doesn't match the current tab, the data is out dated, do not use it
         if (allEntries.Length > 0 && allEntries[0].Group != GetCurrentPowerMonitoringConsoleGroup())
             return;

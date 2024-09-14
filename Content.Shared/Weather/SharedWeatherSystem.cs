@@ -15,8 +15,13 @@ public abstract class SharedWeatherSystem : EntitySystem
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
+<<<<<<< HEAD
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
+=======
+    [Dependency] private   readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private   readonly MetaDataSystem _metadata = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private EntityQuery<BlockWeatherComponent> _blockQuery;

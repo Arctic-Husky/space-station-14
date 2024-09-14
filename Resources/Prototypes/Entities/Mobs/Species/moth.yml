@@ -9,6 +9,7 @@
     species: Moth
   - type: Hunger
   - type: Thirst
+  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Moth/parts.rsi
     state: full
@@ -22,7 +23,17 @@
     accent: zombieMoth
   - type: Speech
     speechVerb: Moth
+<<<<<<< HEAD
     allowedEmotes: ['Chitter', 'Squeak']
+=======
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Moffic
+    understands:
+    - GalacticCommon
+    - Moffic
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: TypingIndicator
     proto: moth
   - type: Butcherable
@@ -44,6 +55,7 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
+<<<<<<< HEAD
     weightlessAcceleration: 1.5 # Move around more easily in space.
     weightlessFriction: 1
     weightlessModifier: 1
@@ -51,6 +63,13 @@
     damage:
       types:
         Heat: 4.5 # moths burn more easily
+=======
+    weightlessAcceleration: 2.5 # Move around more easily in space.
+  - type: Flammable
+    damage:
+      types:
+        Heat: 4 # DV - Reduced by .5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Temperature # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230

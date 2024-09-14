@@ -170,6 +170,7 @@ namespace Content.Server.Cargo.Systems
                 return;
             }
 
+<<<<<<< HEAD
             var ev = new FulfillCargoOrderEvent((station.Value, stationData), order, (uid, component));
             RaiseLocalEvent(ref ev);
             ev.FulfillmentEntity ??= station.Value;
@@ -184,6 +185,15 @@ namespace Content.Server.Cargo.Systems
                     PlayDenySound(uid, component);
                     return;
                 }
+=======
+            var tradeDestination = TryFulfillOrder(stationData, order, orderDatabase);
+
+            if (tradeDestination == null)
+            {
+                ConsolePopup(args.Session, Loc.GetString("cargo-console-unfulfilled"));
+                PlayDenySound(uid, component);
+                return;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             _idCardSystem.TryFindIdCard(player, out var idCard);
@@ -191,6 +201,7 @@ namespace Content.Server.Cargo.Systems
             order.SetApproverData(idCard.Comp?.FullName, idCard.Comp?.JobTitle);
             _audio.PlayPvs(component.ConfirmSound, uid);
 
+<<<<<<< HEAD
             var approverName = idCard.Comp?.FullName ?? Loc.GetString("access-reader-unknown-id");
             var approverJob = idCard.Comp?.JobTitle ?? Loc.GetString("access-reader-unknown-id");
             var message = Loc.GetString("cargo-console-unlock-approved-order-broadcast",
@@ -201,6 +212,9 @@ namespace Content.Server.Cargo.Systems
                 ("cost", cost));
             _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
             ConsolePopup(args.Actor, Loc.GetString("cargo-console-trade-station", ("destination", MetaData(ev.FulfillmentEntity.Value).EntityName)));
+=======
+            ConsolePopup(args.Session, Loc.GetString("cargo-console-trade-station", ("destination", MetaData(tradeDestination.Value).EntityName)));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             // Log order approval
             _adminLogger.Add(LogType.Action, LogImpact.Low,
@@ -208,10 +222,17 @@ namespace Content.Server.Cargo.Systems
 
             orderDatabase.Orders.Remove(order);
             DeductFunds(bank, cost);
+<<<<<<< HEAD
             UpdateOrders(station.Value);
         }
 
         private EntityUid? TryFulfillOrder(Entity<StationDataComponent> stationData, CargoOrderData order, StationCargoOrderDatabaseComponent orderDatabase)
+=======
+            UpdateOrders(station.Value, orderDatabase);
+        }
+
+        private EntityUid? TryFulfillOrder(StationDataComponent stationData, CargoOrderData order, StationCargoOrderDatabaseComponent orderDatabase)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             // No slots at the trade station
             _listEnts.Clear();
@@ -250,12 +271,23 @@ namespace Content.Server.Cargo.Systems
 
         private void GetTradeStations(StationDataComponent data, ref List<EntityUid> ents)
         {
+<<<<<<< HEAD
             foreach (var gridUid in data.Grids)
             {
                 if (!_tradeQuery.HasComponent(gridUid))
                     continue;
 
                 ents.Add(gridUid);
+=======
+            var tradeStationQuery = AllEntityQuery<TradeStationComponent>(); // We *could* cache this, but I don't know where it'd go
+
+            while (tradeStationQuery.MoveNext(out var uid, out _))
+            {
+                //if (!_tradeQuery.HasComponent(uid))
+                //    continue;
+
+                ents.Add(uid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -319,9 +351,15 @@ namespace Content.Server.Cargo.Systems
                 !TryComp<StationCargoOrderDatabaseComponent>(station, out var orderDatabase) ||
                 !TryComp<StationBankAccountComponent>(station, out var bankAccount)) return;
 
+<<<<<<< HEAD
             if (_uiSystem.HasUi(consoleUid, CargoConsoleUiKey.Orders))
             {
                 _uiSystem.SetUiState(consoleUid, CargoConsoleUiKey.Orders, new CargoConsoleInterfaceState(
+=======
+            if (_uiSystem.TryGetUi(consoleUid, CargoConsoleUiKey.Orders, out var bui))
+            {
+                _uiSystem.SetUiState(bui, new CargoConsoleInterfaceState(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     MetaData(station.Value).EntityName,
                     GetOutstandingOrderCount(orderDatabase),
                     orderDatabase.Capacity,
@@ -343,7 +381,11 @@ namespace Content.Server.Cargo.Systems
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id)
         {
+<<<<<<< HEAD
             return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason);
+=======
+            return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Cost, args.Amount, args.Requester, args.Reason);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         public static int GetOutstandingOrderCount(StationCargoOrderDatabaseComponent component)
@@ -399,7 +441,11 @@ namespace Content.Server.Cargo.Systems
             string description,
             string dest,
             StationCargoOrderDatabaseComponent component,
+<<<<<<< HEAD
             Entity<StationDataComponent> stationData
+=======
+            StationDataComponent stationData
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         )
         {
             DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(spawnId));

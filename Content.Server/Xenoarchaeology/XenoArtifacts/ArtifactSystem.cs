@@ -234,7 +234,10 @@ public sealed partial class ArtifactSystem : EntitySystem
         }
 
         Log.Debug($"Going to node {newNode}");
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         return GetNodeFromId(newNode, component);
     }
 

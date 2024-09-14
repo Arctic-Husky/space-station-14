@@ -120,7 +120,11 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             if (!Resolve(uid, ref filter))
                 return;
 
+<<<<<<< HEAD
             _userInterfaceSystem.SetUiState(uid, GasFilterUiKey.Key,
+=======
+            _userInterfaceSystem.TrySetUiState(uid, GasFilterUiKey.Key,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 new GasFilterBoundUserInterfaceState(MetaData(uid).EntityName, filter.TransferRate, filter.Enabled, filter.FilteredGas));
         }
 
@@ -182,6 +186,7 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
         {
             args.GasMixtures ??= new List<(string, GasMixture?)>();
 
+<<<<<<< HEAD
             // multiply by volume fraction to make sure to send only the gas inside the analyzed pipe element, not the whole pipe system
             if (_nodeContainer.TryGetNode(uid, component.InletName, out PipeNode? inlet) && inlet.Air.Volume != 0f)
             {
@@ -205,6 +210,17 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
                 args.GasMixtures.Add((Loc.GetString("gas-analyzer-window-text-outlet"), outletAirLocal));
             }
 
+=======
+            args.GasMixtures ??= new Dictionary<string, GasMixture?>();
+
+            if(_nodeContainer.TryGetNode(nodeContainer, component.InletName, out PipeNode? inlet))
+                args.GasMixtures.Add(Loc.GetString("gas-analyzer-window-text-inlet"), inlet.Air);
+            if(_nodeContainer.TryGetNode(nodeContainer, component.FilterName, out PipeNode? filterNode))
+                args.GasMixtures.Add(Loc.GetString("gas-analyzer-window-text-filter"), filterNode.Air);
+            if(_nodeContainer.TryGetNode(nodeContainer, component.OutletName, out PipeNode? outlet))
+                args.GasMixtures.Add(Loc.GetString("gas-analyzer-window-text-outlet"), outlet.Air);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             args.DeviceFlipped = inlet != null && filterNode != null && inlet.CurrentPipeDirection.ToDirection() == filterNode.CurrentPipeDirection.ToDirection().GetClockwise90Degrees();
         }
     }

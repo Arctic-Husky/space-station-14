@@ -14,14 +14,19 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Physics;
 using Content.Shared.Tag;
-using Content.Shared.Traits.Assorted;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+<<<<<<< HEAD
 using Robust.Shared.Random;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Timing;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
+using Content.Shared.Traits.Assorted.Components;
+using Robust.Shared.Random;
+using Content.Shared.Eye.Blinding.Systems;
 
 namespace Content.Server.Flash
 {
@@ -39,6 +44,10 @@ namespace Content.Server.Flash
         [Dependency] private readonly StunSystem _stun = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+<<<<<<< HEAD
+=======
+        [Dependency] private readonly BlindableSystem _blindingSystem = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public override void Initialize()
         {
@@ -65,7 +74,11 @@ namespace Content.Server.Flash
             args.Handled = true;
             foreach (var e in args.HitEntities)
             {
+<<<<<<< HEAD
                 Flash(e, args.User, uid, comp.FlashDuration, comp.SlowTo, melee: true, stunDuration: comp.MeleeStunDuration);
+=======
+                Flash(e, args.User, uid, comp.FlashDuration, comp.SlowTo, melee: true);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -115,8 +128,12 @@ namespace Content.Server.Flash
             float slowTo,
             bool displayPopup = true,
             FlashableComponent? flashable = null,
+<<<<<<< HEAD
             bool melee = false,
             TimeSpan? stunDuration = null)
+=======
+            bool melee = false)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (!Resolve(target, ref flashable, false))
                 return;
@@ -136,6 +153,7 @@ namespace Content.Server.Flash
                     RaiseLocalEvent(used.Value, ref ev);
             }
 
+<<<<<<< HEAD
             flashable.LastFlash = _timing.CurTime;
             flashable.Duration = flashDuration / 1000f; // TODO: Make this sane...
             Dirty(target, flashable);
@@ -152,19 +170,43 @@ namespace Content.Server.Flash
 
             if (displayPopup && user != null && target != user && Exists(user.Value))
             {
+=======
+            flashDuration *= flashable.DurationMultiplier;
+
+            flashable.LastFlash = _timing.CurTime;
+            flashable.Duration = flashDuration / 1000f; // TODO: Make this sane...
+            Dirty(target, flashable);
+
+            if (TryComp<BlindableComponent>(target, out var blindable)
+                && !blindable.IsBlind
+                && _random.Prob(flashable.EyeDamageChance))
+                _blindingSystem.AdjustEyeDamage((target, blindable), flashable.EyeDamage);
+
+            _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration/1000f), true,
+                slowTo, slowTo);
+
+            if (displayPopup && user != null && target != user && Exists(user.Value))
+            {
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
             }
+
         }
 
         public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null)
         {
+<<<<<<< HEAD
             var transform = Transform(source);
+=======
+            var transform = EntityManager.GetComponent<TransformComponent>(source);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             var mapPosition = _transform.GetMapCoordinates(transform);
             var flashableQuery = GetEntityQuery<FlashableComponent>();
 
             foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, range))
             {
+<<<<<<< HEAD
                 if (!_random.Prob(probability))
                     continue;
 
@@ -173,13 +215,28 @@ namespace Content.Server.Flash
 
                 // Check for unobstructed entities while ignoring the mobs with flashable components.
                 if (!_interaction.InRangeUnobstructed(entity, mapPosition, range, flashable.CollisionGroup, predicate: (e) => flashableQuery.HasComponent(e) || e == source.Owner))
+=======
+                if (!flashableQuery.TryGetComponent(entity, out var flashable))
+                    continue;
+
+
+                // Check for unobstructed entities while ignoring the mobs with flashable components.
+                if (!_interaction.InRangeUnobstructed(entity, mapPosition, range, flashable.CollisionGroup, (e) => e == source))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     continue;
 
                 // They shouldn't have flash removed in between right?
                 Flash(entity, user, source, duration, slowTo, displayPopup, flashableQuery.GetComponent(entity));
             }
 
+<<<<<<< HEAD
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
+=======
+            if (sound != null)
+            {
+                _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnInventoryFlashAttempt(EntityUid uid, InventoryComponent component, FlashAttemptEvent args)

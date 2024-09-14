@@ -1,11 +1,16 @@
 <Document>
   # I.P.C.
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
+<<<<<<< HEAD
   O I.P.C. (Sigla para Integrated Positronic Chassis) é uma espécie de robôs sentientes e são considerados [color=yellow]individuos independentes[/color], isto é, [color=red]não são guiados por qualquer leis da robótica[/color]. IPCs não podem ser hackeados por Emags por conta de não terem que seguir nenhuma diretriz pré definida em seu sistema. [color=red]IPCs são seres de silício, portanto médicos não tem as habilidades para repará-los. [/color] O ideal seria buscar ajuda do setor de robótica do departamento de ciência ou até mesmo buscar ajuda do departamento de engenharia.
+=======
+  An IPC (short for Integrated Positronic Chassis) is a type of sentient robot and is considered an [color=yellow]independent individual[/color], meaning [color=red]they are not guided by any laws of robotics[/color]. IPCs cannot be hacked by Emags because they do not have to follow any predefined directives in their system. [color=red]IPCs are silicon-based beings, so doctors do not have the skills to repair them.[/color]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
   <Box>
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
   </Box>
+<<<<<<< HEAD
   Assim como os cyborgs, os I.P.C. possuem um cérebro positrônico como sua fonte de processamento. Porém, diferentemente deles, I.P.Cs não são montáveis. "É mais barato criar uma carcaça que te obedece do que uma que não! *piscadinha*"
 
   ## Recarregamento de um IPC
@@ -50,6 +55,48 @@
     No eventual caso de um IPC morrer, após ele ser totalmente consertado, ele deverá ser reiniciado utilizando o botão [color=yellow]"Reiniciar"[/color] (localizado ao apertar o botão direito).
 
     [color=red]JAMAIS ELETROCUTE UM IPC com um desfibrilador ou de outra forma enquanto ele estiver morto, isso fará a bateria emitir raios de energia para fora![/red]
+=======
+  Like borgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled. "It's cheaper to create a shell that obeys you than one that doesn't! *wink*"
+  ## Recharging an IPC
+   <Box>
+    <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
+    <GuideEntityEmbed Entity="BorgCharger" Caption="Borg Charger"/>
+    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Power Cell"/>
+  </Box>
+  IPCs can be recharged in three different ways:
+
+  APC Terminal: IPCs can use APC terminals to recharge. Press [color=yellow]Alt + left click[/color] on a terminal as many times as needed to fully recharge.
+
+  Borg Rechargers: IPCs can use borg rechargers to recharge. Always prioritize the ones outside of the Sci area to avoid headaches.
+
+  Power Cell: IPCs have an internal power cell that serves as their battery. They can simply swap it out by opening the hatch and manually replacing it.
+
+  ## Integrated Radio
+  <Box>
+    <GuideEntityEmbed Entity="EncryptionKeyScience" Caption="Encryption key"/>
+  </Box>
+
+  IPCs do [bold]not[/bold] use external radios because they already have one built in. They only need to get an encryption key from a radio. By clicking on an IPC with a [color=yellow]wire cutter[/color], you can remove their keys.
+  You can find new keys around the station or remove one from a sector radio using a [color=yellow]screwdriver[/color].
+
+  ## Repairing
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
+    Welders can be used to repair [color=yellow]Brute[/color] damage.
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
+    Cables can be used to repair [color=yellow]Burns[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
+    Glass Sheets can be used to repair [color=yellow]Blindness[/color].
+  </Box>
+  <Box HorizontalAlignment="Stretch">
+    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
+
+    [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   </Box>
 
 </Document>

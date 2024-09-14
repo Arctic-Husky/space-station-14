@@ -1,5 +1,8 @@
 using System.Numerics;
+<<<<<<< HEAD
 using Content.Client.Animations;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
@@ -18,7 +21,10 @@ using Robust.Client.State;
 using Robust.Shared.Animations;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
+<<<<<<< HEAD
 using Robust.Shared.Map.Components;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
@@ -36,7 +42,11 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly AnimationPlayerSystem _animPlayer = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedMapSystem _maps = default!;
+=======
+    [Dependency] private readonly IComponentFactory _factory = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [ValidatePrototypeId<EntityPrototype>]
     public const string HitscanProto = "HitscanEffect";
@@ -221,7 +231,11 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (!cartridge.Spent)
                     {
                         SetCartridgeSpent(ent!.Value, cartridge, true);
+<<<<<<< HEAD
                         MuzzleFlash(gunUid, cartridge, worldAngle, user);
+=======
+                        MuzzleFlash(gunUid, cartridge, user);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                         Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                         Recoil(user, direction, gun.CameraRecoilScalarModified);
                         // TODO: Can't predict entity deletions.
@@ -239,7 +253,11 @@ public sealed partial class GunSystem : SharedGunSystem
 
                     break;
                 case AmmoComponent newAmmo:
+<<<<<<< HEAD
                     MuzzleFlash(gunUid, newAmmo, worldAngle, user);
+=======
+                    MuzzleFlash(gunUid, newAmmo, user);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     Recoil(user, direction, gun.CameraRecoilScalarModified);
                     if (IsClientSide(ent!.Value))
@@ -330,6 +348,7 @@ public sealed partial class GunSystem : SharedGunSystem
         };
 
         _animPlayer.Play(ent, anim, "muzzle-flash");
+<<<<<<< HEAD
         if (!TryComp(gunUid, out PointLightComponent? light))
         {
             light = (PointLightComponent) _factory.GetComponent(typeof(PointLightComponent));
@@ -341,6 +360,20 @@ public sealed partial class GunSystem : SharedGunSystem
         Lights.SetRadius(gunUid, 2f, light);
         Lights.SetColor(gunUid, Color.FromHex("#cc8e2b"), light);
         Lights.SetEnergy(gunUid, 5f, light);
+=======
+        if (!TryComp(uid, out PointLightComponent? light))
+        {
+            light = (PointLightComponent) _factory.GetComponent(typeof(PointLightComponent));
+            light.Owner = uid;
+            light.NetSyncEnabled = false;
+            AddComp(uid, light);
+        }
+
+        Lights.SetEnabled(uid, true, light);
+        Lights.SetRadius(uid, 2f, light);
+        Lights.SetColor(uid, Color.FromHex("#cc8e2b"), light);
+        Lights.SetEnergy(uid, 5f, light);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         var animTwo = new Animation()
         {

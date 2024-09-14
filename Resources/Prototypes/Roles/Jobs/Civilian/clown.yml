@@ -4,14 +4,20 @@
   description: job-description-clown
   playTimeTracker: JobClown
   requirements:
+<<<<<<< HEAD
   - !type:OverallPlaytimeRequirement
       time: 90000 # Corvax-RoleTime
+=======
+    - !type:CharacterOverallTimeRequirement # DeltaV - Playtime requirement
+      min: 7200 #2 hrs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   startingGear: ClownGear
   icon: "JobIconClown"
   supervisors: job-supervisors-hop
   access:
   - Theatre
   - Maintenance
+  - Clown # DeltaV - Add Clown access
   special:
   - !type:AddComponentSpecial
     components:
@@ -22,9 +28,16 @@
           Piercing: 4
         groups:
           Burn: 3
+<<<<<<< HEAD
     - type: SleepEmitSound
       snore: /Audio/Voice/Misc/silly_snore.ogg
       interval: 10
+=======
+# DeltaV - Commenting out the clown snore sound because I am not fond of it (it makes me itchy and feral). By "I", I mean Leonardo_DaBepis.
+#    - type: SleepEmitSound
+#      snore: /Audio/Voice/Misc/silly_snore.ogg
+#      interval: 10
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - !type:AddImplantSpecial
     implants: [ SadTromboneImplant ]
 

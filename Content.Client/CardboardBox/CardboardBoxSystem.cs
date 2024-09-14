@@ -1,5 +1,8 @@
 using System.Numerics;
+<<<<<<< HEAD
 using Content.Shared.Body.Components;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.CardboardBox;
 using Content.Shared.CardboardBox.Components;
 using Content.Shared.Examine;
@@ -13,8 +16,11 @@ public sealed class CardboardBoxSystem : SharedCardboardBoxSystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+<<<<<<< HEAD
 
     private EntityQuery<BodyComponent> _bodyQuery;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -65,10 +71,13 @@ public sealed class CardboardBoxSystem : SharedCardboardBoxSystem
             if (!_examine.InRangeUnOccluded(sourcePos, mapPos, box.Distance, null))
                 continue;
 
+<<<<<<< HEAD
             // no effect for anything too exotic
             if (!_bodyQuery.HasComp(mob))
                 continue;
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             var ent = Spawn(box.Effect, mapPos);
 
             if (!xformQuery.TryGetComponent(ent, out var entTransform) || !TryComp<SpriteComponent>(ent, out var sprite))

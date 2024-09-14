@@ -18,12 +18,15 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+<<<<<<< HEAD
 using System.Text.Json;
 using System.Net.Http;
 using System.Text.Encodings;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Administration.Managers;
 
@@ -288,6 +291,7 @@ public sealed class BanManager : IBanManager, IPostInjectInit
             SendRoleBans(player);
         }
 
+<<<<<<< HEAD
         var adminName = unbanningAdmin == null
             ? Loc.GetString("system-user")
             : (await _db.GetPlayerRecordByUserId(unbanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
@@ -300,6 +304,8 @@ public sealed class BanManager : IBanManager, IPostInjectInit
 
         ReportBan(logMessage);
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         return $"Pardoned ban with id {banId}";
     }
 

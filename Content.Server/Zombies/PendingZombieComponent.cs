@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Zombies;
@@ -16,7 +17,11 @@ public sealed partial class PendingZombieComponent : Component
     {
         DamageDict = new ()
         {
+<<<<<<< HEAD
             { "Poison", 0.2 },
+=======
+            { "Poison", 0.3 },
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     };
 
@@ -47,6 +52,12 @@ public sealed partial class PendingZombieComponent : Component
     [DataField]
     public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(15f);
 
+<<<<<<< HEAD
+=======
+    [DataField]
+    public EntProtoId ZombifySelfActionPrototype = "ActionTurnUndead";
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// <summary>
     /// The chance each second that a warning will be shown.
     /// </summary>
@@ -62,4 +73,6 @@ public sealed partial class PendingZombieComponent : Component
         "zombie-infection-warning",
         "zombie-infection-underway"
     };
+
+    [DataField] public EntityUid? Action;
 }

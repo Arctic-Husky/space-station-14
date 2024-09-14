@@ -26,8 +26,13 @@
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
         enum.JukeboxUiKey.Key:
           type: JukeboxBoundUserInterface
+=======
+      - key: enum.JukeboxUiKey.Key
+        type: JukeboxBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

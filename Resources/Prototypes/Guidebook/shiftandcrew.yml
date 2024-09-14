@@ -3,6 +3,7 @@
   name: guide-entry-jobs
   text: "/ServerInfo/Guidebook/Jobs.xml"
   children:
+  - Justice
   - Bartender
   - Chef
   - Botany
@@ -13,6 +14,11 @@
   - Cargo
   - Salvage
   - Medical
+
+- type: guideEntry
+  id: Justice
+  name: guide-entry-justice
+  text: "/ServerInfo/Guidebook/DeltaV/Justice.xml"
 
 - type: guideEntry
   id: Survival
@@ -42,9 +48,13 @@
   id: Food Recipes
   name: guide-entry-foodrecipes
   text: "/ServerInfo/Guidebook/Service/FoodRecipes.xml"
+  filterEnabled: true
 
 - type: guideEntry
   id: Food Pirata
   name: guide-entry-foodpirata
   text: "/ServerInfo/Guidebook/Service/ReceitasPirata.xml"
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

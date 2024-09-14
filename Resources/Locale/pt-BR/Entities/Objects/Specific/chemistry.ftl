@@ -5,7 +5,11 @@ ent-LargeBeaker = béquer grande
      .desc = Usado para conter uma grande quantidade de produtos químicos ou soluções.
 
 ent-CryostasisBeaker = béquer de criostase
+<<<<<<< HEAD
      .desc = Usado para conter produtos químicos ou soluções. Impede reações químicas.
+=======
+     .desc = Usado para conter produtos químicos ou soluções sem reações.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 ent-BluespaceBeaker = béquer de bluespace
      .desc = Desenvolvido pela tecnologia experimental bluespace.
@@ -22,6 +26,7 @@ ent-Syringe = seringa
 ent-Pill = pílula
      .desc = Não é um supositório.
 
+<<<<<<< HEAD
 ent-PillCanister = porta-comprimidos
      .desc = Comporta até 9 comprimidos.
 
@@ -36,3 +41,8 @@ ent-SyringeBluespace = seringa de bluespace
 
 ent-SyringeCryostasis = seringa de criostase
     .desc = Uma seringa usada para conter produtos químicos ou soluções impedindo reações químicas.
+=======
+ent-PillCanister = pill canister
+     .desc = Comporta até 9 comprimidos.
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

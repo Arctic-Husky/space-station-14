@@ -34,9 +34,15 @@ device-address-prefix-smes = SMS-
 #PDAs and terminals
 device-address-prefix-console = CLS-
 device-address-prefix-fire-alarm = FIR-
+<<<<<<< HEAD
 device-address-prefix-air-alarm = AIR-
 
 device-address-prefix-sensor-monitor = MON-
+=======
+
+device-address-prefix-sensor-monitor = MON-
+device-address-prefix-air-alarm = AR-
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 device-address-examine-message = O endereço do dispositivo é {$address}.
 
@@ -46,4 +52,8 @@ device-net-id-wired = Com fio
 device-net-id-wireless = Sem fio
 device-net-id-apc = APC
 device-net-id-atmos-devices = Dispositivos Atmos
+<<<<<<< HEAD
 device-net-id-reserved = Reservado
+=======
+device-net-id-reserved = Reservado
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

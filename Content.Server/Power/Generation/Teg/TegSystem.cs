@@ -7,7 +7,10 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
+<<<<<<< HEAD
 using Content.Shared.Atmos;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.DeviceNetwork;
 using Content.Shared.Examine;
 using Content.Shared.Power.Generation.Teg;

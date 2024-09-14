@@ -1,9 +1,14 @@
 using Content.Server.Communications;
 using Content.Server.Mind;
 using Content.Server.Ninja.Events;
+<<<<<<< HEAD
 using Content.Server.Objectives.Systems;
 using Content.Shared.Communications;
 using Content.Shared.CriminalRecords.Components;
+=======
+using Content.Server.Objectives.Components;
+using Content.Shared.Communications;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Research.Components;
@@ -17,8 +22,13 @@ namespace Content.Server.Ninja.Systems;
 public sealed class NinjaGlovesSystem : SharedNinjaGlovesSystem
 {
     [Dependency] private readonly EmagProviderSystem _emagProvider = default!;
+<<<<<<< HEAD
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly CommsHackerSystem _commsHacker = default!;
+=======
+    [Dependency] private readonly CommsHackerSystem _commsHacker = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly SharedStunProviderSystem _stunProvider = default!;
     [Dependency] private readonly SpaceNinjaSystem _ninja = default!;
 
@@ -89,7 +99,11 @@ public sealed class NinjaGlovesSystem : SharedNinjaGlovesSystem
 
         EnsureComp<ResearchStealerComponent>(user);
         // prevent calling in multiple threats by toggling gloves after
+<<<<<<< HEAD
         if (!_codeCondition.IsCompleted(user, ninja.TerrorObjective))
+=======
+        if (_mind.TryGetObjectiveComp<TerrorConditionComponent>(user, out var obj) && !obj.CalledInThreat)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             var hacker = EnsureComp<CommsHackerComponent>(user);
             var rule = _ninja.NinjaRule(user);

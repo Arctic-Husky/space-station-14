@@ -469,8 +469,12 @@ public sealed class WiresSystem : SharedWiresSystem
     {
         if (args.Open)
             return;
+<<<<<<< HEAD
 
         _uiSystem.CloseUi(ent.Owner, WiresUiKey.Key);
+=======
+        _uiSystem.TryCloseAll(ent, WiresUiKey.Key);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnAttemptOpenActivatableUI(EntityUid uid, ActivatableUIRequiresPanelComponent component, ActivatableUIOpenAttemptEvent args)

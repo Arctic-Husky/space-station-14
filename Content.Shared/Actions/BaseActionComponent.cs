@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Audio;
+﻿using Content.Shared.Mobs;
+using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 

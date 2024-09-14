@@ -80,5 +80,8 @@ command-description-mind-control =
     Assumes control of an entity with the given player.
 command-description-addaccesslog =
     Adds an access log to this entity. Do note that this bypasses the log's default limit and pause check.
+<<<<<<< HEAD
 command-description-stationevent-simulate =
     Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

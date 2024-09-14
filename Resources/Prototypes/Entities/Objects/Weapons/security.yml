@@ -35,10 +35,21 @@
       types:
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
+    heavyRateModifier: 0.75
+    heavyDamageBaseModifier: 1.75
+    heavyStaminaCost: 5
+    maxTargets: 3
     angle: 60
     animation: WeaponArcSlash
   - type: StaminaDamageOnHit
+<<<<<<< HEAD
     damage: 45
+=======
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 35
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     sound: /Audio/Weapons/egloves.ogg
   # - type: StaminaDamageOnCollide
   #  damage: 35
@@ -46,7 +57,10 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
+<<<<<<< HEAD
   - type: UseDelay
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     heldPrefix: off
     size: Normal
@@ -98,6 +112,7 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Blunt: 20
@@ -109,6 +124,20 @@
   - type: Tag
     tags: 
     - Truncheon
+=======
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      collection: MetalThud
+    bluntStaminaDamageFactor: 2
+    heavyRateModifier: 1
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 10
+  - type: Item
+    size: Normal
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Clothing
     sprite: Objects/Weapons/Melee/truncheon.rsi
     quickEquip: false
@@ -151,7 +180,15 @@
     - type: Item
       size: Small
       sprite: Objects/Weapons/Melee/flash.rsi
+<<<<<<< HEAD
     - type: UseDelay
+=======
+#    - type: DynamicPrice
+#      price: 40
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - Flash
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: StaticPrice
       price: 40
     - type: Appearance

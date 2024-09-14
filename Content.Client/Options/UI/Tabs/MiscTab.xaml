@@ -58,6 +58,10 @@
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ShowHeldItemCheckBox" Text="{Loc 'ui-options-show-held-item'}" />
                 <CheckBox Name="ShowCombatModeIndicatorsCheckBox" Text="{Loc 'ui-options-show-combat-mode-indicators'}" />
+<<<<<<< HEAD
+=======
+                <CheckBox Name="ShowOfferModeIndicatorsCheckBox" Text="{Loc 'ui-options-show-offer-mode-indicators'}" />
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 <Label Text="{Loc 'ui-options-general-storage'}"
                        FontColorOverride="{xNamespace:Static s:StyleNano.NanoGold}"
                        StyleClasses="LabelKeyText"/>

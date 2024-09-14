@@ -39,7 +39,11 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
             angle = Angle.Zero;
         }
 
+<<<<<<< HEAD
         if (_uiSystem.HasUi(uid, RadarConsoleUiKey.Key))
+=======
+        if (_uiSystem.TryGetUi(uid, RadarConsoleUiKey.Key, out var bui))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             NavInterfaceState state;
             var docks = _console.GetAllDocks();
@@ -53,7 +57,11 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
                 state = _console.GetNavState(uid, docks);
             }
 
+<<<<<<< HEAD
             _uiSystem.SetUiState(uid, RadarConsoleUiKey.Key, new NavBoundUserInterfaceState(state));
+=======
+            _uiSystem.SetUiState(bui, new NavBoundUserInterfaceState(state));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }

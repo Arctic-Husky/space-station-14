@@ -64,11 +64,16 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { ".-.", "chatsan-confused" },
         { "-_-", "chatsan-unimpressed" },
         { "smh.", "chatsan-unimpressed" },
+<<<<<<< HEAD
         { "tlg", "chatsan-unimpressed" },
+=======
+        { "tlg.", "chatsan-unimpressed" },
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         { "o/", "chatsan-waves" },
         { "^^/", "chatsan-waves" },
         { ":/", "chatsan-uncertain" },
         { ":\\", "chatsan-uncertain" },
+<<<<<<< HEAD
         { "lmao", "chatsan-laughs" },
         { "lol", "chatsan-laughs" },
         { "lel", "chatsan-laughs" },
@@ -100,6 +105,39 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { "kakaka", "chatsan-laughs" },
         { "hehehe", "chatsan-laughs" },
         { "rs", "chatsan-laughs" },
+=======
+        { "lmao.", "chatsan-laughs" },
+        { "lol.", "chatsan-laughs" },
+        { "lel.", "chatsan-laughs" },
+        { "kek.", "chatsan-laughs" },
+        { "rofl.", "chatsan-laughs" },
+        { "hue.", "chatsan-laughs" },
+        { "dnd.", "chatsan-smiles" },
+        { "hahahahahahaha.", "chatsan-laughs" },
+        { "hahahahahaha.", "chatsan-laughs" },
+        { "hahahahaha.", "chatsan-laughs" },
+        { "hahahaha.", "chatsan-laughs" },
+        { "hahaha.", "chatsan-laughs" },
+        { "haha.", "chatsan-laughs" },
+        { "kkkkkkkkk.", "chatsan-laughs" },
+        { "kkkkkkkk.", "chatsan-laughs" },
+        { "kkkkkkk.", "chatsan-laughs" },
+        { "kkkkkk.", "chatsan-laughs" },
+        { "kkkkk.", "chatsan-laughs" },
+        { "kkkk.", "chatsan-laughs" },
+        { "kkk.", "chatsan-laughs" },
+        { "kk.", "chatsan-laughs" },
+        { "ksksksksks.", "chatsan-laughs" },
+        { "ksksksksk.", "chatsan-laughs" },
+        { "ksksksks.", "chatsan-laughs" },
+        { "ksksksk.", "chatsan-laughs" },
+        { "ksksks.", "chatsan-laughs" },
+        { "ksksk.", "chatsan-laughs" },
+        { "ksks.", "chatsan-laughs" },
+        { "kakaka.", "chatsan-laughs" },
+        { "hehehe.", "chatsan-laughs" },
+        { "rs.", "chatsan-laughs" },
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         { "o7", "chatsan-salutes" },
         { ";_;7", "chatsan-tearfully-salutes"},
         { "idk.", "chatsan-shrugs" },
@@ -115,8 +153,13 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { "[':", "chatsan-tearfully-smiles" },
         { "('=", "chatsan-tearfully-smiles" },
         { "['=", "chatsan-tearfully-smiles" },
+<<<<<<< HEAD
         { "ss", "chatsan-shake-head-yes" },
         { "nn", "chatsan-shake-head-no" },
+=======
+        { "ss.", "chatsan-shake-head-yes" },
+        { "nn.", "chatsan-shake-head-no" },
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     };
 
     private bool _doSanitize;

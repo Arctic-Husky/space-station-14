@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using Content.Shared.Chat.Prototypes;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -26,6 +29,7 @@ namespace Content.Shared.Speech
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public ProtoId<SpeechVerbPrototype> SpeechVerb = "Default";
+<<<<<<< HEAD
 
         /// <summary>
         ///     What emotes allowed to use event if emote <see cref="EmotePrototype.Available"/> is false
@@ -33,6 +37,8 @@ namespace Content.Shared.Speech
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public List<ProtoId<EmotePrototype>> AllowedEmotes = new();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         /// <summary>
         ///     A mapping from chat suffixes loc strings to speech verb prototypes that should be conditionally used.

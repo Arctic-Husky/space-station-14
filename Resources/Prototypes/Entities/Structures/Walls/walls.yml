@@ -45,10 +45,14 @@
         density: 1000
   - type: Occluder
   - type: Airtight
-  - type: StaticPrice
+  - type: StaticPrice #was DynamicPrice
     price: 75
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 2
+=======
+    resistance: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: BlockWeather
 
 - type: entity
@@ -399,7 +403,11 @@
     key: walls
     base: plasma
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 5
+=======
+    resistance: 7
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseWall
@@ -529,6 +537,7 @@
     - trigger:
         !type:DamageTrigger
         damage: 600
+<<<<<<< HEAD
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -539,6 +548,21 @@
         !type:DamageTrigger
         damage: 400
       behaviors:
+=======
+      behaviors:
+      - !type:PlaySoundBehavior #Nyano
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
@@ -546,6 +570,8 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    destroySound:
+      collection: MetalBreak
   - type: IconSmooth
     key: walls
     base: reinf_over
@@ -565,7 +591,47 @@
   - type: StaticPrice
     price: 150
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 8
+
+- type: entity
+  parent: WallReinforced
+  id: WallReinforcedRust
+  name: reinforced wall
+  suffix: rusted
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/solid_rust.rsi
+  - type: Icon
+    sprite: Structures/Walls/solid_rust.rsi
+    state: rgeneric
+  - type: Construction
+    graph: Girder
+    node: reinforcedWallRust
+  - type: IconSmooth
+    key: walls
+    base: reinf_over
+
+- type: entity
+  parent: WallShuttleDiagonal
+  id: WallReinforcedDiagonal
+  name: reinforced wall
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: Structures/Walls/reinforced_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: Structures/Walls/reinforced_diagonal.rsi
+    state: state0
 
 - type: entity
   parent: WallReinforced
@@ -639,7 +705,7 @@
   - type: IconSmooth
     key: walls
     base: riveted
-  - type: StaticPrice
+  - type: StaticPrice #DynamicPrice
     price: 150
 
 - type: entity
@@ -794,23 +860,72 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+<<<<<<< HEAD
       - !type:DoActsBehavior
         acts: ["Destruction"]
+=======
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger: #this trigger is a Nyano addition
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    destroySound:
+      collection: MetalBreak
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
 
 - type: entity
+<<<<<<< HEAD
   parent: WallReinforced
+=======
+  parent: WallReinforced #Nyano, basically Reinforced Wall (shuttle variant)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: WallShuttle
   name: shuttle wall
   suffix: Reinforced, Exterior
   components:
+<<<<<<< HEAD
+=======
+  - type: Tag
+    tags:
+      - Wall
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
     state: full
+<<<<<<< HEAD
+=======
+#  - type: Destructible
+#    thresholds:
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 1000
+#      behaviors:
+#        - !type:DoActsBehavior
+#          acts: [ "Destruction" ]
+#    - trigger:
+#        !type:DamageTrigger
+#        damage: 500
+#      behaviors:
+#      - !type:PlaySoundBehavior
+#        sound:
+#          path: /Audio/Effects/metalbreak.ogg
+#      - !type:DoActsBehavior
+#        acts: ["Destruction"]
+#    destroySound:
+#      path: /Audio/Effects/metalbreak.ogg
+  - type: Reflect
+    reflectProb: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: Girder
     node: shuttleWall
@@ -975,7 +1090,11 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 6
+=======
+    resistance: 10
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseWall
@@ -1233,6 +1352,11 @@
     - type: Icon
       sprite: Structures/Magic/forcewall.rsi
       state: forcewall
+<<<<<<< HEAD
+=======
+#    - type: Dispellable
+    - type: Clickable #Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseWall

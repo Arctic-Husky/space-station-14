@@ -48,7 +48,11 @@
     solutions:
       glass:
         canReact: false
+<<<<<<< HEAD
   # IPC Healing
+=======
+  # Estacao Pirata - IPC Healing
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: BlindHealing
     damageContainers:
       - Silicon
@@ -91,6 +95,18 @@
         reagents:
         - ReagentId: Silicon
           Quantity: 10
+<<<<<<< HEAD
+=======
+  - type: UserInterface
+    interfaces:
+    - key: enum.ShortConstructionUiKey.Key
+      type: ShortConstructionMenuBUI
+  - type: ActivatableUI
+    key: enum.ShortConstructionUiKey.Key
+  - type: ShortConstruction
+    prototypes:
+    - Window
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: SheetGlass
@@ -177,6 +193,15 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: UserInterface
+    interfaces:
+    - key: enum.ShortConstructionUiKey.Key
+      type: ShortConstructionMenuBUI
+  - type: ActivatableUI
+    key: enum.ShortConstructionUiKey.Key
+  - type: ShortConstruction
+    prototypes:
+    - ReinforcedWindow
 
 - type: entity
   parent: SheetRGlass

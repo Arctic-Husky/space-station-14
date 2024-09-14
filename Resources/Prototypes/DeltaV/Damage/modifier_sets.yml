@@ -1,7 +1,12 @@
 - type: damageModifierSet
   id: Vulpkanin
   coefficients:
+<<<<<<< HEAD
     Heat: 1.15
+=======
+    Heat: 1.30
+    Cold: 0.70
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: damageModifierSet
   id: Harpy

@@ -1,10 +1,22 @@
 using System.Linq;
 using Content.Client.Eui;
 using Content.Client.Players.PlayTimeTracking;
+<<<<<<< HEAD
+=======
+using Content.Client.Preferences;
+using Content.Shared.Clothing.Loadouts.Prototypes;
+using Content.Shared.Customization.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
+using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
@@ -83,6 +95,13 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             var sysManager = entityManager.EntitySysManager;
             var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
             var requirementsManager = IoCManager.Resolve<JobRequirementsManager>();
+<<<<<<< HEAD
+=======
+            var characterReqs = entityManager.System<CharacterRequirementsSystem>();
+            var prefs = IoCManager.Resolve<IClientPreferencesManager>();
+            var protoMan = IoCManager.Resolve<IPrototypeManager>();
+            var configManager = IoCManager.Resolve<IConfigurationManager>();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             var groupedRoles = ghostState.GhostRoles.GroupBy(
                 role => (role.Name, role.Description, role.Requirements));
@@ -90,6 +109,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             {
                 var name = group.Key.Name;
                 var description = group.Key.Description;
+<<<<<<< HEAD
                 bool hasAccess = true;
                 FormattedMessage? reason;
 
@@ -99,6 +119,25 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                 }
 
                 _window.AddEntry(name, description, hasAccess, reason, group, spriteSystem);
+=======
+                // ReSharper disable once ReplaceWithSingleAssignment.True
+                var hasAccess = true;
+
+                if (!characterReqs.CheckRequirementsValid(
+                    group.Key.Requirements ?? new(),
+                    new(),
+                    (HumanoidCharacterProfile) (prefs.Preferences?.SelectedCharacter ?? HumanoidCharacterProfile.DefaultWithSpecies()),
+                    requirementsManager.GetRawPlayTimeTrackers(),
+                    requirementsManager.IsWhitelisted(),
+                    new LoadoutPrototype(), // idk
+                    entityManager,
+                    protoMan,
+                    configManager,
+                    out var reasons))
+                    hasAccess = false;
+
+                _window.AddEntry(name, description, hasAccess, characterReqs.GetRequirementsText(reasons), group, spriteSystem);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             if (ghostState.EnableRedirect)

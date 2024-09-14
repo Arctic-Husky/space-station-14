@@ -1,5 +1,9 @@
 - type: species
+<<<<<<< HEAD
   id: HumanoidFoxes
+=======
+  id: Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: species-name-vulpkanin
   roundStart: true
   prototype: MobVulpkanin
@@ -49,11 +53,37 @@
     Head:
       points: 1
       required: false
+<<<<<<< HEAD
     Legs:
       points: 1
       required: false
     Arms:
       points: 1
+=======
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 2
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       required: false
     Snout:
       points: 1
@@ -62,9 +92,12 @@
       points: 1
       required: true
       defaultMarkings: [ VulpEar ]
+<<<<<<< HEAD
     Overlay:
       points: 2
       required: false
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHead

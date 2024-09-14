@@ -138,7 +138,11 @@
     priority: 1
   - type: StaticPrice
     price: 500
+<<<<<<< HEAD
   - type: BatteryDrinkerSource
+=======
+  - type: BatteryDrinkerSource # Parkstation IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     maxAmount: 10000
 
 # APC under construction
@@ -206,7 +210,11 @@
   - type: Battery
     maxCharge: 50000
     startingCharge: 50000
+<<<<<<< HEAD
   - type: BatteryDrinkerSource
+=======
+  - type: BatteryDrinkerSource # Parkstation IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     maxAmount: 5000
 
 - type: entity
@@ -217,7 +225,11 @@
   - type: Battery
     maxCharge: 100000
     startingCharge: 100000
+<<<<<<< HEAD
   - type: BatteryDrinkerSource
+=======
+  - type: BatteryDrinkerSource # Parkstation IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     maxAmount: 12000
 
 - type: entity
@@ -228,7 +240,11 @@
   - type: Battery
     maxCharge: 150000
     startingCharge: 150000
+<<<<<<< HEAD
   - type: BatteryDrinkerSource
+=======
+  - type: BatteryDrinkerSource # Parkstation IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     maxAmount: 18000
 
 - type: entity
@@ -239,5 +255,9 @@
   - type: Battery
     maxCharge: 200000
     startingCharge: 200000
+<<<<<<< HEAD
   - type: BatteryDrinkerSource
+=======
+  - type: BatteryDrinkerSource # Parkstation IPCs # Parkstation IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     maxAmount: 26000

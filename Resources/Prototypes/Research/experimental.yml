@@ -56,6 +56,7 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
+  - ReverseEngineeringMachineCircuitboard #DeltaV
 
 - type: technology
   id: MagnetsTech
@@ -93,6 +94,10 @@
   tier: 2
   cost: 5000
   recipeUnlocks:
+<<<<<<< HEAD
+=======
+  - TraversalDistorterMachineCircuitboard
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - ArtifactCrusherMachineCircuitboard
 
 - type: technology
@@ -124,18 +129,65 @@
   - WeaponParticleDecelerator
   - HoloprojectorField
 
-# Tier 3
+- type: technology
+  id: DeterrenceTechnologies
+  name: research-technology-deterrence
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+    state: base
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponParticleDecelerator
+  - HoloprojectorField
 
 - type: technology
+<<<<<<< HEAD
   id: GravityManipulation
   name: research-technology-gravity-manipulation
+=======
+  id: Metempsychosis
+  name: research-technology-metempsychosis
   icon:
-    sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
-    state: base
+    sprite: Structures/Machines/metempsychotic.rsi
+    state: cloning_idle
+  discipline: Experimental
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+    - BiomassReclaimerMachineCircuitboard
+    - CloningConsoleComputerCircuitboard
+    - MedicalScannerMachineCircuitboard
+    - MetempsychoticMachineCircuitboard
+
+# Tier 3
+
+#- type: technology # DeltaV - LRP
+#  id: GravityManipulation
+#  name: research-technology-gravity-manipulation
+#  icon:
+#    sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+#    state: base
+#  discipline: Experimental
+#  tier: 3
+#  cost: 10000
+#  recipeUnlocks:
+#    - WeaponForceGun
+#    - WeaponTetherGun
+
+- type: technology
+  id: QuantumLeaping
+  name: research-technology-quantum-leaping
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  icon:
+    sprite: Objects/Devices/swapper.rsi
+    state: icon
   discipline: Experimental
   tier: 3
   cost: 10000
   recipeUnlocks:
+<<<<<<< HEAD
     - WeaponForceGun
     - WeaponTetherGun
 
@@ -149,4 +201,6 @@
   tier: 3
   cost: 10000
   recipeUnlocks:
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - DeviceQuantumSpinInverter

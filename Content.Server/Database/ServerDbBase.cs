@@ -27,6 +27,15 @@ namespace Content.Server.Database
 
         /// <param name="opsLog">Sawmill to trace log database operations to.</param>
         public ServerDbBase(ISawmill opsLog)
+<<<<<<< HEAD
+=======
+        {
+            _opsLog = opsLog;
+        }
+
+        #region Preferences
+        public async Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             _opsLog = opsLog;
         }
@@ -43,10 +52,14 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+<<<<<<< HEAD
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
+=======
+                .Include(p => p.Profiles).ThenInclude(h => h.Loadouts)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 .AsSingleQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
 
@@ -96,8 +109,11 @@ namespace Content.Server.Database
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
                 .Include(p => p.Loadouts)
+<<<<<<< HEAD
                     .ThenInclude(l => l.Groups)
                     .ThenInclude(group => group.Loadouts)
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
@@ -184,10 +200,13 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
+            var loadouts = profile.Loadouts.Select(t => t.LoadoutName);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
                 sex = sexVal;
+
+            var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
 
             var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
 
@@ -236,6 +255,8 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
+                profile.Height,
+                profile.Width,
                 profile.Age,
                 sex,
                 gender,
@@ -249,12 +270,23 @@ namespace Content.Server.Database
                     Color.FromHex(profile.SkinColor),
                     markings
                 ),
+<<<<<<< HEAD
                 spawnPriority,
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
                 loadouts
+=======
+                clothing,
+                backpack,
+                spawnPriority,
+                jobs,
+                (PreferenceUnavailableMode) profile.PreferenceUnavailable,
+                antags.ToList(),
+                traits.ToList(),
+                loadouts.ToList()
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             );
         }
 
@@ -275,12 +307,19 @@ namespace Content.Server.Database
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();
+            profile.Height = humanoid.Height;
+            profile.Width = humanoid.Width;
             profile.HairName = appearance.HairStyleId;
             profile.HairColor = appearance.HairColor.ToHex();
             profile.FacialHairName = appearance.FacialHairStyleId;
             profile.FacialHairColor = appearance.FacialHairColor.ToHex();
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
+<<<<<<< HEAD
+=======
+            profile.Clothing = humanoid.Clothing.ToString();
+            profile.Backpack = humanoid.Backpack.ToString();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.Markings = markings;
             profile.Slot = slot;
@@ -306,6 +345,7 @@ namespace Content.Server.Database
             );
 
             profile.Loadouts.Clear();
+<<<<<<< HEAD
 
             foreach (var (role, loadouts) in humanoid.Loadouts)
             {
@@ -334,6 +374,12 @@ namespace Content.Server.Database
 
                 profile.Loadouts.Add(dz);
             }
+=======
+            profile.Loadouts.AddRange(
+                humanoid.LoadoutPreferences
+                    .Select(t => new Loadout {LoadoutName = t})
+            );
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             return profile;
         }
@@ -1595,9 +1641,13 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return db.DbContext.Database.HasPendingModelChanges();
         }
 
+<<<<<<< HEAD
         protected abstract Task<DbGuard> GetDb(
             CancellationToken cancel = default,
             [CallerMemberName] string? name = null);
+=======
+        protected abstract Task<DbGuard> GetDb([CallerMemberName] string? name = null);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         protected void LogDbOp(string? name)
         {

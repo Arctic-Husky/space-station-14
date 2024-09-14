@@ -6,7 +6,10 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
+<<<<<<< HEAD:Content.Shared/Administration/SharedAdminFrozenSystem.cs
 using Content.Shared.Speech;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Content.Shared/Administration/AdminFrozenSystem.cs
 using Content.Shared.Throwing;
 
 namespace Content.Shared.Administration;

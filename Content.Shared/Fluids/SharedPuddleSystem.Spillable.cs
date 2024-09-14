@@ -79,7 +79,11 @@ public abstract partial class SharedPuddleSystem
                 _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, entity.Comp.SpillDelay ?? 0, new SpillDoAfterEvent(), entity.Owner, target: entity.Owner)
                 {
                     BreakOnDamage = true,
+<<<<<<< HEAD
                     BreakOnMove = true,
+=======
+                    BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     NeedHand = true,
                 });
             };

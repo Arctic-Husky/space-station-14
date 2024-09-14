@@ -10,7 +10,11 @@
   <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses" Caption="Sunglasses"/>
 </Box>
 
+<<<<<<< HEAD
   [color=#5e9cff]Head Revolutionaries[/color] are chosen at the start of the shift and are tasked with taking over the station by killing, exiling or cuffing all of the Command staff. Head Revolutionaries will be given a [color=#a4885c]Flash[/color] and a pair of [color=#a4885c]Sunglasses[/color] to aid them.
+=======
+  [color=#5e9cff]Head Revolutionaries[/color] are chosen at the start of the shift and are tasked with taking over the station by killing or exiling all of the Command staff. Head Revolutionaries will be given a [color=#a4885c]Flash[/color] and a pair of [color=#a4885c]Sunglasses[/color] to aid them.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
   ## Conversion
 
@@ -41,12 +45,21 @@
 
   ## Objectives
 
+<<<<<<< HEAD
   You must eliminate, exile or arrest all of the following Command staff on station in no particular order.
   - Captain
   - Head of Personnel
   - Chief Engineer
   - Research Director
   - Quartermaster
+=======
+  You must eliminate or exile all of the following Command staff on station in no particular order.
+  - Captain
+  - Head of Personnel
+  - Chief Engineer
+  - Mystagogue
+  - Logistics Officer
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - Head of Security
   - Chief Medical Officer
 

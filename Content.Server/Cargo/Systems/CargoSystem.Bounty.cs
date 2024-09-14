@@ -52,7 +52,11 @@ public sealed partial class CargoSystem
             return;
 
         var untilNextSkip = bountyDb.NextSkipTime - _timing.CurTime;
+<<<<<<< HEAD
         _uiSystem.SetUiState(uid, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(bountyDb.Bounties, untilNextSkip));
+=======
+        _uiSystem.TrySetUiState(uid, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(bountyDb.Bounties, untilNextSkip));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnPrintLabelMessage(EntityUid uid, CargoBountyConsoleComponent component, BountyPrintLabelMessage args)
@@ -83,7 +87,11 @@ public sealed partial class CargoSystem
         if (!TryGetBountyFromId(station, args.BountyId, out var bounty))
             return;
 
+<<<<<<< HEAD
         if (args.Actor is not { Valid: true } mob)
+=======
+        if (args.Session.AttachedEntity is not { Valid: true } mob)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) &&
@@ -99,7 +107,11 @@ public sealed partial class CargoSystem
         FillBountyDatabase(station);
         db.NextSkipTime = _timing.CurTime + db.SkipDelay;
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
+<<<<<<< HEAD
         _uiSystem.SetUiState(uid, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(db.Bounties, untilNextSkip));
+=======
+        _uiSystem.TrySetUiState(uid, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(db.Bounties, untilNextSkip));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _audio.PlayPvs(component.SkipSound, uid);
     }
 
@@ -467,7 +479,11 @@ public sealed partial class CargoSystem
             }
 
             var untilNextSkip = db.NextSkipTime - _timing.CurTime;
+<<<<<<< HEAD
             _uiSystem.SetUiState((uid, ui), CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(db.Bounties, untilNextSkip));
+=======
+            _uiSystem.TrySetUiState(uid, CargoConsoleUiKey.Bounty, new CargoBountyConsoleState(db.Bounties, untilNextSkip), ui: ui);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 

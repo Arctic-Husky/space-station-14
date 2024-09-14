@@ -14,7 +14,7 @@ device-frequency-prototype-name-robotics-console = Robotics Console
 device-frequency-prototype-name-surveillance-camera-test = Subnet Test
 device-frequency-prototype-name-surveillance-camera-engineering = Engineering Cameras
 device-frequency-prototype-name-surveillance-camera-security = Security Cameras
-device-frequency-prototype-name-surveillance-camera-science = Science Cameras
+device-frequency-prototype-name-surveillance-camera-science = Epistemics Cameras
 device-frequency-prototype-name-surveillance-camera-supply = Supply Cameras
 device-frequency-prototype-name-surveillance-camera-command = Command Cameras
 device-frequency-prototype-name-surveillance-camera-service = Service Cameras
@@ -33,7 +33,7 @@ device-address-prefix-freezer = FZR-
 device-address-prefix-volume-pump = VPP-
 device-address-prefix-smes = SMS-
 
-#PDAs and terminals
+# PDAs and terminals
 device-address-prefix-console = CLS-
 device-address-prefix-fire-alarm = FIR-
 device-address-prefix-air-alarm = AIR-
@@ -42,7 +42,7 @@ device-address-prefix-sensor-monitor = MON-
 
 device-address-examine-message = The device's address is {$address}.
 
-#Device net ID names
+# Device net ID names
 device-net-id-private = Private
 device-net-id-wired = Wired
 device-net-id-wireless = Wireless

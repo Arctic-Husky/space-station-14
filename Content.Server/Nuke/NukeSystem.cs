@@ -22,6 +22,10 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+<<<<<<< HEAD
+=======
+using Content.Server.Announcements.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Nuke;
 
@@ -43,6 +47,10 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -384,7 +392,11 @@ public sealed class NukeSystem : EntitySystem
             CooldownTime = (int) component.CooldownTime
         };
 
+<<<<<<< HEAD
         _ui.SetUiState(uid, NukeUiKey.Key, state);
+=======
+        _ui.SetUiState(ui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void PlayNukeKeypadSound(EntityUid uid, int number, NukeComponent? component = null)
@@ -458,12 +470,24 @@ public sealed class NukeSystem : EntitySystem
         // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
         _selectedNukeSong = _audio.GetSound(component.ArmMusic);
 
+<<<<<<< HEAD
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-armed",
             ("time", (int) component.RemainingTime),
             ("location", FormattedMessage.RemoveMarkup(_navMap.GetNearestBeaconString((uid, nukeXform)))));
         var sender = Loc.GetString("nuke-component-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Red);
+=======
+        _announcer.SendAnnouncementMessage(
+            _announcer.GetAnnouncementId("NukeArm"),
+            "nuke-component-announcement-armed",
+            Loc.GetString("nuke-component-announcement-sender"),
+            Color.Red,
+            stationUid ?? uid,
+            null,
+            ("time", (int) component.RemainingTime), ("position", posText)
+        );
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(component.ArmSound));
         _nukeSongLength = (float) _audio.GetAudioLength(_selectedNukeSong).TotalSeconds;
@@ -500,10 +524,12 @@ public sealed class NukeSystem : EntitySystem
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
-        // warn a crew
-        var announcement = Loc.GetString("nuke-component-announcement-unarmed");
-        var sender = Loc.GetString("nuke-component-announcement-sender");
-        _chatSystem.DispatchStationAnnouncement(uid, announcement, sender, false);
+        _announcer.SendAnnouncementMessage(
+            _announcer.GetAnnouncementId("NukeDisarm"),
+            "nuke-component-announcement-unarmed",
+            Loc.GetString("nuke-component-announcement-sender"),
+            station: stationUid ?? uid
+        );
 
         component.PlayedNukeSong = false;
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(component.DisarmSound));
@@ -644,4 +670,3 @@ public sealed class NukeDisarmSuccessEvent : EntityEventArgs
 {
 
 }
-

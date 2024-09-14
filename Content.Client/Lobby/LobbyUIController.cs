@@ -3,6 +3,7 @@ using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
+<<<<<<< HEAD
 using Content.Client.Station;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
@@ -24,12 +25,28 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
+=======
+using Content.Client.Preferences;
+using Content.Client.Preferences.UI;
+using Content.Shared.Clothing.Loadouts.Systems;
+using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Preferences;
+using Content.Shared.Roles;
+using Robust.Client.State;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controllers;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Client.Lobby;
 
 public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState>, IOnStateExited<LobbyState>
 {
     [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IFileDialogManager _dialogManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
@@ -57,10 +74,42 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     private HumanoidCharacterProfile? EditedProfile => _profileEditor?.Profile;
 
     private int? EditedSlot => _profileEditor?.CharacterSlot;
+=======
+    [Dependency] private readonly IStateManager _stateManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
+    [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
+    [UISystemDependency] private readonly LoadoutSystem _loadouts = default!;
+
+    private LobbyCharacterPanel? _previewPanel;
+    private HumanoidProfileEditor? _profileEditor;
+
+    /*
+     * Each character profile has its own dummy. There is also a dummy for the lobby screen + character editor
+     * that is shared too.
+     */
+
+    /// <summary>
+    ///     Preview dummy for role gear.
+    /// </summary>
+    private EntityUid? _previewDummy;
+
+    [Access(typeof(HumanoidProfileEditor))]
+    public bool UpdateClothes = true;
+    [Access(typeof(HumanoidProfileEditor))]
+    public bool ShowClothes = true;
+    [Access(typeof(HumanoidProfileEditor))]
+    public bool ShowLoadouts = true;
+
+    // TODO: Load the species directly and don't update entity ever.
+    public event Action<EntityUid>? PreviewDummyUpdated;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
         base.Initialize();
+<<<<<<< HEAD
         _prototypeManager.PrototypesReloaded += OnProtoReload;
         _preferencesManager.OnServerDataLoaded += PreferencesDataLoaded;
         _requirements.Updated += OnRequirementsUpdated;
@@ -129,26 +178,41 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
                 _profileEditor.RefreshTraits();
             }
         }
+=======
+
+        _preferencesManager.OnServerDataLoaded += PreferencesDataLoaded;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void PreferencesDataLoaded()
     {
+<<<<<<< HEAD
         PreviewPanel?.SetLoaded(true);
 
         if (_stateManager.CurrentState is not LobbyState)
             return;
 
         ReloadCharacterSetup();
+=======
+        if (_previewDummy != null)
+            EntityManager.DeleteEntity(_previewDummy);
+
+        UpdateCharacterUI();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public void OnStateEntered(LobbyState state)
     {
+<<<<<<< HEAD
         PreviewPanel?.SetLoaded(_preferencesManager.ServerDataLoaded);
         ReloadCharacterSetup();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public void OnStateExited(LobbyState state)
     {
+<<<<<<< HEAD
         PreviewPanel?.SetLoaded(false);
         _profileEditor?.Dispose();
         _characterSetup?.Dispose();
@@ -294,10 +358,88 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
     /// <summary>
     /// Gets the highest priority job for the profile.
+=======
+        EntityManager.DeleteEntity(_previewDummy);
+        _previewDummy = null;
+    }
+
+    public void SetPreviewPanel(LobbyCharacterPanel? panel)
+    {
+        _previewPanel = panel;
+        UpdateCharacterUI();
+    }
+
+    public void SetProfileEditor(HumanoidProfileEditor? editor)
+    {
+        _profileEditor = editor;
+        UpdateCharacterUI();
+    }
+
+    public void UpdateCharacterUI()
+    {
+        // Test moment
+        if (_stateManager.CurrentState is not LobbyState)
+            return;
+
+        if (!_preferencesManager.ServerDataLoaded)
+        {
+            _previewPanel?.SetLoaded(false);
+            return;
+        }
+
+        var maybeProfile = _profileEditor?.Profile ?? (HumanoidCharacterProfile) _preferencesManager.Preferences!.SelectedCharacter;
+
+        if (_previewDummy == null
+            || maybeProfile.Species != EntityManager.GetComponent<HumanoidAppearanceComponent>(_previewDummy.Value).Species)
+        {
+            RespawnDummy(maybeProfile);
+            _previewPanel?.SetSprite(_previewDummy!.Value);
+        }
+
+        _previewPanel?.SetLoaded(true);
+
+        if (_previewDummy == null)
+            return;
+
+        _previewPanel?.SetSummaryText(maybeProfile.Summary);
+        _humanoid.LoadProfile(_previewDummy.Value, maybeProfile);
+
+
+        if (UpdateClothes)
+        {
+            RemoveDummyClothes(_previewDummy.Value);
+            if (ShowClothes)
+                GiveDummyJobClothes(_previewDummy.Value, GetPreferredJob(maybeProfile), maybeProfile);
+            if (ShowLoadouts)
+                _loadouts.ApplyCharacterLoadout(_previewDummy.Value, GetPreferredJob(maybeProfile), maybeProfile,
+                    _jobRequirements.GetRawPlayTimeTrackers(), _jobRequirements.IsWhitelisted());
+            UpdateClothes = false;
+        }
+
+        PreviewDummyUpdated?.Invoke(_previewDummy.Value);
+    }
+
+
+    public void RespawnDummy(HumanoidCharacterProfile profile)
+    {
+        if (_previewDummy != null)
+            RemoveDummyClothes(_previewDummy.Value);
+
+        EntityManager.DeleteEntity(_previewDummy);
+        _previewDummy = EntityManager.SpawnEntity(
+            _prototypeManager.Index<SpeciesPrototype>(profile.Species).DollPrototype, MapCoordinates.Nullspace);
+
+        UpdateClothes = true;
+    }
+
+    /// <summary>
+    ///     Gets the highest priority job for the profile.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// </summary>
     public JobPrototype GetPreferredJob(HumanoidCharacterProfile profile)
     {
         var highPriorityJob = profile.JobPriorities.FirstOrDefault(p => p.Value == JobPriority.High).Key;
+<<<<<<< HEAD
         // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract (what is resharper smoking?)
         return _prototypeManager.Index<JobPrototype>(highPriorityJob ?? SharedGameTicker.FallbackOverflowJob);
     }
@@ -323,10 +465,18 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     /// Applies the specified job's clothes to the dummy.
     /// </summary>
     public void GiveDummyJobClothes(EntityUid dummy, HumanoidCharacterProfile profile, JobPrototype job)
+=======
+        // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract (what is ReSharper smoking?)
+        return _prototypeManager.Index<JobPrototype>(highPriorityJob ?? SharedGameTicker.FallbackOverflowJob);
+    }
+
+    public void RemoveDummyClothes(EntityUid dummy)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!_inventory.TryGetSlots(dummy, out var slots))
             return;
 
+<<<<<<< HEAD
         // Apply loadout
         if (profile.Loadouts.TryGetValue(job.ID, out var jobLoadout))
         {
@@ -360,12 +510,37 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         }
 
         if (job.StartingGear == null)
+=======
+        foreach (var slot in slots)
+            if (_inventory.TryUnequip(dummy, slot.Name, out var unequippedItem, silent: true, force: true, reparent: false))
+                EntityManager.DeleteEntity(unequippedItem.Value);
+    }
+
+    /// <summary>
+    ///     Applies the highest priority job's clothes and loadouts to the dummy.
+    /// </summary>
+    public void GiveDummyJobClothesLoadout(EntityUid dummy, HumanoidCharacterProfile profile)
+    {
+        var job = GetPreferredJob(profile);
+        GiveDummyJobClothes(dummy, job, profile);
+        _loadouts.ApplyCharacterLoadout(dummy, job, profile, _jobRequirements.GetRawPlayTimeTrackers(), _jobRequirements.IsWhitelisted());
+    }
+
+    /// <summary>
+    ///     Applies the specified job's clothes to the dummy.
+    /// </summary>
+    public void GiveDummyJobClothes(EntityUid dummy, JobPrototype job, HumanoidCharacterProfile profile)
+    {
+        if (!_inventory.TryGetSlots(dummy, out var slots)
+            || job.StartingGear == null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         var gear = _prototypeManager.Index<StartingGearPrototype>(job.StartingGear);
 
         foreach (var slot in slots)
         {
+<<<<<<< HEAD
             var itemType = gear.GetGear(slot.Name);
 
             if (_inventory.TryUnequip(dummy, slot.Name, out var unequippedItem, silent: true, force: true, reparent: false))
@@ -416,4 +591,23 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     }
 
     #endregion
+=======
+            var itemType = gear.GetGear(slot.Name, profile);
+
+            if (_inventory.TryUnequip(dummy, slot.Name, out var unequippedItem, silent: true, force: true, reparent: false))
+                EntityManager.DeleteEntity(unequippedItem.Value);
+
+            if (itemType == string.Empty)
+                continue;
+
+            var item = EntityManager.SpawnEntity(itemType, MapCoordinates.Nullspace);
+            _inventory.TryEquip(dummy, item, slot.Name, true, true);
+        }
+    }
+
+    public EntityUid? GetPreviewDummy()
+    {
+        return _previewDummy;
+    }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

@@ -1163,7 +1163,11 @@
 - type: entity
   name: chilly pepper
   parent: FoodProduceBase
+<<<<<<< HEAD
   id: FoodChillyPepper
+=======
+  id: FoodChilly
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   description: Icy hot.
   components:
     - type: FlavorProfile
@@ -1869,6 +1873,7 @@
     tags:
     - ClothMade
     - CottonBoll
+<<<<<<< HEAD
 
 - type: entity
   name: pyrotton boll
@@ -1902,3 +1907,5 @@
     - CottonBoll
   - type: Extractable
     grindableSolutionName: food
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

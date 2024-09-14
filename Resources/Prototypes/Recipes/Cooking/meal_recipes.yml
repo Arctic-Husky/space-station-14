@@ -894,7 +894,11 @@
   solids:
     FoodBowlBig: 1
     FoodBungo: 2
+<<<<<<< HEAD
     FoodChiliPepper: 1
+=======
+    FoodChili: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 #Pies
 
@@ -965,7 +969,11 @@
   time: 15
   solids:
     FoodDoughPie: 1
+<<<<<<< HEAD
     FoodChillyPepper: 3
+=======
+    FoodChilly: 3
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     FoodPlateTin: 1
 
 - type: microwaveMealRecipe
@@ -1423,6 +1431,18 @@
     FoodSnackChocolateBar: 2
     FoodEgg: 3
 
+<<<<<<< HEAD
+=======
+- type: microwaveMealRecipe
+  id: RecipeHarpyWings
+  name: harpy wings recipe
+  result: FoodHarpyWings
+  time: 15
+  solids:
+    LeftLegHarpy: 1
+    RightLegHarpy: 1
+ 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 #Donks i guess
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocket
@@ -1704,6 +1724,7 @@
     LeavesCannabis: 1
 
 - type: microwaveMealRecipe
+<<<<<<< HEAD
   id: RecipeDriedCannabisRainbow
   name: dried rainbow cannabis leaves recipe
   result: LeavesCannabisRainbowDried
@@ -1717,6 +1738,13 @@
   result: TrashBakedBananaPeel
   time: 5
   solids:
+=======
+  id: RecipeTrashBakedBananaPeel
+  name: baked banana peel recipe
+  result: TrashBakedBananaPeel
+  time: 5
+  solids:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     TrashBananaPeel: 1
 
 # Suppermatter

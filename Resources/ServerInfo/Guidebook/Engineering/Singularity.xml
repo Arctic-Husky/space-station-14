@@ -22,7 +22,18 @@
   The emitter lasers and the containment fields can also cause damage and/or cause you to be sent flying into deep space; [color=#a4885c]avoid touching them[/color] when active.
   It is recommended to [color=#a4885c]lock the emitters[/color] with [keybind="AltActivateItemInWorld"/], to prevent any break-in no-gooders from loosing the singularity or tesla by simply switching off the field.
 
+<<<<<<< HEAD
   Teslas can have significantly smaller containment fields than singularity containment fields; adjusting field size is recommended, as the tesla becomes easier to keep watch on in a simply 3x3 field setup.
+=======
+## Radiation collectors
+<Box>
+<GuideEntityEmbed Entity="RadiationCollector"/>
+<GuideEntityEmbed Entity="PlasmaTank"/>
+</Box>
+They connect to HV cables and generate power from nearby radiation sources when turned on. 
+Radiation collectors require a tank full of gaseous plasma in order to operate.
+Continous radiation exposure will gradually consume the stored plasma, so replace depleted tanks with fresh ones to maintain a high power output.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
   ## Particle accelerator
 
@@ -46,6 +57,7 @@
     <GuideEntityEmbed Entity="ParticleAcceleratorEmitterPort" Caption="" Margin="0"/>
   </Box>
 
+<<<<<<< HEAD
   The Particle Accelerator (PA) is a multi-tile structure that launches accelerated particles from its emitters. Its emitters should always face the generator.
   Some stations already have an unfinished PA. To complete it, first ensure there is a MV cable beneath the PA power box, anchor all the parts, and then add an LV cable to each part.
   <Box>
@@ -56,6 +68,18 @@
   <Box>
     <GuideEntityEmbed Entity="ParticleAcceleratorControlBox"/>
   </Box>
+=======
+The Particle Accelerator (PA) is a multi-tile structure that launches accelerated particles from its emitters. Its emitters should always face the gravitational singularity generator.
+Some stations already have an unfinished PA. To complete, first ensure there is MV cable beneath the PA power box, anchor all parts, then add LV cable to each part.
+<Box>
+<GuideEntityEmbed Entity="CableApcStack"/>
+</Box>
+Then use a screwdriver to screw back the panels.
+Scan parts using the PA control computer to check if it's operational. If it shows up as incomplete, examine for what's missing.
+<Box>
+<GuideEntityEmbed Entity="ParticleAcceleratorControlBox"/>
+</Box>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
   The other two subsystems are unique to each other:
 
@@ -108,6 +132,7 @@
     <GuideEntityEmbed Entity="TeslaEnergyBall"/>
   </Box>
 
+<<<<<<< HEAD
   If no particles are hitting the singularity, the singularity will start to slowly decay until it disappears.
   This is not the case for the tesla; feel free to disconnect the PA after the tesla has been set up.
 
@@ -138,4 +163,7 @@
   </Box>
   However, if science has happened to research [color=#D381C9]Portable Particle Decelerators[/color], or if cargo can order them in time, you may be able to stop the singularity from eating the whole station.
   Good luck on the tesla, though; it is merely too powerful to recontain after breaching.
+=======
+In such circumstances, there is little to be done other than running in the opposite direction.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 </Document>

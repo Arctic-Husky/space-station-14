@@ -17,4 +17,8 @@
     ClothingOuterWinterCentcom: 3
     ClothingOuterCoatExpensive: 1
     ClothingNeckScarfStripedCentcom: 3
+<<<<<<< HEAD
+=======
+    ClothingShoesBootsWinterCentCom: 2 #Delta V: Add departmental winter boots
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     ClothingNeckCloakCentcom: 3

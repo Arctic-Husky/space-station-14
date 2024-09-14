@@ -11,7 +11,11 @@
       - id: ClothingNeckCloakCapFormal
       - id: ClothingUniformJumpsuitCapFormal
       - id: ClothingUniformJumpskirtCapFormalDress
+<<<<<<< HEAD
       - id: ClothingHandsGlovesCaptain
+=======
+      - id: ClothingHandsGlovesInspection # DeltaV - ClothingHandsGlovesCaptain replaced in favour of inspection gloves
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - id: ClothingNeckMantleCap
       - id: ClothingOuterWinterCap
 
@@ -39,10 +43,14 @@
       - id: ClothingNeckMantleCMO
       - id: ClothingCloakCmo
       - id: ClothingOuterCoatLabCmo
+<<<<<<< HEAD
       - id: ClothingUniformJumpsuitCMOTurtle
       - id: ClothingUniformJumpskirtCMOTurtle
       - id: ClothingHeadHatBeretCmo
       - id: ClothingHeadMirror
+=======
+      - id: ClothingHeadHatBeretCmo
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - id: ClothingEyesGlasses
       - id: ClothingOuterWinterCMO
 
@@ -100,7 +108,11 @@
   - type: StorageFill
     contents:
       - id: ClothingNeckMantleRD
+<<<<<<< HEAD
       - id: ClothingNeckCloakRd
+=======
+      - id: ClothingNeckCloakMystagogue # DeltaV - ClothingNeckCloakRd replaced in favour of Velta variant
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - id: ClothingHeadHatBeretRND
       - id: ClothingHandsGlovesColorPurple
       - id: ClothingEyesGlasses

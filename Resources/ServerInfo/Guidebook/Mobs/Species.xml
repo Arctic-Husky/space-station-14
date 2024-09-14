@@ -13,7 +13,16 @@
   <GuideEntityEmbed Entity="MobMoth" Caption="Pessoa Mariposa"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Repitiliano"/>
   <GuideEntityEmbed Entity="MobSlimePerson" Caption="Pessoa Slime"/>
+<<<<<<< HEAD
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   </Box>
 
+=======
+  </Box>
+  
+  # Parkstation specific species
+  <Box>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
+  </Box>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 </Document>

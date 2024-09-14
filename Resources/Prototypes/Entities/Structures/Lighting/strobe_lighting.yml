@@ -89,7 +89,11 @@
     on: false
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: DeviceNetwork
@@ -145,4 +149,8 @@
     volume: 0
     range: 10
     sound:
+<<<<<<< HEAD
       path: "/Audio/Effects/Lightning/strobeepsilon.ogg"
+=======
+      path: "/Audio/Effects/Lightning/strobeepsilon.ogg"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

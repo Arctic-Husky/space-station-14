@@ -5,6 +5,10 @@
   placement:
     mode: SnapgridCenter
   components:
+<<<<<<< HEAD
+=======
+  - type: SupermatterImmune
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Transform
     anchored: true
   - type: Physics
@@ -110,6 +114,10 @@
   placement:
     mode: SnapgridCenter
   components:
+<<<<<<< HEAD
+=======
+  - type: SupermatterImmune
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Transform
     anchored: true
   - type: Physics

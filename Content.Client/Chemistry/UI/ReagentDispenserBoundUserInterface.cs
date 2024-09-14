@@ -45,10 +45,35 @@ namespace Content.Client.Chemistry.UI
             _window.EjectButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(SharedReagentDispenser.OutputSlotName));
             _window.ClearButton.OnPressed += _ => SendMessage(new ReagentDispenserClearContainerSolutionMessage());
 
+<<<<<<< HEAD
             _window.AmountGrid.OnButtonPressed += s => SendMessage(new ReagentDispenserSetDispenseAmountMessage(s));
 
             _window.OnDispenseReagentButtonPressed += (id) => SendMessage(new ReagentDispenserDispenseReagentMessage(id));
             _window.OnEjectJugButtonPressed += (id) => SendMessage(new ItemSlotButtonPressedEvent(id));
+=======
+            // Setup reagent button actions.
+            _window.OnDispenseReagentButtonPressed += (args, button) => SendMessage(new ReagentDispenserDispenseReagentMessage(button.ReagentId));
+            _window.OnDispenseReagentButtonMouseEntered += (args, button) =>
+            {
+                if (_lastState is not null)
+                    _window.UpdateContainerInfo(_lastState);
+            };
+            _window.OnDispenseReagentButtonMouseExited += (args, button) =>
+            {
+                if (_lastState is not null)
+                    _window.UpdateContainerInfo(_lastState);
+            };
+
+            _window.OnEjectJugButtonPressed += (args, button) => SendMessage(new ItemSlotButtonPressedEvent(button.ReagentId));
+            _window.OnEjectJugButtonMouseEntered += (args, button) => {
+                if (_lastState is not null)
+                    _window.UpdateContainerInfo(_lastState);
+            };
+            _window.OnEjectJugButtonMouseExited += (args, button) => {
+                if (_lastState is not null)
+                    _window.UpdateContainerInfo(_lastState);
+            };
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         /// <summary>

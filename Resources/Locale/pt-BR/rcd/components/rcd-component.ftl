@@ -58,4 +58,8 @@ rcd-component-window-bulb-light = luz pequena
 rcd-component-window-lv-cable = cabo BT
 rcd-component-window-mv-cable = cabo MT
 rcd-component-window-hv-cable = cabo AT
+<<<<<<< HEAD
 rcd-component-window-cable-terminal = terminal de cabo
+=======
+rcd-component-window-cable-terminal = terminal de cabo
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

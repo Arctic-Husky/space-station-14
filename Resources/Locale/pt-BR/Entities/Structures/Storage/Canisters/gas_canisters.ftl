@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ent-GasCanister = cilindro de gás
     .desc = Um recipiente que pode conter qualquer tipo de gás. Pode ser conectado às portas do conector usando uma chave inglesa.
 
@@ -81,4 +82,17 @@ ent-NitrousOxideCanisterBroken = cilindro de gás quebrado
 
 ent-FrezonCanisterBroken = cilindro de gás quebrado
     .desc = Um cilindro de gás quebrado. Ainda não é inútil, pois pode ser recuperado para materiais de alta qualidade.
+=======
+ent-WaterVaporCanisterBroken = broken water vapor canister
+    .desc = { "" }
+
+ent-MiasmaCanisterBroken = broken water vapor canister
+    .desc = { "" }
+
+ent-NitrousOxideCanisterBroken = broken water vapor canister
+    .desc = { "" }
+
+ent-FrezonCanisterBroken = broken water vapor canister
+    .desc = { "" }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 

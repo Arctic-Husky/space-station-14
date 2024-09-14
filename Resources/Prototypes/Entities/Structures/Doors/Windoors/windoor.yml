@@ -64,7 +64,7 @@
 - type: entity
   parent: Windoor
   id: WindoorCargoLocked
-  suffix: Cargo, Locked
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
   components:
   - type: ContainerFill
     containers:
@@ -105,6 +105,14 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJanitor ]
+
+- type: entity
+  parent: WindoorPlasma
+  id: PlasmaWindoorJanitorLocked
+  suffix: Janitor, Locked, Plasma
+  components:
+  - type: AccessReader
+    access: [["Janitor"]]
 
 - type: entity
   parent: Windoor
@@ -154,6 +162,7 @@
       board: [ DoorElectronicsArmory ]
 
 - type: entity
+<<<<<<< HEAD
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureArmoryLocked
   suffix: Armory, Locked, Plasma
@@ -179,12 +188,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsAtmospherics ]
+=======
+  parent: WindoorSecure
+  id: WindoorSecureAtmosphericsLocked
+  suffix: Atmospherics, Locked
+  components:
+  - type: AccessReader
+    access: [["Atmospherics"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureBarLocked
   suffix: Bar, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBar ]
@@ -197,75 +215,126 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBrig ]
+=======
+  - type: AccessReader
+    access: [["Bar"]]
+
+#Delta V: Removed Brig Access
+#- type: entity
+#  parent: WindoorSecureSecurityLocked
+#  id: WindoorSecureBrigLocked
+#  suffix: Brig, Locked
+#  components:
+#  - type: AccessReader
+#    access: [["Brig"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureCargoLocked
+<<<<<<< HEAD
   suffix: Cargo, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCargo ]
+=======
+  suffix: Logistics, Locked # DeltaV - Logistics Department replacing Cargo
+  components:
+  - type: AccessReader
+    access: [["Cargo"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureChapelLocked
   suffix: Chapel, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsChapel ]
+=======
+  - type: AccessReader
+    access: [["Chapel"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureChemistryLocked
   suffix: Chemistry, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsChemistry ]
+=======
+  - type: AccessReader
+    access: [["Chemistry"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureChemistryLocked
   suffix: Chemistry, Locked, Plasma
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsChemistry ]
+=======
+  - type: AccessReader
+    access: [["Chemistry"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureCentralCommandLocked
   suffix: Central Command, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCentralCommand ]
+=======
+  - type: AccessReader
+    access: [["CentralCommand"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureCentralCommandLocked
   suffix: Central Command, Locked, Plasma
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCentralCommand ]
+=======
+  - type: AccessReader
+    access: [["CentralCommand"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecureUranium
   id: UraniumWindoorSecureCentralCommandLocked
   suffix: Central Command, Locked, Uranium
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCentralCommand ]
+=======
+  - type: AccessReader
+    access: [["CentralCommand"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureCommandLocked
   suffix: Command, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCommand ]
@@ -278,111 +347,171 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCommand ]
+=======
+  - type: AccessReader
+    access: [["Command"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureDetectiveLocked
   suffix: Detective, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsDetective ]
+=======
+  - type: AccessReader
+    access: [["Detective"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureEngineeringLocked
   suffix: Engineering, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEngineering ]
+=======
+  - type: AccessReader
+    access: [["Engineering"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureEngineeringLocked
   suffix: Engineering, Locked, Plasma
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEngineering ]
+=======
+  - type: AccessReader
+    access: [["Engineering"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecureUranium
   id: UraniumWindoorSecureEngineeringLocked
   suffix: Engineering, Locked, Uranium
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsEngineering ]
+=======
+  - type: AccessReader
+    access: [["Engineering"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureExternalLocked
   suffix: External, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsExternal ]
+=======
+  - type: AccessReader
+    access: [["External"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureJanitorLocked
   suffix: Janitor, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJanitor ]
+=======
+  - type: AccessReader
+    access: [["Janitor"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureJanitorLocked
   suffix: Janitor, Locked, Plasma
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsJanitor ]
+=======
+  - type: AccessReader
+    access: [["Janitor"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureKitchenLocked
   suffix: Kitchen, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsKitchen ]
+=======
+  - type: AccessReader
+    access: [["Kitchen"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecureSecurityLocked
   id: WindoorSecureSecurityLawyerLocked
   suffix: Security/Lawyer, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurityLawyer ]
+=======
+  - type: AccessReader
+    access: [["Security"], ["Lawyer"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureMedicalLocked
   suffix: Medical, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedical ]
+=======
+  - type: AccessReader
+    access: [["Medical"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureSalvageLocked
   suffix: Salvage, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSalvage ]
+=======
+  - type: AccessReader
+    access: [["Salvage"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureSecurityLocked
   suffix: Security, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
@@ -395,39 +524,65 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
+=======
+  - type: AccessReader
+    access: [["Security"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureScienceLocked
+<<<<<<< HEAD
   suffix: Science, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsResearch ]
+=======
+  suffix: Epistemics, Locked # DeltaV - Epistemics Department replacing Science
+  components:
+  - type: AccessReader
+    access: [["Research"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureScienceLocked
   suffix: Science, Locked, Plasma
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsResearch ]
+=======
+  - type: AccessReader
+    access: [["Research"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureServiceLocked
   suffix: Service, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsService ]
+=======
+  - type: AccessReader
+    access: [["Service"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: WindoorSecure
   id: WindoorSecureHeadOfPersonnelLocked
   suffix: HeadOfPersonnel, Locked
   components:
+<<<<<<< HEAD
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsHeadOfPersonnel ]
+=======
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

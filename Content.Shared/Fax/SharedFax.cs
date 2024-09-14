@@ -37,6 +37,7 @@ public sealed class FaxUiState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public sealed class FaxFileMessage : BoundUserInterfaceMessage
 {
+<<<<<<< HEAD
     public string? Label;
     public string Content;
     public bool OfficePaper;
@@ -44,6 +45,13 @@ public sealed class FaxFileMessage : BoundUserInterfaceMessage
     public FaxFileMessage(string? label, string content, bool officePaper)
     {
         Label = label;
+=======
+    public string Content;
+    public bool OfficePaper;
+
+    public FaxFileMessage(string content, bool officePaper)
+    {
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Content = content;
         OfficePaper = officePaper;
     }
@@ -51,7 +59,10 @@ public sealed class FaxFileMessage : BoundUserInterfaceMessage
 
 public static class FaxFileMessageValidation
 {
+<<<<<<< HEAD
     public const int MaxLabelSize = 50; // parity with Content.Server.Labels.Components.HandLabelerComponent.MaxLabelChars
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public const int MaxContentSize = 10000;
 }
 

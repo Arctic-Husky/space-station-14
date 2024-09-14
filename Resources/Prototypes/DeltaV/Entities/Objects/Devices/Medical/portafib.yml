@@ -1,5 +1,9 @@
 - type: entity
+<<<<<<< HEAD
   id: PortaFib
+=======
+  id: Portafib
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: [ BaseItem, PowerCellSlotSmallItem ]
   name: portafib
   description: Menos peso, mesma qualidade ZZZAP!
@@ -45,8 +49,13 @@
     - Medical Doctor
 
 - type: entity
+<<<<<<< HEAD
   id: PortaFibEmpty
   parent: PortaFib
+=======
+  id: PortafibEmpty
+  parent: Portafib
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   suffix: Empty
   components:
   - type: ItemSlots

@@ -12,7 +12,10 @@
     - DoorjackObjective
     - SpiderChargeObjective
     - TerrorObjective
+<<<<<<< HEAD
     - MassArrestObjective
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - NinjaSurviveObjective
   - type: NinjaRule
     threats: NinjaThreats
@@ -42,9 +45,14 @@
         min: 1
         max: 3
       playerRatio: 1
+<<<<<<< HEAD
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive
+=======
+      allowNonHumans: true
+      multiAntagSetting: All
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       startingGear: ThiefGear
       components:
       - type: Pacified
@@ -54,6 +62,7 @@
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
 
+<<<<<<< HEAD
 #- type: entity
 #  noSpawn: true
 #  parent: BaseGameRule
@@ -64,3 +73,15 @@
 #    objectives:
 #    - TerminateObjective
 #    - ShutDownObjective
+=======
+- type: entity
+  noSpawn: true
+  parent: BaseGameRule
+  id: Exterminator
+  components:
+  - type: GenericAntagRule
+    agentName: terminator-round-end-agent-name
+    objectives:
+    - TerminateObjective
+    - ShutDownObjective
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

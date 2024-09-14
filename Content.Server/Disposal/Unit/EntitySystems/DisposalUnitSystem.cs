@@ -236,7 +236,11 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):player} hit flush button on {ToPrettyString(uid)}, it's now {(component.Engaged ? "on" : "off")}");
                 break;
             case SharedDisposalUnitComponent.UiButton.Power:
+<<<<<<< HEAD
                 _power.TogglePower(uid, user: args.Actor);
+=======
+                _power.TryTogglePower(uid, user: args.Session.AttachedEntity);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 break;
             default:
                 throw new ArgumentOutOfRangeException($"{ToPrettyString(player):player} attempted to hit a nonexistant button on {ToPrettyString(uid)}");
@@ -292,6 +296,43 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         args.Handled = true;
     }
 
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// Thrown items have a chance of bouncing off the unit and not going in.
+    /// </summary>
+    private void OnThrowCollide(EntityUid uid, SharedDisposalUnitComponent component, ThrowHitByEvent args)
+    {
+        var canInsert = CanInsert(uid, component, args.Thrown);
+        var randDouble = _robustRandom.NextDouble();
+
+        if (!canInsert)
+        {
+            return;
+        }
+
+        if (randDouble > 0.75)
+        {
+            _audioSystem.PlayPvs(component.MissSound, uid);
+
+            _popupSystem.PopupEntity(Loc.GetString("disposal-unit-thrown-missed"), uid);
+            return;
+        }
+
+        var inserted = _containerSystem.Insert(args.Thrown, component.Container);
+
+        if (!inserted)
+        {
+            throw new InvalidOperationException("Container insertion failed but CanInsert returned true");
+        }
+
+        if (args.Component.Thrower != null)
+            _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(args.Thrown)} thrown by {ToPrettyString(args.Component.Thrower.Value):player} landed in {ToPrettyString(uid)}");
+
+        AfterInsert(uid, component, args.Thrown);
+    }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void OnDisposalInit(EntityUid uid, SharedDisposalUnitComponent component, ComponentInit args)
     {
         component.Container = _containerSystem.EnsureContainer<Container>(uid, SharedDisposalUnitComponent.ContainerId);

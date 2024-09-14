@@ -47,6 +47,7 @@ public sealed class RandomMetadataSystem : EntitySystem
         var outputSegments = new List<string>();
         foreach (var segment in segments)
         {
+<<<<<<< HEAD
             if (_prototype.TryIndex<DatasetPrototype>(segment, out var proto)) {
                 var random = _random.Pick(proto.Values);
                 if (Loc.TryGetString(random, out var localizedSegment))
@@ -54,6 +55,11 @@ public sealed class RandomMetadataSystem : EntitySystem
                 else
                     outputSegments.Add(random);
             } else if (Loc.TryGetString(segment, out var localizedSegment))
+=======
+            if (_prototype.TryIndex<DatasetPrototype>(segment, out var proto))
+                outputSegments.Add(_random.Pick(proto.Values));
+            else if (Loc.TryGetString(segment, out var localizedSegment))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 outputSegments.Add(localizedSegment);
             else
                 outputSegments.Add(segment);

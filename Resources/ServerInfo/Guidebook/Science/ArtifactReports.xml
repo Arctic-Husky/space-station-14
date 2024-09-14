@@ -14,7 +14,17 @@
 
   - [color=#a4885c]Edges:[/color] the amount of nodes that are connected to the current node. Using this, you can calculate the total number of nodes as well as organize a map of their connections.
 
+<<<<<<< HEAD
   - [color=#a4885c]Unextracted value:[/color] the amount of research points an artifact will give when extracted. Extracting sets this to zero and traversing new nodes increases it.
+=======
+- [color=#a4885c]Current value:[/color] the amount of research points an artifact is currently worth. Extracting will set this to zero and traversing new nodes will increase it.
+
+Reports are a helpful tool in manipulating an artifact, especially in the later stages where you are traversing nodes that have already been activated. 
+<Box>
+<GuideEntityEmbed Entity="PaperArtifactAnalyzer"/>
+</Box>
+To help with this process, consider printing out reports, writing down details uncovered during activation, or storing them in a folder nearby. 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
   Reports are a helpful tool in manipulating an artifact, especially in the later stages where you are traversing nodes that have already been activated.
   <Box>

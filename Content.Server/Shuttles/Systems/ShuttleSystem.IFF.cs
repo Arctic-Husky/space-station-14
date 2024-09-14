@@ -83,7 +83,11 @@ public sealed partial class ShuttleSystem
             if (xform.GridUid != gridUid)
                 continue;
 
+<<<<<<< HEAD
             _uiSystem.SetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
+=======
+            _uiSystem.TrySetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 AllowedFlags = comp.AllowedFlags,
                 Flags = component.Flags,

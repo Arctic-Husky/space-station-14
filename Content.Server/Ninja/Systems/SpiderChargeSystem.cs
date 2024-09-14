@@ -77,10 +77,18 @@ public sealed class SpiderChargeSystem : EntitySystem
     /// </summary>
     private void OnExplode(EntityUid uid, SpiderChargeComponent comp, TriggerEvent args)
     {
+<<<<<<< HEAD
         if (!TryComp<SpaceNinjaComponent>(comp.Planter, out var ninja))
             return;
 
         // assumes the target was destroyed, that the charge wasn't moved somehow
         _ninja.DetonatedSpiderCharge((comp.Planter.Value, ninja));
+=======
+        if (comp.Planter == null || !_mind.TryGetObjectiveComp<SpiderChargeConditionComponent>(comp.Planter.Value, out var obj))
+            return;
+
+        // assumes the target was destroyed, that the charge wasn't moved somehow
+        obj.Detonated = true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

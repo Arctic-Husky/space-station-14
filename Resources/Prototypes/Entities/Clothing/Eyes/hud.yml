@@ -22,15 +22,18 @@
     damageContainers:
     - Inorganic
     - Silicon
+<<<<<<< HEAD
   - type: ShowHealthIcons
     damageContainers: 
     - Inorganic
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudMedical
   name: medical hud
-  description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their health status. 
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/med.rsi
@@ -56,6 +59,10 @@
     sprite: Clothing/Eyes/Hud/sec.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/sec.rsi
+<<<<<<< HEAD
+=======
+  - type: ShowSecurityIcons
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - HudSecurity
@@ -162,12 +169,19 @@
   - type: Construction
     graph: HudMedSec
     node: medsecHud
+<<<<<<< HEAD
   - type: ShowHealthBars
     damageContainers:
     - Biological
   - type: ShowHealthIcons
     damageContainers: 
     - Biological
+=======
+  - type: ShowSecurityIcons
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -179,6 +193,10 @@
     sprite: Clothing/Eyes/Hud/medsecengi.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medsecengi.rsi
+<<<<<<< HEAD
+=======
+  - type: ShowSecurityIcons
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ShowHealthBars
     damageContainers:
     - Biological
@@ -198,6 +216,10 @@
     sprite: Clothing/Eyes/Hud/omni.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/omni.rsi
+<<<<<<< HEAD
+=======
+  - type: ShowSecurityIcons
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ShowHealthBars
     damageContainers:
     - Biological
@@ -210,7 +232,11 @@
   - type: ShowSyndicateIcons
 
 - type: entity
+<<<<<<< HEAD
   parent: [ClothingEyesBase, ShowSecurityIcons]
+=======
+  parent: ClothingEyesBase
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingEyesHudSyndicate
   name: syndicate visor
   description: The syndicate's professional head-up display, designed for better detection of humanoids and their subsequent elimination.
@@ -220,6 +246,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: ShowSyndicateIcons
+<<<<<<< HEAD
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -240,6 +267,16 @@
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
   id: ClothingEyesGlassesHiddenSecurity
   suffix: Syndicate
+=======
+  - type: ShowSecurityIcons
+
+- type: entity
+  parent: ClothingEyesGlassesSunglasses
+  id: ClothingEyesGlassesHiddenSecurity
+  suffix: Syndicate
+  components:
+  - type: ShowSecurityIcons
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingEyesHudMedical

@@ -13,7 +13,10 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition;
 using System.Threading;
+<<<<<<< HEAD
 using Content.Shared.Atmos;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 /// <summary>
 /// System for vapes

@@ -58,12 +58,21 @@
         density: 500
         mask:
         - TabletopMachineMask
+<<<<<<< HEAD
+=======
+        layer:
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PowerChargerVisuals
   - type: ContainerContainer
     containers:
       charger_slot: !type:ContainerSlot
       machine_board: !type:Container
       machine_parts: !type:Container
+<<<<<<< HEAD
+=======
+  - type: RequireProjectileTarget
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseItemRecharger
@@ -242,7 +251,11 @@
     whitelist:
       components:
       - BorgChassis
+<<<<<<< HEAD
       - Silicon
+=======
+      - Silicon # Parkstation IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     containers:
     - machine_parts

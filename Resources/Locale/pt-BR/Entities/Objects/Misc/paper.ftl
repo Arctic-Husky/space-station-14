@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 ent-Paper = papel
+=======
+ent-Papel = papel
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      .desc = Um pedaço de papel branco.
 
 ent-PaperWritten = papel
      .desc = Um pedaço de papel branco.
 
+<<<<<<< HEAD
 ent-PaperScrap = papel amassado
     .desc = Um pedaço de papel branco amassado.
 
@@ -37,15 +42,26 @@ ent-Pen = caneta
 ent-LuxuryPen = caneta de luxo
     .desc = Uma caneta sofisticada e cara que você só merece ter se estiver qualificado para lidar com grandes quantidades de papelada.
 
+=======
+ent-NukeCodePaper = códigos de autenticação nuclear
+     .desc = Um pedaço de papel branco.
+
+ent-Pen = caneta
+     .desc = Uma caneta de tinta escura.
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ent-CyberPen = caneta Cybersun
      .desc = Uma caneta de alta tecnologia vinda diretamente do departamento jurídico da Cybersun, capaz de refratar luz forte em ângulos impossíveis através de sua ponta de diamante para escrever.
 
 ent-PenCap = caneta-tinteiro do Capitão
      .desc = Uma luxuosa caneta-tinteiro para o capitão da estação.
 
+<<<<<<< HEAD
 ent-PenCentcom = caneta-tinteiro da CentCom
     .desc = Em uma tentativa de acompanhar o "poder" da burocracia da Cybersun, a NT fez uma réplica da caneta Cyber, em seu estilo corporativo.
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ent-PenHop = caneta-tinteiro de HOP
      .desc = Uma luxuosa caneta-tinteiro para o salto da estação.
 
@@ -75,6 +91,7 @@ ent-BoxFolderGrey = pasta
 ent-BoxFolderBlack = pasta
      .desc = Uma pasta cheia de documentos ultrassecretos.
 
+<<<<<<< HEAD
 ent-BoxFolderGreen = pasta
     .desc = Uma pasta cheia de documentos ultrassecretos.
 
@@ -90,6 +107,8 @@ ent-BoxFolderCentComClipboard = prancheta da CentCom
 ent-BoxFolderQmClipboard = prancheta digital de requisições
     .desc = Uma prancheta eletrônica volumosa, cheia de ordens de envio e detalhes de financiamento. Com tantos documentos comprometedores, você deve mantê-la segura.
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ent-RubberStampMime = carimbo do mímico
      .desc = Um carimbo para carimbar documentos importantes.
 

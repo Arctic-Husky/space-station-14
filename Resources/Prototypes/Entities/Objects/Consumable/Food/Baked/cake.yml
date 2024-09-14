@@ -672,8 +672,11 @@
     allowMovement: true
     description: ghost-role-information-Cak-description
     rules: ghost-role-information-Cak-rules
+<<<<<<< HEAD
     raffle:
       settings: short
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: GhostTakeoverAvailable
   - type: OwOAccent
   - type: Speech
@@ -691,7 +694,10 @@
   - type: Puller
     needsHands: false
   - type: Examiner
+<<<<<<< HEAD
   - type: DoAfter
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:

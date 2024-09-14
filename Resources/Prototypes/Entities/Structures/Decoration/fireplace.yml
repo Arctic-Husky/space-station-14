@@ -16,6 +16,7 @@
       - state: fireplace_glow
         shader: unshaded
   - type: Appearance
+<<<<<<< HEAD
 # Desativado até criarmos um feriado equivalente
 #   - type: HolidayVisuals
 #     holidays:
@@ -26,6 +27,17 @@
 #       enum.HolidayVisuals.Holiday:
 #         christmas:
 #           festive: { visible: true }
+=======
+  - type: HolidayVisuals
+    holidays:
+      festive:
+      - FestiveSeason
+  - type: GenericVisualizer
+    visuals:
+      enum.HolidayVisuals.Holiday:
+        christmas:
+          festive: { visible: true }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: AmbientSound
     volume: -6
     range: 5

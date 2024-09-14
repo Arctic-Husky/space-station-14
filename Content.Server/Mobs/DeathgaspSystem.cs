@@ -1,4 +1,4 @@
-﻿using Content.Server.Chat.Systems;
+using Content.Server.Chat.Systems;
 using Content.Server.Speech.Muting;
 using Content.Shared.Mobs;
 using Content.Shared.Speech.Muting;
@@ -21,9 +21,14 @@ public sealed class DeathgaspSystem: EntitySystem
     private void OnMobStateChanged(EntityUid uid, DeathgaspComponent component, MobStateChangedEvent args)
     {
         // don't deathgasp if they arent going straight from crit to dead
+<<<<<<< HEAD
         if (component.NeedsCritical && args.OldMobState != MobState.Critical)
             return;
         if (args.NewMobState != MobState.Dead)
+=======
+        if (component.NeedsCritical && args.OldMobState != MobState.Critical
+            || args.NewMobState != MobState.Dead)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         Deathgasp(uid, component);

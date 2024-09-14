@@ -333,7 +333,11 @@ namespace Content.Server.Administration.Systems
                     _popup.PopupCoordinates(Loc.GetString("admin-erase-popup", ("user", name)), coordinates, PopupType.LargeCaution);
                     var filter = Filter.Pvs(coordinates, 1, EntityManager, _playerManager);
                     var audioParams = new AudioParams().WithVolume(3);
+<<<<<<< HEAD
                     _audio.PlayStatic("/Audio/Effects/pop_high.ogg", filter, coordinates, true, audioParams);
+=======
+                    _audio.PlayStatic("/Audio/DeltaV/Misc/reducedtoatmos.ogg", filter, coordinates, true, audioParams);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 }
 
                 foreach (var item in _inventory.GetHandOrInventoryEntities(entity.Value))

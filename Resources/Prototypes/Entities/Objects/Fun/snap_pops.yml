@@ -33,12 +33,22 @@
     maxIntensity: 0.01
     intensitySlope: 1
     totalIntensity: 0.01
+<<<<<<< HEAD
+=======
+  - type: Tag
+    tags:
+      - SnapPop
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseStorageItem
   id: SnapPopBox
   name: snap pop box
+<<<<<<< HEAD
   description: Contains snap pops for a few minutes of popping fun!
+=======
+  description: Contains twenty snap pops for a few minutes of popping fun!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: Item
     size: Normal
@@ -53,6 +63,10 @@
   - type: StorageFill
     contents:
       - id: SnapPop
+<<<<<<< HEAD
         amount: 5
+=======
+        amount: 20
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Dumpable
 

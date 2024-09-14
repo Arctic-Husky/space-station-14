@@ -37,7 +37,11 @@ public sealed class BlockGameArcadeSystem : EntitySystem
         }
     }
 
+<<<<<<< HEAD
     private void UpdatePlayerStatus(EntityUid uid, EntityUid actor, BlockGameArcadeComponent? blockGame = null)
+=======
+    private void UpdatePlayerStatus(EntityUid uid, ICommonSession session, PlayerBoundUserInterface? bui = null, BlockGameArcadeComponent? blockGame = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Resolve(uid, ref blockGame))
             return;
@@ -63,7 +67,14 @@ public sealed class BlockGameArcadeSystem : EntitySystem
 
     private void OnAfterUiClose(EntityUid uid, BlockGameArcadeComponent component, BoundUIClosedEvent args)
     {
+<<<<<<< HEAD
         if (component.Player != args.Actor)
+=======
+        if (args.Session is not { } session)
+            return;
+
+        if (component.Player != session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             component.Spectators.Remove(args.Actor);
             UpdatePlayerStatus(uid, args.Actor, blockGame: component);

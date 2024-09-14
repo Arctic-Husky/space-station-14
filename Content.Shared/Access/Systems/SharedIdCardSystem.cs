@@ -60,6 +60,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     public bool TryGetIdCard(EntityUid uid, out Entity<IdCardComponent> idCard)
     {
         if (TryComp(uid, out IdCardComponent? idCardComp))
+<<<<<<< HEAD
         {
             idCard = (uid, idCardComp);
             return true;
@@ -122,10 +123,14 @@ public abstract class SharedIdCardSystem : EntitySystem
         }
 
         if (id.JobIcon == jobIcon.ID)
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
+            idCard = (uid, idCardComp);
             return true;
         }
 
+<<<<<<< HEAD
         id.JobIcon = jobIcon.ID;
         Dirty(uid, id);
 
@@ -213,5 +218,16 @@ public abstract class SharedIdCardSystem : EntitySystem
                 ("fullName", id.FullName),
                 ("jobSuffix", jobSuffix));
         _metaSystem.SetEntityName(uid, val);
+=======
+        if (TryComp(uid, out PdaComponent? pda)
+        && TryComp(pda.ContainedId, out idCardComp))
+        {
+            idCard = (pda.ContainedId.Value, idCardComp);
+            return true;
+        }
+
+        idCard = default;
+        return false;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

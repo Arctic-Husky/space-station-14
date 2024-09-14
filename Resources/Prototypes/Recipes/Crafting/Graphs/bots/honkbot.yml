@@ -8,9 +8,21 @@
       steps:
       - tag: HappyHonk
         icon:
+<<<<<<< HEAD
           sprite: Objects/Storage/Happyhonk/clown.rsi
           state: box
         name: happy honk meal
+=======
+          sprite: Objects/Storage/boxes.rsi
+          state: box_hug
+        name: box of hugs
+      - tag: ClownRubberStamp
+        icon:
+          sprite: Objects/Misc/stamps.rsi
+          state: stamp-clown
+        name: clown's rubber stamp
+        doAfter: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - tag: BikeHorn
         icon:
             sprite: Objects/Fun/bikehorn.rsi
@@ -43,7 +55,17 @@
         icon:
           sprite: Objects/Storage/Happyhonk/cluwne.rsi
           state: box
+<<<<<<< HEAD
         name: woeful cluwne meal
+=======
+        name: happy honk meal
+      - tag: ClownRubberStamp
+        icon:
+          sprite: Objects/Misc/stamps.rsi
+          state: stamp-clown
+        name: clown's rubber stamp
+        doAfter: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - tag: CluwneHorn
         icon:
           sprite: Objects/Fun/cluwnehorn.rsi

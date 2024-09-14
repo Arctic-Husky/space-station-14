@@ -63,6 +63,9 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: EyeProtection
+  - type: Tag
+    tags:
+    - SecDogWearable # DeltaV - let Laika wear meson goggles
 
 - type: entity
   parent: ClothingEyesBase
@@ -74,6 +77,37 @@
     sprite: Clothing/Eyes/Glasses/glasses.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/glasses.rsi
+  - type: VisionCorrection
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GlassesNearsight # SimpleStation14 NearsightedTrait
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesJensen
+  name: jensen glasses
+  description: A pair of yellow tinted folding glasses. You never asked for these.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/jensen.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/jensen.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesJamjar
+  name: jamjar glasses
+  description: Also known as Virginity Protectors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
   - type: VisionCorrection
   - type: Tag
     tags:
@@ -133,6 +167,7 @@
     sprite: Clothing/Eyes/Glasses/sunglasses.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+<<<<<<< HEAD
   - type: Tag
     tags:
     - HamsterWearable
@@ -149,11 +184,26 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - Sunglasses
     - HamsterWearable
     - WhitelistChameleon
+    - SecDogWearable # DeltaV - let Laika wear sunglasses
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingEyesGlassesCheapSunglasses
+  id: ClothingEyesGlassesSunglasses
+  name: sun glasses
+  description: A pair of black sunglasses.
+  components:
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -175,9 +225,14 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - SecDogWearable # DeltaV - let Laika wear secglasses
   - type: GuideHelp
     guides:
     - Security
+<<<<<<< HEAD
+=======
+  - type: ShowSecurityIcons
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: IdentityBlocker
     coverage: EYES
 
@@ -235,3 +290,50 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+
+- type: entity #Fake goggles, the latest in anti-valid hunting technology
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesThermalBudget
+  name: red goggles
+  description: These don't have any real function, but they do look cool!
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/thermal.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/thermal.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesChemicalBudget
+  name: purple goggles
+  description: These don't have any real function, but they do look cool!
+  components:
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/science.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/science.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesMesonBudget
+  name: green goggles
+  description: These don't have any real function, but they do look cool!
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/meson.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/meson.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesBlueshield
+  name: Óculos de Blueshield
+  description: Óculos de segurança aprimorados com nanofibras de plastitânio, usado pelo mais poderoso guarda costas glorificado.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/blueshieldglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/blueshieldglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 10

@@ -42,8 +42,11 @@ seeds-bluetomato-name = blue tomato
 seeds-bluetomato-display-name = blue tomato plant
 seeds-bloodtomato-name = blood tomato
 seeds-bloodtomato-display-name = blood tomato plant
+<<<<<<< HEAD
 seeds-killertomato-name = tomato killer
 seeds-killertomato-display-name = tomato killer plant
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 seeds-eggplant-name = eggplant
 seeds-eggplant-display-name = eggplants
 seeds-apple-name = apple
@@ -69,7 +72,11 @@ seeds-nettle-display-name = nettles
 seeds-deathnettle-name = death nettle
 seeds-deathnettle-display-name = death nettles
 seeds-chili-name = chili
+<<<<<<< HEAD
 seeds-chili-display-name = chili peppers
+=======
+seeds-chili-display-name = chilis
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 seeds-chilly-name = chilly
 seeds-chilly-display-name = chilly peppers
 seeds-poppy-name = poppy
@@ -116,5 +123,8 @@ seeds-pumpkin-name = pumpkin
 seeds-pumpkin-display-name = pumpkins
 seeds-cotton-name = cotton
 seeds-cotton-display-name = cotton plant
+<<<<<<< HEAD
 seeds-pyrotton-name = pyrotton
 seeds-pyrotton-display-name = pyrotton plant
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

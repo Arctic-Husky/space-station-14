@@ -100,7 +100,11 @@ public partial class BaseShuttleControl : MapGridControl
             var textDimensions = handle.GetDimensions(Font, text, UIScale);
 
             handle.DrawCircle(origin, scaledRadius, color, false);
+<<<<<<< HEAD
             handle.DrawString(Font, ScalePosition(new Vector2(0f, -radius)) - new Vector2(0f, textDimensions.Y), text, UIScale, color);
+=======
+            handle.DrawString(Font, ScalePosition(new Vector2(0f, -radius)) - new Vector2(0f, textDimensions.Y), text, color);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         const int gridLinesRadial = 8;

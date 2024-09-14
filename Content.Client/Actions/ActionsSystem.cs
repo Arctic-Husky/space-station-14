@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using Content.Shared.Actions;
+using Content.Shared.Mapping;
 using JetBrains.Annotations;
 using Robust.Client.Player;
 using Robust.Shared.ContentPack;
@@ -64,6 +65,10 @@ namespace Content.Client.Actions
                 return;
 
             component.Whitelist = state.Whitelist;
+<<<<<<< HEAD
+=======
+            component.Blacklist = state.Blacklist;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             component.CanTargetSelf = state.CanTargetSelf;
             BaseHandleState<EntityTargetActionComponent>(uid, component, state);
         }
@@ -315,6 +320,73 @@ namespace Content.Client.Actions
             AssignSlot?.Invoke(assignments);
         }
 
+<<<<<<< HEAD
+=======
+        /// <summary>
+        ///     Load actions and their toolbar assignments from a file.
+        ///     DeltaV - Load from an existing yaml stream instead
+        /// </summary>
+        public void LoadActionAssignments(YamlStream stream)
+        {
+            if (_playerManager.LocalEntity is not { } user)
+                return;
+
+            if (stream.Documents[0].RootNode.ToDataNode() is not SequenceDataNode sequence)
+                return;
+
+            ClearAssignments?.Invoke();
+
+            var assignments = new List<SlotAssignment>();
+            var existingActions = GetClientActions();
+            var existingActionsList = existingActions.ToList();
+
+            foreach (var entry in sequence.Sequence)
+            {
+                if (entry is not MappingDataNode map)
+                    continue;
+
+                if (!map.TryGet("action", out var actionNode))
+                    continue;
+
+                if (!map.TryGet<ValueDataNode>("name", out var nameNode))
+                    continue;
+
+                var action = _serialization.Read<BaseActionComponent>(actionNode, notNullableOverride: true);
+
+                // Prevent spawning actions multiple times
+                var existing = existingActionsList.FirstOrNull(a =>
+                    Name(a.Id) == nameNode.Value);
+
+                EntityUid actionId;
+                if (existing == null)
+                {
+                    actionId = Spawn(null);
+                    AddComp(actionId, action);
+                    _metaData.SetEntityName(actionId, nameNode.Value);
+                    DirtyEntity(actionId);
+                    AddActionDirect(user, actionId);
+                }
+                else
+                {
+                    actionId = existing.Value.Id;
+                }
+
+                if (!map.TryGet("assignments", out var assignmentNode))
+                    continue;
+
+                var nodeAssignments = _serialization.Read<List<(byte Hotbar, byte Slot)>>(assignmentNode, notNullableOverride: true);
+
+                foreach (var index in nodeAssignments)
+                {
+                    var assignment = new SlotAssignment(index.Hotbar, index.Slot, actionId);
+                    assignments.Add(assignment);
+                }
+            }
+
+            AssignSlot?.Invoke(assignments);
+        }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         public record struct SlotAssignment(byte Hotbar, byte Slot, EntityUid ActionId);
     }
 }

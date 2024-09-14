@@ -479,10 +479,15 @@
   packetPrototype: BloodTomatoSeeds
   productPrototypes:
     - FoodBloodTomato
+<<<<<<< HEAD
   mutationPrototypes:
     - killerTomato
   harvestRepeat: Repeat
   lifespan: 60
+=======
+  harvestRepeat: Repeat
+  lifespan: 25
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   maturation: 8
   production: 6
   yield: 2
@@ -945,7 +950,11 @@
   plantRsi: Objects/Specific/Hydroponics/chili.rsi
   packetPrototype: ChiliSeeds
   productPrototypes:
+<<<<<<< HEAD
     - FoodChiliPepper
+=======
+    - FoodChili
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   mutationPrototypes:
     - chilly
   harvestRepeat: Repeat
@@ -978,7 +987,11 @@
   plantRsi: Objects/Specific/Hydroponics/chilly.rsi
   packetPrototype: ChillySeeds
   productPrototypes:
+<<<<<<< HEAD
     - FoodChillyPepper
+=======
+    - FoodChilly
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   harvestRepeat: Repeat
   lifespan: 25
   maturation: 6
@@ -1077,7 +1090,11 @@
     Nutriment:
       Min: 1
       Max: 2
+<<<<<<< HEAD
       PotencyDivisor: 50
+=======
+      Potencydivisor: 50
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     Bicaridine:
       Min: 1
       Max: 20
@@ -1148,6 +1165,40 @@
       Min: 1
       Max: 2
       PotencyDivisor: 50
+
+- type: seed
+  id: ambrosiaDeus
+  name: seeds-ambrosiadeus-name
+  noun: seeds-noun-seeds
+  displayName: seeds-ambrosiadeus-display-name
+  plantRsi: Objects/Specific/Hydroponics/ambrosia_deus.rsi
+  packetPrototype: AmbrosiaDeusSeeds
+  productPrototypes:
+    - FoodAmbrosiaDeus
+  lifespan: 25
+  maturation: 10
+  production: 3
+  yield: 3
+  potency: 10
+  growthStages: 6
+  waterConsumption: 0.60
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 10
+    Omnizine: # Don't kill me
+      Min: 1
+      Max: 3
+      PotencyDivisor: 35
+    SpaceDrugs:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Desoxyephedrine:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
 
 - type: seed
   id: ambrosiaDeus
@@ -1331,7 +1382,11 @@
     Nutriment:
       Min: 1
       Max: 5
+<<<<<<< HEAD
       PotencyDivisor: 50
+=======
+      Potencydivisor: 50
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     PolypyryliumOligomers:
       Min: 1
       Max: 15
@@ -1567,8 +1622,11 @@
   packetPrototype: CottonSeeds
   productPrototypes:
     - CottonBol
+<<<<<<< HEAD
   mutationPrototypes:
     - pyrotton
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   lifespan: 25
   maturation: 8
   production: 3
@@ -1583,6 +1641,7 @@
       Max: 10
       PotencyDivisor: 20
 
+<<<<<<< HEAD
 - type: seed
   id: pyrotton
   name: seeds-pyrotton-name
@@ -1609,3 +1668,5 @@
       Min: 4
       Max: 8
       PotencyDivisor: 30
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

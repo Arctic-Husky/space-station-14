@@ -60,8 +60,13 @@
       - Ore
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+=======
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

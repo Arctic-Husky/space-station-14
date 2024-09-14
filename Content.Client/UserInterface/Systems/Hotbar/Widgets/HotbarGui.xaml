@@ -10,6 +10,7 @@
     Orientation="Vertical"
     HorizontalAlignment="Center">
     <BoxContainer Orientation="Vertical">
+<<<<<<< HEAD
         <BoxContainer Name="StorageContainer"
                       Access="Public"
                       HorizontalAlignment="Center"
@@ -18,6 +19,23 @@
                 Name="StoragePanel"
                 Visible="False"/>
         </BoxContainer>
+=======
+        <Control HorizontalAlignment="Center">
+            <inventory:ItemStatusPanel
+                Name="StatusPanel"
+                Visible="False"
+                HorizontalAlignment="Center"
+            />
+            <BoxContainer Name="StorageContainer"
+                          Access="Public"
+                          HorizontalAlignment="Center"
+                          Margin="10">
+                <storage:StorageContainer
+                    Name="StoragePanel"
+                    Visible="False"/>
+            </BoxContainer>
+        </Control>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         <BoxContainer Orientation="Horizontal" Name="Hotbar" HorizontalAlignment="Center">
             <inventory:ItemSlotButtonContainer
                 Name="SecondHotbar"
@@ -28,22 +46,30 @@
                 ExpandBackwards="True"
                 Columns="6"
                 HorizontalExpand="False"/>
+<<<<<<< HEAD
             <inventory:ItemStatusPanel
                 Name="StatusPanelRight"
                 HorizontalAlignment="Center" Margin="0 0 -2 2"
                 SetWidth="125"
                 SetHeight="60"/>
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             <hands:HandsContainer
                 Name="HandContainer"
                 Access="Public"
                 HorizontalAlignment="Center"
                 HorizontalExpand="False"
+<<<<<<< HEAD
                 ColumnLimit="6"/>
             <inventory:ItemStatusPanel
                 Name="StatusPanelLeft"
                 HorizontalAlignment="Center" Margin="-2 0 0 2"
                 SetWidth="125"
                 SetHeight="60"/>
+=======
+                ColumnLimit="6"
+                Margin="4 0 4 0"/>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             <inventory:ItemSlotButtonContainer
                 Name="MainHotbar"
                 SlotGroup="MainHotbar"

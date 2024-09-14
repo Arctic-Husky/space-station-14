@@ -24,8 +24,13 @@
   components:
   - type: WallReplaceVariationPass
   - type: EntityReplaceVariationPass
+<<<<<<< HEAD
     entitiesPerReplacementAverage: 50
     entitiesPerReplacementStdDev: 10
+=======
+    entitiesPerReplacementAverage: 10
+    entitiesPerReplacementStdDev: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     replacements:
     - id: WallSolidRust
 
@@ -36,8 +41,13 @@
   components:
   - type: ReinforcedWallReplaceVariationPass
   - type: EntityReplaceVariationPass
+<<<<<<< HEAD
     entitiesPerReplacementAverage: 50
     entitiesPerReplacementStdDev: 10
+=======
+    entitiesPerReplacementAverage: 12
+    entitiesPerReplacementStdDev: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     replacements:
     - id: WallReinforcedRust
 

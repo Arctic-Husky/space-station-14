@@ -5,7 +5,11 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from https://github.com/tgstation/tgstation at 0d9c9a8233dfc3fc55edc538955a761a6328bee0, micro_mani by EmoGarbage404 (github)",
+=======
+  "copyright": "Taken from https://github.com/tgstation/tgstation at 0d9c9a8233dfc3fc55edc538955a761a6328bee0 // Taken from https://github.com/ParadiseSS13/Paradise/",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   "states": [
     {
       "name": "adv_capacitor"
@@ -23,6 +27,7 @@
       "name": "adv_scan_module",
       "delays": [
         [
+          0.1,
           0.1,
           0.1,
           0.1,
@@ -53,7 +58,13 @@
       "name": "bluespace_matter_bin",
       "delays": [
         [
-          0.3,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
           0.1,
           0.1,
           0.1
@@ -146,15 +157,7 @@
       ]
     },
     {
-      "name": "femto_mani",
-      "delays": [
-        [
-          0.3,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "name": "femto_mani"
     },
     {
       "name": "hdd1"
@@ -184,24 +187,10 @@
       "name": "pico_mani"
     },
     {
-      "name": "quadratic_capacitor",
-      "delays": [
-        [
-          0.3,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "name": "quadratic_capacitor"
     },
     {
-      "name": "quadultra_micro_laser",
-      "delays": [
-        [
-          0.1,
-          0.1
-        ]
-      ]
+      "name": "quadultra_micro_laser"
     },
     {
       "name": "rom1"
@@ -219,7 +208,6 @@
       "name": "scan_module",
       "delays": [
         [
-          0.1,
           0.1,
           0.1,
           0.1,
@@ -260,7 +248,15 @@
       "name": "super_matter_bin"
     },
     {
-      "name": "super_scan_module"
+      "name": "super_scan_module",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     },
     {
       "name": "treatment_disk"

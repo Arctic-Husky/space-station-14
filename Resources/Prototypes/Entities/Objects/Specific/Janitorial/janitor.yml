@@ -8,9 +8,21 @@
     sprite: Objects/Specific/Janitorial/mop.rsi
     state: mop
   - type: MeleeWeapon
+    range: 1.85
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 10
+=======
+        Blunt: 2
+    bluntStaminaDamageFactor: 3
+    heavyRateModifier: 0.8
+    heavyRangeModifier: 1.25
+    heavyDamageBaseModifier: 1.25
+    heavyStaminaCost: 10
+    maxTargets: 2
+    angle: 180
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Spillable
@@ -51,9 +63,21 @@
       sprite: Objects/Specific/Janitorial/advmop.rsi
       state: advmop
     - type: MeleeWeapon
+      range: 1.85
       damage:
         types:
+<<<<<<< HEAD
           Blunt: 10
+=======
+          Blunt: 2
+      bluntStaminaDamageFactor: 3
+      heavyRateModifier: 0.8
+      heavyRangeModifier: 1.25
+      heavyDamageBaseModifier: 1.25
+      heavyStaminaCost: 10
+      maxTargets: 2
+      angle: 180
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       soundHit:
          collection: MetalThud
     - type: Spillable
@@ -106,9 +130,12 @@
       coefficients:
         Blunt: 0.95
         Slash: 0.95
+<<<<<<< HEAD
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
       - WetFloorSign

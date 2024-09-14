@@ -178,7 +178,11 @@ namespace Content.Client.Ghost
 
         public void ToggleGhostVisibility(bool? visibility = null)
         {
+<<<<<<< HEAD
             GhostVisibility = visibility ?? !GhostVisibility;
+=======
+            GhostVisibility = !GhostVisibility;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }

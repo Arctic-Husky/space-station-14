@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Shared.CCVar;
+using Content.Shared.Customization.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
@@ -13,6 +14,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Players.PlayTimeTracking;
 
+<<<<<<< HEAD
 public sealed class JobRequirementsManager : ISharedPlaytimeManager
 {
     [Dependency] private readonly IBaseClient _client = default!;
@@ -20,6 +22,12 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+=======
+public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
+{
+    [Dependency] private readonly IBaseClient _client = default!;
+    [Dependency] private readonly IClientNetManager _net = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
@@ -36,6 +44,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         // Yeah the client manager handles role bans and playtime but the server ones are separate DEAL.
         _net.RegisterNetMessage<MsgRoleBans>(RxRoleBans);
         _net.RegisterNetMessage<MsgPlayTime>(RxPlayTime);
+        _net.RegisterNetMessage<MsgWhitelist>(RxWhitelist);
 
         _client.RunLevelChanged += ClientOnRunLevelChanged;
     }
@@ -79,10 +88,16 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         Updated?.Invoke();
     }
 
+<<<<<<< HEAD
     public bool IsAllowed(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
+=======
+    public TimeSpan FetchOverallPlaytime()
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
-        reason = null;
+        return _roles.TryGetValue("Overall", out var overallPlaytime) ? overallPlaytime : TimeSpan.Zero;
+    }
 
+<<<<<<< HEAD
         if (_roleBans.Contains($"Job:{job.ID}"))
         {
             reason = FormattedMessage.FromUnformatted(Loc.GetString("role-ban"));
@@ -114,6 +129,31 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
 
         reason = reasons.Count == 0 ? null : FormattedMessage.FromMarkup(string.Join('\n', reasons));
         return reason == null;
+=======
+    public Dictionary<string, TimeSpan> FetchPlaytimeByRoles()
+    {
+        var jobsToMap = _prototypes.EnumeratePrototypes<JobPrototype>();
+        var ret = new Dictionary<string, TimeSpan>();
+
+        foreach (var job in jobsToMap)
+            if (_roles.TryGetValue(job.PlayTimeTracker, out var locJobName))
+                ret.Add(job.Name, locJobName);
+
+        return ret;
+    }
+
+
+    public Dictionary<string, TimeSpan> GetPlayTimes()
+    {
+        var dict = FetchPlaytimeByRoles();
+        dict.Add(PlayTimeTrackingShared.TrackerOverall, FetchOverallPlaytime());
+        return dict;
+    }
+
+    public Dictionary<string, TimeSpan> GetRawPlayTimeTrackers()
+    {
+        return _roles;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public TimeSpan FetchOverallPlaytime()

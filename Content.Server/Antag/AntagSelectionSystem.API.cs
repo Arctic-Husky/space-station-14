@@ -27,6 +27,14 @@ public sealed partial class AntagSelectionSystem
         if (mindCount >= totalTargetCount)
             return false;
 
+<<<<<<< HEAD
+=======
+        // TODO ANTAG fix this
+        // If here are two definitions with 1/10 and 10/10 slots filled, this will always return the second definition
+        // even though it has already met its target
+        // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA I fucking hate game ticker code.
+        // It needs to track selected minds for each definition independently.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         foreach (var def in ent.Comp.Definitions)
         {
             var target = GetTargetAntagCount(ent, null, def);
@@ -47,12 +55,34 @@ public sealed partial class AntagSelectionSystem
     /// Gets the number of antagonists that should be present for a given rule based on the provided pool.
     /// A null pool will simply use the player count.
     /// </summary>
+<<<<<<< HEAD
     public int GetTargetAntagCount(Entity<AntagSelectionComponent> ent, AntagSelectionPlayerPool? pool = null)
+=======
+    public int GetTargetAntagCount(Entity<AntagSelectionComponent> ent, int? playerCount = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         var count = 0;
         foreach (var def in ent.Comp.Definitions)
         {
+<<<<<<< HEAD
             count += GetTargetAntagCount(ent, pool, def);
+=======
+            count += GetTargetAntagCount(ent, playerCount, def);
+        }
+
+        return count;
+    }
+
+    public int GetTotalPlayerCount(IList<ICommonSession> pool)
+    {
+        var count = 0;
+        foreach (var session in pool)
+        {
+            if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
+                continue;
+
+            count++;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         return count;
@@ -62,19 +92,36 @@ public sealed partial class AntagSelectionSystem
     /// Gets the number of antagonists that should be present for a given antag definition based on the provided pool.
     /// A null pool will simply use the player count.
     /// </summary>
+<<<<<<< HEAD
     public int GetTargetAntagCount(Entity<AntagSelectionComponent> ent, AntagSelectionPlayerPool? pool, AntagSelectionDefinition def)
     {
         var poolSize = pool?.Count ?? _playerManager.Sessions
             .Count(s => s.State.Status is not SessionStatus.Disconnected and not SessionStatus.Zombie);
+=======
+    public int GetTargetAntagCount(Entity<AntagSelectionComponent> ent, int? playerCount, AntagSelectionDefinition def)
+    {
+        // TODO ANTAG
+        // make pool non-nullable
+        // Review uses and ensure that people are INTENTIONALLY including players in the lobby if this is a mid-round
+        // antag selection.
+        var poolSize = playerCount ?? GetTotalPlayerCount(_playerManager.Sessions);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         // factor in other definitions' affect on the count.
         var countOffset = 0;
         foreach (var otherDef in ent.Comp.Definitions)
         {
+<<<<<<< HEAD
             countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
         }
         // make sure we don't double-count the current selection
         countOffset -= Math.Clamp(poolSize / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
+=======
+            countOffset += Math.Clamp(poolSize / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
+        }
+        // make sure we don't double-count the current selection
+        countOffset -= Math.Clamp((poolSize + countOffset) / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         return Math.Clamp((poolSize - countOffset) / def.PlayerRatio, def.Min, def.Max);
     }
@@ -281,6 +328,10 @@ public sealed partial class AntagSelectionSystem
 
         if (!TryGetNextAvailableDefinition(rule, out var def))
             def = rule.Comp.Definitions.Last();
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         MakeAntag(rule, player, def.Value);
     }
 

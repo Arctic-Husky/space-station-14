@@ -49,9 +49,15 @@
   description: A stylish clothing option for security officers.
   components:
   - type: Sprite
+<<<<<<< HEAD
     sprite: Clothing/Head/Hats/beret_security.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_security.rsi
+=======
+    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - ClothMade
@@ -104,8 +110,15 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretQM
+<<<<<<< HEAD
   name: quartermaster's beret
   description: A beret with the cargo's insignia emblazoned on it. For quartermasters that are more inclined towards style.
+=======
+  # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
+  name: logistics officer's beret
+  description: A beret with the logistics department's insignia emblazoned on it. For logistics officers that are more inclined towards style.
+  # End of modified code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_qm.rsi
@@ -124,9 +137,9 @@
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_hos.rsi
+    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_hos.rsi
+    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
@@ -137,12 +150,23 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretWarden
   name: warden's beret
-  description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
+  description: A black beret with a warden's rank emblem. For officers that are more inclined towards style than safety. # DeltaV - changed description to match sprite
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSeniorPhysician
+  name: physician beret
+  description: Donning the colours of medical and chemistry, physicians are the pride of this department!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_physician.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_physician.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -317,9 +341,9 @@
   description: "There's a new sheriff in station."
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/hoshat.rsi
+    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/hoshat.rsi
+    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
   - type: Tag
     tags:
     - ClothMade
@@ -382,12 +406,18 @@
     sprite: Clothing/Head/Hats/plaguedoctor.rsi
   - type: Tag
     tags:
+<<<<<<< HEAD
     - WhitelistChameleon
     - ClothMade
   - type: HideLayerClothing
     slots:
     - Hair
     - Snout
+=======
+    - HidesHair
+    - WhitelistChameleon
+    - ClothMade
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -399,6 +429,11 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -514,17 +549,26 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWarden
   name: warden's cap
-  description: A police officer's Hat. This hat emphasizes that you are THE LAW
+  description: The responsibility weighs heavy, like a barbed crown. # DeltaV - changed description to remove THE LAW
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
   - type: Clothing
+<<<<<<< HEAD
     sprite: Clothing/Head/Hats/warden.rsi
+=======
+    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
 
@@ -541,11 +585,17 @@
     sprite: Clothing/Head/Hats/witch.rsi
   - type: Tag
     tags:
+<<<<<<< HEAD
     - WhitelistChameleon
     - ClothMade
   - type: HideLayerClothing
     slots:
     - Hair
+=======
+    - HidesHair
+    - WhitelistChameleon
+    - ClothMade
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingHeadBase
@@ -580,6 +630,11 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase
@@ -1094,3 +1149,17 @@
     sprite: Clothing/Head/Hats/beret_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_medic.rsi
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretBlueshield
+  name: head of security's beret
+  description: Uma Beret azul para indicar sua superioridade.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_blueshield.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_blueshield.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

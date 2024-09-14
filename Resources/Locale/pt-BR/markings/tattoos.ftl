@@ -24,6 +24,15 @@ marking-TattooCampbellRightLeg = Tatuagem na perna direita (Campbelle)
 
 marking-TattooEyeRight-tattoo_eye_r = Right Eye
 marking-TattooEyeRight = Right Eye
+<<<<<<< HEAD
+=======
+marking-TattooEyeRight-eyeright = Right Eye
+marking-TattooEyeRight = Right Eye
+
+marking-TattooEyeLeft-eyeleft = Left Eye
+marking-TattooEyeLeft = Left Eye
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 marking-TattooEyeLeft-tattoo_eye_l = Left Eye
 marking-TattooEyeLeft = Left Eye

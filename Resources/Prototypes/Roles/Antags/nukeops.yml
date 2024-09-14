@@ -5,8 +5,16 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
   requirements:
+<<<<<<< HEAD
   - !type:OverallPlaytimeRequirement
     time: 18000 # 5h
+=======
+  - !type:CharacterOverallTimeRequirement
+    min: 108000 # DeltaV - 30 hours
+  - !type:CharacterDepartmentTimeRequirement # DeltaV - Security dept time requirement
+    department: Security
+    min: 36000 # DeltaV - 10 hours
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: antag
   id: NukeopsMedic
@@ -15,11 +23,19 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
+<<<<<<< HEAD
   - !type:OverallPlaytimeRequirement
     time: 18000 # 5h
   - !type:RoleTimeRequirement
     role: JobChemist 
     time: 10800 # 3h
+=======
+  - !type:CharacterOverallTimeRequirement
+    min: 108000 # DeltaV - 30 hours
+  - !type:CharacterDepartmentTimeRequirement # DeltaV - Medical dept time requirement
+    department: Medical
+    min: 36000 # DeltaV - 10 hours
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: antag
   id: NukeopsCommander
@@ -28,9 +44,40 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
+<<<<<<< HEAD
   - !type:OverallPlaytimeRequirement
     time: 36000 # 10h
   - !type:DepartmentTimeRequirement
     department: Security
     time: 18000 # 5h
   # should be changed to nukie playtime when thats tracked (wyci)
+=======
+  - !type:CharacterOverallTimeRequirement
+    min: 216000 # DeltaV - 60 hours
+  - !type:CharacterDepartmentTimeRequirement # DeltaV - Security dept time requirement
+    department: Security
+    min: 36000 # DeltaV - 10 hours
+  - !type:CharacterDepartmentTimeRequirement # DeltaV - Command dept time requirement
+    department: Command
+    min: 36000 # DeltaV - 10 hours
+
+#Lone Operative Gear
+- type: startingGear
+  id: SyndicateLoneOperativeGearFull
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingBackpackDuffelSyndicateOperative
+    mask: ClothingMaskGasSyndicate
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitSyndie
+    shoes: ClothingShoesBootsCombatFilled
+    id: SyndiPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: BaseUplinkRadio40TC
+    belt: ClothingBeltMilitaryWebbing
+  innerClothingSkirt: ClothingUniformJumpskirtOperative
+  satchel: ClothingBackpackDuffelSyndicateOperative
+  duffelbag: ClothingBackpackDuffelSyndicateOperative
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

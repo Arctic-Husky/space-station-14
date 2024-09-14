@@ -3,7 +3,9 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
   requirements:
+<<<<<<< HEAD
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
       time: 21600 #6 hrs
@@ -13,6 +15,22 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 54000 # Corvax-RoleTime
+=======
+  #  - !type:RoleTimeRequirement #DeltaV
+  #    role: JobCargoTechnician
+  #    time: 21600 #6 hrs
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobSalvageSpecialist
+      min: 10800 #3 hrs
+    - !type:CharacterPlaytimeRequirement # DeltaV - Courier role time requirement
+      tracker: JobMailCarrier
+      min: 7200 # 2 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
+      min: 43200 #DeltaV 12 hours
+    - !type:CharacterOverallTimeRequirement
+      min: 144000 #40 hrs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
@@ -21,10 +39,16 @@
   access:
   - Cargo
   - Salvage
+  - Mail # Nyanotrasen - MailCarrier, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Cargo/mail-carrier.yml
   - Quartermaster
   - Maintenance
   - Command
+<<<<<<< HEAD
   - Brig
+=======
+  - Orders # DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+  - External # DeltaV - for promoting salvage specialists
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -36,7 +60,21 @@
 - type: startingGear
   id: QuartermasterGear
   equipment:
+<<<<<<< HEAD
     id: QuartermasterPDA
     ears: ClothingHeadsetQM
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
+=======
+    head: ClothingHeadHatBeretLogi
+    jumpsuit: ClothingUniformJumpsuitQM
+    back: ClothingBackpackQuartermasterFilled
+    shoes: ClothingShoesColorBrown
+    id: QuartermasterPDA
+    ears: ClothingHeadsetQM
+    belt: BoxFolderClipboard
+    pocket1: AppraisalTool
+  innerClothingSkirt: ClothingUniformJumpskirtQM
+  satchel: ClothingBackpackSatchelQuartermasterFilled
+  duffelbag: ClothingBackpackDuffelQuartermasterFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

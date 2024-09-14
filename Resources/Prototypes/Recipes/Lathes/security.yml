@@ -97,6 +97,17 @@
     Plastic: 100
 
 - type: latheRecipe
+<<<<<<< HEAD
+=======
+  id: ClothingEyesGlassesSecurity
+  result: ClothingEyesGlassesSecurity
+  completetime: 2
+  materials:
+    Steel: 300
+    Glass: 200
+
+- type: latheRecipe
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingEyesHudSecurity
   result: ClothingEyesHudSecurity
   completetime: 2
@@ -139,6 +150,110 @@
     Steel: 100
 
 - type: latheRecipe
+<<<<<<< HEAD
+=======
+  id: ShellShotgunBeanbag
+  result: ShellShotgunBeanbag
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 15
+    Steel: 10
+
+- type: latheRecipe
+  id: CartridgePistolRubber
+  result: CartridgePistolRubber
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 5
+    Steel: 5
+
+- type: latheRecipe
+  id: CartridgeMagnumRubber
+  result: CartridgeMagnumRubber
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 5
+    Steel: 5
+
+- type: latheRecipe
+  id: CartridgeRifle
+  result: CartridgeRifle
+  category: Ammo
+  completetime: 2
+  materials:
+    Steel: 15
+
+- type: latheRecipe
+  id: CartridgeLightRifleRubber
+  result: CartridgeLightRifleRubber
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 10
+    Steel: 5
+
+- type: latheRecipe
+  id: CartridgeRifleRubber
+  result: CartridgeRifleRubber
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 10
+    Steel: 5
+
+- type: latheRecipe
+  id: CartridgePistol
+  result: CartridgePistol
+  category: Ammo
+  completetime: 2
+  materials:
+    Steel: 10
+
+- type: latheRecipe
+  id: ShellShotgun
+  result: ShellShotgun
+  category: Ammo
+  completetime: 2
+  materials:
+    Steel: 20
+
+- type: latheRecipe
+  id: ShellShotgunSlug
+  result: ShellShotgunSlug
+  completetime: 2
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  id: CartridgeMagnum
+  result: CartridgeMagnum
+  category: Ammo
+  completetime: 2
+  materials:
+    Steel: 20
+
+- type: latheRecipe
+  id: CartridgeLightRifle
+  result: CartridgeLightRifle
+  category: Ammo
+  completetime: 2
+  materials:
+    Steel: 30
+
+- type: latheRecipe
+  id: ShellShotgunFlare
+  result: ShellShotgunFlare
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 20
+    Steel: 5
+
+- type: latheRecipe
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ShellTranquilizer
   result: ShellTranquilizer
   category: Ammo
@@ -175,8 +290,13 @@
     Steel: 500
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: MagazinePistolEmpty
   result: MagazinePistolEmpty
+=======
+  id: MagazinePistol
+  result: MagazinePistol
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   category: Ammo
   completetime: 5
   materials:
@@ -255,7 +375,20 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Steel: 600
+=======
+    Steel: 650
+
+- type: latheRecipe
+  id: MagazineBoxPistolRubber
+  result: MagazineBoxPistolRubber
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 350
+    Plastic: 300
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxMagnum
@@ -266,8 +399,13 @@
     Steel: 240
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: MagazineRifleEmpty
   result: MagazineRifleEmpty
+=======
+  id: MagazineBoxMagnumRubber
+  result: MagazineBoxMagnumRubber
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   category: Ammo
   completetime: 5
   materials:
@@ -359,7 +497,20 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Steel: 750
+=======
+    Steel: 950
+
+- type: latheRecipe
+  id: MagazineBoxRifleRubber
+  result: MagazineBoxRifleRubber
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 350
+    Plastic: 600
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxLightRifle
@@ -370,52 +521,100 @@
     Steel: 900
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: BoxLethalshot
   result: BoxLethalshot
+=======
+  id: MagazineBoxLightRifleRubber
+  result: MagazineBoxLightRifleRubber
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   category: Ammo
   completetime: 5
   materials:
     Steel: 320
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: BoxBeanbag
   result: BoxBeanbag
   category: Ammo
   completetime: 5
-  materials:
-    Steel: 160
-    Plastic: 240
-
-- type: latheRecipe
-  id: BoxShotgunSlug
-  result: BoxShotgunSlug
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 240
-    Plastic: 160
-
-- type: latheRecipe
-  id: SpeedLoaderMagnumEmpty
-  result: SpeedLoaderMagnumEmpty
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 50
-
-- type: latheRecipe
+=======
   id: SpeedLoaderMagnum
   result: SpeedLoaderMagnum
   category: Ammo
   completetime: 5
   materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: ShellShotgunIncendiary
+  result: ShellShotgunIncendiary
+  category: Ammo
+  completetime: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  materials:
+    Steel: 160
+    Plastic: 240
+
+- type: latheRecipe
+<<<<<<< HEAD
+  id: BoxShotgunSlug
+  result: BoxShotgunSlug
+  category: Ammo
+  completetime: 5
+=======
+  id: CartridgePistolIncendiary
+  result: CartridgePistolIncendiary
+  category: Ammo
+  completetime: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  materials:
+    Steel: 240
+    Plastic: 160
+
+- type: latheRecipe
+<<<<<<< HEAD
+  id: SpeedLoaderMagnumEmpty
+  result: SpeedLoaderMagnumEmpty
+  category: Ammo
+  completetime: 5
+=======
+  id: CartridgeMagnumIncendiary
+  result: CartridgeMagnumIncendiary
+  category: Ammo
+  completetime: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+<<<<<<< HEAD
+  id: SpeedLoaderMagnum
+  result: SpeedLoaderMagnum
+  category: Ammo
+  completetime: 5
+=======
+  id: CartridgeLightRifleIncendiary
+  result: CartridgeLightRifleIncendiary
+  category: Ammo
+  completetime: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  materials:
     Steel: 190
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: SpeedLoaderMagnumPractice
   result: SpeedLoaderMagnumPractice
   category: Ammo
   completetime: 5
+=======
+  id: CartridgeRifleIncendiary
+  result: CartridgeRifleIncendiary
+  category: Ammo
+  completetime: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   materials:
     Steel: 90
 
@@ -511,6 +710,7 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Plastic: 750
 
 - type: latheRecipe
@@ -530,6 +730,17 @@
   materials:
     Steel: 80
     Plastic: 320
+=======
+    Plastic: 950
+
+- type: latheRecipe
+  id: ShellShotgunPractice
+  result: ShellShotgunPractice
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 20
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxPistolPractice
@@ -537,7 +748,11 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Steel: 300
+=======
+    Plastic: 600
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxMagnumPractice
@@ -545,7 +760,11 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Steel: 60
+=======
+    Plastic: 1200
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxLightRiflePractice
@@ -553,7 +772,11 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Steel: 300
+=======
+    Plastic: 1000
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxRiflePractice
@@ -561,7 +784,11 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Steel: 250
+=======
+    Plastic: 900
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: WeaponLaserCarbinePractice
@@ -584,12 +811,58 @@
     Plastic: 200
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: BoxShotgunPractice
   result: BoxShotgunPractice
   category: Ammo
   completetime: 5
   materials:
     Steel: 80
+=======
+  id: ShellShotgunUranium
+  result: ShellShotgunUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 15
+    Uranium: 10
+
+- type: latheRecipe
+  id: CartridgePistolUranium
+  result: CartridgePistolUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 5
+    Uranium: 10
+
+- type: latheRecipe
+  id: CartridgeMagnumUranium
+  result: CartridgeMagnumUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 20
+    Uranium: 10
+
+- type: latheRecipe
+  id: CartridgeLightRifleUranium
+  result: CartridgeLightRifleUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 20
+    Uranium: 10
+
+- type: latheRecipe
+  id: CartridgeRifleUranium
+  result: CartridgeRifleUranium
+  category: Ammo
+  completetime: 2
+  materials:
+    Plastic: 15
+    Uranium: 10
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxPistolUranium
@@ -597,8 +870,13 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Plastic: 300
     Uranium: 600
+=======
+    Plastic: 650
+    Uranium: 65
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxMagnumUranium
@@ -606,8 +884,13 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Plastic: 240
     Uranium: 180
+=======
+    Plastic: 1250
+    Uranium: 125
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxLightRifleUranium
@@ -615,8 +898,13 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Plastic: 600
     Uranium: 600
+=======
+    Plastic: 1800
+    Uranium: 180
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: MagazineBoxRifleUranium
@@ -624,6 +912,7 @@
   category: Ammo
   completetime: 5
   materials:
+<<<<<<< HEAD
     Plastic: 500
     Uranium: 500
 
@@ -645,6 +934,10 @@
     Steel: 300
     Glass: 200
     Plastic: 200
+=======
+    Plastic: 950
+    Uranium: 95
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: WeaponDisablerSMG
@@ -678,9 +971,15 @@
   result: GrenadeBlast
   completetime: 3
   materials:
+<<<<<<< HEAD
      Steel: 450
      Plastic: 300
      Gold: 150
+=======
+     Steel: 150
+     Plastic: 100
+     Gold: 50
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
      
 - type: latheRecipe
   id: GrenadeFlash
@@ -690,6 +989,7 @@
      Steel: 150
      Plastic: 100
      Glass: 20
+<<<<<<< HEAD
 
 - type: latheRecipe
   id: PortableRecharger
@@ -701,3 +1001,6 @@
      Plastic: 1000
      Plasma: 500
      Glass: 500
+=======
+     
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

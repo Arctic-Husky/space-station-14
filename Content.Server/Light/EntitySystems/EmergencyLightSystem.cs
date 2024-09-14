@@ -151,7 +151,11 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         }
         else
         {
+<<<<<<< HEAD
             _battery.SetCharge(entity.Owner, battery.CurrentCharge + entity.Comp.ChargingWattage * frameTime * entity.Comp.ChargingEfficiency, battery);
+=======
+            _battery.SetCharge(uid, battery.CurrentCharge + component.ChargingWattage * frameTime * component.ChargingEfficiency, battery);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (battery.IsFullyCharged)
             {
                 if (TryComp<ApcPowerReceiverComponent>(entity.Owner, out var receiver))

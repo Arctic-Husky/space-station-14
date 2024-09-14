@@ -13,6 +13,10 @@ using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Antag;
+<<<<<<< HEAD
+=======
+using Content.Shared.GameTicking;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Players;
@@ -24,6 +28,10 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Utility;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Antag;
 
@@ -82,10 +90,16 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 continue;
 
             if (comp.SelectionsComplete)
+<<<<<<< HEAD
                 return;
 
             ChooseAntags((uid, comp), pool);
             comp.SelectionsComplete = true;
+=======
+                continue;
+
+            ChooseAntags((uid, comp), pool);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             foreach (var session in comp.SelectedSessions)
             {
@@ -103,11 +117,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (comp.SelectionTime != AntagSelectionTime.PostPlayerSpawn)
                 continue;
 
+<<<<<<< HEAD
             if (comp.SelectionsComplete)
                 continue;
 
             ChooseAntags((uid, comp));
             comp.SelectionsComplete = true;
+=======
+            ChooseAntags((uid, comp), args.Players);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 
@@ -123,12 +141,24 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var query = QueryActiveRules();
         while (query.MoveNext(out var uid, out _, out var antag, out _))
         {
+<<<<<<< HEAD
+=======
+            // TODO ANTAG
+            // what why aasdiuhasdopiuasdfhksad
+            // stop this insanity please
+            // probability of antag assignment shouldn't depend on the order in which rules are returned by the query.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (!RobustRandom.Prob(LateJoinRandomChance))
                 continue;
 
             if (!antag.Definitions.Any(p => p.LateJoinAdditional))
                 continue;
 
+<<<<<<< HEAD
+=======
+            DebugTools.AssertEqual(antag.SelectionTime, AntagSelectionTime.PostPlayerSpawn);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (!TryGetNextAvailableDefinition((uid, antag), out var def))
                 continue;
 
@@ -161,6 +191,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     {
         base.Started(uid, component, gameRule, args);
 
+<<<<<<< HEAD
         if (component.SelectionsComplete)
             return;
 
@@ -181,26 +212,60 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     {
         var sessions = _playerManager.Sessions.ToList();
         ChooseAntags(ent, sessions);
+=======
+        // If the round has not yet started, we defer antag selection until roundstart
+        if (GameTicker.RunLevel != GameRunLevel.InRound)
+            return;
+
+        if (component.SelectionsComplete)
+            return;
+
+        var players = _playerManager.Sessions
+            .Where(x => GameTicker.PlayerGameStatuses[x.UserId] == PlayerGameStatus.JoinedGame)
+            .ToList();
+
+        ChooseAntags((uid, component), players);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
     /// Chooses antagonists from the given selection of players
     /// </summary>
+<<<<<<< HEAD
     public void ChooseAntags(Entity<AntagSelectionComponent> ent, List<ICommonSession> pool)
     {
+=======
+    public void ChooseAntags(Entity<AntagSelectionComponent> ent, IList<ICommonSession> pool)
+    {
+        if (ent.Comp.SelectionsComplete)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         foreach (var def in ent.Comp.Definitions)
         {
             ChooseAntags(ent, pool, def);
         }
+<<<<<<< HEAD
+=======
+
+        ent.Comp.SelectionsComplete = true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
     /// Chooses antagonists from the given selection of players for the given antag definition.
     /// </summary>
+<<<<<<< HEAD
     public void ChooseAntags(Entity<AntagSelectionComponent> ent, List<ICommonSession> pool, AntagSelectionDefinition def)
     {
         var playerPool = GetPlayerPool(ent, pool, def);
         var count = GetTargetAntagCount(ent, playerPool, def);
+=======
+    public void ChooseAntags(Entity<AntagSelectionComponent> ent, IList<ICommonSession> pool, AntagSelectionDefinition def)
+    {
+        var playerPool = GetPlayerPool(ent, pool, def);
+        var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         for (var i = 0; i < count; i++)
         {
@@ -280,13 +345,20 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             _transform.SetMapCoordinates((player, playerXform), pos);
         }
 
+<<<<<<< HEAD
         // If we want to just do a ghost role spawner, set up data here and then return early.
         // This could probably be an event in the future if we want to be more refined about it.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (isSpawner)
         {
             if (!TryComp<GhostRoleAntagSpawnerComponent>(player, out var spawnerComp))
             {
+<<<<<<< HEAD
                 Log.Error($"Antag spawner {player} does not have a GhostRoleAntagSpawnerComponent.");
+=======
+                Log.Error("Antag spawner with GhostRoleAntagSpawnerComponent.");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return;
             }
 
@@ -295,7 +367,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return;
         }
 
+<<<<<<< HEAD
         // The following is where we apply components, equipment, and other changes to our antagonist entity.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         EntityManager.AddComponents(player, def.Components);
         _stationSpawning.EquipStartingGear(player, def.StartingGear);
 
@@ -321,20 +396,31 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// <summary>
     /// Gets an ordered player pool based on player preferences and the antagonist definition.
     /// </summary>
+<<<<<<< HEAD
     public AntagSelectionPlayerPool GetPlayerPool(Entity<AntagSelectionComponent> ent, List<ICommonSession> sessions, AntagSelectionDefinition def)
     {
         var preferredList = new List<ICommonSession>();
         var fallbackList = new List<ICommonSession>();
         var unwantedList = new List<ICommonSession>();
         var invalidList = new List<ICommonSession>();
+=======
+    public AntagSelectionPlayerPool GetPlayerPool(Entity<AntagSelectionComponent> ent, IList<ICommonSession> sessions, AntagSelectionDefinition def)
+    {
+        var preferredList = new List<ICommonSession>();
+        var fallbackList = new List<ICommonSession>();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         foreach (var session in sessions)
         {
             if (!IsSessionValid(ent, session, def) ||
                 !IsEntityValid(session.AttachedEntity, def))
+<<<<<<< HEAD
             {
                 invalidList.Add(session);
                 continue;
             }
+=======
+                continue;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
             if (def.PrefRoles.Count != 0 && pref.AntagPreferences.Any(p => def.PrefRoles.Contains(p)))
@@ -345,6 +431,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             {
                 fallbackList.Add(session);
             }
+<<<<<<< HEAD
             else
             {
                 unwantedList.Add(session);
@@ -352,6 +439,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
 
         return new AntagSelectionPlayerPool(new() { preferredList, fallbackList, unwantedList, invalidList });
+=======
+        }
+
+        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -362,14 +454,26 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (session == null)
             return true;
 
+<<<<<<< HEAD
         mind ??= session.GetMind();
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
             return false;
 
         if (ent.Comp.SelectedSessions.Contains(session))
             return false;
 
+<<<<<<< HEAD
+=======
+        mind ??= session.GetMind();
+
+        // If the player has not spawned in as any entity (e.g., in the lobby), they can be given an antag role/entity.
+        if (mind == null)
+            return true;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         //todo: we need some way to check that we're not getting the same role twice. (double picking thieves or zombies through midrounds)
 
         switch (def.MultiAntagSetting)
@@ -398,10 +502,18 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// <summary>
     /// Checks if a given entity (mind/session not included) is valid for a given antagonist.
     /// </summary>
+<<<<<<< HEAD
     private bool IsEntityValid(EntityUid? entity, AntagSelectionDefinition def)
     {
         if (entity == null)
             return false;
+=======
+    public bool IsEntityValid(EntityUid? entity, AntagSelectionDefinition def)
+    {
+        // If the player has not spawned in as any entity (e.g., in the lobby), they can be given an antag role/entity.
+        if (entity == null)
+            return true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (HasComp<PendingClockInComponent>(entity))
             return false;

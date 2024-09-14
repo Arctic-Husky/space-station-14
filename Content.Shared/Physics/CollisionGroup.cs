@@ -47,9 +47,12 @@ public enum CollisionGroup
     MachineMask = Impassable | MidImpassable | LowImpassable,
     MachineLayer = Opaque | MidImpassable | LowImpassable | BulletImpassable,
     ConveyorMask = Impassable | MidImpassable | LowImpassable | DoorPassable,
+<<<<<<< HEAD
 
     // Crates
     CrateMask = Impassable | HighImpassable | LowImpassable,
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     // Tables that SmallMobs can go under
     TableMask = Impassable | MidImpassable,

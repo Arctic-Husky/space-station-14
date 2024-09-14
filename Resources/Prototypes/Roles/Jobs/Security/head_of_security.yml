@@ -4,12 +4,26 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
+<<<<<<< HEAD
     - !type:RoleTimeRequirement
       role: JobWarden
       time: 36000 # Corvax-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
       time: 108000 # Corvax-RoleTime
+=======
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobWarden
+      min: 14400 #DeltaV 4 hrs
+  #  - !type:RoleTimeRequirement # DeltaV - No Security Officer time requirement - REIMPLEMENT WHEN MORE PEOPLE HAVE IT
+  #    role: JobDetective
+  #    time: 14400 #DeltaV 4 hrs
+    - !type:CharacterDepartmentTimeRequirement # DeltaV - Command dept time requirement
+      department: Command
+      min: 36000 # 10 hours
+    - !type:CharacterOverallTimeRequirement
+      min: 90000 # DeltaV - 25 hours
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -19,13 +33,17 @@
   access:
   - HeadOfSecurity
   - Command
-  - Brig
+  #- Brig  # Delta V: Removed
   - Security
   - Armory
   - Maintenance
   - Service
   - External
   - Detective
+<<<<<<< HEAD
+=======
+  - Corpsman # DeltaV - added Corpsman access
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - Cryogenics
   special:
   - !type:AddImplantSpecial
@@ -37,8 +55,23 @@
 - type: startingGear
   id: HoSGear
   equipment:
+<<<<<<< HEAD
     eyes: ClothingEyesGlassesSecurity
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
     pocket1: WeaponPistolMk58
+=======
+    jumpsuit: ClothingUniformJumpsuitHoS
+    back: ClothingBackpackHOSFilled
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    id: HoSPDA
+    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetAltSecurity
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponPistolMk58Nonlethal
+  innerClothingSkirt: ClothingUniformJumpskirtHoS
+  satchel: ClothingBackpackSatchelHOSFilled
+  duffelbag: ClothingBackpackDuffelHOSFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

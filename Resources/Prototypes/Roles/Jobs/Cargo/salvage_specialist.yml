@@ -3,12 +3,21 @@
   name: job-name-salvagespec
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
+  antagAdvantage: 3 # DeltaV - Reduced TC: External Access + Free hardsuit and weapons
   requirements:
+<<<<<<< HEAD
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 10800 # Corvax-RoleTime
     - !type:OverallPlaytimeRequirement
       time: 36000 #10 hrs
+=======
+    - !type:CharacterDepartmentTimeRequirement
+      department: Logistics # DeltaV - Logistics Department replacing Cargo
+      min: 21600 #DeltaV 6 hrs
+  #  - !type:OverallPlaytimeRequirement #DeltaV
+  #    time: 36000 #10 hrs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm

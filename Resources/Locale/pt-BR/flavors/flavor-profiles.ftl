@@ -8,6 +8,10 @@ flavor-profile-unknown = Tem um gosto indescritível.
 # will go in front so you don't get this like "Tastes like tomatoes, sweet and spicy",
 # instead, you get "Tastes sweet, spicy and like tomatoes".
 
+<<<<<<< HEAD
+=======
+flavor-base-acidic = ácido
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 flavor-base-savory = salgado
 flavor-base-sweet = doce
 flavor-base-salty = salgado demais
@@ -64,12 +68,15 @@ flavor-complex-ketchunaise = como tomates e maionese
 flavor-complex-mayonnaise = como maionese
 flavor-complex-mustard = como mostarda
 
+<<<<<<< HEAD
 # Condiments
 
 flavor-complex-ketchunaise = como tomates e maionese
 flavor-complex-mayonnaise = como maionese
 flavor-complex-mustard = como mostarda
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # Food-specific flavors.
 
 ## Food chemicals. In case you get something that has this inside.
@@ -122,6 +129,10 @@ flavor-complex-bungo = de bungo
 flavor-complex-raisins = de uva passa
 flavor-complex-orange = de laranja
 flavor-complex-watermelon = de melancia
+<<<<<<< HEAD
+=======
+flavor-complex-nuggie = de "frango"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 flavor-complex-garlic = de alho
 flavor-complex-grape = de uva
 flavor-complex-berry = de bagas
@@ -189,12 +200,17 @@ flavor-complex-beer = de cerveja
 flavor-complex-cognac = como álcool seco picante
 flavor-complex-mead = como mel fermentado
 flavor-complex-vermouth = como cascas de uva de ervas
+<<<<<<< HEAD
 flavor-complex-cognac = como álcool seco picante
 flavor-complex-mead = como mel fermentado
 flavor-complex-vermouth = como cascas de uva de ervas
 flavor-complex-ale = de pão
 flavor-complex-tonic-water = como água com raiva
 flavor-complex-tonic-water = como água com raiva
+=======
+flavor-complex-ale = de pão
+flavor-complex-tonic-water = como água com raiva
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 flavor-complex-cola = de cola
 flavor-complex-energy-drink = como ácido da bateria
 flavor-complex-dr-gibb = como negligência
@@ -206,6 +222,7 @@ flavor-complex-citrus-soda = como refrigerante cítrico
 flavor-complex-space-up-soda = como espaço
 flavor-complex-starkist-soda = como refrigerante de laranja
 flavor-complex-fourteen-loko-soda = como um malte doce
+<<<<<<< HEAD
 flavor-complex-energy-drink = como ácido da bateria
 flavor-complex-dr-gibb = como negligência
 flavor-complex-grape-soda = como refrigerante de uva
@@ -216,6 +233,8 @@ flavor-complex-citrus-soda = como refrigerante cítrico
 flavor-complex-space-up-soda = como espaço
 flavor-complex-starkist-soda = como refrigerante de laranja
 flavor-complex-fourteen-loko-soda = como um malte doce
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 flavor-complex-vodka = de grãos fermentados
 flavor-complex-tequila = de bebida fermentada
 flavor-complex-sake = de doce e alcoólico arroz
@@ -239,15 +258,21 @@ flavor-complex-root-beer-float = como sorvete em refrigerante de raiz
 flavor-complex-black-russian = como café alcoólico
 flavor-complex-white-russian = como café adoçado alcoólico
 flavor-complex-moonshine = como álcool puro
+<<<<<<< HEAD
 flavor-complex-root-beer-float = como sorvete em refrigerante de raiz
 flavor-complex-black-russian = como café alcoólico
 flavor-complex-white-russian = como café adoçado alcoólico
 flavor-complex-moonshine = como álcool puro
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 flavor-complex-singulo = de um poço sem fundo
 flavor-complex-syndie-bomb = de whisky amargo
 flavor-complex-tequila-sunrise = de uma manhã mexicana
 flavor-complex-irish-car-bomb = como creme de baunilha e whisky
+<<<<<<< HEAD
 flavor-complex-irish-car-bomb = como creme de baunilha e whisky
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 flavor-complex-irish-coffee = de um despertador alcoólico
 flavor-complex-iced-beer = de cerveja fria como gelo
 flavor-complex-gargle-blaster = como se alguém tivesse esmagado a sua cabeça com um tijolo de ouro coberto de limão
@@ -272,9 +297,38 @@ flavor-complex-pilk = de leite doce
 ## Generic flavors.
 flavor-complex-medicine = de remédio
 
+<<<<<<< HEAD
 flavor-complex-carpet = de pelo
 flavor-complex-bee = inacreditável
 flavor-complex-sax = de jazz
 flavor-complex-bottledlightning = como um relâmpago engarrafado
 flavor-complex-punishment = de punição
 flavor-weh = like weh
+=======
+flavor-complex-carpet = como um punhado de pele
+flavor-complex-bee = inacreditável
+flavor-complex-sax = como jazz
+flavor-complex-bottledlightning = como um relâmpago engarrafado
+flavor-complex-punishment = de punição
+flavor-weh = like weh
+
+## Nyano???
+flavor-complex-enthralling = apaixonante
+flavor-complex-sublime = sublime
+flavor-complex-holy = celestial
+flavor-base-seeds = sementes
+flavor-complex-cotton = como algodão
+flavor-complex-vanilla = como baunilha
+flavor-complex-sake = como arroz doce e alcoólico
+flavor-complex-soju = como arroz alcoólico ousado
+flavor-complex-orangecreamcicle = como suco de laranja cremoso e alcoólico
+flavor-complex-silverjack = como um sonho de rockstars
+flavor-complex-brainbomb = como danos ao fígado
+flavor-complex-atomicpunch = como radiação agridoce
+flavor-complex-circusjuice = Extremamente engraçado
+flavor-complex-pinkdrink = esmagadoramente como rosa
+flavor-complex-sapopicante = como tomates e especiarias
+flavor-complex-graveyard = como uma bebida gelada forte
+flavor-complex-bubbletea = como doçura cremosa
+flavor-complex-corncob = como uma piada doentia
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -102,7 +102,11 @@ namespace Content.Server.Disposal.Tube
         /// <param name="msg">A user interface message from the client.</param>
         private void OnUiAction(EntityUid uid, DisposalRouterComponent router, SharedDisposalRouterComponent.UiActionMessage msg)
         {
+<<<<<<< HEAD
             if (!EntityManager.EntityExists(msg.Actor))
+=======
+            if (!EntityManager.EntityExists(msg.Session.AttachedEntity))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return;
 
             if (TryComp<PhysicsComponent>(uid, out var physBody) && physBody.BodyType != BodyType.Static)
@@ -281,9 +285,15 @@ namespace Content.Server.Disposal.Tube
 
         private void OnOpenTaggerUI(EntityUid uid, DisposalTaggerComponent tagger, BoundUIOpenedEvent args)
         {
+<<<<<<< HEAD
             if (_uiSystem.HasUi(uid, DisposalTaggerUiKey.Key))
             {
                 _uiSystem.SetUiState(uid, DisposalTaggerUiKey.Key,
+=======
+            if (_uiSystem.TryGetUi(uid, DisposalTaggerUiKey.Key, out var bui))
+            {
+                _uiSystem.SetUiState(bui,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     new DisposalTaggerUserInterfaceState(tagger.Tag));
             }
         }
@@ -294,9 +304,19 @@ namespace Content.Server.Disposal.Tube
         /// <returns>Returns a <see cref="SharedDisposalRouterComponent.DisposalRouterUserInterfaceState"/></returns>
         private void UpdateRouterUserInterface(EntityUid uid, DisposalRouterComponent router)
         {
+<<<<<<< HEAD
             if (router.Tags.Count <= 0)
             {
                 _uiSystem.SetUiState(uid, DisposalRouterUiKey.Key, new DisposalRouterUserInterfaceState(""));
+=======
+            var bui = _uiSystem.GetUiOrNull(uid, DisposalRouterUiKey.Key);
+            if (bui == null)
+                return;
+
+            if (router.Tags.Count <= 0)
+            {
+                _uiSystem.SetUiState(bui, new DisposalRouterUserInterfaceState(""));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 return;
             }
 
@@ -310,7 +330,11 @@ namespace Content.Server.Disposal.Tube
 
             taglist.Remove(taglist.Length - 2, 2);
 
+<<<<<<< HEAD
             _uiSystem.SetUiState(uid, DisposalRouterUiKey.Key, new DisposalRouterUserInterfaceState(taglist.ToString()));
+=======
+            _uiSystem.SetUiState(bui, new DisposalRouterUserInterfaceState(taglist.ToString()));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnAnchorChange(EntityUid uid, DisposalTubeComponent component, ref AnchorStateChangedEvent args)

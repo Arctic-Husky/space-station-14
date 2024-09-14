@@ -5,6 +5,12 @@
     Human: 5
     Reptilian: 4
     SlimePerson: 4
+<<<<<<< HEAD
     Felinid: 4 # Nyanotrasen - Felinid, see Prototypes/Nyanotrasen/Entities/Mobs/Species/felinid.yml
     HumanoidFoxes: 3 # DeltaV - Vulpkanin, see Prototypes/DeltaV/Entities/Mobs/Species/vulpkanin.yml
+=======
+    Oni: 3 #Nyanotrasen Oni, see Prototypes/Nyanotrasen/Entities/Mobs/Species/Oni.yml
+    Felinid: 4 # Nyanotrasen - Felinid, see Prototypes/Nyanotrasen/Entities/Mobs/Species/felinid.yml
+    Vulpkanin: 3 # DeltaV - Vulpkanin, see Prototypes/DeltaV/Entities/Mobs/Species/vulpkanin.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     Diona: 2

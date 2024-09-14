@@ -31,8 +31,11 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
 
+<<<<<<< HEAD
     public event Action<float>? SetVolume;
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private EntityUid? _audio;
 
     private float _lockTimer;
@@ -63,9 +66,12 @@ public sealed partial class JukeboxMenu : FancyWindow
             OnStopPressed?.Invoke();
         };
         PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
+<<<<<<< HEAD
         VolumeSlider.OnReleased += VolumeSliderKeyUp;
 
         VolumeSlider.MaxValue = 100f;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         SetPlayPauseButton(_audioSystem.IsPlaying(_audio), force: true);
     }
@@ -86,12 +92,15 @@ public sealed partial class JukeboxMenu : FancyWindow
         _lockTimer = 0.5f;
     }
 
+<<<<<<< HEAD
     private void VolumeSliderKeyUp(Slider args)
     {
         SetVolume?.Invoke(VolumeSlider.Value);
         _lockTimer = 0.5f;
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// <summary>
     /// Re-populates the list of jukebox prototypes available.
     /// </summary>
@@ -103,8 +112,11 @@ public sealed partial class JukeboxMenu : FancyWindow
         {
             MusicList.AddItem(entry.Name, metadata: entry.ID);
         }
+<<<<<<< HEAD
 
         MusicList.SortItemsByText();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public void SetPlayPauseButton(bool playing, bool force = false)
@@ -130,11 +142,14 @@ public sealed partial class JukeboxMenu : FancyWindow
         PlaybackSlider.SetValueWithoutEvent(0);
     }
 
+<<<<<<< HEAD
     public void SetVolumeSlider(float volume)
     {
         VolumeSlider.Value = volume;
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
@@ -145,7 +160,10 @@ public sealed partial class JukeboxMenu : FancyWindow
         }
 
         PlaybackSlider.Disabled = _lockTimer > 0f;
+<<<<<<< HEAD
         VolumeSlider.Disabled = _lockTimer > 0f;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (_entManager.TryGetComponent(_audio, out AudioComponent? audio))
         {
@@ -156,6 +174,7 @@ public sealed partial class JukeboxMenu : FancyWindow
             DurationLabel.Text = $"00:00 / 00:00";
         }
 
+<<<<<<< HEAD
         VolumeNumberLabel.Text = $"{VolumeSlider.Value.ToString("0.##")} %";
 
         if (PlaybackSlider.Grabbed)
@@ -164,6 +183,11 @@ public sealed partial class JukeboxMenu : FancyWindow
         if (VolumeSlider.Grabbed)
             return;
 
+=======
+        if (PlaybackSlider.Grabbed)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (audio != null || _entManager.TryGetComponent(_audio, out audio))
         {
             PlaybackSlider.SetValueWithoutEvent(audio.PlaybackPosition);

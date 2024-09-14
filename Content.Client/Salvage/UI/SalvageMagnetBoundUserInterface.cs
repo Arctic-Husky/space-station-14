@@ -20,6 +20,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
+<<<<<<< HEAD
 
         if (_window is null)
         {
@@ -28,6 +29,12 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
             _window.OnClose += Close;
             _window.OpenCenteredLeft();
         }
+=======
+        _window = new OfferingWindow();
+        _window.Title = Loc.GetString("salvage-magnet-window-title");
+        _window.OnClose += Close;
+        _window.OpenCenteredLeft();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -103,7 +110,11 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
 
                     break;
                 case SalvageOffering salvage:
+<<<<<<< HEAD
                     option.Title = Loc.GetString($"salvage-map-proto-{salvage.SalvageMap.ID}");
+=======
+                    option.Title = Loc.GetString($"salvage-map-size-{salvage.SalvageMap.Size}"); // DeltaV - Replace map names with sizes
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -112,6 +123,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
             _window.AddOption(option);
         }
     }
+<<<<<<< HEAD
 
     protected override void Dispose(bool disposing)
     {
@@ -123,4 +135,6 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
             _window?.Dispose();
         }
     }
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

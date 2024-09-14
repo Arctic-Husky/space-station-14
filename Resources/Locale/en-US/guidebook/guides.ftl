@@ -17,7 +17,7 @@ guide-entry-rtg = RTG
 guide-entry-controls = Controls
 guide-entry-radio = Radio
 guide-entry-jobs = Jobs
-guide-entry-cargo = Cargo
+guide-entry-cargo = Logistics
 guide-entry-cargo-bounties = Cargo Bounties
 guide-entry-salvage = Salvage
 guide-entry-survival = Survival
@@ -43,7 +43,11 @@ guide-entry-brute = Advanced Brute Medication
 guide-entry-botanicals = Botanicals
 guide-entry-cloning = Cloning
 guide-entry-cryogenics = Cryogenics
+<<<<<<< HEAD
 guide-entry-science = Science
+=======
+guide-entry-science = Epistemics
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 guide-entry-technologies = Technologies
 guide-entry-anomalous-research = Anomalous Research
 guide-entry-scanners-and-vessels = Scanners and Vessels
@@ -70,3 +74,10 @@ guide-entry-space-ninja = Space Ninja
 
 guide-entry-writing = Writing
 guide-entry-glossary = Glossary
+<<<<<<< HEAD
+=======
+
+guide-entry-altars-golemancy = Altars and Golemancy
+guide-entry-psionics = Psionics
+guide-entry-reverse-engineering = Reverse Engineering
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

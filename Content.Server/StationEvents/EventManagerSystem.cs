@@ -1,5 +1,8 @@
 using System.Linq;
+<<<<<<< HEAD
 using Content.Server.Chat.Managers;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.GameTicking;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
@@ -7,7 +10,8 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-
+using Content.Server.Psionics.Glimmer;
+using Content.Shared.Psionics.Glimmer;
 namespace Content.Server.StationEvents;
 
 public sealed class EventManagerSystem : EntitySystem
@@ -18,6 +22,10 @@ public sealed class EventManagerSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] public readonly GameTicker GameTicker = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyano - Summary: pulls in the glimmer system.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public bool EventsEnabled { get; private set; }
     private void SetEnabled(bool value) => EventsEnabled = value;
@@ -45,7 +53,10 @@ public sealed class EventManagerSystem : EntitySystem
 
         var ent = GameTicker.AddGameRule(randomEvent);
         var str = Loc.GetString("station-event-system-run-event",("eventName", ToPrettyString(ent)));
+<<<<<<< HEAD
         _chat.SendAdminAlert(str);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Log.Info(str);
         return str;
     }
@@ -119,6 +130,10 @@ public sealed class EventManagerSystem : EntitySystem
         {
             if (CanRun(proto, stationEvent, playerCount, currentTime))
             {
+<<<<<<< HEAD
+=======
+                Log.Debug($"Adding event {proto.ID} to possibilities");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 result.Add(proto, stationEvent);
             }
         }
@@ -166,7 +181,7 @@ public sealed class EventManagerSystem : EntitySystem
 
     private bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
     {
-        if (GameTicker.IsGameRuleActive(prototype.ID))
+        if (GameTicker.IsGameRuleAdded(prototype.ID))
             return false;
 
         if (stationEvent.MaxOccurrences.HasValue && GetOccurrences(prototype) >= stationEvent.MaxOccurrences.Value)
@@ -190,6 +205,17 @@ public sealed class EventManagerSystem : EntitySystem
         {
             return false;
         }
+
+        // Nyano - Summary: - Begin modified code block: check for glimmer events.
+        // This could not be cleanly done anywhere else.
+        if (_configurationManager.GetCVar(CCVars.GlimmerEnabled) &&
+            prototype.TryGetComponent<GlimmerEventComponent>(out var glimmerEvent) &&
+            (_glimmerSystem.Glimmer < glimmerEvent.MinimumGlimmer ||
+            _glimmerSystem.Glimmer > glimmerEvent.MaximumGlimmer))
+        {
+            return false;
+        }
+        // Nyano - End modified code block.
 
         return true;
     }

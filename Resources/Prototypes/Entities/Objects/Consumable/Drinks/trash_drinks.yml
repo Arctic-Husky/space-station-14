@@ -104,8 +104,11 @@
     solutions:
       drink:
         maxVol: 50
+<<<<<<< HEAD
   - type: MixableSolution
     solution: drink
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: SolutionTransfer
     canChangeTransferAmount: true
     maxTransferAmount: 5
@@ -122,8 +125,13 @@
     solution: drink
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
+=======
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -142,6 +150,15 @@
     materialComposition:
       Cardboard: 20
   - type: SpaceGarbage
+<<<<<<< HEAD
+=======
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: base empty bottle
@@ -309,7 +326,10 @@
   - type: Sprite
     sprite: Objects/Consumable/TrashDrinks/winebottle_empty.rsi
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: entity
   name: lime juice carton
   parent: DrinkCartonBaseEmpty
@@ -353,6 +373,13 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/milk.rsi
+<<<<<<< HEAD
+=======
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: soy milk carton

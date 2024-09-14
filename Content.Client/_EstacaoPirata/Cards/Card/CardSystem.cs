@@ -25,7 +25,10 @@ public sealed class CardSystem : EntitySystem
 
         for (var i = 0; i < spriteComponent.AllLayers.Count(); i++)
         {
+<<<<<<< HEAD
             Log.Debug($"Layer {i}");
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (!spriteComponent.TryGetLayer(i, out var layer) || layer.State.Name == null)
                 continue;
 
@@ -33,7 +36,10 @@ public sealed class CardSystem : EntitySystem
             if (rsi == null)
                 continue;
 
+<<<<<<< HEAD
             Log.Debug("FOI");
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             comp.FrontSprite.Add(new SpriteSpecifier.Rsi(rsi.Path, layer.State.Name));
         }
 

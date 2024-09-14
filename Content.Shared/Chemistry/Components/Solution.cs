@@ -314,10 +314,13 @@ namespace Content.Shared.Chemistry.Components
 
             return total;
         }
+<<<<<<< HEAD
         public FixedPoint2 GetReagentQuantity(string prototype)
         {
             return GetTotalPrototypeQuantity(prototype);
         }
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public FixedPoint2 GetTotalPrototypeQuantity(string id)
         {

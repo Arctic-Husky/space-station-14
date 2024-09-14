@@ -119,7 +119,11 @@ public abstract class SharedRatKingSystem : EntitySystem
                 {
                     BlockDuplicate = true,
                     BreakOnDamage = true,
+<<<<<<< HEAD
                     BreakOnMove = true,
+=======
+                    BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     DistanceThreshold = 2f
                 });
             }

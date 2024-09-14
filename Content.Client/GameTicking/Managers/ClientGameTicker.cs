@@ -7,7 +7,11 @@ using Content.Shared.GameWindow;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.State;
+<<<<<<< HEAD
 using Robust.Client.UserInterface;
+=======
+using Robust.Shared.Utility;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Client.GameTicking.Managers
 {
@@ -15,6 +19,7 @@ namespace Content.Client.GameTicking.Managers
     public sealed class ClientGameTicker : SharedGameTicker
     {
         [Dependency] private readonly IStateManager _stateManager = default!;
+<<<<<<< HEAD
         [Dependency] private readonly IClientAdminManager _admin = default!;
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly SharedMapSystem _map = default!;
@@ -22,6 +27,18 @@ namespace Content.Client.GameTicking.Managers
 
         private Dictionary<NetEntity, Dictionary<string, uint?>>  _jobsAvailable = new();
         private Dictionary<NetEntity, string> _stationNames = new();
+=======
+        [Dependency] private readonly IEntityManager _entityManager = default!;
+
+        [ViewVariables] private bool _initialized;
+        private Dictionary<NetEntity, Dictionary<string, uint?>>  _jobsAvailable = new();
+        private Dictionary<NetEntity, string> _stationNames = new();
+
+        /// <summary>
+        /// The current round-end window. Could be used to support re-opening the window after closing it.
+        /// </summary>
+        private RoundEndSummaryWindow? _window;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         [ViewVariables] public bool AreWeReady { get; private set; }
         [ViewVariables] public bool IsGameStarted { get; private set; }
@@ -57,6 +74,7 @@ namespace Content.Client.GameTicking.Managers
             OnAdminUpdated();
         }
 
+<<<<<<< HEAD
         public override void Shutdown()
         {
             _admin.AdminStatusUpdated -= OnAdminUpdated;
@@ -78,6 +96,8 @@ namespace Content.Client.GameTicking.Managers
             _clyde.RequestWindowAttention();
         }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         private void LateJoinStatus(TickerLateJoinStatusEvent message)
         {
             DisallowedLateJoin = message.Disallowed;
@@ -147,7 +167,16 @@ namespace Content.Client.GameTicking.Managers
             // Force an update in the event of this song being the same as the last.
             RestartSound = message.RestartSound;
 
+<<<<<<< HEAD
             _userInterfaceManager.GetUIController<RoundEndSummaryUIController>().OpenRoundEndSummaryWindow(message);
+=======
+            // Don't open duplicate windows (mainly for replays).
+            if (_window?.RoundId == message.RoundId)
+                return;
+
+            //This is not ideal at all, but I don't see an immediately better fit anywhere else.
+            _window = new RoundEndSummaryWindow(message.GamemodeTitle, message.RoundEndText, message.RoundDuration, message.RoundId, message.AllPlayersEndInfo, _entityManager);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }

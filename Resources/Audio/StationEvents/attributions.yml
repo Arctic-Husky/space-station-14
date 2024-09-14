@@ -6,4 +6,13 @@
 - files: ["clearly_nuclear.ogg"]
   license: "CC-BY-3.0"
   copyright: "Created by mryikes"
+<<<<<<< HEAD
   source: "https://www.youtube.com/watch?v=chix8uz-oUQ"
+=======
+  source: "https://www.youtube.com/watch?v=chix8uz-oUQ"
+
+- files: ["chip_nightmare.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Created by BasedUser on top of chip-meltdown.mod by Reanimator (Thom)."
+  source: "http://ygg.baseduser.eu.org/chip-nightmare_ss14.ogg"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

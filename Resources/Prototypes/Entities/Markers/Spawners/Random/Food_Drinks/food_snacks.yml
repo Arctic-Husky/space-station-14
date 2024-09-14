@@ -45,5 +45,11 @@
       - FoodFrozenSnowconeRainbow
       - FoodSnackPistachios
       - FoodSnackSemki
+<<<<<<< HEAD
+=======
+      - FoodPSB # Delta V
+      - FoodLollipop # Delta V
+      - FoodGumball # Delta V
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     chance: 0.8
     offset: 0.0

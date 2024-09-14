@@ -1,6 +1,10 @@
 - type: speechVerb
   id: Vulpkanin
+<<<<<<< HEAD
   name: chat-speech-verb-vulp-speech
+=======
+  name: chat-speech-verb-name-vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   speechVerbStrings:
   - chat-speech-verb-vulpkanin-1
   - chat-speech-verb-vulpkanin-2
@@ -9,7 +13,11 @@
 
 - type: speechVerb
   id: Felinid
+<<<<<<< HEAD
   name: chat-speech-verb-meow
+=======
+  name: chat-speech-verb-name-felinid
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   speechVerbStrings:
   - chat-speech-verb-felinid-1
   - chat-speech-verb-felinid-2
@@ -18,7 +26,11 @@
 
 - type: speechVerb
   id: Harpy
+<<<<<<< HEAD
   name: chat-speech-verb-caw
+=======
+  name: chat-speech-verb-name-harpy
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   speechVerbStrings:
   - chat-speech-verb-harpy-1
   - chat-speech-verb-harpy-2

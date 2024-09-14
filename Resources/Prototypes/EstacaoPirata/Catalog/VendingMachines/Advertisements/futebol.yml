@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ﻿- type: messagePack
   id: FutebolAds
   messages:
+=======
+- type: messagePack
+  id: FutebolAds
+  advertisements:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - advertisement-futebol-1
   - advertisement-futebol-2
   - advertisement-futebol-3
@@ -8,3 +14,7 @@
   - advertisement-futebol-5
   - advertisement-futebol-6
   - advertisement-futebol-7
+<<<<<<< HEAD
+=======
+  - advertisement-futebol-8
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

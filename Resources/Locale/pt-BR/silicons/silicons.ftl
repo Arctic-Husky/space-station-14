@@ -3,7 +3,11 @@ silicon-crit = Integridade estrutural em estado critico!
 silicon-power-low = Pouca bateria!
 alerts-charge-name = Carregar
 alerts-charge-desc = Seu nível atual de bateria.
+<<<<<<< HEAD
 ipc-recharge-tip = Você carregou um pouco de sua bateria.
 dead-startup-button-verb = Reiniciar
 dead-startup-system-reboot-success = O sistema de {$target} foi reiniciado.
 dead-startup-system-reboot-failed = A carcaça de {$target} está muito danificada.
+=======
+ipc-recharge-tip = Você carregou um pouco de sua bateria.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

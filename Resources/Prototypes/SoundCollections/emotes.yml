@@ -79,3 +79,13 @@
   id: Weh
   files:
   - /Audio/Items/Toys/weh.ogg
+<<<<<<< HEAD
+=======
+
+- type: soundCollection
+  id: IPCWhirrs
+  files:
+    - /Audio/Voice/IPC/whirr1.ogg
+    - /Audio/Voice/IPC/whirr2.ogg
+    - /Audio/Voice/IPC/whirr3.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

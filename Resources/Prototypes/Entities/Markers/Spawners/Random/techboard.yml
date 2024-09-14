@@ -21,12 +21,34 @@
     - SMESMachineCircuitboard
     - SubstationMachineCircuitboard
     - TelecomServerCircuitboard
+<<<<<<< HEAD
     chance: 0.95
     rarePrototypes:
     - CommsComputerCircuitboard
     - ShuttleConsoleCircuitboard
+=======
+    - PortableGeneratorPacmanMachineCircuitboard # Delta V - Add additional boards
+    - CellRechargerCircuitboard # Delta V - Add additional boards
+    - BorgChargerCircuitboard # Delta V - Add additional boards
+    - WeaponCapacitorRechargerCircuitboard # Delta V - Add additional boards
+    - StationMapCircuitboard # Delta V - Add additional boards
+    - DeepFryerMachineCircuitboard # Delta V - Add additional boards
+    chance: 0.95
+    rarePrototypes:
+    - CommsComputerCircuitboard
+    #- ShuttleConsoleCircuitboard # Delta V - Remove shuttle boards
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - ComputerMassMediaCircuitboard
     - AutolatheMachineCircuitboard
     - ProtolatheMachineCircuitboard
     - SalvageMagnetMachineCircuitboard
+<<<<<<< HEAD
+=======
+    - PortableGeneratorSuperPacmanMachineCircuitboard # Delta V - Add additional boards
+    - PortableGeneratorJrPacmanMachineCircuitboard # Delta V - Add additional boards
+    - MedicalTechFabCircuitboard # Delta V - Add additional boards
+    - ResearchAndDevelopmentServerMachineCircuitboard # Delta V - Add additional boards
+    - UniformPrinterMachineCircuitboard # Delta V - Add additional boards
+    - ArtifactAnalyzerMachineCircuitboard # Delta V - Add additional boards
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     rareChance: 0.05

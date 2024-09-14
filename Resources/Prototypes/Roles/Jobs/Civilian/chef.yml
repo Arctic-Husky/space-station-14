@@ -4,9 +4,13 @@
   description: job-description-chef
   playTimeTracker: JobChef
   requirements:
-    - !type:DepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement
       department: Civilian
+<<<<<<< HEAD
       time: 3600 # Corvax-RoleTime
+=======
+      min: 3600 #DeltaV 1 hour
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
@@ -16,7 +20,11 @@
   - Kitchen
   extendedAccess:
   - Hydroponics
-  - Bar
+  - Bar #Nyano - Summary: After this line, Professional Che is a component to be added. Very important.
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: ProfessionalChef #Nyano - End Summary.
 
 - type: startingGear
   id: ChefGear
@@ -24,4 +32,12 @@
     shoes: ClothingShoesColorBlack
     id: ChefPDA
     ears: ClothingHeadsetService
+<<<<<<< HEAD
     belt: ClothingBeltChefFilled
+=======
+    outerClothing: ClothingOuterApronChef
+    belt: ClothingBeltChefFilled
+  innerClothingSkirt: ClothingUniformJumpskirtChef
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -6,9 +6,18 @@ species-name-reptilian = Reptilian
 species-name-slime = Slime Person
 species-name-diona = Diona
 species-name-arachnid = Arachnid
+<<<<<<< HEAD
 species-name-moth = Moth Person
 species-name-skeleton = Skeleton
 species-name-vox = Vox
 
 ## Parkstation Names
 species-name-ipc = IPC
+=======
+species-name-arachne = Arachne
+species-name-moth = Moth Person
+species-name-skeleton = Skeleton
+species-name-vox = Vox
+species-name-ipc = IPC
+species-name-daengati = Daengati
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

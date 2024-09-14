@@ -13,3 +13,7 @@ disease-beat-chest-compulsion = {CAPITALIZE(THE($person))} bate em seu peito.
 disease-vomit = {CAPITALIZE(THE($person))} vomita.
 disease-think = Você não consegue pensar direito.
 disease-polymorph = Você sente seu corpo se retorcer e mudar de forma!
+<<<<<<< HEAD
+=======
+disease-sick-stomach = Você sente vontade de vomitar
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

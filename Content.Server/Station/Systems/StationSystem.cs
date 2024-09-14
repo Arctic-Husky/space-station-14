@@ -274,6 +274,8 @@ public sealed class StationSystem : EntitySystem
         // Use overrides for setup.
         var station = EntityManager.SpawnEntity(stationConfig.StationPrototype, MapCoordinates.Nullspace, stationConfig.StationComponentOverrides);
 
+
+
         if (name is not null)
             RenameStation(station, name, false);
 
@@ -324,9 +326,12 @@ public sealed class StationSystem : EntitySystem
             }
         }
 
+<<<<<<< HEAD
         if (LifeStage(station) < EntityLifeStage.MapInitialized)
             throw new Exception($"Station must be man-initialized");
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var ev = new StationPostInitEvent((station, data));
         RaiseLocalEvent(station, ref ev, true);
 

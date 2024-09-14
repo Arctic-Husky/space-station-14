@@ -3,6 +3,11 @@ using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Access.Components;
 
@@ -47,7 +52,8 @@ public sealed partial class IdCardConsoleComponent : Component
         "Armory",
         "Atmospherics",
         "Bar",
-        "Brig",
+        //"Brig", Delta V: Removed Brig Access
+        "Boxer",  // DeltaV - Add Boxer access
         "Detective",
         "Captain",
         "Cargo",
@@ -55,6 +61,8 @@ public sealed partial class IdCardConsoleComponent : Component
         "Chemistry",
         "ChiefEngineer",
         "ChiefMedicalOfficer",
+        "Clown", // DeltaV - Add Clown access
+        "Corpsman", // DeltaV - Add Corpsman access
         "Command",
         "Cryogenics",
         "Engineering",
@@ -65,15 +73,32 @@ public sealed partial class IdCardConsoleComponent : Component
         "Janitor",
         "Kitchen",
         "Lawyer",
+<<<<<<< HEAD
+=======
+        "Library",  // DeltaV - Add Library access
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         "Maintenance",
         "Medical",
+        "Mime", // DeltaV - Add Mime access
+        "Musician", // DeltaV - Add Musician access
+        "Paramedic", // DeltaV - Add Paramedic access
+        "Psychologist", // DeltaV - Add Psychologist access
         "Quartermaster",
+        "Reporter", // DeltaV - Add Reporter access
         "Research",
         "ResearchDirector",
         "Salvage",
         "Security",
         "Service",
         "Theatre",
+        "Orders", // DeltaV - Orders, see Resources/Prototypes/DeltaV/Access/cargo.yml
+        "Mail", // Nyanotrasen - Mail, see Resources/Prototypes/Nyanotrasen/Access/cargo.yml
+        "Mantis", // DeltaV - Psionic Mantis, see Resources/Prototypes/DeltaV/Access/epistemics.yml
+        "Zookeeper",  // DeltaV - Add Zookeeper access
+        "ChiefJustice",  // DeltaV - Add Chief Justice access
+        "Justice",  // DeltaV - Add Justice access
+        "Prosecutor", // Delta V - Add Prosecutor access
+        "Clerk", // Pirata - Readiciona o acesso do Clerk
     };
 
     [Serializable, NetSerializable]

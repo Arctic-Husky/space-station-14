@@ -68,11 +68,16 @@ public static partial class PoolManager
 
         options.BeforeStart += () =>
         {
+            // Server-only systems (i.e., systems that subscribe to events with server-only components)
             var entSysMan = IoCManager.Resolve<IEntitySystemManager>();
+<<<<<<< HEAD
             entSysMan.LoadExtraSystemType<ResettingEntitySystemTests.TestRoundRestartCleanupEvent>();
             entSysMan.LoadExtraSystemType<InteractionSystemTests.TestInteractionSystem>();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             entSysMan.LoadExtraSystemType<DeviceNetworkTestSystem>();
             entSysMan.LoadExtraSystemType<TestDestructibleListenerSystem>();
+
             IoCManager.Resolve<ILogManager>().GetSawmill("loc").Level = LogLevel.Error;
             IoCManager.Resolve<IConfigurationManager>()
                 .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);

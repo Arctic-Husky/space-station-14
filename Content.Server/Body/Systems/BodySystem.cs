@@ -10,6 +10,11 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Timing;
 using System.Numerics;
 
@@ -21,6 +26,10 @@ public sealed class BodySystem : SharedBodySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
 
     public override void Initialize()

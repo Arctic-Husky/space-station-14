@@ -1,6 +1,7 @@
 - type: soundCollection
   id: LobbyMusic
   files:
+<<<<<<< HEAD
     - /Audio/EstacaoPirata/Lobby/Arquivo Corrompido.ogg
     - /Audio/EstacaoPirata/Lobby/tintin.ogg
     - /Audio/EstacaoPirata/Lobby/hurry.ogg
@@ -21,6 +22,26 @@
     - /Audio/Lobby/pwmur.ogg
     - /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
     - /Audio/Lobby/every_light_is_blinking_at_once.ogg
+=======
+    #- /Audio/Lobby/434387_Time_Lapse_of_Clouds.ogg
+    - /Audio/Lobby/a_different_reality_lagoona_remix.xm.ogg
+    - /Audio/Lobby/aggravated.it.ogg
+    - /Audio/Lobby/autumnal_equinox.xm.ogg
+    - /Audio/Lobby/comet_haley.ogg
+    #- /Audio/Lobby/drozerix_-_alone.xm.ogg
+    - /Audio/Lobby/drozerix_-_leisurely_voice.xm.ogg
+    - /Audio/Lobby/endless_space.ogg
+    - /Audio/Lobby/marhaba.ogg
+    - /Audio/Lobby/melcom-cyberpunk.it.ogg
+    - /Audio/Lobby/midori_-_conundrum_final.it.ogg
+    - /Audio/Lobby/mod.flip-flap.ogg
+    - /Audio/Lobby/psirius_-_nights_of_orion.xm.ogg
+    #- /Audio/Lobby/psirius_-_nymphs_of_the_forest.mptm.ogg
+    - /Audio/Lobby/superposition.ogg
+    - /Audio/Lobby/hackers.ogg
+    - /Audio/Lobby/every_light_is_blinking_at_once.ogg
+    - /Audio/Lobby/DOS=HIGH,_UMB.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - /Audio/EstacaoPirata/Lobby/poeira.ogg
     - /Audio/EstacaoPirata/Lobby/astronauta.ogg
     - /Audio/EstacaoPirata/Lobby/marciano.ogg
@@ -33,4 +54,7 @@
     - /Audio/EstacaoPirata/Lobby/stars.ogg
     - /Audio/EstacaoPirata/Lobby/interestelar.ogg
     - /Audio/EstacaoPirata/Lobby/devil.ogg
+<<<<<<< HEAD
     - /Audio/EstacaoPirata/Lobby/Cassiopeia_No_Ext.ogg
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

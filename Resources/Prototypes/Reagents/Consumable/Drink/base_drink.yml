@@ -40,7 +40,10 @@
     collection: FootstepSticky
     params:
       volume: 6
+<<<<<<< HEAD
   fizziness: 0.5
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagent
   id: BaseAlcohol
@@ -76,4 +79,8 @@
   footstepSound:
     collection: FootstepSticky
     params:
+<<<<<<< HEAD
       volume: 6
+=======
+      volume: 6
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

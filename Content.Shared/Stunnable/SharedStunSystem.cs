@@ -14,7 +14,14 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
+<<<<<<< HEAD
 using Robust.Shared.Audio.Systems;
+=======
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
+using Robust.Shared.Player;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Stunnable;
 
@@ -224,6 +231,9 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
+        // This is currently disabled in favor of an interaction verb with the same effect, but more obvious usage.
+        return;
+
         if (args.Handled || knocked.HelpTimer > 0f)
             return;
 

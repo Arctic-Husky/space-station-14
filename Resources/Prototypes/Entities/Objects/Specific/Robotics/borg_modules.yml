@@ -209,6 +209,37 @@
     - OreBag
     - Crowbar
     - RadioHandheld
+<<<<<<< HEAD
+=======
+
+- type: entity
+  id: BorgModuleJetpack
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: jetpack cyborg module
+  description: A piece of tech that gives cyborgs new abilities. Needs to be loaded by a cyborg before you can refill the jetpack.
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-jetpack
+  - type: BorgJetpack
+  - type: ItemBorgModule
+    items:
+    - JetpackMicroFilled
+
+- type: entity
+  id: BorgModulePka
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: proto kinetic accelerator cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-pka
+  - type: ItemBorgModule
+    items:
+    - WeaponProtoKineticAccelerator
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BorgModuleGrapplingGun
@@ -318,7 +349,10 @@
     - HoloprojectorBorg
     - SprayBottleSpaceCleaner
     - Dropper
+<<<<<<< HEAD
     - TrashBag
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # medical modules
 - type: entity
@@ -552,6 +586,7 @@
       - state: icon-syndicate
     - type: ItemBorgModule
       items:
+<<<<<<< HEAD
         - WeaponLightMachineGunL6C
         - PinpointerSyndicateNuclear
 
@@ -568,3 +603,7 @@
     - type: ItemBorgModule
       items:
         - SelfDestructSeq
+=======
+      - WeaponLightMachineGunL6C
+      - PinpointerSyndicateNuclear
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

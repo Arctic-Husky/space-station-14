@@ -31,5 +31,10 @@ tool-quality-woodcutting-tool-name = Machadinha
 tool-quality-rolling-name = Rolling
 tool-quality-rolling-tool-name = Rolling Pin
 
+<<<<<<< HEAD
 tool-quality-digging-name = Escavando
 tool-quality-digging-tool-name = Pá
+=======
+tool-quality-digging-name = Escavação
+tool-quality-digging-tool-name = Pá
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

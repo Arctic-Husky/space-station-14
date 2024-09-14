@@ -1,8 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
+<<<<<<< HEAD:Content.Shared/Atmos/GasMixture.cs
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Reactions;
+=======
+using Content.Server.Atmos.Reactions;
+using Content.Shared.Atmos;
+using Content.Shared.Atmos.EntitySystems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Content.Server/Atmos/GasMixture.cs
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 

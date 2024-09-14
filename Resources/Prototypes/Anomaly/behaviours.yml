@@ -58,14 +58,22 @@
   id: DelayedForce
   earnPointModifier: 1.15
   description: anomaly-behavior-delayed-force
+<<<<<<< HEAD
   pulseFrequencyModifier: 2
+=======
+  pulseFrequencyModifier: 0.5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   pulsePowerModifier: 2
   
 - type: anomalyBehavior
   id: Rapid
   earnPointModifier: 1.15
   description: anomaly-behavior-rapid
+<<<<<<< HEAD
   pulseFrequencyModifier: 0.5
+=======
+  pulseFrequencyModifier: 2
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   pulsePowerModifier: 0.5
 
 - type: anomalyBehavior
@@ -84,7 +92,10 @@
   description: anomaly-behavior-reflect
   components:
   - type: Reflect
+<<<<<<< HEAD
     innate: true
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     reflectProb: 0.5
     reflects:
       - Energy

@@ -29,15 +29,28 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
+<<<<<<< HEAD
   - type: Healing
     delay: 1.2
+=======
+  #Same as Ointment but divided by 5 and 3 because StackPrice needs to be 1 - Estacao Pirata IPCs
+  #1 Ointment = -50 damage of those types
+  #1 Cable ~= -50 (-49.8) damage of those types 
+  - type: Healing
+    delay: 0.6
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damageContainers:
     - Silicon
     damage:
       types: # these are all split across multiple types
+<<<<<<< HEAD
         Heat: -4
         Shock: -4
         Cold: -4
+=======
+        Heat: -1.66
+        Shock: -1.66
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: CableHVStack

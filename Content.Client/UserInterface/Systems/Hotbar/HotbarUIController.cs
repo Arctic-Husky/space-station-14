@@ -31,7 +31,11 @@ public sealed class HotbarUIController : UIController
         ReloadHotbar();
     }
 
+<<<<<<< HEAD
     public void Setup(HandsContainer handsContainer, StorageContainer storageContainer)
+=======
+    public void Setup(HandsContainer handsContainer, ItemStatusPanel handStatus, StorageContainer storageContainer)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         _inventory = UIManager.GetUIController<InventoryUIController>();
         _hands = UIManager.GetUIController<HandsUIController>();

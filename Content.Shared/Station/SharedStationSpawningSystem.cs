@@ -2,7 +2,10 @@ using System.Linq;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
+<<<<<<< HEAD
 using Content.Shared.Preferences.Loadouts;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
@@ -18,6 +21,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private   readonly SharedStorageSystem _storage = default!;
     [Dependency] private   readonly SharedTransformSystem _xformSystem = default!;
+<<<<<<< HEAD
 
     private EntityQuery<HandsComponent> _handsQuery;
     private EntityQuery<InventoryComponent> _inventoryQuery;
@@ -69,12 +73,15 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         PrototypeManager.TryIndex(startingGear, out var gearProto);
         EquipStartingGear(entity, gearProto);
     }
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     /// Equips starting gear onto the given entity.
     /// </summary>
     /// <param name="entity">Entity to load out.</param>
     /// <param name="startingGear">Starting gear to use.</param>
+<<<<<<< HEAD
     /// <param name="raiseEvent">Should we raise the event for equipped. Set to false if you will call this manually</param>
     public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear, bool raiseEvent = true)
     {
@@ -83,19 +90,63 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
         var xform = _xformQuery.GetComponent(entity);
 
+=======
+    public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear)
+    {
+        PrototypeManager.TryIndex(startingGear, out var gearProto);
+        EquipStartingGear(entity, gearProto);
+    }
+
+    /// <summary>
+    /// Equips starting gear onto the given entity.
+    /// </summary>
+    /// <param name="entity">Entity to load out.</param>
+    /// <param name="startingGear">Starting gear to use.</param>
+    public void EquipStartingGear(EntityUid entity, StartingGearPrototype? startingGear)
+    {
+        if (startingGear == null)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (InventorySystem.TryGetSlots(entity, out var slotDefinitions))
         {
             foreach (var slot in slotDefinitions)
             {
+<<<<<<< HEAD
                 var equipmentStr = startingGear.GetGear(slot.Name);
                 if (!string.IsNullOrEmpty(equipmentStr))
                 {
                     var equipmentEntity = EntityManager.SpawnEntity(equipmentStr, xform.Coordinates);
                     InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, silent: true, force:true);
+=======
+                var equipmentStr = startingGear.GetGear(slot.Name, null);
+                if (string.IsNullOrEmpty(equipmentStr))
+                    continue;
+
+                var equipmentEntity = EntityManager.SpawnEntity(equipmentStr, EntityManager.GetComponent<TransformComponent>(entity).Coordinates);
+                InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, true, force:true);
+            }
+            
+        }
+
+        if (TryComp(entity, out HandsComponent? handsComponent))
+        {
+            var inhand = startingGear.Inhand;
+            var coords = EntityManager.GetComponent<TransformComponent>(entity).Coordinates;
+            foreach (var prototype in inhand)
+            {
+                var inhandEntity = EntityManager.SpawnEntity(prototype, coords);
+
+                if (_handsSystem.TryGetEmptyHand(entity, out var emptyHand, handsComponent))
+                {
+                    _handsSystem.TryPickup(entity, inhandEntity, emptyHand, checkActionBlocker: false,
+                        handsComp: handsComponent);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 }
             }
         }
 
+<<<<<<< HEAD
         if (_handsQuery.TryComp(entity, out var handsComponent))
         {
             var inhand = startingGear.Inhand;
@@ -116,6 +167,13 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             var coords = _xformSystem.GetMapCoordinates(entity);
             var ents = new ValueList<EntityUid>();
             _inventoryQuery.TryComp(entity, out var inventoryComp);
+=======
+        if (startingGear.Storage.Count > 0)
+        {
+            var coords = _xformSystem.GetMapCoordinates(entity);
+            var ents = new ValueList<EntityUid>();
+            TryComp(entity, out InventoryComponent? inventoryComp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             foreach (var (slot, entProtos) in startingGear.Storage)
             {
@@ -127,6 +185,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                     ents.Add(Spawn(ent, coords));
                 }
 
+<<<<<<< HEAD
                 if (inventoryComp != null &&
                     InventorySystem.TryGetSlotEntity(entity, slot, out var slotEnt, inventoryComponent: inventoryComp) &&
                     _storageQuery.TryComp(slotEnt, out var storage))
@@ -143,6 +202,19 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         {
             var ev = new StartingGearEquippedEvent(entity);
             RaiseLocalEvent(entity, ref ev, true);
+=======
+                if (inventoryComp == null
+                    || !InventorySystem.TryGetSlotEntity(entity, slot, out var slotEnt,
+                        inventoryComponent: inventoryComp)
+                    || !TryComp(slotEnt, out StorageComponent? storage))
+                    continue;
+
+                foreach (var ent in ents)
+                {
+                    _storage.Insert(slotEnt.Value, ent, out _, storageComp: storage, playSound: false);
+                }
+            }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }

@@ -4,8 +4,13 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     weight: 8
+=======
+    weight: 12
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     startDelay: 30
+    reoccurrenceDelay: 8
     duration: 35
   - type: AnomalySpawnRule
 
@@ -17,6 +22,7 @@
   - type: StationEvent
     weight: 8
     startDelay: 30
+    reoccurrenceDelay: 5
     duration: 35
   - type: BluespaceArtifactRule
 
@@ -26,9 +32,15 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     weight: 2
     reoccurrenceDelay: 5
+=======
+    weight: 1
+    maxOccurrences: 4 # Very annoying, makes containers unusable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     earliestStart: 1
+    reoccurrenceDelay: 15
     duration: 1
   - type: BluespaceLockerRule
 
@@ -40,7 +52,8 @@
   - type: StationEvent
     weight: 7
     duration: 1
-    minimumPlayers: 15
+    minimumPlayers: 7
+    reoccurrenceDelay: 5
   - type: BreakerFlipRule
 
 - type: entity
@@ -49,15 +62,17 @@
   noSpawn: true
   components:
   - type: StationEvent
-    startAnnouncement: station-event-bureaucratic-error-announcement
+    startAnnouncement: true
     minimumPlayers: 25
     weight: 3
     duration: 1
+    reoccurrenceDelay: 5
   - type: BureaucraticErrorRule
 
 - type: entity
   id: ClericalError
   parent: BaseGameRule
+<<<<<<< HEAD
   noSpawn: true
   components:
   - type: StationEvent
@@ -70,12 +85,32 @@
 - type: entity
   parent: BaseGameRule
   id: ClosetSkeleton
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   noSpawn: true
   components:
   - type: StationEvent
+    startAnnouncement: true
+    minimumPlayers: 15
     weight: 5
     duration: 1
+<<<<<<< HEAD
     minimumPlayers: 10
+=======
+    reoccurrenceDelay: 5
+  - type: ClericalErrorRule
+
+- type: entity
+  parent: BaseGameRule
+  id: ClosetSkeleton
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 10
+    duration: 1
+    minimumPlayers: 15
+    reoccurrenceDelay: 25
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -85,10 +120,17 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     weight: 6.5
     duration: 1
     earliestStart: 40
     reoccurrenceDelay: 20
+=======
+    weight: 2
+    duration: 1
+    earliestStart: 45
+    reoccurrenceDelay: 60
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: SpawnPointGhostDragon
@@ -99,13 +141,22 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     weight: 6
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 20
     minimumPlayers: 30
+=======
+    weight: 3
+    duration: 1
+    earliestStart: 45
+    reoccurrenceDelay: 45
+    minimumPlayers: 20
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: NinjaSpawnRule
 
+# TODO there's already a glimmer revenant rule. One of them might be broken.
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
@@ -119,6 +170,7 @@
   - type: RandomSpawnRule
     prototype: MobRevenant
 
+<<<<<<< HEAD
 # disabled until event is rewritten to be more interesting
 #- type: entity
 #  id: FalseAlarm
@@ -129,6 +181,18 @@
 #    weight: 15
 #    duration: 1
 #  - type: FalseAlarmRule
+=======
+- type: entity
+  id: FalseAlarm
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 10
+    duration: 1
+    reoccurrenceDelay: 4 # Please no 10 false alarms in a row.
+  - type: FalseAlarmRule
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: GasLeak
@@ -136,11 +200,20 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
+=======
+    startAnnouncement: true
+    endAnnouncement: true
+    earliestStart: 10
+    reoccurrenceDelay: 7
+    minimumPlayers: 5
+    weight: 10
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     startDelay: 20
   - type: GasLeakRule
 
@@ -151,6 +224,7 @@
   components:
   - type: StationEvent
     earliestStart: 15
+    reoccurrenceDelay: 10
     minimumPlayers: 15
     weight: 7
     startDelay: 50
@@ -164,14 +238,11 @@
   components:
   - type: StationEvent
     earliestStart: 30
+    reoccurrenceDelay: 5
     weight: 7.5
-    minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
-    startAnnouncement: station-event-meteor-swarm-start-announcement
-    endAnnouncement: station-event-meteor-swarm-end-announcement
-    startAudio:
-      path: /Audio/Announcements/meteors.ogg
-      params:
-        volume: -4
+    minimumPlayers: 7 #Enough to hopefully have at least one engineering guy
+    startAnnouncement: true
+    endAnnouncement: true
     duration: null #ending is handled by MeteorSwarmRule
     startDelay: 30
   - type: MeteorSwarmRule
@@ -182,16 +253,25 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 15
     weight: 6
+=======
+    startAnnouncement: true
+    startDelay: 10
+    earliestStart: 15
+    reoccurrenceDelay: 3
+    weight: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobMouse
+<<<<<<< HEAD
       prob: 0.01
     - id: MobMouse1
       prob: 0.01
@@ -204,6 +284,13 @@
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.01
+=======
+      prob: 0.02
+    - id: MobMouse1
+      prob: 0.02
+    - id: MobMouse2
+      prob: 0.02
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: CockroachMigration
@@ -211,18 +298,53 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     weight: 6
     duration: 50
+=======
+    startAnnouncement: true
+    startDelay: 10
+    weight: 5
+    duration: 50
+    reoccurrenceDelay: 15 # Cockroaches en masse are utmost annoying to deal with.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
       prob: 0.03
     - id: MobMothroach
       prob: 0.008
+<<<<<<< HEAD
+=======
+
+# TODO this is the same as mouse migration, but with different announcer.
+- type: entity
+  id: VentCritters
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    startDelay: 10
+    earliestStart: 15
+    reoccurrenceDelay: 3
+    weight: 5
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobMouse
+      prob: 0.02
+    - id: MobMouse1
+      prob: 0.02
+    - id: MobMouse2
+      prob: 0.02
+    - id: MobPibbleVent
+      prob: 0.005
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: PowerGridCheck
@@ -230,6 +352,7 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     weight: 5
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
@@ -237,9 +360,15 @@
       path: /Audio/Announcements/power_off.ogg
       params:
        volume: -4
+=======
+    weight: 10
+    startAnnouncement: true
+    endAnnouncement: true
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     startDelay: 24
     duration: 60
     maxDuration: 120
+    reoccurrenceDelay: 2 # Gives a chance for multiple checks in a row, but not in parallel
   - type: PowerGridCheckRule
 
 - type: entity
@@ -248,11 +377,18 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     weight: 6
     duration: 1
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
       path: /Audio/Announcements/attention.ogg
+=======
+    weight: 5
+    duration: 1
+    reoccurrenceDelay: 10
+    maxOccurrences: 3 # Annoying and rarely if ever interesting
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: RandomSentienceRule
 
 - type: entity
@@ -261,13 +397,20 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     weight: 8
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
+=======
+    weight: 10
+    startAnnouncement: true
+    endAnnouncement: true
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     duration: 120
     maxDuration: 240
+    reoccurrenceDelay: 5
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -284,16 +427,28 @@
     lightBreakChancePerSecond: 0.0003
     doorToggleChancePerSecond: 0.001
 
+# - type: entity # DeltaV - replaced terminator with paradox anomaly in midroundantag rule
+#   parent: BaseGameRule
+#   id: TerminatorSpawn
+#   noSpawn: true
+#   components:
+#   - type: StationEvent
+#     weight: 8
+#     duration: 1
+#     earliestStart: 30
+#     minimumPlayers: 20
+#   - type: RandomSpawnRule
+#    prototype: SpawnPointGhostTerminator
+
 - type: entity
   id: VentClog
   parent: BaseGameRule
   noSpawn: true
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-clog-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAnnouncement: true
     earliestStart: 15
+    reoccurrenceDelay: 5
     minimumPlayers: 15
     weight: 5
     startDelay: 50
@@ -306,11 +461,16 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
+=======
+    startAnnouncement: true
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     startDelay: 10
     earliestStart: 20
+    reoccurrenceDelay: 12
     minimumPlayers: 15
     weight: 5
     duration: 60
@@ -329,11 +489,16 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
+=======
+    startAnnouncement: true
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     startDelay: 10
     earliestStart: 20
+    reoccurrenceDelay: 15
     minimumPlayers: 15
     weight: 5
     duration: 60
@@ -342,12 +507,59 @@
     - id: MobGiantSpiderAngry
       prob: 0.1
 
+# Weaker versions of the above
 - type: entity
-  id: SpiderClownSpawn
+  id: SlimesSpawnWeak
+  parent: SlimesSpawn
+  noSpawn: true
+  components:
+  - type: StationEvent
+    minimumPlayers: 1
+  - type: VentCrittersRule
+    entries:
+    - id: MobAdultSlimesBlueAngry
+      prob: 0.005
+    - id: MobAdultSlimesGreenAngry
+      prob: 0.005
+    - id: MobAdultSlimesYellowAngry
+      prob: 0.005
+
+- type: entity
+  id: SpiderSpawnWeak
+  parent: SpiderSpawn
+  noSpawn: true
+  components:
+  - type: StationEvent
+    minimumPlayers: 1
+  - type: VentCrittersRule
+    entries:
+    - id: MobGiantSpiderAngry
+      prob: 0.01
+
+# - type: entity # DeltaV - Prevent normal spawning of MobClownSpider
+#  id: SpiderClownSpawn
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: true
+#    startDelay: 10
+#    earliestStart: 20
+#    minimumPlayers: 15
+#    weight: 1
+#    duration: 60
+#  - type: VentCrittersRule
+#    entries:
+#    - id: MobClownSpider
+#      prob: 0.05
+
+- type: entity
+  id: OneirophageSpawn
   parent: BaseGameRule
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
@@ -360,6 +572,17 @@
     entries:
     - id: MobClownSpider
       prob: 0.025
+=======
+    id: VentCritters
+    earliestStart: 15
+    minimumPlayers: 15
+    weight: 4
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobGiantSpiderVampireAngry
+      prob: 0.01
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: ZombieOutbreak
@@ -367,15 +590,25 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     earliestStart: 90
     minimumPlayers: 50
+=======
+    earliestStart: 60
+    reoccurrenceDelay: 60
+    minimumPlayers: 15
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     weight: 2
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
+<<<<<<< HEAD
       max: 5
+=======
+      max: 3
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       playerRatio: 10
       blacklist:
         components:
@@ -401,12 +634,22 @@
   noSpawn: true
   components:
   - type: StationEvent
+<<<<<<< HEAD
     earliestStart: 35
     weight: 5.5
     minimumPlayers: 20
     duration: 1
   - type: LoadMapRule
     preloadedGrid: ShuttleStriker
+=======
+    earliestStart: 60
+    weight: 3
+    minimumPlayers: 15
+    reoccurrenceDelay: 45
+    duration: 1
+  - type: LoadMapRule
+    mapPath: /Maps/Shuttles/striker.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
@@ -428,6 +671,7 @@
       mindComponents:
       - type: NukeopsRole
         prototype: Nukeops
+<<<<<<< HEAD
 
 - type: entity
   id: SleeperAgentsRule
@@ -453,6 +697,8 @@
       mindComponents:
       - type: TraitorRole
         prototype: Traitor
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: MassHallucinations
@@ -471,11 +717,36 @@
     sounds:
       collection: Paracusia
 
+#- type: entity # DeltaV - Why does this exist??
+#  id: ImmovableRodSpawn
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: true
+#    weight: 5
+#    duration: 1
+#    earliestStart: 45
+#    minimumPlayers: 20
+#  - type: ImmovableRodRule
+
 - type: entity
-  id: ImmovableRodSpawn
+  noSpawn: true
+  parent: BaseGameRule
+  id: IonStorm
+  components:
+  - type: StationEvent
+    weight: 10
+    reoccurrenceDelay: 20
+    duration: 1
+  - type: IonStormRule
+
+- type: entity
+  id: MimicVendorRule
   parent: BaseGameRule
   noSpawn: true
   components:
+<<<<<<< HEAD
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
@@ -533,3 +804,12 @@
       maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
       weight: 5
     - type: MobReplacementRule
+=======
+    - type: StationEvent
+      earliestStart: 0
+      reoccurrenceDelay: 5
+      minimumPlayers: 20
+      weight: 5
+    - type: MobReplacementRule
+      numberToReplace: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

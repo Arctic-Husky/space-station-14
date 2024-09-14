@@ -211,10 +211,18 @@ public class RCDSystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
+<<<<<<< HEAD
             BreakOnMove = true,
             AttemptFrequency = AttemptFrequency.EveryTick,
             CancelDuplicate = false,
             BlockDuplicate = false
+=======
+            BreakOnUserMove = true,
+            BreakOnTargetMove = args.Target != null,
+            AttemptFrequency = AttemptFrequency.EveryTick,
+            CancelDuplicate = false,
+            BlockDuplicate = false,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         };
 
         args.Handled = true;

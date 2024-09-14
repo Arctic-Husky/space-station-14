@@ -28,7 +28,11 @@ public sealed partial class ResearchSystem
         if (!PrototypeManager.TryIndex<TechnologyPrototype>(args.Id, out var technologyPrototype))
             return;
 
+<<<<<<< HEAD
         if (TryComp<AccessReaderComponent>(uid, out var access) && !_accessReader.IsAllowed(act, uid, access))
+=======
+        if (TryComp<AccessReaderComponent>(uid, out var access) && !_accessReader.IsAllowed(ent, uid, access))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             _popup.PopupEntity(Loc.GetString("research-console-no-access-popup"), act);
             return;

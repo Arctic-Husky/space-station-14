@@ -1,7 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.CriminalRecords;
+<<<<<<< HEAD
 using Content.Shared.CriminalRecords.Systems;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Content.Server.GameTicking;
@@ -16,10 +19,17 @@ namespace Content.Server.CriminalRecords.Systems;
 ///         - See security officers' actions in Criminal Records in the radio
 ///         - See reasons for any action with no need to ask the officer personally
 /// </summary>
+<<<<<<< HEAD
 public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 {
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationRecordsSystem _records = default!;
+=======
+public sealed class CriminalRecordsSystem : EntitySystem
+{
+    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -30,18 +40,28 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
 
     private void OnGeneralRecordCreated(AfterGeneralRecordCreatedEvent ev)
     {
+<<<<<<< HEAD
         _records.AddRecordEntry(ev.Key, new CriminalRecord());
         _records.Synchronize(ev.Key);
+=======
+        _stationRecords.AddRecordEntry(ev.Key, new CriminalRecord());
+        _stationRecords.Synchronize(ev.Key);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
     /// Tries to change the status of the record found by the StationRecordKey.
+<<<<<<< HEAD
     /// Reason should only be passed if status is Wanted, nullability isn't checked.
+=======
+    /// Reason should only be passed if status is Wanted.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// </summary>
     /// <returns>True if the status is changed, false if not</returns>
     public bool TryChangeStatus(StationRecordKey key, SecurityStatus status, string? reason)
     {
         // don't do anything if its the same status
+<<<<<<< HEAD
         if (!_records.TryGetRecord<CriminalRecord>(key, out var record)
             || status == record.Status)
             return false;
@@ -64,6 +84,18 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
             UpdateCriminalIdentity(name, status);
 
         _records.Synchronize(key);
+=======
+        if (!_stationRecords.TryGetRecord<CriminalRecord>(key, out var record)
+            || status == record.Status)
+            return false;
+
+        record.Status = status;
+        record.Reason = reason;
+
+        _stationRecords.Synchronize(key);
+
+        return true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -72,7 +104,11 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     /// <returns>True if adding succeeded, false if not</returns>
     public bool TryAddHistory(StationRecordKey key, CrimeHistory entry)
     {
+<<<<<<< HEAD
         if (!_records.TryGetRecord<CriminalRecord>(key, out var record))
+=======
+        if (!_stationRecords.TryGetRecord<CriminalRecord>(key, out var record))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return false;
 
         record.History.Add(entry);
@@ -94,7 +130,11 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
     /// <returns>True if the line was removed, false if not</returns>
     public bool TryDeleteHistory(StationRecordKey key, uint index)
     {
+<<<<<<< HEAD
         if (!_records.TryGetRecord<CriminalRecord>(key, out var record))
+=======
+        if (!_stationRecords.TryGetRecord<CriminalRecord>(key, out var record))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return false;
 
         if (index >= record.History.Count)

@@ -9,7 +9,11 @@
     sprite: Objects/Devices/door_remote.rsi
   - type: Item
     storedRotation: -90
+<<<<<<< HEAD
   - type: Access
+=======
+  - type: Access #No access, useless
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: DoorRemote
   - type: StealTarget
     stealGroup: DoorRemote
@@ -28,7 +32,7 @@
       color: "#9f9f00"
   - type: Access
     groups:
-    - Command
+    - AllAccess #Cap must be able to control the station
 
 - type: entity
   parent: DoorRemoteDefault
@@ -97,7 +101,7 @@
 - type: entity
   parent: DoorRemoteDefault
   id: DoorRemoteCargo
-  name: cargo door remote
+  name: logistics door remote # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     layers:

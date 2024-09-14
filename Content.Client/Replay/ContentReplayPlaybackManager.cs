@@ -49,8 +49,11 @@ public sealed class ContentReplayPlaybackManager
     [Dependency] private readonly IClientAdminManager _adminMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IBaseClient _client = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IResourceManager _resMan = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     /// UI state to return to when stopping a replay or loading fails.

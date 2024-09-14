@@ -143,8 +143,13 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 
         private void OnToggleMessage(EntityUid uid, GasThermoMachineComponent thermoMachine, GasThermomachineToggleMessage args)
         {
+<<<<<<< HEAD
             var powerState = _power.TogglePower(uid);
             _adminLogger.Add(LogType.AtmosPowerChanged, $"{ToPrettyString(args.Actor)} turned {(powerState ? "On" : "Off")} {ToPrettyString(uid)}");
+=======
+            var powerState = _power.TryTogglePower(uid);
+            _adminLogger.Add(LogType.AtmosPowerChanged, $"{ToPrettyString(args.Session.AttachedEntity)} turned {(powerState ? "On" : "Off")} {ToPrettyString(uid)}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             DirtyUI(uid, thermoMachine);
         }
 
@@ -155,7 +160,11 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             else
                 thermoMachine.TargetTemperature = MathF.Max(args.Temperature, thermoMachine.MinTemperature);
             thermoMachine.TargetTemperature = MathF.Max(thermoMachine.TargetTemperature, Atmospherics.TCMB);
+<<<<<<< HEAD
             _adminLogger.Add(LogType.AtmosTemperatureChanged, $"{ToPrettyString(args.Actor)} set temperature on {ToPrettyString(uid)} to {thermoMachine.TargetTemperature}");
+=======
+            _adminLogger.Add(LogType.AtmosTemperatureChanged, $"{ToPrettyString(args.Session.AttachedEntity)} set temperature on {ToPrettyString(uid)} to {thermoMachine.TargetTemperature}");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             DirtyUI(uid, thermoMachine);
         }
 

@@ -13,6 +13,13 @@ lathe-menu-material-amount = { $amount ->
     [1] {NATURALFIXED($amount, 2)} {$unit}
     *[other] {NATURALFIXED($amount, 2)} {MAKEPLURAL($unit)}
 }
+<<<<<<< HEAD
+=======
+lathe-menu-material-amount-missing = { $amount ->
+    [1] {NATURALFIXED($amount, 2)} {$unit} of {$material} ([color=red]{NATURALFIXED($missingAmount, 2)} {$unit} missing[/color])
+    *[other] {NATURALFIXED($amount, 2)} {MAKEPLURAL($unit)} of {$material} ([color=red]{NATURALFIXED($missingAmount, 2)} {MAKEPLURAL($unit)} missing[/color])
+}
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 lathe-menu-no-materials-message = Nenhum material carregado.
 lathe-menu-fabricating-message = Fabricando...
 lathe-menu-materials-title = Materiais

@@ -11,6 +11,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
+using Content.Shared.Inventory.Events;
 
 namespace Content.Server.Forensics
 {
@@ -23,8 +24,14 @@ namespace Content.Server.Forensics
         public override void Initialize()
         {
             SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<ScentComponent, DidEquipEvent>(OnEquip);
+            SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit);
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit);
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit);
+<<<<<<< HEAD
+=======
+            SubscribeLocalEvent<ScentComponent, MapInitEvent>(OnScentInit);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             SubscribeLocalEvent<DnaComponent, BeingGibbedEvent>(OnBeingGibbed);
             SubscribeLocalEvent<ForensicsComponent, MeleeHitEvent>(OnMeleeHit);
@@ -39,6 +46,16 @@ namespace Content.Server.Forensics
             ApplyEvidence(uid, args.Other);
         }
 
+        private void OnEquip(EntityUid uid, ScentComponent component, DidEquipEvent args)
+        {
+            ApplyScent(uid, args.Equipment);
+        }
+
+        private void OnFiberInit(EntityUid uid, FiberComponent component, MapInitEvent args)
+        {
+            component.Fiberprint = GenerateFingerprint(length: 7);
+        }
+
         private void OnFingerprintInit(EntityUid uid, FingerprintComponent component, MapInitEvent args)
         {
             component.Fingerprint = GenerateFingerprint();
@@ -47,8 +64,10 @@ namespace Content.Server.Forensics
         private void OnDNAInit(EntityUid uid, DnaComponent component, MapInitEvent args)
         {
             component.DNA = GenerateDNA();
+
         }
 
+<<<<<<< HEAD
         private void OnBeingGibbed(EntityUid uid, DnaComponent component, BeingGibbedEvent args)
         {
             foreach(EntityUid part in args.GibbedParts)
@@ -151,8 +170,174 @@ namespace Content.Server.Forensics
         }
 
         public string GenerateFingerprint()
+=======
+        private void OnScentInit(EntityUid uid, ScentComponent component, MapInitEvent args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
-            var fingerprint = new byte[16];
+            component.Scent = GenerateFingerprint(length: 5);
+
+            var updatecomp = EnsureComp<ForensicsComponent>(uid);
+            updatecomp.Scent = component.Scent;
+
+            Dirty(uid, updatecomp);
+        }
+
+        private void OnBeingGibbed(EntityUid uid, DnaComponent component, BeingGibbedEvent args)
+        {
+            foreach (EntityUid part in args.GibbedParts)
+            {
+                var partComp = EnsureComp<ForensicsComponent>(part);
+                partComp.DNAs.Add(component.DNA);
+                partComp.CanDnaBeCleaned = false;
+                Dirty(part, partComp);
+            }
+        }
+
+        private void OnMeleeHit(EntityUid uid, ForensicsComponent component, MeleeHitEvent args)
+        {
+            if ((args.BaseDamage.DamageDict.TryGetValue("Blunt", out var bluntDamage) && bluntDamage.Value > 0) ||
+                (args.BaseDamage.DamageDict.TryGetValue("Slash", out var slashDamage) && slashDamage.Value > 0) ||
+                (args.BaseDamage.DamageDict.TryGetValue("Piercing", out var pierceDamage) && pierceDamage.Value > 0))
+            {
+                foreach (EntityUid hitEntity in args.HitEntities)
+                {
+                    if (TryComp<DnaComponent>(hitEntity, out var hitEntityComp))
+                        component.DNAs.Add(hitEntityComp.DNA);
+                }
+            }
+            Dirty(uid, component);
+        }
+
+        private void OnRehydrated(Entity<ForensicsComponent> ent, ref GotRehydratedEvent args)
+        {
+            CopyForensicsFrom(ent.Comp, args.Target);
+            Dirty(args.Target, ent.Comp);
+        }
+
+        /// <summary>
+        /// Copy forensic information from a source entity to a destination.
+        /// Existing forensic information on the target is still kept.
+        /// </summary>
+        public void CopyForensicsFrom(ForensicsComponent src, EntityUid target)
+        {
+            var dest = EnsureComp<ForensicsComponent>(target);
+            foreach (var dna in src.DNAs)
+            {
+                dest.DNAs.Add(dna);
+            }
+
+            foreach (var fiber in src.Fibers)
+            {
+                dest.Fibers.Add(fiber);
+            }
+
+            foreach (var print in src.Fingerprints)
+            {
+                dest.Fingerprints.Add(print);
+            }
+        }
+
+        private void OnAfterInteract(EntityUid uid, CleansForensicsComponent component, AfterInteractEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            if (TryComp<ForensicsComponent>(args.Target, out var forensicsComp)
+                && forensicsComp.DNAs.Count > 0 && forensicsComp.CanDnaBeCleaned
+                && forensicsComp.Fingerprints.Count + forensicsComp.Fibers.Count > 0
+                && forensicsComp.Scent != string.Empty)
+            {
+                var cleanDelay = component.CleanDelay;
+                if (HasComp<ScentComponent>(args.Target))
+                    cleanDelay += 30;
+
+                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cleanDelay, new CleanForensicsDoAfterEvent(), uid, target: args.Target, used: args.Used)
+                {
+                    BreakOnHandChange = true,
+                    NeedHand = true,
+                    BreakOnDamage = true,
+                    BreakOnTargetMove = true,
+                    MovementThreshold = 0.01f,
+                    DistanceThreshold = forensicsComp.CleanDistance,
+                };
+
+                _doAfterSystem.TryStartDoAfter(doAfterArgs);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning", ("target", args.Target)), args.User, args.User);
+
+                args.Handled = true;
+                return;
+            }
+
+            if (TryComp<ScentComponent>(args.Target, out var scentComp))
+            {
+                var cleanDelay = component.CleanDelay + 30;
+                var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cleanDelay, new CleanForensicsDoAfterEvent(), uid, target: args.Target, used: args.Used)
+                {
+                    BreakOnHandChange = true,
+                    NeedHand = true,
+                    BreakOnDamage = true,
+                    BreakOnTargetMove = true,
+                    MovementThreshold = 0.01f,
+                    DistanceThreshold = 1.5f,
+                };
+
+                _doAfterSystem.TryStartDoAfter(doAfterArgs);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning", ("target", args.Target)), args.User, args.User);
+
+                args.Handled = true;
+            }
+        }
+
+        private void OnCleanForensicsDoAfter(EntityUid uid, ForensicsComponent component, CleanForensicsDoAfterEvent args)
+        {
+            if (args.Handled || args.Cancelled || args.Args.Target == null)
+                return;
+
+            if (!TryComp<ForensicsComponent>(args.Target, out var targetComp))
+                return;
+
+            targetComp.Fibers = new();
+            targetComp.Fingerprints = new();
+            targetComp.Scent = String.Empty;
+
+            if (targetComp.CanDnaBeCleaned)
+                targetComp.DNAs = new();
+
+            // leave behind evidence it was cleaned
+            if (TryComp<FiberComponent>(args.Used, out var fiber))
+                targetComp.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
+
+            if (TryComp<ResidueComponent>(args.Used, out var residue))
+                targetComp.Residues.Add(string.IsNullOrEmpty(residue.ResidueColor) ? Loc.GetString("forensic-residue", ("adjective", residue.ResidueAdjective)) : Loc.GetString("forensic-residue-colored", ("color", residue.ResidueColor), ("adjective", residue.ResidueAdjective)));
+
+            // If the ent has a Scent Component, we compleatly generate a new one and apply the new scent to all currently weared items.
+            if (TryComp<ScentComponent>(args.Target, out var scentComp))
+            {
+                var generatedscent = GenerateFingerprint(length: 5);
+                scentComp.Scent = generatedscent;
+                targetComp.Scent = generatedscent;
+
+                if (args.Target is { Valid: true } target
+                    && _inventory.TryGetSlots(target, out var slotDefinitions))
+                    foreach (var slot in slotDefinitions)
+                    {
+                        if (!_inventory.TryGetSlotEntity(target, slot.Name, out var slotEnt))
+                            continue;
+
+                        EnsureComp<ForensicsComponent>(slotEnt.Value, out var recipientComp);
+                        recipientComp.Scent = generatedscent;
+
+                        Dirty(slotEnt.Value, recipientComp);
+                    }
+            }
+
+            if (args.Target is { Valid: true } targetuid)
+                Dirty(targetuid, targetComp);
+        }
+
+        public string GenerateFingerprint(int length = 16)
+        {
+            var fingerprint = new byte[Math.Clamp(length, 0, 255)];
             _random.NextBytes(fingerprint);
             return Convert.ToHexString(fingerprint);
         }
@@ -179,20 +364,51 @@ namespace Content.Server.Forensics
             if (_inventory.TryGetSlotEntity(user, "gloves", out var gloves))
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
-                    component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
+                {
+                    var fiberLocale = string.IsNullOrEmpty(fiber.FiberColor)
+                        ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial))
+                        : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial));
+                    component.Fibers.Add(fiberLocale + " ; " + fiber.Fiberprint);
+                }
 
                 if (HasComp<FingerprintMaskComponent>(gloves))
+                {
+                    Dirty(target, component);
                     return;
+                }
             }
             if (TryComp<FingerprintComponent>(user, out var fingerprint))
+            {
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
+                Dirty(target, component);
+            }
         }
 
+<<<<<<< HEAD
+=======
+        private void ApplyScent(EntityUid user, EntityUid target)
+        {
+            if (HasComp<ScentComponent>(target))
+                return;
+
+            var component = EnsureComp<ForensicsComponent>(target);
+            if (TryComp<ScentComponent>(user, out var scent))
+                component.Scent = scent.Scent;
+
+            Dirty(target, component);
+        }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         private void OnTransferDnaEvent(EntityUid uid, DnaComponent component, ref TransferDnaEvent args)
         {
             var recipientComp = EnsureComp<ForensicsComponent>(args.Recipient);
             recipientComp.DNAs.Add(component.DNA);
             recipientComp.CanDnaBeCleaned = args.CanDnaBeCleaned;
+<<<<<<< HEAD
+=======
+
+            Dirty(args.Recipient, recipientComp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         #region Public API
@@ -210,6 +426,11 @@ namespace Content.Server.Forensics
                 EnsureComp<ForensicsComponent>(recipient, out var recipientComp);
                 recipientComp.DNAs.Add(donorComp.DNA);
                 recipientComp.CanDnaBeCleaned = canDnaBeCleaned;
+<<<<<<< HEAD
+=======
+
+                Dirty(recipient, recipientComp);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 

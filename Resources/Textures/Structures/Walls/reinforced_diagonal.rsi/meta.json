@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "version": 1,
     "size": {
@@ -15,3 +16,22 @@
         }
     ]
 }
+=======
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by erhardsteinhauer (discord) for Space Station 14 New Frontier server",
+    "states": [
+        {
+            "name": "state0"
+        },
+        {
+            "name": "state1"
+        }
+    ]
+}
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

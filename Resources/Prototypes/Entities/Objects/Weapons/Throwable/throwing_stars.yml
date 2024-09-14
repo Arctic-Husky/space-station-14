@@ -10,6 +10,7 @@
     - state: icon
       map: ["base"]
   - type: Appearance
+<<<<<<< HEAD
 # Desativado até criarmos um feriado equivalente
 #   - type: HolidayVisuals
 #     holidays:
@@ -20,6 +21,17 @@
 #       enum.HolidayVisuals.Holiday:
 #         base:
 #           festive: { state: festive }
+=======
+  - type: HolidayVisuals
+    holidays:
+      festive:
+      - FestiveSeason
+  - type: GenericVisualizer
+    visuals:
+      enum.HolidayVisuals.Holiday:
+        base:
+          festive: { state: festive }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Fixtures
     fixtures:
       fix1:

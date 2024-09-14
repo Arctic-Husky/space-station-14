@@ -47,8 +47,11 @@
       collection: FootstepDuck
       params:
         variation: 0.07
+<<<<<<< HEAD
   - type: WaddleWhenWorn
     tumbleIntensity: 10 # smaller than clown shoes
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: ClothingShoeSlippersDuck
     node: shoes
@@ -135,6 +138,7 @@
     event: !type:ToggleClothingSpeedEvent
     icon: { sprite: Clothing/Shoes/Boots/speedboots.rsi, state: icon }
     iconOn: { sprite: Clothing/Shoes/Boots/speedboots.rsi, state: icon-on }
+<<<<<<< HEAD
 
 - type: entity
   parent: ClothingShoesBase
@@ -146,3 +150,5 @@
     sprite: Clothing/Shoes/Misc/robocopshoes.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Misc/robocopshoes.rsi
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

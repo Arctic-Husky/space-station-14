@@ -16,10 +16,13 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
+<<<<<<< HEAD
     quickEquip: false # Frontier
     slots: # Frontier
     - Back # Frontier
     - suitStorage # Frontier
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun.rsi
   - type: Gun
     soundGunshot:
@@ -27,6 +30,7 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
+<<<<<<< HEAD
     maxCharge: 2000
     startingCharge: 2000
   - type: ProjectileBatteryAmmoProvider
@@ -41,6 +45,22 @@
     - proto: BulletEnergyGunLaser
       fireCost: 200
       name: kill
+=======
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: lethal
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       state: lethal
   - type: MagazineVisuals
     magState: mag
@@ -73,10 +93,13 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
+<<<<<<< HEAD
     quickEquip: false # Frontier
     slots: # Frontier
     - Back # Frontier
     - suitStorage # Frontier
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     soundGunshot:
@@ -84,6 +107,7 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
+<<<<<<< HEAD
     maxCharge: 2000
     startingCharge: 2000
   - type: ProjectileBatteryAmmoProvider
@@ -101,6 +125,25 @@
       state: lethal
     # - proto: BulletEnergyGunIon
     #   fireCost: 500
+=======
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: lethal
+      state: lethal
+    # - proto: BulletEnergyGunIon
+    #   fireCost: 250
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     #   name: ion
     #   state: special
   - type: MagazineVisuals
@@ -121,3 +164,152 @@
     - Sidearm
   - type: StaticPrice
     price: 750
+<<<<<<< HEAD
+=======
+  - type: StealTarget
+    stealGroup: WeaponEnergyGunMultiphase
+
+- type: entity
+  name: miniature energy gun
+  parent: BaseWeaponBatterySmall
+  id: WeaponEnergyGunMini
+  description: A light version of the Energy gun with a smaller capacity.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/mini_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: lethal
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-stun } # Unused
+
+- type: entity
+  name: PDW-9 Energy Pistol
+  parent: BaseWeaponBatterySmall
+  id: WeaponEnergyGunPistol
+  description: A military grade sidearm, used by many militia forces throughout the local sector.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+      name: disable
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 100
+      name: lethal
+      state: lethal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  name: IK-60 laser carbine
+  parent: BaseWeaponBattery
+  id: WeaponGunLaserCarbineAutomatic
+  description: "A 20 round semi-automatic laser carbine."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/energygun_carbine.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+      - SemiAuto
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunLaser
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -124,7 +124,11 @@ public sealed class InjectorSystem : SharedInjectorSystem
             Popup.PopupEntity(Loc.GetString("injector-component-injecting-user"), target, user);
         }
 
+<<<<<<< HEAD
         if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out _, out var solution))
+=======
+        if (!SolutionContainers.TryGetSolution(injector.Owner, InjectorComponent.SolutionName, out _, out var solution))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return;
 
         var actualDelay = MathHelper.Max(injector.Comp.Delay, TimeSpan.FromSeconds(1));
@@ -205,11 +209,17 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
         DoAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, actualDelay, new InjectorDoAfterEvent(), injector.Owner, target: target, used: injector.Owner)
         {
+<<<<<<< HEAD
             BreakOnMove = true,
             BreakOnWeightlessMove = false,
             BreakOnDamage = true,
             NeedHand = true,
             BreakOnHandChange = true,
+=======
+            BreakOnUserMove = true,
+            BreakOnDamage = true,
+            BreakOnTargetMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             MovementThreshold = 0.1f,
         });
     }
@@ -254,7 +264,11 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private void TryInject(Entity<InjectorComponent> injector, EntityUid targetEntity,
         Entity<SolutionComponent> targetSolution, EntityUid user, bool asRefill)
     {
+<<<<<<< HEAD
         if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out var soln,
+=======
+        if (!SolutionContainers.TryGetSolution(injector.Owner, InjectorComponent.SolutionName, out var soln,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 out var solution) || solution.Volume == 0)
             return;
 
@@ -296,7 +310,11 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private void AfterInject(Entity<InjectorComponent> injector, EntityUid target)
     {
         // Automatically set syringe to draw after completely draining it.
+<<<<<<< HEAD
         if (SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out _,
+=======
+        if (SolutionContainers.TryGetSolution(injector.Owner, InjectorComponent.SolutionName, out _,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 out var solution) && solution.Volume == 0)
         {
             SetMode(injector, InjectorToggleMode.Draw);
@@ -310,7 +328,11 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private void AfterDraw(Entity<InjectorComponent> injector, EntityUid target)
     {
         // Automatically set syringe to inject after completely filling it.
+<<<<<<< HEAD
         if (SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out _,
+=======
+        if (SolutionContainers.TryGetSolution(injector.Owner, InjectorComponent.SolutionName, out _,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 out var solution) && solution.AvailableVolume == 0)
         {
             SetMode(injector, InjectorToggleMode.Inject);
@@ -324,7 +346,11 @@ public sealed class InjectorSystem : SharedInjectorSystem
     private void TryDraw(Entity<InjectorComponent> injector, Entity<BloodstreamComponent?> target,
         Entity<SolutionComponent> targetSolution, EntityUid user)
     {
+<<<<<<< HEAD
         if (!SolutionContainers.TryGetSolution(injector.Owner, injector.Comp.SolutionName, out var soln,
+=======
+        if (!SolutionContainers.TryGetSolution(injector.Owner, InjectorComponent.SolutionName, out var soln,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 out var solution) || solution.AvailableVolume == 0)
         {
             return;

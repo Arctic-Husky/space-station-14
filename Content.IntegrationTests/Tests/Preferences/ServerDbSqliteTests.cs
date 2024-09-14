@@ -39,6 +39,7 @@ namespace Content.IntegrationTests.Tests.Preferences
 
         private static HumanoidCharacterProfile CharlieCharlieson()
         {
+<<<<<<< HEAD
             return new()
             {
                 Name = "Charlie Charlieson",
@@ -46,14 +47,43 @@ namespace Content.IntegrationTests.Tests.Preferences
                 Species = "Human",
                 Age = 21,
                 Appearance = new(
+=======
+            return new(
+                "Charlie Charlieson",
+                "The biggest boy around.",
+                "Human",
+                1,
+                1,
+                21,
+                Sex.Male,
+                Gender.Epicene,
+                new HumanoidCharacterAppearance(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     "Afro",
                     Color.Aqua,
                     "Shaved",
                     Color.Aquamarine,
                     Color.Azure,
                     Color.Beige,
+<<<<<<< HEAD
                     new ())
             };
+=======
+                    new ()
+                ),
+                ClothingPreference.Jumpskirt,
+                BackpackPreference.Backpack,
+                SpawnPriorityPreference.None,
+                new Dictionary<string, JobPriority>
+                {
+                    {SharedGameTicker.FallbackOverflowJob, JobPriority.High}
+                },
+                PreferenceUnavailableMode.StayInLobby,
+                antagPreferences: new List<string>(),
+                traitPreferences: new List<string>(),
+                loadoutPreferences: new List<string>()
+            );
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private static ServerDbSqlite GetDb(RobustIntegrationTest.ServerIntegrationInstance server)

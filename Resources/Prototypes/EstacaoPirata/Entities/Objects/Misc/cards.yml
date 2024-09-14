@@ -43,8 +43,13 @@
     state: singlecard_down_black
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.CardUiKey.Key:
         type: CardHandMenuBoundUserInterface
+=======
+    - key: enum.CardUiKey.Key
+      type: CardHandMenuBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ActivatableUI
     key: enum.CardUiKey.Key
 

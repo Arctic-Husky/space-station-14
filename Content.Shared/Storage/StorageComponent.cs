@@ -19,6 +19,13 @@ namespace Content.Shared.Storage
     {
         public static string ContainerId = "storagebase";
 
+<<<<<<< HEAD
+=======
+        // TODO: This fucking sucks
+        [ViewVariables(VVAccess.ReadWrite), DataField]
+        public bool IsUiOpen;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         [ViewVariables]
         public Container Container = default!;
 
@@ -53,6 +60,7 @@ namespace Content.Shared.Storage
         [DataField]
         public bool QuickInsert; // Can insert storables by clicking them with the storage entity
 
+<<<<<<< HEAD
         /// <summary>
         /// Minimum delay between quick/area insert actions.
         /// </summary>
@@ -74,6 +82,11 @@ namespace Content.Shared.Storage
         /// </summary>
         public const int AreaPickupLimit = 10;
 
+=======
+        [DataField]
+        public bool ClickInsert = true; // Can insert stuff by clicking the storage entity with it
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         [DataField]
         public bool AreaInsert; // Clicking with the storage entity causes it to insert all nearby storables after a delay
 
@@ -228,6 +241,18 @@ namespace Content.Shared.Storage
         }
     }
 
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// An extra BUI message that either opens, closes, or focuses the storage window based on context.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class StorageModifyWindowMessage : BoundUserInterfaceMessage
+    {
+
+    }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [NetSerializable]
     [Serializable]
     public enum StorageVisuals : byte

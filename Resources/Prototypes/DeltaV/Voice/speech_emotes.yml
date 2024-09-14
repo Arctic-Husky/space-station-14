@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Harpy
 - type: emote
   name: Honk
@@ -159,10 +160,48 @@
     - cawed.
     - cawed!
     - cawed?
+=======
+- type: emote
+  id: HarpyRing
+  category: Vocal
+  chatMessages: [ rings ]
+  chatTriggers:
+    - rings
+
+- type: emote
+  id: HarpyPew
+  category: Vocal
+  chatMessages: [ pews ]
+  chatTriggers:
+    - pews
+    - pewpews
+
+- type: emote
+  id: HarpyBang
+  category: Vocal
+  chatMessages: [ bangs ]
+  chatTriggers:
+    - bangs
+
+- type: emote
+  id: HarpyRev
+  category: Vocal
+  chatMessages: [ revs ]
+  chatTriggers:
+    - revs
+
+- type: emote
+  id: HarpyCaw
+  category: Vocal
+  chatMessages: [ caws ]
+  chatTriggers:
+    - caws
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 #Vulpkanin
 - type: emote
   id: Bark
+<<<<<<< HEAD
   name: Bark
   category: Vocal
   chatMessages: [barks.]
@@ -252,3 +291,30 @@
     - howled.
     - howling!
     - howling?
+=======
+  category: Vocal
+  chatMessages: [ barks ]
+  chatTriggers:
+    - barks
+
+- type: emote
+  id: Snarl
+  category: Vocal
+  chatMessages: [ snarls ]
+  chatTriggers:
+    - snarls
+
+- type: emote
+  id: Whine
+  category: Vocal
+  chatMessages: [ whines ]
+  chatTriggers:
+    - whines
+
+- type: emote
+  id: Howl
+  category: Vocal
+  chatMessages: [ howls ]
+  chatTriggers:
+    - howls
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -493,5 +493,8 @@
         pipe:
           Free: { state: signal-router-flipped-free }
           Anchored: { state: signal-router-flipped }
+<<<<<<< HEAD
   - type: Construction
     node: signal_router_flipped
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

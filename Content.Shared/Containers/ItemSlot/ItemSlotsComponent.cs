@@ -214,6 +214,7 @@ namespace Content.Shared.Containers.ItemSlots
 
         /// <summary>
         ///     If the user interacts with an entity with an already-filled item slot, should they attempt to swap out the item?
+        ///     If set to null, will be deduced based on the relevant config variable.
         /// </summary>
         /// <remarks>
         ///     Useful for things like chem dispensers, but undesirable for things like the ID card console, where you
@@ -221,7 +222,11 @@ namespace Content.Shared.Containers.ItemSlots
         /// </remarks>
         [DataField]
         [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
+<<<<<<< HEAD
         public bool Swap = true;
+=======
+        public bool? Swap = null;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public string? ID => ContainerSlot?.ID;
 

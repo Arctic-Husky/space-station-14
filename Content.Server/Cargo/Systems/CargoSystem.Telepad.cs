@@ -17,7 +17,10 @@ public sealed partial class CargoSystem
     private void InitializeTelepad()
     {
         SubscribeLocalEvent<CargoTelepadComponent, ComponentInit>(OnInit);
+<<<<<<< HEAD
         SubscribeLocalEvent<CargoTelepadComponent, ComponentShutdown>(OnShutdown);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         SubscribeLocalEvent<CargoTelepadComponent, PowerChangedEvent>(OnTelepadPowerChange);
         // Shouldn't need re-anchored event
         SubscribeLocalEvent<CargoTelepadComponent, AnchorStateChangedEvent>(OnTelepadAnchorChange);
@@ -88,10 +91,17 @@ public sealed partial class CargoSystem
             }
 
             var xform = Transform(uid);
+<<<<<<< HEAD
             var currentOrder = comp.CurrentOrders.First();
             if (FulfillOrder(currentOrder, xform.Coordinates, comp.PrinterOutput))
             {
                 _audio.PlayPvs(_audio.GetSound(comp.TeleportSound), uid, AudioParams.Default.WithVolume(-8f));
+=======
+            if (FulfillNextOrder(orderDatabase, xform.Coordinates, comp.PrinterOutput))
+            {
+                _audio.PlayPvs(_audio.GetSound(comp.TeleportSound), uid, AudioParams.Default.WithVolume(-8f));
+                UpdateOrders(station.Value, orderDatabase);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 if (_station.GetOwningStation(uid) is { } station)
                     UpdateOrders(station);
@@ -110,6 +120,7 @@ public sealed partial class CargoSystem
         _linker.EnsureSinkPorts(uid, telepad.ReceiverPort);
     }
 
+<<<<<<< HEAD
     private void OnShutdown(Entity<CargoTelepadComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.CurrentOrders.Count == 0)
@@ -133,6 +144,8 @@ public sealed partial class CargoSystem
         }
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void SetEnabled(EntityUid uid, CargoTelepadComponent component, ApcPowerReceiverComponent? receiver = null,
         TransformComponent? xform = null)
     {

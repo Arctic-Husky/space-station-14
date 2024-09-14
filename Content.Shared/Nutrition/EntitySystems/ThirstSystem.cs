@@ -3,12 +3,21 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Rejuvenate;
+<<<<<<< HEAD
 using Content.Shared.StatusIcon;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+=======
+using JetBrains.Annotations;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using Content.Shared.Mood;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -16,11 +25,15 @@ namespace Content.Shared.Nutrition.EntitySystems;
 public sealed class ThirstSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
+<<<<<<< HEAD
 
     [ValidatePrototypeId<StatusIconPrototype>]
     private const string ThirstIconOverhydratedId = "ThirstIconOverhydrated";
@@ -34,15 +47,21 @@ public sealed class ThirstSystem : EntitySystem
     private StatusIconPrototype? _thirstIconOverhydrated = null;
     private StatusIconPrototype? _thirstIconThirsty = null;
     private StatusIconPrototype? _thirstIconParched = null;
+=======
+    [Dependency] private readonly IConfigurationManager _config = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
         base.Initialize();
 
+<<<<<<< HEAD
         DebugTools.Assert(_prototype.TryIndex(ThirstIconOverhydratedId, out _thirstIconOverhydrated) &&
                           _prototype.TryIndex(ThirstIconThirstyId, out _thirstIconThirsty) &&
                           _prototype.TryIndex(ThirstIconParchedId, out _thirstIconParched));
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         SubscribeLocalEvent<ThirstComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<ThirstComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ThirstComponent, RejuvenateEvent>(OnRejuvenate);
@@ -70,7 +89,8 @@ public sealed class ThirstSystem : EntitySystem
     private void OnRefreshMovespeed(EntityUid uid, ThirstComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         // TODO: This should really be taken care of somewhere else
-        if (_jetpack.IsUserFlying(uid))
+        if (_config.GetCVar(CCVars.MoodEnabled)
+            || _jetpack.IsUserFlying(uid))
             return;
 
         var mod = component.CurrentThirstThreshold <= ThirstThreshold.Parched ? 0.75f : 1.0f;
@@ -152,8 +172,9 @@ public sealed class ThirstSystem : EntitySystem
 
     private void UpdateEffects(EntityUid uid, ThirstComponent component)
     {
-        if (IsMovementThreshold(component.LastThirstThreshold) != IsMovementThreshold(component.CurrentThirstThreshold) &&
-                TryComp(uid, out MovementSpeedModifierComponent? movementSlowdownComponent))
+        if (!_config.GetCVar(CCVars.MoodEnabled)
+            && IsMovementThreshold(component.LastThirstThreshold) != IsMovementThreshold(component.CurrentThirstThreshold)
+            && TryComp(uid, out MovementSpeedModifierComponent? movementSlowdownComponent))
         {
             _movement.RefreshMovementSpeedModifiers(uid, movementSlowdownComponent);
         }
@@ -167,6 +188,9 @@ public sealed class ThirstSystem : EntitySystem
         {
             _alerts.ClearAlertCategory(uid, AlertCategory.Thirst);
         }
+
+        var ev = new MoodEffectEvent("Thirst" + component.CurrentThirstThreshold);
+        RaiseLocalEvent(uid, ev);
 
         switch (component.CurrentThirstThreshold)
         {

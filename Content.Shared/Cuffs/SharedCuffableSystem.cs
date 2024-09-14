@@ -4,6 +4,7 @@ using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Contests;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -27,6 +28,10 @@ using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
+<<<<<<< HEAD
+=======
+using Content.Shared.Mood;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -53,6 +58,10 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
+<<<<<<< HEAD
+=======
+        [Dependency] private readonly ContestsSystem _contests = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public override void Initialize()
         {
@@ -172,9 +181,15 @@ namespace Content.Shared.Cuffs
             _actionBlocker.UpdateCanMove(uid);
 
             if (component.CanStillInteract)
+            {
                 _alerts.ClearAlert(uid, AlertType.Handcuffed);
+                RaiseLocalEvent(uid, new MoodRemoveEffectEvent("Handcuffed"));
+            }
             else
+            {
                 _alerts.ShowAlert(uid, AlertType.Handcuffed);
+                RaiseLocalEvent(uid, new MoodEffectEvent("Handcuffed"));
+            }
 
             var ev = new CuffedStateChangeEvent();
             RaiseLocalEvent(uid, ref ev);
@@ -561,9 +576,26 @@ namespace Content.Shared.Cuffs
                 return;
             }
 
+<<<<<<< HEAD
             var uncuffTime = isOwner ? cuff.BreakoutTime : cuff.UncuffTime;
 
             if (isOwner)
+=======
+            var uncuffTime = (isOwner ? cuff.BreakoutTime : cuff.UncuffTime) * (cuff.UncuffEasierWhenLarge ? 1 / _contests.MassContest(user) : _contests.MassContest(user));
+
+            if (isOwner)
+            {
+                if (!TryComp(cuffsToRemove.Value, out UseDelayComponent? useDelay))
+                    return;
+
+                if (!_delay.TryResetDelay((cuffsToRemove.Value, useDelay), true))
+                {
+                    return;
+                }
+            }
+
+            var doAfterEventArgs = new DoAfterArgs(EntityManager, user, uncuffTime, new UnCuffDoAfterEvent(), target, target, cuffsToRemove)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 if (!TryComp(cuffsToRemove.Value, out UseDelayComponent? useDelay))
                     return;

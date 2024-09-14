@@ -3,12 +3,17 @@
   name: job-name-reporter
   description: job-description-reporter
   playTimeTracker: JobReporter
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 7200 #DeltaV 2 hours
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop
   access:
   - Service
   - Maintenance
+  - Theatre # DeltaV - Add Theatre access
+  - Reporter # DeltaV - Add Reporter access
 
 - type: startingGear
   id: ReporterGear
@@ -18,6 +23,12 @@
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
     ears: ClothingHeadsetService
+<<<<<<< HEAD
   #innerClothingSkirt: ClothingUniformJumpsuitJournalist  -- https://github.com/space-wizards/space-station-14/commit/12766fe6e37bb600a53693cfa5392892bc100685
   #satchel: ClothingBackpackSatchelReporterFilled
   #duffelbag: ClothingBackpackDuffelReporterFilled
+=======
+  innerClothingSkirt: ClothingUniformJumpsuitJournalist
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

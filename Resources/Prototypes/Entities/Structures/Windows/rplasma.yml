@@ -12,7 +12,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
   - type: RadiationBlocker
-    resistance: 4
+    resistance: 8
   - type: Destructible
     thresholds:
     - trigger:
@@ -125,7 +125,11 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
+<<<<<<< HEAD
     key: windows
+=======
+    key: walls
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     base: state
   - type: Icon
     sprite: Structures/Windows/reinforced_plasma_diagonal.rsi

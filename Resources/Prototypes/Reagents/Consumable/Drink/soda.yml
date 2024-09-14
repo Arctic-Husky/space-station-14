@@ -32,6 +32,23 @@
         factor: 4
 
 - type: reagent
+  id: RoyRogers
+  name: reagent-name-roy-rogers
+  parent: BaseSoda
+  desc: reagent-desc-roy-rogers
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: cola
+  color: "#262019"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/royrogers.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 4
+
+- type: reagent
   id: ChangelingSting
   name: reagent-name-changeling-sting
   parent: BaseSoda
@@ -97,7 +114,10 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+<<<<<<< HEAD
   fizziness: 0
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagent
   id: LemonLime
@@ -147,7 +167,10 @@
   metamorphicMaxFillLevels: 7
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+<<<<<<< HEAD
   fizziness: 0.4
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagent
   id: SolDry
@@ -186,12 +209,15 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: sodacitrus
   color: "#a6fa5a"
+<<<<<<< HEAD
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/space_mountain_wind_glass.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagent
   id: SpaceUp
@@ -201,12 +227,15 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: spaceup
   color: "#e3e3e37d"
+<<<<<<< HEAD
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/space-up_glass.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: reagent
   id: Starkist

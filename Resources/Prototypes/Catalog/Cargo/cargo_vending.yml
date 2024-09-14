@@ -33,7 +33,11 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockClothesFilled
+<<<<<<< HEAD
   cost: 2400
+=======
+  cost: 1500
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   category: cargoproduct-category-name-service
   group: market
 
@@ -43,7 +47,11 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockAutoDrobeFilled
+<<<<<<< HEAD
   cost: 1200
+=======
+  cost: 1730
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   category: cargoproduct-category-name-service
   group: market
 

@@ -7,8 +7,11 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed partial class ParrotAccentSystem : EntitySystem
 {
+<<<<<<< HEAD
     private static readonly Regex WordCleanupRegex = new Regex("[^A-Za-z0-9 -]");
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -29,7 +32,11 @@ public sealed partial class ParrotAccentSystem : EntitySystem
         if (_random.Prob(entity.Comp.LongestWordRepeatChance))
         {
             // Don't count non-alphanumeric characters as parts of words
+<<<<<<< HEAD
             var cleaned = WordCleanupRegex.Replace(message, string.Empty);
+=======
+            var cleaned = Regex.Replace(message, "[^A-Za-z0-9 -]", string.Empty);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             // Split on whitespace and favor words towards the end of the message
             var words = cleaned.Split(null).Reverse();
             // Find longest word

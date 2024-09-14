@@ -40,7 +40,11 @@ public sealed class FaxBoundUi : BoundUserInterface
     {
         if (_dialogIsOpen)
             return;
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _dialogIsOpen = true;
         var filters = new FileDialogFilters(new FileDialogFilters.Group("txt"));
         await using var file = await _fileDialogManager.OpenFile(filters);
@@ -52,6 +56,7 @@ public sealed class FaxBoundUi : BoundUserInterface
         }
 
         using var reader = new StreamReader(file);
+<<<<<<< HEAD
 
         var firstLine = await reader.ReadLineAsync();
         string? label = null;
@@ -73,6 +78,10 @@ public sealed class FaxBoundUi : BoundUserInterface
             label?[..Math.Min(label.Length, FaxFileMessageValidation.MaxLabelSize)],
             content[..Math.Min(content.Length, FaxFileMessageValidation.MaxContentSize)],
             _window.OfficePaper));
+=======
+        var content = await reader.ReadToEndAsync();
+        SendMessage(new FaxFileMessage(content[..Math.Min(content.Length, FaxFileMessageValidation.MaxContentSize)], _window.OfficePaper));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnSendButtonPressed()

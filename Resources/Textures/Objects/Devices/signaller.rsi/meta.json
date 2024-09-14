@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "signaller state taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/2c980a1f423f26e990a578bae057d1eca19675ec. inhands & advanced made by Flaregy for Space Station 14. advanced is modified from signaller",
@@ -30,4 +31,25 @@
       "directions": 4
     }
   ]
+=======
+    "version": 1,
+
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise at https://github.com/Henri215/Paradise/blob/27087670280de99e2fceb47194aad29a7b99b280/icons/obj/radio.dmi, signaller2 created by TheShuEd",
+
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "signaller",
+            "directions": 1
+        },
+        {
+            "name": "signaller2",
+            "directions": 1
+        }
+    ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

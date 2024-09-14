@@ -24,7 +24,11 @@ public sealed class InternalsSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
 
+<<<<<<< HEAD
     private EntityQuery<InternalsComponent> _internalsQuery;
+=======
+    public const SlotFlags InventorySlots = SlotFlags.POCKET | SlotFlags.BELT;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -41,6 +45,7 @@ public sealed class InternalsSystem : EntitySystem
         SubscribeLocalEvent<StartingGearEquippedEvent>(OnStartingGear);
     }
 
+<<<<<<< HEAD
     private void OnStartingGear(ref StartingGearEquippedEvent ev)
     {
         if (!_internalsQuery.TryComp(ev.Entity, out var internals) || internals.BreathToolEntity == null)
@@ -56,6 +61,15 @@ public sealed class InternalsSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || args.Hands is null)
             return;
 
+=======
+    private void OnGetInteractionVerbs(
+        Entity<InternalsComponent> ent,
+        ref GetVerbsEvent<InteractionVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands is null)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var user = args.User;
 
         InteractionVerb verb = new()
@@ -230,7 +244,11 @@ public sealed class InternalsSystem : EntitySystem
         if (component.BreathToolEntity is null || !AreInternalsWorking(component))
             return 2;
 
+<<<<<<< HEAD
         // If pressure in the tank is below low pressure threshold, flash warning on internals UI
+=======
+        // If pressure in the tank is below low pressure threshhold, flash warning on internals UI
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (TryComp<GasTankComponent>(component.GasTankEntity, out var gasTank)
             && gasTank.IsLowPressure)
         {

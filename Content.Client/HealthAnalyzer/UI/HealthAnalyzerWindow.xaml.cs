@@ -139,7 +139,11 @@ namespace Content.Client.HealthAnalyzer.UI
 
                 var groupTitleText = $"{Loc.GetString(
                     "health-analyzer-window-damage-group-text",
+<<<<<<< HEAD
                     ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
+=======
+                    ("damageGroup", Loc.GetString("health-analyzer-window-damage-group-" + damageGroupId)),
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     ("amount", damageAmount)
                 )}";
 
@@ -170,7 +174,11 @@ namespace Content.Client.HealthAnalyzer.UI
 
                         var damageString = Loc.GetString(
                             "health-analyzer-window-damage-type-text",
+<<<<<<< HEAD
                             ("damageType", _prototypes.Index<DamageTypePrototype>(type).LocalizedName),
+=======
+                            ("damageType", Loc.GetString("health-analyzer-window-damage-type-" + type)),
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                             ("amount", typeAmount)
                         );
 

@@ -21,6 +21,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Psionics.Glimmer; //Nyano - Summary:.
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
@@ -40,7 +41,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly ResearchSystem _research = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly TraversalDistorterSystem _traversalDistorter = default!;
+=======
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!; //Nyano - Summary: pulls in the glimmer system.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -194,7 +199,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var canScan = false;
         var canPrint = false;
         var points = 0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity, out var analyzer))
         {
             artifact = analyzer.LastAnalyzedArtifact;
@@ -215,6 +223,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var scanning = TryComp<ActiveArtifactAnalyzerComponent>(component.AnalyzerEntity, out var active);
         var paused = active != null ? active.AnalysisPaused : false;
 
+<<<<<<< HEAD
         var biasDirection = BiasDirection.Up;
 
         if (TryComp<TraversalDistorterComponent>(component.AnalyzerEntity, out var trav))
@@ -224,6 +233,14 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             canScan, canPrint, msg, scanning, paused, active?.StartTime, active?.AccumulatedRunTime, totalTime, points, biasDirection == BiasDirection.Down);
 
         _ui.SetUiState(uid, ArtifactAnalzyerUiKey.Key, state);
+=======
+
+        var state = new AnalysisConsoleScanUpdateState(GetNetEntity(artifact), analyzerConnected, serverConnected,
+            canScan, canPrint, msg, scanning, paused, active?.StartTime, active?.AccumulatedRunTime, totalTime, points);
+
+        var bui = _ui.GetUi(uid, ArtifactAnalzyerUiKey.Key);
+        _ui.SetUiState(bui, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -234,7 +251,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     /// <param name="args"></param>
     private void OnServerSelectionMessage(EntityUid uid, AnalysisConsoleComponent component, AnalysisConsoleServerSelectionMessage args)
     {
+<<<<<<< HEAD
         _ui.OpenUi(uid, ResearchClientUiKey.Key, args.Actor);
+=======
+        _ui.TryOpen(uid, ResearchClientUiKey.Key, args.Session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -370,6 +391,14 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         _research.ModifyServerPoints(server.Value, pointValue, serverComponent);
         _artifact.AdjustConsumedPoints(artifact.Value, pointValue);
+
+        // Nyano - Summary - Begin modified code block: tie artifacts to glimmer.
+        if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
+            analyzer != null)
+        {
+            _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
+        }
+        // Nyano - End modified code block.
 
         _audio.PlayPvs(component.ExtractSound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
 

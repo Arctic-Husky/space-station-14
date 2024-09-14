@@ -68,7 +68,11 @@ public sealed partial class RCDMenu : RadialMenu
                 tooltip = Loc.GetString(entProto.Name);
             }
 
+<<<<<<< HEAD
             tooltip = OopsConcat(char.ToUpper(tooltip[0]).ToString(), tooltip.Remove(0, 1));
+=======
+            tooltip = char.ToUpper(tooltip[0]) + tooltip.Remove(0, 1);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             var button = new RCDMenuButton()
             {
@@ -119,12 +123,15 @@ public sealed partial class RCDMenu : RadialMenu
         SendRCDSystemMessageAction += bui.SendRCDSystemMessage;
     }
 
+<<<<<<< HEAD
     private static string OopsConcat(string a, string b)
     {
         // This exists to prevent Roslyn being clever and compiling something that fails sandbox checks.
         return a + b;
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void AddRCDMenuButtonOnClickActions(Control control)
     {
         var radialContainer = control as RadialContainer;

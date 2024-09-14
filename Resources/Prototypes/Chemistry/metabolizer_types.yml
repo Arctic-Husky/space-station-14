@@ -10,6 +10,10 @@
   name: metabolizer-type-bloodsucker
 
 - type: metabolizerType
+  id: Bloodsucker
+  name: bloodsucker
+
+- type: metabolizerType
   id: Dragon
   name: metabolizer-type-dragon
 
@@ -39,8 +43,24 @@
 
 - type: metabolizerType
   id: Moth
+<<<<<<< HEAD
   name: metabolizer-type-moth
 
 - type: metabolizerType
   id: Arachnid
   name: metabolizer-type-arachnid
+=======
+  name: moth
+
+- type: metabolizerType
+  id: Arachnid
+  name: arachnid
+
+- type: metabolizerType
+  id: Vampiric
+  name: vampiric
+
+- type: metabolizerType
+  id: LiquorLifeline
+  name: liquorlifeline
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

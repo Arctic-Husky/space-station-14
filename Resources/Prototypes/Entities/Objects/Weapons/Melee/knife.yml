@@ -12,9 +12,22 @@
       - Knife
   - type: MeleeWeapon
     wideAnimationRotation: -135
+<<<<<<< HEAD
     damage:
       types:
         Slash: 10
+=======
+    attackRate: 1.25
+    range: 1.4
+    damage:
+      types:
+        Slash: 8
+    heavyRateModifier: 0.8
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 3
+    angle: 40
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Sprite
@@ -60,10 +73,18 @@
     state: butch
   - type: MeleeWeapon
     wideAnimationRotation: -115
+<<<<<<< HEAD
     attackRate: 1.5
     damage:
       types:
         Slash: 13
+=======
+    attackRate: 1
+    damage:
+      types:
+        Slash: 8
+        Blunt: 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/cleaver.rsi
@@ -87,15 +108,24 @@
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1.5
+    range: 1.4
     damage:
       types:
+<<<<<<< HEAD
         Slash: 12
+=======
+        Slash: 9
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
   - type: DamageOtherOnHit
     damage:
       types:
+<<<<<<< HEAD
         Slash: 10
+=======
+        Slash: 9
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
   - type: DisarmMalus
@@ -110,6 +140,13 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/survival_knife.rsi
     state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.25
+    range: 1.5
+    damage:
+      types:
+        Slash: 8
   - type: Item
     sprite: Objects/Weapons/Melee/survival_knife.rsi
 
@@ -124,9 +161,10 @@
     state: icon
   - type: MeleeWeapon
     attackRate: 1.0
+    range: 1.75
     damage:
       types:
-        Slash: 15
+        Slash: 10
   - type: Item
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
 
@@ -186,7 +224,8 @@
     sprite: Objects/Weapons/Melee/shiv.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.75
+    range: 0.75
     damage:
       types:
         Slash: 5.5
@@ -205,7 +244,6 @@
     graph: ReinforcedShiv
     node: icon
   - type: MeleeWeapon
-    attackRate: 1.5
     damage:
       types:
         Slash: 7 #each "tier" grants an additional 2 damage
@@ -224,10 +262,9 @@
     graph: PlasmaShiv
     node: icon
   - type: MeleeWeapon
-    attackRate: 1.5
     damage:
       types:
-        Slash: 9
+        Slash: 8.5
   - type: Item
     sprite: Objects/Weapons/Melee/plasma_shiv.rsi
   - type: Sprite
@@ -243,10 +280,9 @@
     graph: UraniumShiv
     node: icon
   - type: MeleeWeapon
-    attackRate: 1.5
     damage:
       types:
-        Slash: 7
+        Slash: 6.5
         Radiation: 4
   - type: Item
     sprite: Objects/Weapons/Melee/uranium_shiv.rsi
@@ -263,6 +299,10 @@
     tags:
     - CombatKnife
     - Knife
+<<<<<<< HEAD
+=======
+    - CannonRestrict
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Sprite
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
     state: icon

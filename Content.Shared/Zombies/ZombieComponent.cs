@@ -27,7 +27,11 @@ public sealed partial class ZombieComponent : Component, IAntagStatusIconCompone
     /// being invincible by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
+<<<<<<< HEAD
     public float MinZombieInfectionChance = 0.25f;
+=======
+    public float MinZombieInfectionChance = 0.50f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ZombieMovementSpeedDebuff = 0.70f;

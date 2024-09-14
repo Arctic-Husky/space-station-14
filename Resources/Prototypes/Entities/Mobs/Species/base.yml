@@ -89,8 +89,13 @@
     species: Human
   - type: SlowOnDamage
     speedModifierThresholds:
+<<<<<<< HEAD
       60: 0.7
       80: 0.5
+=======
+      60: 0.8 # DV - Was 0.7
+      80: 0.6 # DV - Was 0.5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -104,6 +109,10 @@
         layer:
         - MobLayer
   - type: FloorOcclusion
+<<<<<<< HEAD
+=======
+  - type: Mood
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: RangedDamageSound
     soundGroups:
       Brute:
@@ -140,6 +149,11 @@
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
+<<<<<<< HEAD
+=======
+    - PsionicsDisabled #Nyano - Summary: PCs can have psionics disabled.
+    - PsionicallyInsulated #Nyano - Summary: PCs can be made insulated from psionic powers.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Reflect
     enabled: false
     reflectProb: 0
@@ -176,6 +190,7 @@
   - type: StandingState
   - type: Fingerprint
   - type: Dna
+<<<<<<< HEAD
   - type: MindContainer
     showExamineInfo: true
   - type: InteractionPopup
@@ -183,6 +198,11 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+=======
+  - type: Scent
+  - type: MindContainer
+    showExamineInfo: true
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: CanHostGuardian
   - type: NpcFactionMember
     factions:
@@ -216,6 +236,15 @@
   - type: MobPrice
     price: 1500 # Kidnapping a living person and selling them for cred is a good move.
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+<<<<<<< HEAD
+=======
+  - type: CanEscapeInventory # Carrying system from nyanotrasen.
+  - type: LanguageKnowledge # This is here so even if species doesn't have a defined language, they at least speak GC
+    speaks:
+    - GalacticCommon
+    understands:
+    - GalacticCommon
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - CanPilot
@@ -237,8 +266,12 @@
   - type: Barotrauma
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 0.50 #per second, scales with pressure and other constants.
         Heat: 0.1
+=======
+        Blunt: 0.55 #per second, scales with pressure and other constants.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
     allowedStates:
     - Alive
@@ -302,6 +335,14 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
+<<<<<<< HEAD
+=======
+  - type: OfferItem
+  - type: LayingDown
+  - type: Shoving
+  - type: BloodstreamAffectedByMass
+    power: 0.6 # A minimum size felinid will have 30% blood, a minimum size vulp will have 60%, a maximum size oni will have ~200%
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   save: false
@@ -372,5 +413,9 @@
     requiredLegs: 2
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too
+=======
+      - key: enum.HumanoidMarkingModifierKey.Key # sure, this can go here too
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         type: HumanoidMarkingModifierBoundUserInterface

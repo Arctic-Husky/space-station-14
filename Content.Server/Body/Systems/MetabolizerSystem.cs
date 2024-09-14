@@ -190,8 +190,16 @@ namespace Content.Server.Body.Systems
                     }
 
                     var actualEntity = ent.Comp2?.Body ?? solutionEntityUid.Value;
+<<<<<<< HEAD
                     var args = new ReagentEffectArgs(actualEntity, ent, solution, proto, mostToRemove,
                         EntityManager, null, scale);
+=======
+                    var ev = new TryMetabolizeReagent(reagent, proto, quantity);
+                    RaiseLocalEvent(actualEntity, ref ev);
+
+                    var args = new ReagentEffectArgs(actualEntity, ent, solution, proto, mostToRemove,
+                        EntityManager, null, scale * ev.Scale, ev.QuantityMultiplier);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                     // do all effects, if conditions apply
                     foreach (var effect in entry.Effects)
@@ -251,3 +259,6 @@ namespace Content.Server.Body.Systems
         public readonly bool Apply = Apply;
     }
 }
+
+[ByRefEvent]
+public record struct TryMetabolizeReagent(ReagentId Reagent, ReagentPrototype Prototype, FixedPoint2 Quantity, float Scale = 1f, float QuantityMultiplier = 1f);

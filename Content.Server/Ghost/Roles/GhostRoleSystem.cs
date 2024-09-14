@@ -24,7 +24,10 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
+<<<<<<< HEAD
 using Robust.Shared.Prototypes;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -35,7 +38,7 @@ using Robust.Shared.Collections;
 namespace Content.Server.Ghost.Roles
 {
     [UsedImplicitly]
-    public sealed class GhostRoleSystem : EntitySystem
+    public sealed partial class GhostRoleSystem : EntitySystem // Converted to partial to allow for DeltaV character ghost roles
     {
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -51,10 +54,14 @@ namespace Content.Server.Ghost.Roles
 
         private uint _nextRoleIdentifier;
         private bool _needsUpdateGhostRoleCount = true;
+<<<<<<< HEAD
 
         private readonly Dictionary<uint, Entity<GhostRoleComponent>> _ghostRoles = new();
         private readonly Dictionary<uint, Entity<GhostRoleRaffleComponent>> _ghostRoleRaffles = new();
 
+=======
+        private readonly Dictionary<uint, Entity<GhostRoleComponent>> _ghostRoles = new();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         private readonly Dictionary<ICommonSession, GhostRolesEui> _openUis = new();
         private readonly Dictionary<ICommonSession, MakeGhostRoleEui> _openMakeGhostRoleUis = new();
 
@@ -71,15 +78,24 @@ namespace Content.Server.Ghost.Roles
             SubscribeLocalEvent<GhostTakeoverAvailableComponent, MindRemovedMessage>(OnMindRemoved);
             SubscribeLocalEvent<GhostTakeoverAvailableComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<GhostRoleComponent, MapInitEvent>(OnMapInit);
+<<<<<<< HEAD
             SubscribeLocalEvent<GhostRoleComponent, ComponentStartup>(OnRoleStartup);
             SubscribeLocalEvent<GhostRoleComponent, ComponentShutdown>(OnRoleShutdown);
+=======
+            SubscribeLocalEvent<GhostRoleComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<GhostRoleComponent, ComponentShutdown>(OnShutdown);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             SubscribeLocalEvent<GhostRoleComponent, EntityPausedEvent>(OnPaused);
             SubscribeLocalEvent<GhostRoleComponent, EntityUnpausedEvent>(OnUnpaused);
             SubscribeLocalEvent<GhostRoleRaffleComponent, ComponentInit>(OnRaffleInit);
             SubscribeLocalEvent<GhostRoleRaffleComponent, ComponentShutdown>(OnRaffleShutdown);
             SubscribeLocalEvent<GhostRoleMobSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeRole);
             SubscribeLocalEvent<GhostTakeoverAvailableComponent, TakeGhostRoleEvent>(OnTakeoverTakeRole);
+<<<<<<< HEAD
             SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GetVerbsEvent<Verb>>(OnVerb);
+=======
+            SubscribeLocalEvent<GhostRoleCharacterSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeCharacter); // DeltaV - Character ghost roles, see Content.Server/DeltaV/Ghost/Roles/GhostRoleSystem.Character.cs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _playerManager.PlayerStatusChanged += PlayerStatusChanged;
         }
 
@@ -91,11 +107,19 @@ namespace Content.Server.Ghost.Roles
             switch (args.NewMobState)
             {
                 case MobState.Alive:
+<<<<<<< HEAD
                     {
                         if (!ghostRole.Taken)
                             RegisterGhostRole((component, ghostRole));
                         break;
                     }
+=======
+                {
+                    if (!ghostRole.Taken)
+                        RegisterGhostRole((component, ghostRole));
+                    break;
+                }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 case MobState.Critical:
                 case MobState.Dead:
                     UnregisterGhostRole((component, ghostRole));
@@ -192,7 +216,16 @@ namespace Content.Server.Ghost.Roles
             var response = new GhostUpdateGhostRoleCountEvent(GetGhostRoleCount());
             foreach (var player in _playerManager.Sessions)
             {
+<<<<<<< HEAD
                 RaiseNetworkEvent(response, player.Channel);
+=======
+                _needsUpdateGhostRoleCount = false;
+                var response = new GhostUpdateGhostRoleCountEvent(GetGhostRolesInfo().Length);
+                foreach (var player in _playerManager.Sessions)
+                {
+                    RaiseNetworkEvent(response, player.Channel);
+                }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -293,11 +326,14 @@ namespace Content.Server.Ghost.Roles
             {
                 var response = new GhostUpdateGhostRoleCountEvent(_ghostRoles.Count);
                 RaiseNetworkEvent(response, args.Session.Channel);
+<<<<<<< HEAD
             }
             else
             {
                 // people who disconnect are removed from ghost role raffles
                 LeaveAllRaffles(args.Session);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -307,11 +343,25 @@ namespace Content.Server.Ghost.Roles
                 return;
 
             _ghostRoles[role.Comp.Identifier = GetNextRoleIdentifier()] = role;
+<<<<<<< HEAD
+=======
             UpdateAllEui();
         }
 
         public void UnregisterGhostRole(Entity<GhostRoleComponent> role)
         {
+            var comp = role.Comp;
+            if (!_ghostRoles.ContainsKey(comp.Identifier) || _ghostRoles[comp.Identifier] != role)
+                return;
+
+            _ghostRoles.Remove(comp.Identifier);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+            UpdateAllEui();
+        }
+
+        public void UnregisterGhostRole(Entity<GhostRoleComponent> role)
+        {
+<<<<<<< HEAD
             var comp = role.Comp;
             if (!_ghostRoles.ContainsKey(comp.Identifier) || _ghostRoles[comp.Identifier] != role)
                 return;
@@ -469,12 +519,20 @@ namespace Content.Server.Ghost.Roles
         {
             if (!_ghostRoles.TryGetValue(identifier, out var role))
                 return false;
+=======
+            if (!_ghostRoles.TryGetValue(identifier, out var role))
+                return;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             var ev = new TakeGhostRoleEvent(player);
             RaiseLocalEvent(role, ref ev);
 
             if (!ev.TookRole)
+<<<<<<< HEAD
                 return false;
+=======
+                return;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             if (player.AttachedEntity != null)
                 _adminLogger.Add(LogType.GhostRoleTaken, LogImpact.Low, $"{player:player} took the {role.Comp.RoleName:roleName} ghost role {ToPrettyString(player.AttachedEntity.Value):entity}");
@@ -534,6 +592,7 @@ namespace Content.Server.Ghost.Roles
                 if (metaQuery.GetComponent(uid).EntityPaused)
                     continue;
 
+<<<<<<< HEAD
 
                 var kind = GhostRoleKind.FirstComeFirstServe;
                 GhostRoleRaffleComponent? raffle = null;
@@ -568,6 +627,9 @@ namespace Content.Server.Ghost.Roles
                     RafflePlayerCount = rafflePlayerCount,
                     RaffleEndTime = raffleEndTime
                 });
+=======
+                roles.Add(new GhostRoleInfo {Identifier = id, Name = role.RoleName, Description = role.RoleDescription, Rules = role.RoleRules, Requirements = role.Requirements});
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             return roles.ToArray();
@@ -582,10 +644,13 @@ namespace Content.Server.Ghost.Roles
             if (HasComp<GhostComponent>(message.Entity))
                 return;
 
+<<<<<<< HEAD
             // The player is not a ghost (anymore), so they should not be in any raffles. Remove them.
             // This ensures player doesn't win a raffle after returning to their (revived) body and ends up being
             // forced into a ghost role.
             LeaveAllRaffles(message.Player);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             CloseEui(message.Player);
         }
 
@@ -646,12 +711,20 @@ namespace Content.Server.Ghost.Roles
                 RemCompDeferred<GhostRoleComponent>(ent);
         }
 
+<<<<<<< HEAD
         private void OnRoleStartup(Entity<GhostRoleComponent> ent, ref ComponentStartup args)
+=======
+        private void OnStartup(Entity<GhostRoleComponent> ent, ref ComponentStartup args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             RegisterGhostRole(ent);
         }
 
+<<<<<<< HEAD
         private void OnRoleShutdown(Entity<GhostRoleComponent> role, ref ComponentShutdown args)
+=======
+        private void OnShutdown(Entity<GhostRoleComponent> role, ref ComponentShutdown args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             UnregisterGhostRole(role);
         }
@@ -798,8 +871,13 @@ namespace Content.Server.Ghost.Roles
         public string Help => $"{Command}";
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
+<<<<<<< HEAD
             if (shell.Player != null)
                 _e.System<GhostRoleSystem>().OpenEui(shell.Player);
+=======
+            if(shell.Player != null)
+                EntitySystem.Get<GhostRoleSystem>().OpenEui(shell.Player);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             else
                 shell.WriteLine("You can only open the ghost roles UI on a client.");
         }

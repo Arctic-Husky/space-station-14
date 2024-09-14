@@ -26,6 +26,10 @@ public abstract class SharedMindSystem : EntitySystem
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedPlayerSystem _player = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [ViewVariables]
     protected readonly Dictionary<NetUserId, EntityUid> UserMinds = new();
@@ -353,6 +357,7 @@ public abstract class SharedMindSystem : EntitySystem
         mind.Objectives.Remove(objective);
         Del(objective);
         return true;
+<<<<<<< HEAD
     }
 
     public bool TryGetObjectiveComp<T>(EntityUid uid, [NotNullWhen(true)] out T? objective) where T : IComponent
@@ -403,6 +408,35 @@ public abstract class SharedMindSystem : EntitySystem
             }
         }
 
+        return false;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+    }
+
+    public bool TryGetObjectiveComp<T>(EntityUid uid, [NotNullWhen(true)] out T? objective) where T : IComponent
+    {
+        if (TryGetMind(uid, out var mindId, out var mind) && TryGetObjectiveComp(mindId, out objective, mind))
+        {
+            return true;
+        }
+        objective = default;
+        return false;
+    }
+
+    public bool TryGetObjectiveComp<T>(EntityUid mindId, [NotNullWhen(true)] out T? objective, MindComponent? mind = null) where T : IComponent
+    {
+        if (Resolve(mindId, ref mind))
+        {
+            var query = GetEntityQuery<T>();
+            foreach (var uid in mind.AllObjectives)
+            {
+                if (query.TryGetComponent(uid, out objective))
+                {
+                    return true;
+                }
+            }
+        }
+        objective = default;
         return false;
     }
 

@@ -45,7 +45,12 @@ public sealed class BurialSystem : EntitySystem
         {
             var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.DigDelay / shovel.SpeedModifier, new GraveDiggingDoAfterEvent(), uid, target: args.Target, used: uid)
             {
+<<<<<<< HEAD
                 BreakOnMove = true,
+=======
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 BreakOnDamage = true,
                 NeedHand = true,
                 BreakOnHandChange = true
@@ -164,7 +169,12 @@ public sealed class BurialSystem : EntitySystem
         var doAfterEventArgs = new DoAfterArgs(EntityManager, args.Entity, component.DigDelay / component.DigOutByHandModifier, new GraveDiggingDoAfterEvent(), uid, target: uid)
         {
             NeedHand = false,
+<<<<<<< HEAD
             BreakOnMove = true,
+=======
+            BreakOnUserMove = true,
+            BreakOnTargetMove = false,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             BreakOnHandChange = false,
             BreakOnDamage = false
         };

@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Sprites by Flareguy & cboyjet, heavily edited from space suit sprites found in https://github.com/tgstation/tgstation/commit/fb2d71495bfe81446159ef528534193d09dd8d34",
+=======
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/5a73e8f825ff279e82949b9329783a9e3070e2da & modified glass color by Will Oliver",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   "size": {
     "x": 32,
     "y": 32
@@ -11,7 +15,15 @@
       "name": "icon"
     },
     {
+<<<<<<< HEAD
       "name": "equipped-OUTERCLOTHING",
+=======
+<<<<<<<< HEAD:Resources/Textures/EstacaoPirata/Clothing/Eyes/Glasses/oculosazuis.rsi/meta.json
+      "name": "equipped-EYES",
+========
+      "name": "equipped-OUTERCLOTHING",
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Textures/Clothing/OuterClothing/Vests/blueshield.rsi/meta.json
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       "directions": 4
     },
     {

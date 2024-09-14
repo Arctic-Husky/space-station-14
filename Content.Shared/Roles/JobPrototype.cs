@@ -1,4 +1,5 @@
 using Content.Shared.Access;
+using Content.Shared.Customization.Systems;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
@@ -43,7 +44,7 @@ namespace Content.Shared.Roles
         public string? LocalizedDescription => Description is null ? null : Loc.GetString(Description);
 
         [DataField("requirements")]
-        public HashSet<JobRequirement>? Requirements;
+        public List<CharacterRequirement>? Requirements;
 
         [DataField("joinNotifyCrew")]
         public bool JoinNotifyCrew { get; private set; } = false;
@@ -63,6 +64,12 @@ namespace Content.Shared.Roles
 
         [DataField("canBeAntag")]
         public bool CanBeAntag { get; private set; } = true;
+
+        /// <summary>
+        /// Nyano/DV: For e.g. prisoners, they'll never use their latejoin spawner.
+        /// </summary>
+        [DataField("alwaysUseSpawner")]
+        public bool AlwaysUseSpawner { get; } = false;
 
         /// <summary>
         ///     Whether this job is a head.

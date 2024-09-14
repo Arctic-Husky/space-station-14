@@ -77,7 +77,11 @@ public sealed class MagnetPickupSystem : EntitySystem
                 // the problem is that stack pickups delete the original entity, which is fine, but due to
                 // game state handling we can't show a lerp animation for it.
                 var nearXform = Transform(near);
+<<<<<<< HEAD
                 var nearMap = _transform.GetMapCoordinates(near, xform: nearXform);
+=======
+                var nearMap = nearXform.MapPosition;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 var nearCoords = EntityCoordinates.FromMap(moverCoords.EntityId, nearMap, _transform, EntityManager);
 
                 if (!_storage.Insert(uid, near, out var stacked, storageComp: storage, playSound: !playedSound))

@@ -4,8 +4,11 @@ using Content.Shared.UserInterface;
 using JetBrains.Annotations;
 using Content.Shared.Wires;
 using Content.Server.UserInterface;
+<<<<<<< HEAD
 using Content.Shared.Power.Components;
 using ActivatableUISystem = Content.Shared.UserInterface.ActivatableUISystem;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Power.EntitySystems;
 

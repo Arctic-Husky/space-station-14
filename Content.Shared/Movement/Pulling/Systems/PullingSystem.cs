@@ -13,7 +13,10 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Pulling.Events;
+<<<<<<< HEAD
 using Content.Shared.Standing;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
@@ -63,7 +66,10 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, EntityUnpausedEvent>(OnPullerUnpaused);
         SubscribeLocalEvent<PullerComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<PullerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
+<<<<<<< HEAD
         SubscribeLocalEvent<PullerComponent, DropHandItemsEvent>(OnDropHandItems);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.MovePulledObject, new PointerInputCmdHandler(OnRequestMovePulledObject))
@@ -71,6 +77,7 @@ public sealed class PullingSystem : EntitySystem
             .Register<PullingSystem>();
     }
 
+<<<<<<< HEAD
     private void OnDropHandItems(EntityUid uid, PullerComponent pullerComp, DropHandItemsEvent args)
     {
         if (pullerComp.Pulling == null || pullerComp.NeedsHands)
@@ -82,6 +89,8 @@ public sealed class PullingSystem : EntitySystem
         TryStopPull(pullerComp.Pulling.Value, pullableComp, uid);
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     private void OnPullerContainerInsert(Entity<PullerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
         if (ent.Comp.Pulling == null) return;

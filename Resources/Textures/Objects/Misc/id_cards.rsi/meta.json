@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e idcluwne made by brainfood1183 (github) for ss14, idbrigmedic made by PuroSlavKing (Github), pirate made by brainfood1183 (github)",
@@ -261,4 +262,211 @@
       "directions": 4
     }
   ]
+=======
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation // Icon Edit by FoxxoTrystan",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "default"
+        },
+        {
+            "name": "centcom"
+        },
+        {
+            "name": "gold"
+        },
+        {
+            "name": "silver"
+        },
+        {
+            "name": "rainbow"
+        },
+        {
+            "name": "prisoner"
+        },
+        {
+            "name": "flame"
+        },
+        {
+            "name": "rpg"
+        },
+        {
+            "name": "carp"
+        },
+        {
+            "name": "black"
+        },
+        {
+            "name": "department"
+        },
+        {
+            "name": "departmenthead"
+        },
+        {
+            "name": "subdepartment"
+        },
+        {
+            "name": "captain"
+        },
+        {
+            "name": "passenger"
+        },
+        {
+            "name": "assistant"
+        },
+        {
+            "name": "securityofficer"
+        },
+        {
+            "name": "warden"
+        },
+        {
+            "name": "stationengineer"
+        },
+        {
+            "name": "medicaldoctor"
+        },
+        {
+            "name": "paramedic"
+        },
+        {
+            "name": "chemist"
+        },
+        {
+            "name": "cargotechnician"
+        },
+        {
+            "name": "shaftminer"
+        },
+        {
+            "name": "scientist"
+        },
+        {
+            "name": "clown"
+        },
+        {
+            "name": "mime"
+        },
+        {
+            "name": "chaplain"
+        },
+        {
+            "name": "janitor"
+        },
+        {
+            "name": "bartender"
+        },
+        {
+            "name": "cook"
+        },
+        {
+            "name": "botanist"
+        },
+        {
+            "name": "curator"
+        },
+        {
+            "name": "lawyer"
+        },
+        {
+            "name": "headofpersonnel"
+        },
+        {
+            "name": "cc"
+        },
+        {
+            "name": "musician"
+        },
+        {
+            "name": "death"
+        },
+        {
+            "name": "roboticist"
+        },
+        {
+            "name": "atmospherictechnician"
+        },
+        {
+            "name": "syndicate"
+        },
+        {
+            "name": "geneticist"
+        },
+        {
+            "name": "zookeeper"
+        },
+        {
+            "name": "detective"
+        },
+        {
+            "name": "senior"
+        },
+        {
+            "name": "mailcarrier"
+        },
+        {
+            "name": "prisonguard"
+        },
+        {
+            "name": "psychologist"
+        },
+        {
+            "name": "boxer"
+        },
+        {
+            "name": "gladiator"
+        },
+        {
+            "name": "martialartist"
+        },
+	{
+	    "name": "blueshield"
+	},
+        {
+            "name": "gold-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "gold-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "default-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "default-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "silver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "silver-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "orange-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "orange-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "blue-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "blue-inhand-right",
+            "directions": 4
+        }
+    ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

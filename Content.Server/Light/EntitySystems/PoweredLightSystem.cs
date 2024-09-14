@@ -8,7 +8,10 @@ using Content.Server.Emp;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Power.Components;
+<<<<<<< HEAD
 using Content.Server.Time;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -47,10 +50,13 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly PointLightSystem _pointLight = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
+<<<<<<< HEAD
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
         private DayCycleSystem? _cycleSystem;
 
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(2);
         public const string LightBulbContainer = "light_bulb";

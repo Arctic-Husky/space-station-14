@@ -3,7 +3,7 @@ namespace Content.Shared.Chat
     /// <summary>
     ///     Represents chat channels that the player can filter chat tabs by.
     /// </summary>
-    [Flags]
+    [Flags, Serializable]
     public enum ChatChannel : ushort
     {
         None = 0,
@@ -84,11 +84,23 @@ namespace Content.Shared.Chat
         ///     Unspecified.
         /// </summary>
         Unspecified = 1 << 14,
+<<<<<<< HEAD
+=======
+
+        /// <summary>
+        ///     Nyano - Summary:: Telepathic channel for all psionic entities.
+        /// </summary>
+        Telepathic = 1 << 15,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
+<<<<<<< HEAD
         IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications,
+=======
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | Notifications, //Nyano - Summary: Adds telepathic as an 'IC' labelled chat..
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

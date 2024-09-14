@@ -12,5 +12,8 @@
     - type: Tag
       tags:
       - FirelockElectronics
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - FirelockElectronics
     - type: StaticPrice
       price: 61

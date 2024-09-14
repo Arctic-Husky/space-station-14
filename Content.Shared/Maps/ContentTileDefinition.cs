@@ -45,6 +45,13 @@ namespace Content.Shared.Maps
         [DataField]
         public PrototypeFlags<ToolQualityPrototype> DeconstructTools { get; set; } = new();
 
+<<<<<<< HEAD
+=======
+        // Delta V
+        [DataField("canShovel")] public bool CanShovel { get; private set; }
+        //Delta V
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         /// <remarks>
         /// Legacy AF but nice to have.
         /// </remarks>
@@ -117,5 +124,11 @@ namespace Content.Shared.Maps
         {
             TileId = id;
         }
+
+        [DataField]
+        public bool Reinforced = false;
+
+        [DataField]
+        public float TileRipResistance = 125f;
     }
 }

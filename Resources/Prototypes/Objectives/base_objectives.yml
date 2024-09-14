@@ -103,6 +103,7 @@
   id: BaseSurviveObjective
   components:
   - type: SurviveCondition
+<<<<<<< HEAD
 
 # objective progress is controlled by a system and not the objective itself
 - type: entity
@@ -111,3 +112,5 @@
   id: BaseCodeObjective
   components:
   - type: CodeCondition
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -3,6 +3,10 @@ using Content.Client.Actions.UI;
 using Content.Client.Cooldown;
 using Content.Shared.Alert;
 using Robust.Client.GameObjects;
+<<<<<<< HEAD
+=======
+using Robust.Client.Graphics;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
@@ -117,8 +121,12 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
         {
             base.Dispose(disposing);
 
+<<<<<<< HEAD
             if (!_entityManager.Deleted(_spriteViewEntity))
                 _entityManager.QueueDeleteEntity(_spriteViewEntity);
+=======
+            _entityManager.DeleteEntity(_spriteViewEntity);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 

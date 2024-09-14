@@ -6,6 +6,7 @@ using Content.Server.Nutrition.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
+using Content.Server.Traits.Assorted.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
@@ -31,7 +32,12 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 using System.Linq;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
+=======
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -53,10 +59,17 @@ public sealed class FoodSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+<<<<<<< HEAD
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly UtensilSystem _utensil = default!;
+=======
+    [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly UtensilSystem _utensil = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public const float MaxFeedDistance = 1.0f;
 
@@ -152,7 +165,11 @@ public sealed class FoodSystem : EntitySystem
             return (false, true);
 
         // TODO make do-afters account for fixtures in the range check.
+<<<<<<< HEAD
         if (!_transform.GetMapCoordinates(user).InRange(_transform.GetMapCoordinates(target), MaxFeedDistance))
+=======
+        if (!Transform(user).MapPosition.InRange(Transform(target).MapPosition, MaxFeedDistance))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             var message = Loc.GetString("interaction-system-user-interaction-cannot-reach");
             _popup.PopupEntity(message, user, user);
@@ -175,16 +192,32 @@ public sealed class FoodSystem : EntitySystem
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(target):target} is eating {ToPrettyString(food):food} {SolutionContainerSystem.ToPrettyString(foodSolution)}");
         }
 
+<<<<<<< HEAD
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
             forceFeed ? foodComp.ForceFeedDelay : foodComp.Delay,
+=======
+        var foodDelay = foodComp.Delay;
+        if (TryComp<ConsumeDelayModifierComponent>(target, out var delayModifier))
+            foodDelay *= delayModifier.FoodDelayMultiplier;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager,
+            user,
+            forceFeed ? foodComp.ForceFeedDelay : foodDelay,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             new ConsumeDoAfterEvent(foodComp.Solution, flavors),
             eventTarget: food,
             target: target,
             used: food)
         {
+<<<<<<< HEAD
             BreakOnMove = forceFeed,
             BreakOnDamage = true,
+=======
+            BreakOnUserMove = forceFeed,
+            BreakOnDamage = true,
+            BreakOnTargetMove = forceFeed,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             MovementThreshold = 0.01f,
             DistanceThreshold = MaxFeedDistance,
             // Mice and the like can eat without hands.
@@ -288,7 +321,11 @@ public sealed class FoodSystem : EntitySystem
             _utensil.TryBreak(utensil, args.User);
         }
 
+<<<<<<< HEAD
         args.Repeat = !forceFeed;
+=======
+        args.Repeat = _config.GetCVar(CCVars.GameAutoEatFood) && !forceFeed;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (TryComp<StackComponent>(entity, out var stack))
         {
@@ -327,7 +364,11 @@ public sealed class FoodSystem : EntitySystem
         }
 
         //We're empty. Become trash.
+<<<<<<< HEAD
         var position = _transform.GetMapCoordinates(food);
+=======
+        var position = Transform(food).MapPosition;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var finisher = Spawn(component.Trash, position);
 
         // If the user is holding the item

@@ -9,6 +9,18 @@
 
 - type: ambientMusic
   id: SpookyFog
+<<<<<<< HEAD
+=======
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceSpookyFog
+  rules: NearSpookyFog
+  priority: 5
+
+- type: ambientMusic
+  id: Holy
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   sound:
     params:
       volume: -12
@@ -203,7 +215,11 @@
     - /Audio/Ambience/spookyspace1.ogg
     - /Audio/Ambience/spookyspace2.ogg
     - /Audio/Ambience/ambispace2.ogg
+<<<<<<< HEAD
     - /Audio/Lobby/title2.ogg
+=======
+#    - /Audio/Lobby/title2.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: soundCollection
   id: AmbienceSpooky

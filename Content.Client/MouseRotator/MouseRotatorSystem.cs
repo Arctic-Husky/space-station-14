@@ -2,7 +2,10 @@
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+<<<<<<< HEAD
 using Robust.Client.Replays.Loading;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -38,7 +41,11 @@ public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
         if (mapPos.MapId == MapId.Nullspace)
             return;
 
+<<<<<<< HEAD
         var angle = (mapPos.Position - _transform.GetMapCoordinates(player.Value, xform: xform).Position).ToWorldAngle();
+=======
+        var angle = (mapPos.Position - xform.MapPosition.Position).ToWorldAngle();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         var curRot = _transform.GetWorldRotation(xform);
 
@@ -50,7 +57,11 @@ public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
             if (angleDir == curRot.GetCardinalDir())
                 return;
 
+<<<<<<< HEAD
             RaisePredictiveEvent(new RequestMouseRotatorRotationSimpleEvent()
+=======
+            RaisePredictiveEvent(new  RequestMouseRotatorRotationSimpleEvent()
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 Direction = angleDir,
             });

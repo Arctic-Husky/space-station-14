@@ -25,4 +25,8 @@ forensic-scanner-verb-message = Faça uma varredura forense
 forensic-pad-fingerprint-name = impressões digitais de {$entity}
 forensic-pad-gloves-name = fibras de {$entity}
 
+<<<<<<< HEAD
 forensics-cleaning = Você começa a limpar as evidências de {THE($target)}...
+=======
+forensics-cleaning = Você começa a limpar as evidências de {THE($target)}...
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

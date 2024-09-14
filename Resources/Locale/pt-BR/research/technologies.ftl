@@ -16,6 +16,10 @@ research-technology-shuttlecraft = Construção de naves
 research-technology-ripley-aplu = Ripley APLU
 research-technology-advanced-atmospherics = Tecnologias Advançado de Ar
 research-technology-advanced-tools = Ferramentas Avançadas
+<<<<<<< HEAD
+=======
+research-technology-mechanized-salvaging = Salvaging mecanizada
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 research-technology-super-powercells = Super Baterias
 research-technology-bluespace-storage = Armazenamento Bluespace
 research-technology-portable-fission = Fissão Portátil

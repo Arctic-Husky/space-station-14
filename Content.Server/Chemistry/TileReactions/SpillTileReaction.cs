@@ -25,6 +25,14 @@ namespace Content.Server.Chemistry.TileReactions
         /// <see cref="SlipperyComponent.SuperSlippery"/>
         /// </summary>
         [DataField("superSlippery")] private bool _superSlippery;
+<<<<<<< HEAD
+=======
+
+        public FixedPoint2 TileReact(TileRef tile, ReagentPrototype reagent, FixedPoint2 reactVolume)
+        {
+            if (reactVolume < 5)
+                return FixedPoint2.Zero;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public FixedPoint2 TileReact(TileRef tile,
             ReagentPrototype reagent,

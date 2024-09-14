@@ -10,9 +10,10 @@
   id: Armory
   name: id-card-access-level-armory
 
-- type: accessLevel
-  id: Brig
-  name: id-card-access-level-brig
+# Delta V: Removes Brig access because redundant
+#- type: accessLevel
+#  id: Brig
+#  name: id-card-access-level-brig
 
 - type: accessLevel
   id: Detective
@@ -24,13 +25,17 @@
   - HeadOfSecurity
   - Security
   - Armory
-  - Brig
+  #- Brig #Delta V removed
   - Detective
   - Cryogenics
+<<<<<<< HEAD
+=======
+  - Corpsman # DeltaV - add Corpsman access
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: accessGroup
   id: Armory
   tags:
   - Security
   - Armory
-  - Brig
+  # Brig #Delta V removed

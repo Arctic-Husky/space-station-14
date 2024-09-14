@@ -42,7 +42,11 @@ public sealed class MakeGhostRoleEui : BaseEui
         _window.OpenCentered();
     }
 
+<<<<<<< HEAD
     private void OnMake(NetEntity entity, string name, string description, string rules, bool makeSentient, GhostRoleRaffleSettings? raffleSettings)
+=======
+    private void OnMake(NetEntity entity, string name, string description, string rules, bool makeSentient)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         var session = _playerManager.LocalSession;
         if (session == null)
@@ -50,6 +54,7 @@ public sealed class MakeGhostRoleEui : BaseEui
             return;
         }
 
+<<<<<<< HEAD
         var command = raffleSettings is not null ? "makeghostroleraffled" : "makeghostrole";
 
         var makeGhostRoleCommand =
@@ -75,6 +80,23 @@ public sealed class MakeGhostRoleEui : BaseEui
             _consoleHost.ExecuteCommand(session, makeSentientCommand);
         }
 
+=======
+        var makeGhostRoleCommand =
+            $"makeghostrole " +
+            $"\"{CommandParsing.Escape(entity.ToString())}\" " +
+            $"\"{CommandParsing.Escape(name)}\" " +
+            $"\"{CommandParsing.Escape(description)}\" " +
+            $"\"{CommandParsing.Escape(rules)}\"";
+
+        _consoleHost.ExecuteCommand(session, makeGhostRoleCommand);
+
+        if (makeSentient)
+        {
+            var makeSentientCommand = $"makesentient \"{CommandParsing.Escape(entity.ToString())}\"";
+            _consoleHost.ExecuteCommand(session, makeSentientCommand);
+        }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _window.Close();
     }
 

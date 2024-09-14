@@ -9,7 +9,11 @@
       layers:
       - state: paper_blood
       - state: cover_strong
+<<<<<<< HEAD
         color: "#645a5a"
+=======
+        color: "#645a5a" 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - state: decor_wingette_flat
         color: "#4d0303"
       - state: icon_pentagramm
@@ -18,6 +22,12 @@
     - type: Tag
       tags:
       - Spellbook
+    - type: EmitSoundOnPickup
+      sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+    - type: EmitSoundOnDrop
+      sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+    - type: EmitSoundOnLand
+      sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
 
 # For the Wizard Antag
 # Do not add discounts or price inflation
@@ -70,7 +80,11 @@
   parent: BaseSpellbook
   components:
     - type: Spellbook
+<<<<<<< HEAD
       spellActions:
+=======
+      spells:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         ActionSpawnMagicarpSpell: -1
 
 - type: entity
@@ -137,7 +151,11 @@
         color: red
       - state: overlay_blood
     - type: Spellbook
+<<<<<<< HEAD
       spellActions:
+=======
+      spells:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         ActionSmite: -1
 
 - type: entity
@@ -183,7 +201,11 @@
       - state: icon_magic_fireball
         shader: unshaded
     - type: Spellbook
+<<<<<<< HEAD
       spellActions:
+=======
+      spells:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         ActionFireball: -1
 
 - type: entity
@@ -198,7 +220,11 @@
     layers:
     - state: spell_default
   - type: Spellbook
+<<<<<<< HEAD
     spellActions:
+=======
+    spells:
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       ActionFlashRune: -1
       ActionExplosionRune: -1
       ActionIgniteRune: -1

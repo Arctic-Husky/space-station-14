@@ -99,7 +99,11 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
                 _point.AdjustPointValue(assist.PlayerId, 1, uid, point);
 
             var spawns = EntitySpawnCollection.GetSpawns(dm.RewardSpawns).Cast<string?>().ToList();
+<<<<<<< HEAD
             EntityManager.SpawnEntities(_transform.GetMapCoordinates(ev.Entity), spawns);
+=======
+            EntityManager.SpawnEntities(Transform(ev.Entity).MapPosition, spawns);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 

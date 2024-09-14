@@ -22,6 +22,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Server.Announcements.Systems;
 
 namespace Content.Server.RoundEnd
 {
@@ -42,6 +43,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly EmergencyShuttleSystem _shuttle = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!;
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -188,6 +190,7 @@ namespace Content.Server.RoundEnd
                 units = "eta-units-minutes";
             }
 
+<<<<<<< HEAD
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(text,
                 ("time", time),
                 ("units", Loc.GetString(units))),
@@ -197,6 +200,18 @@ namespace Content.Server.RoundEnd
                 Color.Gold);
 
             _audio.PlayGlobal("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast(), true);
+=======
+            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"),
+                Filter.Broadcast(),
+                text,
+                name,
+                Color.Gold,
+                null,
+                null,
+                ("time", time),
+                    ("units", Loc.GetString(units))
+            );
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
@@ -231,6 +246,7 @@ namespace Content.Server.RoundEnd
                 };
                 _deviceNetworkSystem.QueuePacket(shuttle.Value, null, payload, net.TransmitFrequency);
             }
+<<<<<<< HEAD
         }
 
         private void ShuttleWarning()
@@ -240,6 +256,8 @@ namespace Content.Server.RoundEnd
                 false,
                 null,
                 Color.Gold);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         public void CancelRoundEndCountdown(EntityUid? requester = null, bool checkCooldown = true)
@@ -260,10 +278,20 @@ namespace Content.Server.RoundEnd
                 _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled");
             }
 
+<<<<<<< HEAD
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
                 Loc.GetString("Station"), false, colorOverride: Color.Gold);
 
             _audio.PlayGlobal("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true);
+=======
+            _announcer.SendAnnouncement(
+                _announcer.GetAnnouncementId("ShuttleRecalled"),
+                Filter.Broadcast(),
+                "round-end-system-shuttle-recalled-announcement",
+                Loc.GetString("Station"),
+                Color.Gold
+            );
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
@@ -342,9 +370,19 @@ namespace Content.Server.RoundEnd
                     // Check is shuttle called or not. We should only dispatch announcement if it's already called
                     if (IsRoundEndRequested())
                     {
+<<<<<<< HEAD
                         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(textAnnounce),
                             Loc.GetString(sender),
                             colorOverride: Color.Gold);
+=======
+                        _announcer.SendAnnouncement(
+                            _announcer.GetAnnouncementId("ShuttleCalled"),
+                            Filter.Broadcast(),
+                            textAnnounce,
+                            Loc.GetString(sender),
+                            Color.Gold
+                        );
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                     }
                     else
                     {

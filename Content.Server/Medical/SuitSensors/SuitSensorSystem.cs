@@ -40,8 +40,13 @@ public sealed class SuitSensorSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
         SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
+<<<<<<< HEAD
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
+=======
+        SubscribeLocalEvent<SuitSensorComponent, GotEquippedEvent>(OnEquipped);
+        SubscribeLocalEvent<SuitSensorComponent, GotUnequippedEvent>(OnUnequipped);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         SubscribeLocalEvent<SuitSensorComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SuitSensorComponent, GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<SuitSensorComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
@@ -72,6 +77,14 @@ public sealed class SuitSensorSystem : EntitySystem
             // TODO: This would cause imprecision at different tick rates.
             sensor.NextUpdate = curTime + sensor.UpdateRate;
 
+<<<<<<< HEAD
+=======
+            var canEv = new SuitSensorsSendAttemptEvent();
+            RaiseLocalEvent(uid, ref canEv);
+            if (canEv.Cancelled)
+                continue;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             // get sensor status
             var status = GetSensorState(uid, sensor);
             if (status == null)
@@ -160,6 +173,7 @@ public sealed class SuitSensorSystem : EntitySystem
         }
     }
 
+<<<<<<< HEAD
     private void OnEquipped(EntityUid uid, SuitSensorComponent component, ref ClothingGotEquippedEvent args)
     {
         component.User = args.Wearer;
@@ -167,6 +181,21 @@ public sealed class SuitSensorSystem : EntitySystem
 
     private void OnUnequipped(EntityUid uid, SuitSensorComponent component, ref ClothingGotUnequippedEvent args)
     {
+=======
+    private void OnEquipped(EntityUid uid, SuitSensorComponent component, GotEquippedEvent args)
+    {
+        if (args.Slot != component.ActivationSlot)
+            return;
+
+        component.User = args.Equipee;
+    }
+
+    private void OnUnequipped(EntityUid uid, SuitSensorComponent component, GotUnequippedEvent args)
+    {
+        if (args.Slot != component.ActivationSlot)
+            return;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         component.User = null;
     }
 

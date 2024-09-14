@@ -37,6 +37,7 @@ public sealed partial class JukeboxComponent : Component
 
     [ViewVariables]
     public float SelectAccumulator;
+<<<<<<< HEAD
 
     [ViewVariables, AutoNetworkedField]
     public float Volume = 50f;
@@ -45,6 +46,8 @@ public sealed partial class JukeboxComponent : Component
     public float MaxVolume = 0f;
     public float MinSlider = 0f;
     public float MaxSlider = 100f;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }
 
 [Serializable, NetSerializable]
@@ -69,12 +72,15 @@ public sealed class JukeboxSetTimeMessage(float songTime) : BoundUserInterfaceMe
 }
 
 [Serializable, NetSerializable]
+<<<<<<< HEAD
 public sealed class JukeboxSetVolumeMessage(float volume) : BoundUserInterfaceMessage
 {
     public float Volume { get; } = volume;
 }
 
 [Serializable, NetSerializable]
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 public enum JukeboxVisuals : byte
 {
     VisualState

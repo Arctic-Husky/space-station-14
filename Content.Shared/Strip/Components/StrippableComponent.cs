@@ -32,12 +32,20 @@ namespace Content.Shared.Strip.Components
     public sealed class StrippingEnsnareButtonPressed : BoundUserInterfaceMessage;
 
     [ByRefEvent]
+<<<<<<< HEAD
     public abstract class BaseBeforeStripEvent(TimeSpan initialTime, bool stealth = false) : EntityEventArgs, IInventoryRelayEvent
+=======
+    public abstract class BaseBeforeStripEvent(TimeSpan initialTime, ThievingStealth stealth = ThievingStealth.Obvious) : EntityEventArgs, IInventoryRelayEvent
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         public readonly TimeSpan InitialTime = initialTime;
         public float Multiplier = 1f;
         public TimeSpan Additive = TimeSpan.Zero;
+<<<<<<< HEAD
         public bool Stealth = stealth;
+=======
+        public ThievingStealth Stealth = stealth;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public TimeSpan Time => TimeSpan.FromSeconds(MathF.Max(InitialTime.Seconds * Multiplier + Additive.Seconds, 0f));
 
@@ -51,7 +59,11 @@ namespace Content.Shared.Strip.Components
     ///     This is also used by some stripping related interactions, i.e., interactions with items that are currently equipped by another player.
     /// </remarks>
     [ByRefEvent]
+<<<<<<< HEAD
     public sealed class BeforeStripEvent(TimeSpan initialTime, bool stealth = false) : BaseBeforeStripEvent(initialTime, stealth);
+=======
+    public sealed class BeforeStripEvent(TimeSpan initialTime, ThievingStealth stealth = ThievingStealth.Obvious) : BaseBeforeStripEvent(initialTime, stealth);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     ///     Used to modify strip times. Raised directed at the target.
@@ -60,7 +72,11 @@ namespace Content.Shared.Strip.Components
     ///     This is also used by some stripping related interactions, i.e., interactions with items that are currently equipped by another player.
     /// </remarks>
     [ByRefEvent]
+<<<<<<< HEAD
     public sealed class BeforeGettingStrippedEvent(TimeSpan initialTime, bool stealth = false) : BaseBeforeStripEvent(initialTime, stealth);
+=======
+    public sealed class BeforeGettingStrippedEvent(TimeSpan initialTime, ThievingStealth stealth = ThievingStealth.Obvious) : BaseBeforeStripEvent(initialTime, stealth);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     /// <summary>
     ///     Organizes the behavior of DoAfters for <see cref="StrippableSystem">.

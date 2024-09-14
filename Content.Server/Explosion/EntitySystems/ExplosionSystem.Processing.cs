@@ -1,5 +1,8 @@
 using System.Numerics;
+<<<<<<< HEAD
 using Content.Server.Atmos.EntitySystems;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
@@ -17,6 +20,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+<<<<<<< HEAD
+=======
+using Content.Server.Atmos.EntitySystems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -204,8 +211,12 @@ public sealed partial class ExplosionSystem
         DamageSpecifier damage,
         MapCoordinates epicenter,
         HashSet<EntityUid> processed,
+<<<<<<< HEAD
         string id,
         float? fireStacks)
+=======
+        string id)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         var size = grid.Comp.TileSize;
         var gridBox = new Box2(tile * size, (tile + 1) * size);
@@ -224,7 +235,11 @@ public sealed partial class ExplosionSystem
         // process those entities
         foreach (var (uid, xform) in list)
         {
+<<<<<<< HEAD
             ProcessEntity(uid, epicenter, damage, throwForce, id, xform, fireStacks);
+=======
+            ProcessEntity(uid, epicenter, damage, throwForce, id, xform);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         // process anchored entities
@@ -234,7 +249,11 @@ public sealed partial class ExplosionSystem
         foreach (var entity in _anchored)
         {
             processed.Add(entity);
+<<<<<<< HEAD
             ProcessEntity(entity, epicenter, damage, throwForce, id, null, fireStacks);
+=======
+            ProcessEntity(entity, epicenter, damage, throwForce, id, null);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         // Walls and reinforced walls will break into girders. These girders will also be considered turf-blocking for
@@ -270,7 +289,11 @@ public sealed partial class ExplosionSystem
         {
             // Here we only throw, no dealing damage. Containers n such might drop their entities after being destroyed, but
             // they should handle their own damage pass-through, with their own damage reduction calculation.
+<<<<<<< HEAD
             ProcessEntity(uid, epicenter, null, throwForce, id, xform, null);
+=======
+            ProcessEntity(uid, epicenter, null, throwForce, id, xform);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         return !tileBlocked;
@@ -305,8 +328,12 @@ public sealed partial class ExplosionSystem
         DamageSpecifier damage,
         MapCoordinates epicenter,
         HashSet<EntityUid> processed,
+<<<<<<< HEAD
         string id,
         float? fireStacks)
+=======
+        string id)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         var gridBox = Box2.FromDimensions(tile * DefaultTileSize, new Vector2(DefaultTileSize, DefaultTileSize));
         var worldBox = spaceMatrix.TransformBox(gridBox);
@@ -322,7 +349,11 @@ public sealed partial class ExplosionSystem
         foreach (var (uid, xform) in state.Item1)
         {
             processed.Add(uid);
+<<<<<<< HEAD
             ProcessEntity(uid, epicenter, damage, throwForce, id, xform, fireStacks);
+=======
+            ProcessEntity(uid, epicenter, damage, throwForce, id, xform);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         if (throwForce <= 0)
@@ -336,7 +367,11 @@ public sealed partial class ExplosionSystem
 
         foreach (var (uid, xform) in list)
         {
+<<<<<<< HEAD
             ProcessEntity(uid, epicenter, null, throwForce, id, xform, fireStacks);
+=======
+            ProcessEntity(uid, epicenter, null, throwForce, id, xform);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 
@@ -433,8 +468,12 @@ public sealed partial class ExplosionSystem
         DamageSpecifier? originalDamage,
         float throwForce,
         string id,
+<<<<<<< HEAD
         TransformComponent? xform,
         float? fireStacksOnIgnite)
+=======
+        TransformComponent? xform)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (originalDamage != null)
         {
@@ -443,6 +482,7 @@ public sealed partial class ExplosionSystem
             {
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
                 _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true);
+<<<<<<< HEAD
 
             }
         }
@@ -454,6 +494,8 @@ public sealed partial class ExplosionSystem
             {
                 flammable.FireStacks += fireStacksOnIgnite.Value;
                 _flammableSystem.Ignite(uid, uid, flammable);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -490,9 +532,13 @@ public sealed partial class ExplosionSystem
         if (_tileDefinitionManager[tileRef.Tile.TypeId] is not ContentTileDefinition tileDef)
             return;
 
+<<<<<<< HEAD
         if (!CanCreateVacuum)
             canCreateVacuum = false;
         else if (tileDef.MapAtmosphere)
+=======
+        if (tileDef.MapAtmosphere)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             canCreateVacuum = true; // is already a vacuum.
 
         int tileBreakages = 0;
@@ -722,14 +768,22 @@ sealed class Explosion
         {
             _currentIntensity = _tileSetIntensity[CurrentIteration];
 
+<<<<<<< HEAD
 #if DEBUG
+=======
+            #if DEBUG
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (_expectedDamage != null)
             {
                 // Check that explosion processing hasn't somehow accidentally mutated the damage set.
                 DebugTools.Assert(_expectedDamage.Equals(_currentDamage));
                 _expectedDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
             }
+<<<<<<< HEAD
 #endif
+=======
+            #endif
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             _currentDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
 
@@ -828,8 +882,12 @@ sealed class Explosion
                     _currentDamage,
                     Epicenter,
                     ProcessedEntities,
+<<<<<<< HEAD
                     ExplosionType.ID,
                     ExplosionType.FireStacks);
+=======
+                    ExplosionType.ID);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 // If the floor is not blocked by some dense object, damage the floor tiles.
                 if (canDamageFloor)
@@ -846,8 +904,12 @@ sealed class Explosion
                     _currentDamage,
                     Epicenter,
                     ProcessedEntities,
+<<<<<<< HEAD
                     ExplosionType.ID,
                     ExplosionType.FireStacks);
+=======
+                    ExplosionType.ID);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
 
             if (!MoveNext())

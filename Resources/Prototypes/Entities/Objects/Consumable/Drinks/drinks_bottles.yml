@@ -39,9 +39,12 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
+<<<<<<< HEAD
   - type: PressurizedSolution
     solution: drink
   - type: Shakeable
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: DrinkBottlePlasticBaseFull
@@ -50,6 +53,18 @@
   components:
   - type: Sprite
     state: icon
+<<<<<<< HEAD
+=======
+  - type: MeleeWeapon
+    bluntStaminaDamageFactor: 2.0
+    damage:
+      types:
+        Blunt: 7.5
+    heavyRangeModifier: 1.5
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 25
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: DamageOnLand
     damage:
       types:
@@ -57,7 +72,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 4
+        Blunt: 5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -362,7 +377,10 @@
   - type: Tag
     tags:
     - Wine
+<<<<<<< HEAD
     - DrinkBottle
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
@@ -512,7 +530,10 @@
   - type: Tag
     tags:
     - Wine
+<<<<<<< HEAD
     - DrinkBottle
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # Small Bottles
 
@@ -538,7 +559,10 @@
   - type: Tag
     tags:
     - Beer
+<<<<<<< HEAD
     - DrinkBottle
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
@@ -562,7 +586,11 @@
   - type: Tag
     tags:
     - Beer
+<<<<<<< HEAD
     - DrinkBottle
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
@@ -667,6 +695,7 @@
           Quantity: 150
   - type: Label
     currentLabel: label-name-tonic-water
+<<<<<<< HEAD
 
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
@@ -685,6 +714,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/sakebottle.rsi
   - type: Sealable
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # Cartons, TODO: this needs to be moved elsewhere eventually, since cartons shouldnt smash into glass shards
 

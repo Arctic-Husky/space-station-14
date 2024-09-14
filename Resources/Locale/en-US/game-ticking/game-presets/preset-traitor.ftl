@@ -4,7 +4,10 @@ traitor-round-end-codewords = The codewords were: [color=White]{$codewords}[/col
 traitor-round-end-agent-name = traitor
 
 objective-issuer-syndicate = [color=crimson]The Syndicate[/color]
+<<<<<<< HEAD
 objective-issuer-unknown = Unknown
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # Shown at the end of a round of Traitor
 

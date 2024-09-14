@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using Robust.Shared.Player;
 
 namespace Content.Shared.Players.PlayTimeTracking;
@@ -10,3 +11,8 @@ public interface ISharedPlaytimeManager
     IReadOnlyDictionary<string, TimeSpan> GetPlayTimes(ICommonSession session);
 }
 
+=======
+namespace Content.Shared.Players.PlayTimeTracking;
+
+public interface ISharedPlaytimeManager;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

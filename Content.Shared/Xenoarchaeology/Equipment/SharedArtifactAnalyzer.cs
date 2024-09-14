@@ -32,6 +32,7 @@ public sealed class AnalysisConsoleExtractButtonPressedMessage : BoundUserInterf
 [Serializable, NetSerializable]
 public sealed class AnalysisConsoleBiasButtonPressedMessage(bool isDown) : BoundUserInterfaceMessage
 {
+<<<<<<< HEAD
     public bool IsDown = isDown;
 }
 
@@ -66,4 +67,50 @@ public sealed class AnalysisConsoleUpdateState(
     public TimeSpan? TotalTime = totalTime;
     public int PointAmount = pointAmount;
     public bool IsTraversalDown = isTraversalDown;
+=======
+    public NetEntity? Artifact;
+
+    public bool AnalyzerConnected;
+
+    public bool ServerConnected;
+
+    public bool CanScan;
+
+    public bool CanPrint;
+
+    public FormattedMessage? ScanReport;
+
+    public bool Scanning;
+
+    public bool Paused;
+
+    public TimeSpan? StartTime;
+
+    public TimeSpan? AccumulatedRunTime;
+
+    public TimeSpan? TotalTime;
+
+    public int PointAmount;
+
+    public AnalysisConsoleScanUpdateState(NetEntity? artifact, bool analyzerConnected, bool serverConnected, bool canScan, bool canPrint,
+        FormattedMessage? scanReport, bool scanning, bool paused, TimeSpan? startTime, TimeSpan? accumulatedRunTime, TimeSpan? totalTime, int pointAmount)
+    {
+        Artifact = artifact;
+        AnalyzerConnected = analyzerConnected;
+        ServerConnected = serverConnected;
+        CanScan = canScan;
+        CanPrint = canPrint;
+
+        ScanReport = scanReport;
+
+        Scanning = scanning;
+        Paused = paused;
+
+        StartTime = startTime;
+        AccumulatedRunTime = accumulatedRunTime;
+        TotalTime = totalTime;
+
+        PointAmount = pointAmount;
+    }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

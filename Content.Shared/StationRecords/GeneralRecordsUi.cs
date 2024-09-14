@@ -37,6 +37,7 @@ public sealed class GeneralStationRecordConsoleState : BoundUserInterfaceState
     public readonly GeneralStationRecord? Record;
     public readonly Dictionary<uint, string>? RecordListing;
     public readonly StationRecordsFilter? Filter;
+<<<<<<< HEAD
     public readonly bool CanDeleteEntries;
 
     public GeneralStationRecordConsoleState(uint? key,
@@ -44,6 +45,11 @@ public sealed class GeneralStationRecordConsoleState : BoundUserInterfaceState
         Dictionary<uint, string>? recordListing,
         StationRecordsFilter? newFilter,
         bool canDeleteEntries)
+=======
+
+    public GeneralStationRecordConsoleState(uint? key, GeneralStationRecord? record,
+        Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         SelectedKey = key;
         Record = record;
@@ -53,6 +59,10 @@ public sealed class GeneralStationRecordConsoleState : BoundUserInterfaceState
     }
 
     public GeneralStationRecordConsoleState() : this(null, null, null, null, false)
+    {
+    }
+
+    public GeneralStationRecordConsoleState() : this(null, null, null, null)
     {
     }
 

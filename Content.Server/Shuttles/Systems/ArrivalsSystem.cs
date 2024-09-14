@@ -5,6 +5,11 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Parallax;
+<<<<<<< HEAD
+=======
+using Content.Server.DeviceNetwork.Components;
+using Content.Server.DeviceNetwork.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
@@ -78,7 +83,11 @@ public sealed class ArrivalsSystem : EntitySystem
     {
         base.Initialize();
 
+<<<<<<< HEAD
         SubscribeLocalEvent<StationArrivalsComponent, StationPostInitEvent>(OnStationPostInit);
+=======
+        SubscribeLocalEvent<StationArrivalsComponent, ComponentStartup>(OnArrivalsStartup);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         SubscribeLocalEvent<ArrivalsShuttleComponent, ComponentStartup>(OnShuttleStartup);
         SubscribeLocalEvent<ArrivalsShuttleComponent, FTLTagEvent>(OnShuttleTag);
@@ -188,7 +197,11 @@ public sealed class ArrivalsSystem : EntitySystem
         if (TryComp<DeviceNetworkComponent>(shuttleUid, out var netComp))
         {
             TryComp<FTLComponent>(shuttleUid, out var ftlComp);
+<<<<<<< HEAD
             var ftlTime = TimeSpan.FromSeconds(ftlComp?.TravelTime ?? _shuttles.DefaultTravelTime);
+=======
+            var ftlTime = TimeSpan.FromSeconds(ftlComp?.TravelTime ?? ShuttleSystem.DefaultTravelTime);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             var payload = new NetworkPayload
             {
@@ -254,7 +267,11 @@ public sealed class ArrivalsSystem : EntitySystem
 
     private void OnArrivalsDocked(EntityUid uid, ArrivalsShuttleComponent component, ref FTLCompletedEvent args)
     {
+<<<<<<< HEAD
         var dockTime = component.NextTransfer - _timing.CurTime + TimeSpan.FromSeconds(_shuttles.DefaultStartupTime);
+=======
+        TimeSpan dockTime = component.NextTransfer - _timing.CurTime + TimeSpan.FromSeconds(ShuttleSystem.DefaultStartupTime);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (TryComp<DeviceNetworkComponent>(uid, out var netComp))
         {
@@ -420,7 +437,11 @@ public sealed class ArrivalsSystem : EntitySystem
                 if (comp.NextTransfer > curTime || !TryComp<StationDataComponent>(comp.Station, out var data))
                     continue;
 
+<<<<<<< HEAD
                 var tripTime = _shuttles.DefaultTravelTime + _shuttles.DefaultStartupTime;
+=======
+                var tripTime = ShuttleSystem.DefaultTravelTime + ShuttleSystem.DefaultStartupTime;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 // Go back to arrivals source
                 if (xform.MapUid != arrivalsXform.MapUid)

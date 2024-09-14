@@ -7,6 +7,10 @@ using Content.Shared.StatusEffect;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+<<<<<<< HEAD
+=======
+using Content.Shared.Mood;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -89,7 +93,11 @@ public sealed class SlipperySystem : EntitySystem
         {
             _physics.SetLinearVelocity(other, physics.LinearVelocity * component.LaunchForwardsMultiplier, body: physics);
 
+<<<<<<< HEAD
             if (component.SuperSlippery && requiresContact)
+=======
+            if (component.SuperSlippery)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 var sliding = EnsureComp<SlidingComponent>(other);
                 sliding.CollidingEntities.Add(uid);
@@ -100,6 +108,8 @@ public sealed class SlipperySystem : EntitySystem
         var playSound = !_statusEffects.HasStatusEffect(other, "KnockedDown");
 
         _stun.TryParalyze(other, TimeSpan.FromSeconds(component.ParalyzeTime), true);
+
+        RaiseLocalEvent(other, new MoodEffectEvent("MobSlipped"));
 
         // Preventing from playing the slip sound when you are already knocked down.
         if (playSound)

@@ -16,6 +16,10 @@ public abstract class SharedInstrumentSystem : EntitySystem
     {
         component.InstrumentBank = bank;
         component.InstrumentProgram = program;
+<<<<<<< HEAD
         Dirty(uid, component);
+=======
+        Dirty(component);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

@@ -13,7 +13,10 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public const string InvokedPort = "link_port";
 

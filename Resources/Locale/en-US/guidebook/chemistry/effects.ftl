@@ -356,4 +356,26 @@ reagent-effect-guidebook-missing =
     { $chance ->
         [1] Causes
         *[other] cause
+<<<<<<< HEAD
     } an unknown effect as nobody has written this effect yet
+=======
+    } an unknown effect as nobody has written this effect yet
+
+reagent-effect-guidebook-change-glimmer-reaction-effect =
+    { $chance ->
+        [1] Modifies
+        *[other] modify
+    } the glimmer count by {$count} points
+
+reagent-effect-guidebook-chem-remove-psionic =
+    { $chance ->
+        [1] Removes
+        *[other] remove
+    } psionic powers
+
+reagent-effect-guidebook-chem-reroll-psionic =
+    { $chance ->
+        [1] Allows
+        *[other] allow
+    } a chance to get a different psionic power
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

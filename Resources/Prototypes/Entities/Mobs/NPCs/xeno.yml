@@ -97,6 +97,7 @@
     spawned:
     - id: FoodMeatXeno
       amount: 5
+<<<<<<< HEAD
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -107,6 +108,16 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+=======
+  #- type: GhostRole # Delta V - Moves ghost role from parent to child
+  #  allowMovement: true # Delta V - Moves ghost role from parent to child
+  #  allowSpeech: true # Delta V - Moves ghost role from parent to child
+  #  makeSentient: true # Delta V - Moves ghost role from parent to child
+  #  name: ghost-role-information-xeno-name # Delta V - Moves ghost role from parent to child
+  #  description: ghost-role-information-xeno-description # Delta V - Moves ghost role from parent to child
+  #  rules: ghost-role-information-xeno-rules # Delta V - Moves ghost role from parent to child
+  # - type: GhostTakeoverAvailable # Delta V - Moves ghost role from parent to child
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: TypingIndicator
     proto: alien
   - type: Temperature
@@ -123,11 +134,18 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+  - type: Psionic #Nyano - Summary: makes psionic by default.
+    removable: false
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
 
 - type: entity
   name: Praetorian
   parent: MobXeno
-  id: MobXenoPraetorian
+  id: MobXenoPraetorianNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -160,7 +178,7 @@
 - type: entity
   name: Drone
   parent: MobXeno
-  id: MobXenoDrone
+  id: MobXenoDroneNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -197,7 +215,7 @@
 - type: entity
   name: Queen
   parent: MobXeno
-  id: MobXenoQueen
+  id: MobXenoQueenNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -232,11 +250,18 @@
   - type: Tag
     tags:
     - CannotSuicide
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - Xeno
+    understands:
+    - GalacticCommon
+    - Xeno
 
 - type: entity
   name: Ravager
   parent: MobXeno
-  id: MobXenoRavager
+  id: MobXenoRavagerNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -273,7 +298,7 @@
 - type: entity
   name: Runner
   parent: MobXeno
-  id: MobXenoRunner
+  id: MobXenoRunnerNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -302,8 +327,8 @@
 
 - type: entity
   name: Rouny
-  parent: MobXenoRunner
-  id: MobXenoRouny
+  parent: MobXenoRunnerNPC # Delta V - These no longer inherit the ghost takeover comp
+  id: MobXenoRounyNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -318,7 +343,7 @@
 - type: entity
   name: Spitter
   parent: MobXeno
-  id: MobXenoSpitter
+  id: MobXenoSpitterNPC # Delta V - These no longer inherit the ghost takeover comp
   components:
   - type: Sprite
     drawdepth: Mobs

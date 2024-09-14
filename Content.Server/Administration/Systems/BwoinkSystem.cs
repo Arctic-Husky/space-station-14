@@ -35,9 +35,12 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly SharedMindSystem _minds = default!;
         [Dependency] private readonly IAfkManager _afkManager = default!;
+<<<<<<< HEAD
 
         [GeneratedRegex(@"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
         private static partial Regex DiscordRegex();
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         private ISawmill _sawmill = default!;
         private readonly HttpClient _httpClient = new();

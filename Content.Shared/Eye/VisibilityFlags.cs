@@ -9,5 +9,10 @@ namespace Content.Shared.Eye
         None   = 0,
         Normal = 1 << 0,
         Ghost  = 1 << 1,
+<<<<<<< HEAD
+=======
+        PsionicInvisibility = 1 << 2, //Nyano - Summary: adds Psionic Invisibility as a visibility layer. Currently does nothing.
+        TelegnosticProjection = 5, 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

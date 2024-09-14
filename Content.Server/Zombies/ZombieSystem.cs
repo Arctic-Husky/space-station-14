@@ -84,6 +84,10 @@ namespace Content.Server.Zombies
 
             component.NextTick = _timing.CurTime + TimeSpan.FromSeconds(1f);
             component.GracePeriod = _random.Next(component.MinInitialInfectedGrace, component.MaxInitialInfectedGrace);
+<<<<<<< HEAD
+=======
+            _actions.AddAction(uid, ref component.Action, component.ZombifySelfActionPrototype);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         public override void Update(float frameTime)

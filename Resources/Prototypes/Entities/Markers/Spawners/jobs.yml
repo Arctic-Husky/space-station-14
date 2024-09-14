@@ -36,12 +36,12 @@
   - type: SpawnPoint
     spawn_type: LateJoin
 
-# Cargo
+# Logistics
 
 - type: entity
   id: SpawnPointQuartermaster
   parent: SpawnPointJobBase
-  name: quartermaster
+  name: logistics officer # DeltaV - Logistics Department replacing Cargo
   components:
   - type: SpawnPoint
     job_id: Quartermaster
@@ -73,7 +73,12 @@
   - type: Sprite
     layers:
       - state: green
+<<<<<<< HEAD
       - state: salvagespecialist
+=======
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Salvage specialist look change
+        state: salvagespecialist
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # Civilian
 
@@ -415,14 +420,15 @@
 - type: entity
   id: SpawnPointResearchDirector
   parent: SpawnPointJobBase
-  name: researchdirector
+  name: mystagogue # DeltaV - Epistemics Department replacing Science
   components:
   - type: SpawnPoint
     job_id: ResearchDirector
   - type: Sprite
     layers:
       - state: green
-      - state: rd
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
+        state: mystagogue
 
 - type: entity
   id: SpawnPointScientist
@@ -434,7 +440,20 @@
   - type: Sprite
     layers:
       - state: green
-      - state: scientist
+      - sprite: DeltaV/Markers/jobs.rsi # DeltaV - Epistemics new labcoats
+        state: scientist
+
+- type: entity
+  id: SpawnPointRoboticist
+  parent: SpawnPointJobBase
+  name: roboticist
+  components:
+  - type: SpawnPoint
+    job_id: Roboticist
+  - type: Sprite
+    layers:
+    - state: green
+    - state: roboticist
 
 # Security
 
@@ -485,12 +504,27 @@
     layers:
       - state: green
       - state: detective
+      
+- type: entity
+  id: SpawnPointBS
+  parent: SpawnPointJobBase
+  name: blueshield
+  components:
+  - type: SpawnPoint
+    job_id: Blueshield
+  - type: Sprite
+    layers:
+      - state: green
+      - state: blueshield
+
 
 - type: entity
   id: SpawnPointBrigmedic
   parent: SpawnPointJobBase
-  name: brigmedic
+  name: corpsman # DeltaV - rename brigmedic to corpsman
   components:
+  - type: SpawnPoint #Delta V
+    job_id: Brigmedic
   - type: Sprite
     layers:
       - state: green

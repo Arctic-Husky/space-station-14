@@ -151,7 +151,11 @@
     hasLampOnSpawn: LedLightTube
     damage:
       types:
+<<<<<<< HEAD
         Heat: 1 #LEDs don't get as hot
+=======
+        Heat: 2.5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 15
     energy: 1
@@ -173,7 +177,12 @@
 - type: entity
   id: PoweredlightExterior
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
+<<<<<<< HEAD
   suffix: Exterior
+=======
+  suffix: Blue
+  noSpawn: true # DeltaV - Don't map these
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: Poweredlight
   components:
   - type: PoweredLight
@@ -204,7 +213,11 @@
     hasLampOnSpawn: SodiumLightTube
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 10
     energy: 2.5
@@ -330,7 +343,11 @@
     hasLampOnSpawn: LedLightBulb
     damage:
       types:
+<<<<<<< HEAD
         Heat: 1
+=======
+        Heat: 2.5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: PoweredSmallLight
@@ -360,7 +377,11 @@
     radius: 5
     energy: 0.6
     offset: "0, 0.4"
+<<<<<<< HEAD
     color: "#7CFC00"
+=======
+    color: "#FF4020"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
@@ -400,7 +421,11 @@
     hasLampOnSpawn: LightTubeCrystalCyan
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 8
     energy: 3
@@ -427,7 +452,11 @@
     hasLampOnSpawn: LightTubeCrystalBlue
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 8
     energy: 3
@@ -454,7 +483,11 @@
     hasLampOnSpawn: LightTubeCrystalPink
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 8
     energy: 3
@@ -481,7 +514,11 @@
     hasLampOnSpawn: LightTubeCrystalOrange
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 8
     energy: 3
@@ -508,7 +545,11 @@
     hasLampOnSpawn: LightTubeCrystalRed
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 8
     energy: 3
@@ -535,7 +576,11 @@
     hasLampOnSpawn: LightTubeCrystalGreen
     damage:
       types:
+<<<<<<< HEAD
         Heat: 2
+=======
+        Heat: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: PointLight
     radius: 8
     energy: 3

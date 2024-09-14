@@ -25,8 +25,36 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+    - FullBodyOuter
+    - HidesHarpyWings
+
+- type: entity
+  parent: ClothingOuterSuitBomb
+  id: ClothingOuterSuitJanitorBomb
+  name: janitorial bomb suit
+  description: A heavy helmet designed to withstand explosions formed from reactions between chemicals.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.15
+  - type: GroupExamine
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - FullBodyOuter
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterSuitBomb
@@ -67,8 +95,15 @@
     sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: GroupExamine
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - HidesHarpyWings
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -76,6 +111,7 @@
   name: atmos fire suit
   description: An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame.
   components:
+<<<<<<< HEAD
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
   - type: Clothing
@@ -100,6 +136,33 @@
   - type: GroupExamine
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.02
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coefficient: 0.001
+    - type: Armor
+      modifiers:
+        coefficients:
+          Slash: 0.9
+          Heat: 0.3
+          Cold: 0.2
+    - type: ClothingSpeedModifier
+      walkModifier: 0.8
+      sprintModifier: 0.8
+    - type: HeldSpeedModifier
+    - type: GroupExamine
+    - type: Tag
+      tags:
+        - FullBodyOuter
+        - WhitelistChameleon
+        - HidesHarpyWings
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -123,11 +186,22 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
+=======
+  - type: Tag
+    tags:
+      - FullBodyOuter
+      - WhitelistChameleon
+      - HidesHarpyWings
+
+- type: entity
+  parent: ClothingOuterBaseLarge
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingOuterSuitSpaceNinja
   name: space ninja suit
   description: This black technologically advanced, cybernetically-enhanced suit provides many abilities like invisibility or teleportation.
@@ -176,8 +250,14 @@
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+  - type: Tag
+    tags:
+      - FullBodyOuter
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterBase
@@ -203,8 +283,14 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+=======
+  - type: Tag
+    tags:
+      - FullBodyOuter
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: ClothingOuterBase

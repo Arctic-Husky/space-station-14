@@ -145,7 +145,22 @@
               amount: 2
               doAfter: 2
 
+<<<<<<< HEAD
         - to: shuttleInteriorWall
+=======
+        - to: paperWall #Nyano
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Paper
+              amount: 2
+              doAfter: 2
+
+        - to: shuttleInteriorWall #Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -279,7 +294,11 @@
             - tool: Prying
               doAfter: 5
 
+<<<<<<< HEAD
     - node: shuttleInteriorWall
+=======
+    - node: shuttleInteriorWall #Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       entity: WallShuttleInterior
       edges:
         - to: girder
@@ -310,7 +329,11 @@
               amount: 2
               doAfter: 1
 
+<<<<<<< HEAD
         - to: shuttleWall
+=======
+        - to: shuttleWall #Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -326,7 +349,11 @@
               amount: 2
               doAfter: 1
 
+<<<<<<< HEAD
         - to: diagonalshuttleWall
+=======
+        - to: diagonalshuttleWall #Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
           completed:
             - !type:SnapToGrid
               southRotation: false
@@ -407,7 +434,11 @@
             - tool: Cutting
               doAfter: 1
 
+<<<<<<< HEAD
     - node: shuttleWall
+=======
+    - node: shuttleWall #Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       entity: WallShuttle
       edges:
         - to: reinforcedGirder
@@ -425,7 +456,11 @@
               doAfter: 1
               completed:
                 - !type:VisualizerDataInt
+<<<<<<< HEAD
                   key: "enum.ShuttleWallVisuals.DeconstructionStage"
+=======
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                   data: 5
             - tool: Screwing
               doAfter: 2
@@ -433,7 +468,11 @@
               doAfter: 5
               completed:
                 - !type:VisualizerDataInt
+<<<<<<< HEAD
                   key: "enum.ShuttleWallVisuals.DeconstructionStage"
+=======
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                   data: 4
             - tool: Prying
               doAfter: 2
@@ -441,30 +480,50 @@
               doAfter: 1
               completed:
                 - !type:VisualizerDataInt
+<<<<<<< HEAD
                   key: "enum.ShuttleWallVisuals.DeconstructionStage"
+=======
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                   data: 3
             - tool: Welding
               doAfter: 10
               completed:
                 - !type:VisualizerDataInt
+<<<<<<< HEAD
                   key: "enum.ShuttleWallVisuals.DeconstructionStage"
+=======
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                   data: 2
             - tool: Prying
               doAfter: 1
               completed:
                 - !type:VisualizerDataInt
+<<<<<<< HEAD
                   key: "enum.ShuttleWallVisuals.DeconstructionStage"
+=======
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                   data: 1
             - tool: Screwing
               doAfter: 1
               completed:
                 - !type:VisualizerDataInt
+<<<<<<< HEAD
                   key: "enum.ShuttleWallVisuals.DeconstructionStage"
+=======
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                   data: 0
             - tool: Cutting
               doAfter: 4
 
+<<<<<<< HEAD
     - node: diagonalshuttleWall
+=======
+    - node: diagonalshuttleWall #Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       entity: WallShuttleDiagonal
       edges:
         - to: reinforcedGirder
@@ -476,25 +535,67 @@
               prototype: SheetSteel1
               amount: 1
           steps:
+<<<<<<< HEAD
           #To-Do: Add deconstruct visuals
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             - tool: Welding
               doAfter: 5
             - tool: Cutting
               doAfter: 1
+<<<<<<< HEAD
+=======
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             - tool: Screwing
               doAfter: 1
             - tool: Welding
               doAfter: 5
+<<<<<<< HEAD
+=======
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             - tool: Prying
               doAfter: 1
             - tool: Anchoring
               doAfter: 1
+<<<<<<< HEAD
             - tool: Welding
               doAfter: 10
             - tool: Prying
               doAfter: 1
             - tool: Screwing
               doAfter: 1
+=======
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 3
+            - tool: Welding
+              doAfter: 10
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 2
+            - tool: Prying
+              doAfter: 1
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 1
+            - tool: Screwing
+              doAfter: 1
+              completed:
+                - !type:VisualizerDataInt
+                  key: "enum.ReinforcedWallVisuals.DeconstructionStage"
+                  data: 0
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             - tool: Cutting
               doAfter: 1
 
@@ -506,6 +607,21 @@
             - tool: Welding
               doAfter: 5
 
+<<<<<<< HEAD
+=======
+    - node: paperWall #Nyano
+      entity: WallPaper
+      edges:
+        - to: girder
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPaper1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - node: reinforcedWallRust
       entity: WallReinforcedRust
       edges:

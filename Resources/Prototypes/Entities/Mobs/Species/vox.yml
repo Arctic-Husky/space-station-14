@@ -16,6 +16,7 @@
     #- type: VoxAccent # Not yet coded
   - type: Inventory
     speciesId: vox
+<<<<<<< HEAD
     displacements:
       jumpsuit:
         layer:
@@ -26,6 +27,8 @@
             layerKey: dummy
             parameterTexture: displacementMap
             parameterUV: displacementUV
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
@@ -59,6 +62,7 @@
     damage:
       types:
         Slash: 5 # Reduce?
+<<<<<<< HEAD
   - type: Sprite # Need to redefine the whole order to draw the tail over their gas tank
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -102,6 +106,8 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_vox" # Not default
       visible: false
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -34,9 +34,7 @@ namespace Content.Client.Lobby
         protected override void Startup()
         {
             if (_userInterfaceManager.ActiveScreen == null)
-            {
                 return;
-            }
 
             Lobby = (LobbyGui) _userInterfaceManager.ActiveScreen;
 
@@ -44,12 +42,36 @@ namespace Content.Client.Lobby
             _gameTicker = _entityManager.System<ClientGameTicker>();
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
+<<<<<<< HEAD
+=======
+            _characterSetup = new CharacterSetupGui(_entityManager, _resourceCache, _preferencesManager,
+                _prototypeManager, _configurationManager);
+            LayoutContainer.SetAnchorPreset(_characterSetup, LayoutContainer.LayoutPreset.Wide);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             chatController.SetMainChat(true);
 
+<<<<<<< HEAD
             _voteManager.SetPopupContainer(Lobby.VoteContainer);
             LayoutContainer.SetAnchorPreset(Lobby, LayoutContainer.LayoutPreset.Wide);
             Lobby.ServerName.Text = _baseClient.GameInfo?.ServerName; //The eye of refactor gazes upon you...
+=======
+            _voteManager.SetPopupContainer(_lobby.VoteContainer);
+
+            _characterSetup.CloseButton.OnPressed += _ =>
+            {
+                _lobby.SwitchState(LobbyGui.LobbyGuiState.Default);
+            };
+
+            _characterSetup.SaveButton.OnPressed += _ =>
+            {
+                _characterSetup.Save();
+                _userInterfaceManager.GetUIController<LobbyUIController>().UpdateCharacterUI();
+            };
+
+            LayoutContainer.SetAnchorPreset(_lobby, LayoutContainer.LayoutPreset.Wide);
+            _lobby.ServerName.Text = _baseClient.GameInfo?.ServerName; //The eye of refactor gazes upon you...
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
@@ -76,6 +98,7 @@ namespace Content.Client.Lobby
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
 
+<<<<<<< HEAD
             Lobby = null;
         }
 
@@ -83,6 +106,12 @@ namespace Content.Client.Lobby
         {
             // Yeah I hate this but LobbyState contains all the badness for now.
             Lobby?.SwitchState(state);
+=======
+            _lobby = null;
+
+            _characterSetup?.Dispose();
+            _characterSetup = null;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void OnSetupPressed(BaseButton.ButtonEventArgs args)
@@ -94,9 +123,7 @@ namespace Content.Client.Lobby
         private void OnReadyPressed(BaseButton.ButtonEventArgs args)
         {
             if (!_gameTicker.IsGameStarted)
-            {
                 return;
-            }
 
             new LateJoinGui().OpenCentered();
         }
@@ -120,9 +147,7 @@ namespace Content.Client.Lobby
             string text;
 
             if (_gameTicker.Paused)
-            {
                 text = Loc.GetString("lobby-state-paused");
-            }
             else if (_gameTicker.StartTime < _gameTiming.CurTime)
             {
                 Lobby!.StartTime.Text = Loc.GetString("lobby-state-soon");
@@ -133,13 +158,11 @@ namespace Content.Client.Lobby
                 var difference = _gameTicker.StartTime - _gameTiming.CurTime;
                 var seconds = difference.TotalSeconds;
                 if (seconds < 0)
-                {
-                    text = Loc.GetString(seconds < -5 ? "lobby-state-right-now-question" : "lobby-state-right-now-confirmation");
-                }
+                    text = Loc.GetString(seconds < -5
+                        ? "lobby-state-right-now-question"
+                        : "lobby-state-right-now-confirmation");
                 else
-                {
                     text = $"{difference.Minutes}:{difference.Seconds:D2}";
-                }
             }
 
             Lobby!.StartTime.Text = Loc.GetString("lobby-state-round-start-countdown-text", ("timeLeft", text));
@@ -176,14 +199,19 @@ namespace Content.Client.Lobby
             }
 
             if (_gameTicker.ServerInfoBlob != null)
+<<<<<<< HEAD
             {
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
+=======
+                _lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
         {
             if (ev.SoundtrackFilename == null)
+<<<<<<< HEAD
             {
                 Lobby!.LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
             }
@@ -191,6 +219,11 @@ namespace Content.Client.Lobby
                 ev.SoundtrackFilename != null
                 && _resourceCache.TryGetResource<AudioResource>(ev.SoundtrackFilename, out var lobbySongResource)
                 )
+=======
+                _lobby!.LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
+            else if (ev.SoundtrackFilename != null
+                && _resourceCache.TryGetResource<AudioResource>(ev.SoundtrackFilename, out var lobbySongResource))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             {
                 var lobbyStream = lobbySongResource.AudioStream;
 
@@ -213,6 +246,7 @@ namespace Content.Client.Lobby
         private void UpdateLobbyBackground()
         {
             if (_gameTicker.LobbyBackground != null)
+<<<<<<< HEAD
             {
                 Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(_gameTicker.LobbyBackground );
             }
@@ -220,15 +254,18 @@ namespace Content.Client.Lobby
             {
                 Lobby!.Background.Texture = null;
             }
+=======
+                _lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(_gameTicker.LobbyBackground);
+            else
+                _lobby!.Background.Texture = null;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         }
 
         private void SetReady(bool newReady)
         {
             if (_gameTicker.IsGameStarted)
-            {
                 return;
-            }
 
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
         }

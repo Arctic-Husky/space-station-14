@@ -271,7 +271,11 @@ namespace Content.Shared.Atmos
         public const float HazardLowPressure = 20f;
 
         /// <summary>
+<<<<<<< HEAD
         ///    The amount of pressure damage someone takes is equal to ((pressure / HAZARD_HIGH_PRESSURE) - 1)*PRESSURE_DAMAGE_COEFFICIENT,
+=======
+        ///    ///    The amount of pressure damage someone takes is equal to ((pressure / HAZARD_HIGH_PRESSURE) - 1)*PRESSURE_DAMAGE_COEFFICIENT
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         ///     with the maximum of MaxHighPressureDamage.
         /// </summary>
         public const float PressureDamageCoefficient = 4;
@@ -318,6 +322,7 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float MaxTransferRate = 200;
 
+<<<<<<< HEAD
         /// <summary>
         ///     What fraction of air from a spaced tile escapes every tick.
         ///     1.0 for instant spacing, 0.2 means 20% of remaining air lost each time
@@ -337,6 +342,8 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float SpacingMaxWind = 500.0f;
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         #endregion
     }
 

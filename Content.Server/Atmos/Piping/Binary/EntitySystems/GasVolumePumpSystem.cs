@@ -171,7 +171,11 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             if (!Resolve(uid, ref pump))
                 return;
 
+<<<<<<< HEAD
             _userInterfaceSystem.SetUiState(uid, GasVolumePumpUiKey.Key,
+=======
+            _userInterfaceSystem.TrySetUiState(uid, GasVolumePumpUiKey.Key,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 new GasVolumePumpBoundUserInterfaceState(Name(uid), pump.TransferRate, pump.Enabled));
         }
 

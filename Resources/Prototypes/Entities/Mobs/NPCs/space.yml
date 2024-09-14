@@ -165,14 +165,22 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBounce
-  - type: ReplacementAccent
-    accent: kangaroo
+  - type: LanguageKnowledge
+    speaks:
+    - Kangaroo
+    understands:
+    - Kangaroo
   - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
+<<<<<<< HEAD
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+=======
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -248,8 +256,16 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 4
+<<<<<<< HEAD
   - type: ReplacementAccent
     accent: xeno
+=======
+  - type: LanguageKnowledge
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: InteractionPopup
     successChance: 0.20
     interactSuccessString: petting-success-tarantula
@@ -263,7 +279,10 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
+<<<<<<< HEAD
     allowedEmotes: ['Click', 'Chitter']
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Vocal
     sounds:
       Male: UnisexArachnid
@@ -352,8 +371,16 @@
     - type: MeleeChemicalInjector
       solution: melee
       transferAmount: 6
+<<<<<<< HEAD
     - type: ReplacementAccent
       accent: xeno
+=======
+    - type: LanguageKnowledge
+      speaks:
+      - Xeno
+      understands:
+      - Xeno
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: InteractionPopup
       successChance: 0.2
       interactSuccessString: petting-success-snake

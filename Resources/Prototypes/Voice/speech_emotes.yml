@@ -3,6 +3,7 @@
   id: Scream
   name: chat-emote-name-scream
   category: Vocal
+<<<<<<< HEAD
   icon: Interface/Actions/scream.png
   whitelist:
     components:
@@ -11,27 +12,15 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
+=======
+  chatMessages: [ screams ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - scream
     - screams
-    - screams.
-    - screams!
-    - screaming
-    - screamed
-    - shriek
     - shrieks
-    - shrieks.
-    - shrieks!
-    - shrieking
-    - shrieked
-    - screech
     - screeches
-    - screeches.
-    - screeches!
-    - screeching
-    - screeched
-    - yell
     - yells
+<<<<<<< HEAD
     - yells.
     - yells!
     - yelled
@@ -41,11 +30,14 @@
     - grita.
     - berra.
     - urra.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: Laugh
   name: chat-emote-name-laugh
   category: Vocal
+<<<<<<< HEAD
   icon: Interface/Emotes/laugh.png
   whitelist:
     components:
@@ -54,21 +46,14 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-laugh"]
+=======
+  chatMessages: [ laughs ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - laugh
     - laughs
-    - laughs.
-    - laughs!
-    - laughing
-    - laughed
-    - chuckle
     - chuckles
-    - chuckles.
-    - chuckles!
-    - chuckled
-    - chuckling
-    - giggle
     - giggles
+<<<<<<< HEAD
     - giggles.
     - giggles!
     - giggling
@@ -115,11 +100,22 @@
     - honking
     - honking.
     - honking!
+=======
+    - chortles
+
+- type: emote
+  id: Honk
+  category: Vocal
+  chatMessages: [ honks ]
+  chatTriggers:
+    - honks
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: Sigh
   name: chat-emote-name-sigh
   category: Vocal
+<<<<<<< HEAD
   icon: Interface/Emotes/sigh.png
   whitelist:
     components:
@@ -128,18 +124,17 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-sigh"]
+=======
+  chatMessages: [ sighs ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - sigh
     - sighs
-    - sighed
-    - sigh.
-    - sighs.
-    - sighed.
 
 - type: emote
   id: Whistle
   name: chat-emote-name-whistle
   category: Vocal
+<<<<<<< HEAD
   icon: Interface/Emotes/whistle.png
   whitelist:
     components:
@@ -148,21 +143,17 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-whistle"]
+=======
+  chatMessages: [ whistles ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - whistle
-    - whistle.
-    - whistle!
     - whistles
-    - whistles.
-    - whistles!
-    - whistleblowing
-    - whistleblowing.
-    - whistleblowing!
 
 - type: emote
   id: Crying
   name: chat-emote-name-crying
   category: Vocal
+<<<<<<< HEAD
   icon: Interface/Emotes/cry.png
   whitelist:
     components:
@@ -171,14 +162,12 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-crying"]
+=======
+  chatMessages: [ cries ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - cry
-    - cry.
-    - cry!
-    - crying
-    - crying.
-    - crying!
     - cries
+<<<<<<< HEAD
     - cries.
     - cries!
     - chora.
@@ -189,11 +178,15 @@
     - sobbing
     - sobbing.
     - sobbing!
+=======
+    - sobs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: Squish
   name: chat-emote-name-squish
   category: Vocal
+<<<<<<< HEAD
   available: false
   icon: Interface/Emotes/squish.png
   whitelist:
@@ -203,21 +196,17 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-squish"]
+=======
+  chatMessages: [ squishes ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - squish
-    - squish.
-    - squish!
-    - squishing
-    - squishing.
-    - squishing!
     - squishes
-    - squishes.
-    - squishes!
 
 - type: emote
   id: Chitter
   name: chat-emote-name-chitter
   category: Vocal
+<<<<<<< HEAD
   available: false
   icon: Interface/Emotes/chitter.png
   whitelist:
@@ -227,21 +216,17 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-chitter"]
+=======
+  chatMessages: [ chitters ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-   - chitter
-   - chitter.
-   - chitter!
    - chitters
-   - chitters.
-   - chitters!
-   - chittered
-   - chittered.
-   - chittered!
 
 - type: emote
   id: Squeak
   name: chat-emote-name-squeak
   category: Vocal
+<<<<<<< HEAD
   available: false
   icon: Interface/Emotes/squeak.png
   whitelist:
@@ -251,16 +236,18 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-squeak"]
+=======
+  chatMessages: [ squeaks ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-   - squeak
-   - squeak.
-   - squeak!
    - squeaks
-   - squeaks.
-   - squeaks!
-   - squeaked
-   - squeaked.
-   - squeaked!
+
+- type: emote
+  id: Click
+  category: Vocal
+  chatMessages: [ clicks ]
+  chatTriggers:
+   - clicks
 
 - type: emote
   id: Click
@@ -298,6 +285,7 @@
   id: Clap
   name: chat-emote-name-clap
   category: Hands
+<<<<<<< HEAD
   icon: Interface/Emotes/clap.png
   whitelist:
     components:
@@ -306,9 +294,12 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-clap"]
+=======
+  chatMessages: [ claps ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - clap
     - claps
+<<<<<<< HEAD
     - claps.
     - claps!
     - clapping
@@ -317,11 +308,14 @@
     - palmas.
     - bate palma.
     - bate palmas.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: Snap
   name: chat-emote-name-snap
   category: Hands
+<<<<<<< HEAD
   icon: Interface/Emotes/snap.png
   whitelist:
     components:
@@ -330,16 +324,16 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-snap"] # snaps <{THEIR($ent)}> fingers?
+=======
+  chatMessages: [ snaps ] # snaps <{THEIR($ent)}> fingers?
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - snap
     - snaps
-    - snapping
-    - snapped
-    - snap fingers
     - snaps fingers
-    - snaps fingers.
-    - snaps fingers!
+    - snaps his fingers
+    - snaps her fingers
     - snaps their fingers
+<<<<<<< HEAD
     - snaps their fingers.
     - snaps their fingers!
     - snapping fingers
@@ -348,11 +342,16 @@
     - estala os dedos.
     - estrala os dedos.
     - estrala.
+=======
+    - snaps its fingers
+    - snaps its' fingers
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: Salute
   name: chat-emote-name-salute
   category: Hands
+<<<<<<< HEAD
   icon: Interface/Emotes/salute.png
   whitelist:
     components:
@@ -361,11 +360,12 @@
     components:
     - BorgChassis
   chatMessages: ["chat-emote-msg-salute"]
+=======
+  chatMessages: [ salutes ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
-    - salute
-    - salute.
-    - salute!
     - salutes
+<<<<<<< HEAD
     - salutes.
     - salutes!
     - saúda.
@@ -374,6 +374,8 @@
     - bate continencia.
     - continência.
     - continencia.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: emote
   id: DefaultDeathgasp
@@ -388,12 +390,17 @@
 
 - type: emote
   id: SiliconDeathgasp
+<<<<<<< HEAD
   name: chat-emote-name-deathgasp
   chatMessages: ["silicon-emote-deathgasp"]
+=======
+  chatMessages: ["chat-emote-msg-deathgasp-silicon"]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   chatTriggers:
   - sdeathgasp
 
 - type: emote
+<<<<<<< HEAD
   id: MonkeyDeathgasp
   name: chat-emote-name-deathgasp
   icon: Interface/Emotes/deathgasp.png
@@ -458,10 +465,30 @@
     - chirping.
     - chirping!
     - chirping?
+=======
+  id: Buzz
+  category: Vocal
+  chatMessages: [ buzzes ]
+  chatTriggers:
+    - buzzes
+
+- type: emote
+  id: Weh
+  category: Vocal
+  chatMessages: [ wehs ]
+
+- type: emote
+  id: Chirp
+  category: Vocal
+  chatMessages: [ chirps ]
+  chatTriggers:
+    - chirps
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # Machine Emotes
 - type: emote
   id: Beep
+<<<<<<< HEAD
   name: chat-emote-name-beep
   category: Vocal
   icon: Interface/Emotes/beep.png
@@ -584,3 +611,43 @@
     - pinging
     - pinging.
     - pinging!
+=======
+  category: Vocal
+  chatMessages: [ beeps ]
+  chatTriggers:
+    - beeps
+
+- type: emote
+  id: Boop
+  category: Vocal
+  chatMessages: [ boops ]
+  chatTriggers:
+    - boops
+
+- type: emote
+  id: Chime
+  category: Vocal
+  chatMessages: [ chimes ]
+  chatTriggers:
+    - chimes
+
+- type: emote
+  id: Buzz-Two
+  category: Vocal
+  chatMessages: [ "buzzes twice" ]
+  chatTriggers:
+    - buzzes twice
+
+- type: emote
+  id: Ping
+  category: Vocal
+  chatMessages: [ pings ]
+  chatTriggers:
+    - pings
+
+- type: emote
+  id: Whirr # uncategorized as it is generic
+  chatMessages: [ whirrs ]
+  chatTriggers:
+    - whirrs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

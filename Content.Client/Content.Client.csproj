@@ -26,6 +26,14 @@
   <ItemGroup>
     <Folder Include="Spawners\" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Compile Update="Lobby\UI\LobbyCharacterPanel.xaml.cs">
+      <DependentUpon>LobbyCharacterPanel.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
 </Project>

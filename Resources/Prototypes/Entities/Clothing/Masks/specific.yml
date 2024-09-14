@@ -6,7 +6,8 @@
   suffix: Chameleon
   components:
     - type: Tag
-      tags: [] # ignore "WhitelistChameleon" tag
+      tags: # ignore "WhitelistChameleon" tag
+        - HidesNose
     - type: Sprite
       sprite: Clothing/Mask/gas.rsi
     - type: Clothing
@@ -30,6 +31,7 @@
   suffix: Voice Mask, Chameleon
   components:
     - type: VoiceMasker
+<<<<<<< HEAD
     - type: Tag
       tags:
       - IPCMaskWearable
@@ -67,3 +69,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+      default: ClothingMaskGas
+    - type: Tag
+      tags:
+      - IPCMaskWearable # Estacao Pirata - IPCs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

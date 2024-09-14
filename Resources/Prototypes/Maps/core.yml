@@ -2,8 +2,8 @@
   id: Core
   mapName: 'Core'
   mapPath: /Maps/core.yml
-  minPlayers: 30
-  maxPlayers: 60
+  minPlayers: 35
+  maxPlayers: 70
   stations:
     Core:
       stationProto: StandardNanotrasenStation
@@ -14,22 +14,52 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
         - type: StationEmergencyShuttle
+<<<<<<< HEAD
           emergencyShuttlePath: /Maps/Shuttles/emergency_rod.yml
         - type: StationCargoShuttle
           path: /Maps/Shuttles/cargo_core.yml
+=======
+          emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_UCLB.yml
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         - type: StationJobs
           overflowJobs:
             - Passenger
           availableJobs:
+<<<<<<< HEAD
             #service
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2]
             Chef: [ 1, 1 ]
             Janitor: [ 2, 2 ]
+=======
+            # Service
+            Bartender: [ 2, 3 ]
+            Botanist: [ 2, 4]
+            Chef: [ 1, 3 ]
+            Janitor: [ 2, 4 ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            ServiceWorker: [ 3, 6 ]
+            # Engineering
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 4, 6 ]
+            AtmosphericTechnician: [ 2, 3 ]
+            TechnicalAssistant: [ 2, 6 ]
+            # Medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 3, 6 ]
+            Chemist: [ 2, 3 ]
+            MedicalIntern: [ 2, 6 ]
+            Paramedic: [ 1, 3 ]
+            # Epistemics
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 3, 6 ]
+            ResearchAssistant: [ 3, 6 ]
+            Borg: [ 1, 2 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
+<<<<<<< HEAD
             ServiceWorker: [ 3, 3 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -48,9 +78,14 @@
             ResearchAssistant: [ 1, 1 ]
             Borg: [ 1, 2 ]
             #security
+=======
+            ForensicMantis: [ 1, 1 ]
+            # Security
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             HeadOfSecurity: [ 1, 1 ]
-            SecurityOfficer: [ 4, 4 ]
+            SecurityOfficer: [ 4, 6 ]
             Warden: [ 1, 1 ]
+<<<<<<< HEAD
             Lawyer: [ 1, 1 ]
             SecurityCadet: [ 1, 1 ]
             Detective: [ 1, 1 ]
@@ -65,3 +100,20 @@
             Musician: [ 1, 1 ]
             Boxer: [ 2, 2 ]
             Reporter: [ 2, 2 ]
+=======
+            Lawyer: [ 1, 2 ]
+            SecurityCadet: [ 3, 6 ]
+            Detective: [ 1, 1 ]
+            Prisoner: [ 2, 3 ]
+            # Logistics
+            CargoTechnician: [ 3, 6 ]
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 2, 4 ]
+            # Civilian
+            Clown: [ 1, 2 ]
+            Mime: [ 1, 2 ]
+            Musician: [ 1, 3 ]
+            Boxer: [ 2, 4 ]
+            Reporter: [ 2, 4 ]
+            Passenger: [ -1, -1 ]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

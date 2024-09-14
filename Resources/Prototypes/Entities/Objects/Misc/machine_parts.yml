@@ -7,8 +7,20 @@
   components:
     - type: Sprite
       sprite: Objects/Misc/stock_parts.rsi
+      scale: 0.8, 0.8
     - type: Item
       size: Tiny
+<<<<<<< HEAD
+=======
+    - type: EmitSoundOnPickup
+      sound: /Audio/SimpleStation14/Items/Handling/component_pickup.ogg
+    - type: EmitSoundOnDrop
+      sound: /Audio/SimpleStation14/Items/Handling/component_drop.ogg
+    - type: EmitSoundOnLand
+      sound: /Audio/SimpleStation14/Items/Handling/component_drop.ogg
+
+# Rating 1
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: CapacitorStockPart
@@ -22,6 +34,9 @@
     - type: MachinePart
       part: Capacitor
       rating: 1
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - CapacitorStockPart
     - type: Tag
       tags:
         - CapacitorStockPart
@@ -38,6 +53,9 @@
     - type: MachinePart
       part: Manipulator
       rating: 1
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - MicroManipulatorStockPart
 
 - type: entity
   id: MatterBinStockPart
@@ -51,3 +69,9 @@
     - type: MachinePart
       part: MatterBin
       rating: 1
+<<<<<<< HEAD
+=======
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - MatterBinStockPart
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

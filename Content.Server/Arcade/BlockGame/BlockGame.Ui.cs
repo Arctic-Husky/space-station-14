@@ -164,8 +164,13 @@ public sealed partial class BlockGame
     /// Handles sending a message to a specific player/spectator.
     /// </summary>
     /// <param name="message">The message to send to a specific player/spectator.</param>
+<<<<<<< HEAD
     /// <param name="actor">The target recipient.</param>
     private void SendMessage(BoundUserInterfaceMessage message, EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    private void SendMessage(BoundUserInterfaceMessage message, ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         _uiSystem.ServerSendUiMessage(_entityManager.GetEntity(message.Entity), BlockGameUiKey.Key, message, actor);
     }
@@ -173,8 +178,13 @@ public sealed partial class BlockGame
     /// <summary>
     /// Handles sending the current state of the game to a player that has just opened the UI.
     /// </summary>
+<<<<<<< HEAD
     /// <param name="actor">The target recipient.</param>
     public void UpdateNewPlayerUI(EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    public void UpdateNewPlayerUI(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (_gameOver)
         {
@@ -207,7 +217,11 @@ public sealed partial class BlockGame
     /// Handles broadcasting the full player-visible game state to a specific player/spectator.
     /// </summary>
     /// <param name="session">The target recipient.</param>
+<<<<<<< HEAD
     private void FullUpdate(EntityUid actor)
+=======
+    private void FullUpdate(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         UpdateFieldUI(actor);
         SendNextPieceUpdate(actor);
@@ -232,7 +246,12 @@ public sealed partial class BlockGame
     /// <summary>
     /// Handles broadcasting the current location of all of the blocks in the playfield + the active piece to a specific player/spectator.
     /// </summary>
+<<<<<<< HEAD
     public void UpdateFieldUI(EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    public void UpdateFieldUI(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!Started)
             return;
@@ -279,7 +298,12 @@ public sealed partial class BlockGame
     /// <summary>
     /// Broadcasts the state of the next queued piece to a specific viewer.
     /// </summary>
+<<<<<<< HEAD
     private void SendNextPieceUpdate(EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    private void SendNextPieceUpdate(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         SendMessage(new BlockGameMessages.BlockGameVisualUpdateMessage(NextPiece.BlocksForPreview(), BlockGameMessages.BlockGameVisualType.NextBlock), actor);
     }
@@ -298,7 +322,12 @@ public sealed partial class BlockGame
     /// <summary>
     /// Broadcasts the state of the currently held piece to a specific viewer.
     /// </summary>
+<<<<<<< HEAD
     private void SendHoldPieceUpdate(EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    private void SendHoldPieceUpdate(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (HeldPiece.HasValue)
             SendMessage(new BlockGameMessages.BlockGameVisualUpdateMessage(HeldPiece.Value.BlocksForPreview(), BlockGameMessages.BlockGameVisualType.HoldBlock), actor);
@@ -317,7 +346,12 @@ public sealed partial class BlockGame
     /// <summary>
     /// Broadcasts the current game level to a specific viewer.
     /// </summary>
+<<<<<<< HEAD
     private void SendLevelUpdate(EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    private void SendLevelUpdate(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         SendMessage(new BlockGameMessages.BlockGameLevelUpdateMessage(Level), actor);
     }
@@ -333,7 +367,12 @@ public sealed partial class BlockGame
     /// <summary>
     /// Broadcasts the current game score to a specific viewer.
     /// </summary>
+<<<<<<< HEAD
     private void SendPointsUpdate(EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    private void SendPointsUpdate(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         SendMessage(new BlockGameMessages.BlockGameScoreUpdateMessage(Points), actor);
     }
@@ -349,7 +388,12 @@ public sealed partial class BlockGame
     /// <summary>
     /// Broadcasts the current game high score positions to a specific viewer.
     /// </summary>
+<<<<<<< HEAD
     private void SendHighscoreUpdate(EntityUid actor)
+=======
+    /// <param name="session">The target recipient.</param>
+    private void SendHighscoreUpdate(ICommonSession session)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         SendMessage(new BlockGameMessages.BlockGameHighScoreUpdateMessage(_arcadeSystem.GetLocalHighscores(), _arcadeSystem.GetGlobalHighscores()), actor);
     }

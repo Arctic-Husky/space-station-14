@@ -31,7 +31,11 @@
       types:
         Blunt: 3
         Heat: 32
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: entity
   id: BulletMagnumAP
   name: bullet (.45 magnum armor-piercing)

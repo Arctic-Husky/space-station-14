@@ -50,7 +50,11 @@ public static class AdminUIHelpers
             button.Text = data.OriginalText;
         }, data.Cancellation.Token);
 
+<<<<<<< HEAD
         button.ModulateSelfOverride = StyleNano.ButtonColorCautionDefault;
+=======
+        button.ModulateSelfOverride = StyleNano.ButtonColorDangerDefault;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         button.Text = Loc.GetString("admin-player-actions-confirm");
         return false;
     }

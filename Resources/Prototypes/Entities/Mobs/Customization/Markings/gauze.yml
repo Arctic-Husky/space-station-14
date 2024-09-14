@@ -2,7 +2,11 @@
   id: GauzeLefteyePatch
   bodyPart: Eyes
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -16,7 +20,11 @@
   id: GauzeLefteyePad
   bodyPart: Eyes
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -30,7 +38,11 @@
   id: GauzeRighteyePatch
   bodyPart: Eyes
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -44,7 +56,11 @@
   id: GauzeRighteyePad
   bodyPart: Eyes
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -58,7 +74,11 @@
   id: GauzeBlindfold
   bodyPart: Eyes
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Harpy, Vulpkanin] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Arachnid, Felinid, Oni, Harpy, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Harpy, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -71,8 +91,13 @@
 - type: marking
   id: GauzeShoulder
   bodyPart: Chest
+<<<<<<< HEAD
   markingCategory: Chest
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  markingCategory: Overlay
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -81,12 +106,20 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_shoulder
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: marking
   id: GauzeStomach
   bodyPart: Chest
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -100,7 +133,11 @@
   id: GauzeUpperArmRight
   bodyPart: RArm
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -114,7 +151,11 @@
   id: GauzeLowerArmRight
   bodyPart: RArm, RHand
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -128,7 +169,11 @@
   id: GauzeLeftArm
   bodyPart: LArm, LHand
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -142,7 +187,11 @@
   id: GauzeLowerLegLeft
   bodyPart: LFoot
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -156,7 +205,11 @@
   id: GauzeUpperLegLeft
   bodyPart: LLeg
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -170,7 +223,11 @@
   id: GauzeUpperLegRight
   bodyPart: RLeg
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -179,12 +236,20 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_upperleg_r
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: marking
   id: GauzeLowerLegRight
   bodyPart: RFoot
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -193,12 +258,20 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_lowerleg_r
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: marking
   id: GauzeBoxerWrapRight
   bodyPart: RHand
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:
@@ -207,12 +280,20 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_boxerwrap_r
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: marking
   id: GauzeBoxerWrapLeft
   bodyPart: LHand
   markingCategory: Overlay
+<<<<<<< HEAD
   speciesRestriction: [Moth, Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin] # Delta V - Felinid, Oni, Vulpkanin
+=======
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Daengati] # Delta V - Felinid, Oni, Vulpkanin
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   coloring:
     default:
       type:

@@ -12,7 +12,11 @@ namespace Content.IntegrationTests.Tests
     {
         private sealed class RoundEndTestSystem : EntitySystem
         {
+<<<<<<< HEAD
             public int RoundCount;
+=======
+            public int Count;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             public override void Initialize()
             {
@@ -22,7 +26,11 @@ namespace Content.IntegrationTests.Tests
 
             private void OnRoundEnd(RoundEndSystemChangedEvent ev)
             {
+<<<<<<< HEAD
                 Interlocked.Increment(ref RoundCount);
+=======
+                Interlocked.Increment(ref Count);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -43,7 +51,11 @@ namespace Content.IntegrationTests.Tests
             var ticker = sysManager.GetEntitySystem<GameTicker>();
             var roundEndSystem = sysManager.GetEntitySystem<RoundEndSystem>();
             var sys = server.System<RoundEndTestSystem>();
+<<<<<<< HEAD
             sys.RoundCount = 0;
+=======
+            sys.Count = 0;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             await server.WaitAssertion(() =>
             {
@@ -128,8 +140,13 @@ namespace Content.IntegrationTests.Tests
             async Task WaitForEvent()
             {
                 var timeout = Task.Delay(TimeSpan.FromSeconds(10));
+<<<<<<< HEAD
                 var currentCount = Thread.VolatileRead(ref sys.RoundCount);
                 while (currentCount == Thread.VolatileRead(ref sys.RoundCount) && !timeout.IsCompleted)
+=======
+                var currentCount = Thread.VolatileRead(ref sys.Count);
+                while (currentCount == Thread.VolatileRead(ref sys.Count) && !timeout.IsCompleted)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 {
                     await pair.RunTicksSync(5);
                 }

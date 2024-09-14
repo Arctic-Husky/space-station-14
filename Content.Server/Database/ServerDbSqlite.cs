@@ -514,9 +514,13 @@ namespace Content.Server.Database
             return DateTime.SpecifyKind(time, DateTimeKind.Utc);
         }
 
+<<<<<<< HEAD
         private async Task<DbGuardImpl> GetDbImpl(
             CancellationToken cancel = default,
             [CallerMemberName] string? name = null)
+=======
+        private async Task<DbGuardImpl> GetDbImpl([CallerMemberName] string? name = null)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             LogDbOp(name);
             await _dbReadyTask;
@@ -530,11 +534,17 @@ namespace Content.Server.Database
             return new DbGuardImpl(this, dbContext);
         }
 
+<<<<<<< HEAD
         protected override async Task<DbGuard> GetDb(
             CancellationToken cancel = default,
             [CallerMemberName] string? name = null)
         {
             return await GetDbImpl(cancel, name).ConfigureAwait(false);
+=======
+        protected override async Task<DbGuard> GetDb([CallerMemberName] string? name = null)
+        {
+            return await GetDbImpl(name).ConfigureAwait(false);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         private sealed class DbGuardImpl : DbGuard

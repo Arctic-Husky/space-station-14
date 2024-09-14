@@ -55,6 +55,10 @@
   impact: Low
   quantized: true
   conserveEnergy: false
+<<<<<<< HEAD
+=======
+  maxTemp: 100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   reactants:
     ChocolateDerretido:
       amount: 5
@@ -84,6 +88,7 @@
       catalyst: true
   effects:
     - !type:CreateEntityReactionEffect
+<<<<<<< HEAD
       entity: FoodFrozenSandwichStrawberry
 
 - type: reaction
@@ -123,3 +128,6 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodFrozenPopsicleOrange
+=======
+      entity: FoodFrozenSandwichStrawberry
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

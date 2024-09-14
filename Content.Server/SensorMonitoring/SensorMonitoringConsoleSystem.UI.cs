@@ -36,8 +36,13 @@ public sealed partial class SensorMonitoringConsoleSystem
             else
             {
                 fullState ??= CalculateFullState();
+<<<<<<< HEAD
                 _userInterface.SetUiState(uid, SensorMonitoringConsoleUiKey.Key, fullState);
                 comp.InitialUIStateSent.Add(actorUid);
+=======
+                _userInterface.SetUiState(ui, fullState, session);
+                comp.InitialUIStateSent.Add(session);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             }
         }
 
@@ -130,6 +135,13 @@ public sealed partial class SensorMonitoringConsoleSystem
         if (!args.UiKey.Equals(SensorMonitoringConsoleUiKey.Key))
             return;
 
+<<<<<<< HEAD
         component.InitialUIStateSent.Remove(args.Actor);
+=======
+        if (args.Session is not { } player)
+            return;
+
+        component.InitialUIStateSent.Remove(player);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

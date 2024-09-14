@@ -101,6 +101,9 @@ public sealed partial class ToggleLightingActionEvent : InstantActionEvent { }
 
 public sealed partial class ToggleGhostHearingActionEvent : InstantActionEvent { }
 
+<<<<<<< HEAD
 public sealed partial class ToggleGhostVisibilityToAllEvent : InstantActionEvent { }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 public sealed partial class BooActionEvent : InstantActionEvent { }

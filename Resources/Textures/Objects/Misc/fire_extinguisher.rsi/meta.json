@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from https://github.com/tgstation/tgstation at commit 9bebd81ae0b0a7f952b59886a765c681205de31f and modified by Criso",
+=======
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise // Hand Sprites taken from https://github.com/tgstation/tgstation at commit 9bebd81ae0b0a7f952b59886a765c681205de31f",
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   "size": {
     "x": 32,
     "y": 32

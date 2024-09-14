@@ -32,9 +32,13 @@ comp-pda-ui-station-alert-level = Nível de Alerta: [color={ $color }]{ $level }
 
 comp-pda-ui-station-alert-level-instructions = Instruções: [color=white]{ $instructions }[/color]
 
+<<<<<<< HEAD
 comp-pda-ui-station-time = Duração do Turno: [color=white]{ $time }[/color]
 
 comp-pda-ui-station-date = Data da Estação: [color=white]{ $date }[/color]
+=======
+comp-pda-ui-station-time = Duração do turno: [color=white]{ $time }[/color]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 comp-pda-ui-eject-id-button = Ejetar ID
 

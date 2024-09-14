@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ﻿using Content.Server.Ghost.Roles.Raffles;
 using Content.Server.Mind.Commands;
+=======
+﻿using Content.Server.Mind.Commands;
+using Content.Shared.Customization.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Roles;
 
 namespace Content.Server.Ghost.Roles.Components
@@ -15,7 +20,11 @@ namespace Content.Server.Ghost.Roles.Components
         [DataField("rules")] private string _roleRules = "ghost-role-component-default-rules";
 
         [DataField("requirements")]
+<<<<<<< HEAD
         public HashSet<JobRequirement>? Requirements;
+=======
+        public List<CharacterRequirement>? Requirements;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         /// <summary>
         /// Whether the <see cref="MakeSentientCommand"/> should run on the mob.

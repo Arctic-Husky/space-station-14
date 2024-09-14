@@ -56,6 +56,19 @@
   product: CrateNPCDuck
   cost: 4000
   category: cargoproduct-category-name-livestock
+<<<<<<< HEAD
+=======
+  group: market
+
+- type: cargoProduct
+  id: LivestockPibble
+  icon:
+    sprite: Mobs/Pets/pitbull.rsi
+    state: pibble
+  product: CrateNPCPibble
+  cost: 700
+  category: Livestock
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   group: market
 
 - type: cargoProduct

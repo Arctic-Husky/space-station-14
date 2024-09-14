@@ -52,7 +52,11 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
             case ExpendableLightState.Lit:
                 _audioSystem.Stop(comp.PlayingStream);
                 comp.PlayingStream = _audioSystem.PlayPvs(
+<<<<<<< HEAD
                     comp.LoopedSound, uid)?.Entity;
+=======
+                    comp.LoopedSound, uid, SharedExpendableLightComponent.LoopedSoundParams)?.Entity;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                 if (args.Sprite.LayerMapTryGet(ExpendableLightVisualLayers.Overlay, out var layerIdx, true))
                 {

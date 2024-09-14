@@ -1,4 +1,9 @@
 using System.Collections.Frozen;
+<<<<<<< HEAD
+=======
+using System.Linq;
+using Content.Shared.Chat;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
@@ -10,6 +15,10 @@ namespace Content.Server.Chat.Systems;
 public partial class ChatSystem
 {
     private FrozenDictionary<string, EmotePrototype> _wordEmoteDict = FrozenDictionary<string, EmotePrototype>.Empty;
+<<<<<<< HEAD
+=======
+    private IReadOnlyList<string> Punctuation { get; } = new List<string> { ",", ".", "!", "?", "-", "~", "'", "\"", };
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     protected override void OnPrototypeReload(PrototypesReloadedEventArgs obj)
     {
@@ -96,7 +105,8 @@ public partial class ChatSystem
         {
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
-            SendEntityEmote(source, action, range, nameOverride, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
+            var language = _language.GetLanguage(source);
+            SendEntityEmote(source, action, range, nameOverride, language, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
         }
 
         // do the rest of emote event logic here
@@ -161,6 +171,10 @@ public partial class ChatSystem
     private void TryEmoteChatInput(EntityUid uid, string textInput)
     {
         var actionLower = textInput.ToLower();
+        // Replace ending punctuation with nothing
+        if (Punctuation.Any(punctuation => actionLower.EndsWith(punctuation)))
+            actionLower = actionLower.Remove(actionLower.Length - 1);
+
         if (!_wordEmoteDict.TryGetValue(actionLower, out var emote))
             return;
 

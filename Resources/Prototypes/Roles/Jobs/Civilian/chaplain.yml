@@ -3,20 +3,46 @@
   name: job-name-chaplain
   description: job-description-chaplain
   playTimeTracker: JobChaplain
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Epistemics # DeltaV - Epistemics Department replacing Science
+      min: 14400 #DeltaV 4 hours
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - IPC
+        - !type:CharacterTraitRequirement
+          traits:
+            - AnomalousPositronics
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-rd
   access:
   - Chapel
+  - Research # DeltaV - Move Chaplain into Epistemics
   - Maintenance
   special:
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+    - type: Psionic
+      powerRollMultiplier: 3
+    - type: InnatePsionicPowers
+      powersToAdd:
+        - TelepathyPower
 
 - type: startingGear
   id: ChaplainGear
   equipment:
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
+<<<<<<< HEAD
     ears: ClothingHeadsetService
+=======
+    ears: ClothingHeadsetScience # DeltaV - Move Chaplain into Epistemics
+  innerClothingSkirt: ClothingUniformJumpskirtChaplain
+  satchel: ClothingBackpackSatchelChaplainFilled
+  duffelbag: ClothingBackpackDuffelChaplainFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

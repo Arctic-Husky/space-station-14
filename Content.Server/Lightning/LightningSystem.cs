@@ -3,7 +3,10 @@ using Content.Server.Beam;
 using Content.Server.Beam.Components;
 using Content.Server.Lightning.Components;
 using Content.Shared.Lightning;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Random;
 
 namespace Content.Server.Lightning;
@@ -21,7 +24,10 @@ public sealed class LightningSystem : SharedLightningSystem
     [Dependency] private readonly BeamSystem _beam = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+<<<<<<< HEAD
     [Dependency] private readonly TransformSystem _transform = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     public override void Initialize()
     {
@@ -76,7 +82,11 @@ public sealed class LightningSystem : SharedLightningSystem
         //To Do: This is still pretty bad for perf but better than before and at least it doesn't re-allocate
         // several hashsets every time
 
+<<<<<<< HEAD
         var targets = _lookup.GetComponentsInRange<LightningTargetComponent>(_transform.GetMapCoordinates(user), range).ToList();
+=======
+        var targets = _lookup.GetComponentsInRange<LightningTargetComponent>(Transform(user).MapPosition, range).ToList();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _random.Shuffle(targets);
         targets.Sort((x, y) => y.Priority.CompareTo(x.Priority));
 

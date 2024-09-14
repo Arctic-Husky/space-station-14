@@ -31,3 +31,15 @@
   id: VulpkaninHowls
   files:
   - /Audio/DeltaV/Voice/Vulpkanin/howl.ogg
+<<<<<<< HEAD
+=======
+
+- type: soundCollection
+  id: VulpkaninScreams
+  files:
+  - /Audio/Voice/Vulpkanin/vulpscream1.ogg
+  - /Audio/Voice/Vulpkanin/vulpscream2.ogg
+  - /Audio/Voice/Vulpkanin/vulpscream3.ogg
+  - /Audio/Voice/Vulpkanin/vulpscream4.ogg
+  - /Audio/Voice/Vulpkanin/vulpscream5.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

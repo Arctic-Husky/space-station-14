@@ -32,9 +32,15 @@ public sealed partial class BorgSystem
             return;
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
+<<<<<<< HEAD
             $"{ToPrettyString(args.Actor):player} removed brain {ToPrettyString(brain)} from borg {ToPrettyString(uid)}");
         _container.Remove(brain, component.BrainContainer);
         _hands.TryPickupAnyHand(args.Actor, brain);
+=======
+            $"{ToPrettyString(attachedEntity):player} removed brain {ToPrettyString(brain)} from borg {ToPrettyString(uid)}");
+        _container.Remove(brain, component.BrainContainer);
+        _hands.TryPickupAnyHand(attachedEntity, brain);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         UpdateUI(uid, component);
     }
 
@@ -79,13 +85,24 @@ public sealed partial class BorgSystem
     {
         var module = GetEntity(args.Module);
 
+<<<<<<< HEAD
+=======
+        var module = GetEntity(args.Module);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         if (!component.ModuleContainer.Contains(module))
             return;
 
         _adminLog.Add(LogType.Action, LogImpact.Medium,
+<<<<<<< HEAD
             $"{ToPrettyString(args.Actor):player} removed module {ToPrettyString(module)} from borg {ToPrettyString(uid)}");
         _container.Remove(module, component.ModuleContainer);
         _hands.TryPickupAnyHand(args.Actor, module);
+=======
+            $"{ToPrettyString(attachedEntity):player} removed module {ToPrettyString(module)} from borg {ToPrettyString(uid)}");
+        _container.Remove(module, component.ModuleContainer);
+        _hands.TryPickupAnyHand(attachedEntity, module);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         UpdateUI(uid, component);
     }

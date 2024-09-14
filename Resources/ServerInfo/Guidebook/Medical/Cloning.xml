@@ -4,7 +4,11 @@ Se tudo mais falhar, os pacientes precisarão ser clonados. Isso só deve ser us
 
 A clonagem em si é relativamente simples. (Supondo que a rede esteja configurada.) Basta arrastar um corpo para o scanner, verificar o console de clonagem e clonar! Se o corpo tiver sofrido danos celulares ou tiver apodrecido por muito tempo, os resultados podem ser... menos agradáveis.
 
+<<<<<<< HEAD
 Observação: a clonagem nem sempre está disponível, e é melhor não depender dela. A ciência pode ser capaz de configurar a clonagem, se ela não estiver disponível.
+=======
+As a note: Cloning isn't always available, and it would be best not to rely on it. Epistemics might be able to set up cloning, if it's unavailable.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 <Box>
 <GuideEntityEmbed Entity="ComputerCloningConsole" Caption="cloning console"/>
 <GuideEntityEmbed Entity="MedicalScanner"/>

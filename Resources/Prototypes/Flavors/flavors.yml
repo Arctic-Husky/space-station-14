@@ -590,6 +590,7 @@
   description: flavor-complex-irish-car-bomb
 
 - type: flavor
+<<<<<<< HEAD
   id: vodkaredbool
   flavorType: Complex
   description: flavor-complex-vodka-red-bool
@@ -620,6 +621,8 @@
   description: flavor-complex-rubberneck
 
 - type: flavor
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: blackrussian
   flavorType: Complex
   description: flavor-complex-black-russian
@@ -1055,11 +1058,14 @@
   description: flavor-complex-punishment
 
 - type: flavor
+<<<<<<< HEAD
   id: holy
   flavorType: Base
   description: flavor-base-holy
 
 - type: flavor
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: horrible
   flavorType: Base
   description: flavor-base-horrible
@@ -1088,6 +1094,7 @@
   id: violets
   flavorType: Complex
   description: flavor-complex-violets
+<<<<<<< HEAD
 
 - type: flavor
   id: pyrotton
@@ -1103,3 +1110,5 @@
   id: paintthinner
   flavorType: Complex
   description: flavor-complex-paint-thinner
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

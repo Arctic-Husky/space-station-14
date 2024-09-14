@@ -1,7 +1,7 @@
 - type: marking
   id: SlimeGradientLeftArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -10,7 +10,7 @@
 - type: marking
   id: SlimeGradientRightArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -19,7 +19,11 @@
 - type: marking
   id: SlimeGradientLeftLeg
   bodyPart: LLeg
+<<<<<<< HEAD
   markingCategory: Legs
+=======
+  markingCategory: LeftLeg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -28,7 +32,11 @@
 - type: marking
   id: SlimeGradientRightLeg
   bodyPart: RLeg
+<<<<<<< HEAD
   markingCategory: Legs
+=======
+  markingCategory: RightLeg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -37,7 +45,11 @@
 - type: marking
   id: SlimeGradientLeftFoot
   bodyPart: LFoot
+<<<<<<< HEAD
   markingCategory: Legs
+=======
+  markingCategory: LeftFoot
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -46,7 +58,11 @@
 - type: marking
   id: SlimeGradientRightFoot
   bodyPart: RFoot
+<<<<<<< HEAD
   markingCategory: Legs
+=======
+  markingCategory: RightFoot
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -55,7 +71,7 @@
 - type: marking
   id: SlimeGradientLeftHand
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
@@ -64,7 +80,7 @@
 - type: marking
   id: SlimeGradientRightHand
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [SlimePerson]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi

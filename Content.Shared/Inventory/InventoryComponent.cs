@@ -13,6 +13,7 @@ public sealed partial class InventoryComponent : Component
 
     [DataField("speciesId")] public string? SpeciesId { get; set; }
 
+<<<<<<< HEAD
     [DataField] public Dictionary<string, SlotDisplacementData> Displacements = [];
 
     public SlotDefinition[] Slots = Array.Empty<SlotDefinition>();
@@ -27,4 +28,8 @@ public sealed partial class InventoryComponent : Component
         [DataField]
         public string? ShaderOverride = "DisplacedStencilDraw";
     }
+=======
+    public SlotDefinition[] Slots = Array.Empty<SlotDefinition>();
+    public ContainerSlot[] Containers = Array.Empty<ContainerSlot>();
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

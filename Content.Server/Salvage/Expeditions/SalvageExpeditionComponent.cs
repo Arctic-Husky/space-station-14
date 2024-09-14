@@ -40,7 +40,10 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     /// <summary>
     /// Countdown audio stream.
     /// </summary>
+<<<<<<< HEAD
     [DataField, AutoNetworkedField]
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public EntityUid? Stream = null;
 
     /// <summary>
@@ -51,10 +54,13 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     {
         Params = AudioParams.Default.WithVolume(-5),
     };
+<<<<<<< HEAD
 
     /// <summary>
     /// Song selected on MapInit so we can predict the audio countdown properly.
     /// </summary>
     [DataField]
     public SoundPathSpecifier SelectedSong;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

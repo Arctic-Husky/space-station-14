@@ -16,7 +16,18 @@
     swingLeft: true
     damage:
       types:
+<<<<<<< HEAD
         Slash: 6
+=======
+        Slash: 3.5
+        Blunt: 3
+    heavyRateModifier: 1
+    heavyRangeModifier: 1
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 5
+    angle: 100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
 
@@ -34,9 +45,19 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 90
+<<<<<<< HEAD
+=======
+    attackRate: 0.8
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       types:
-        Slash: 7
+        Pierce: 7
+    heavyRateModifier: 0.9
+    heavyRangeModifier: 1.25
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 20
   - type: Item
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     storedRotation: -90
@@ -53,9 +74,19 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 135
+<<<<<<< HEAD
+=======
+    range: 1.85
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       types:
-        Slash: 10
+        Slash: 7
+    heavyRateModifier: 0.8
+    heavyRangeModifier: 1.25
+    heavyDamageBaseModifier: 1.5
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 120
   - type: Item
     size: Normal
   - type: Clothing
@@ -81,10 +112,20 @@
   - type: MeleeWeapon
     wideAnimationRotation: 135
     swingLeft: true
+<<<<<<< HEAD
     damage:
       types:
         Slash: 8
         Piercing: 2
+=======
+    attackRate: 1.25
+    range: 1.25
+    damage:
+      types:
+        Slash: 10
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
 
@@ -104,14 +145,28 @@
     wideAnimationRotation: 45
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 8
         Piercing: 2 # I guess you can stab it into them?
+=======
+        Blunt: 6
+        Slash: 2 # I guess you can stab it into them?
+    heavyRateModifier: 0.8
+    heavyRangeModifier: 1.25
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    angle: 80
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
+<<<<<<< HEAD
     speedModifier: 0.75 # slower at digging than a full-sized shovel
+=======
+    speedModifier: 0.85 # slower at digging than a full-sized shovel
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: plant bag

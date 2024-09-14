@@ -35,7 +35,12 @@ public sealed class PortalArtifactSystem : EntitySystem
         var secondPortal = Spawn(artifact.Comp.PortalProto, _transform.GetMapCoordinates(target));
 
         //Manual position swapping, because the portal that opens doesn't trigger a collision, and doesn't teleport targets the first time.
+<<<<<<< HEAD
         _transform.SwapPositions(target, secondPortal);
+=======
+        _transform.SetCoordinates(artifact, Transform(secondPortal).Coordinates);
+        _transform.SetCoordinates(target, Transform(firstPortal).Coordinates);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         _link.TryLink(firstPortal, secondPortal, true);
     }

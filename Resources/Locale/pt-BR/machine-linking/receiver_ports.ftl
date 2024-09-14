@@ -77,4 +77,8 @@ signal-port-name-logic-input-b = Entrada B
 signal-port-description-logic-input-b = Segunda entrada de uma porta lógica.
 
 signal-port-name-logic-input = Entrada
+<<<<<<< HEAD
 signal-port-description-logic-input = Entrada no detector de borda, não pode ser um sinal de pulso.
+=======
+signal-port-description-logic-input = Entrada no detector de borda, não pode ser um sinal de pulso.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

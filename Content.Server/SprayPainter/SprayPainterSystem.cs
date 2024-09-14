@@ -55,7 +55,12 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, painter.PipeSprayTime, new SprayPainterPipeDoAfterEvent(color), args.Used, target: ent, used: args.Used)
         {
+<<<<<<< HEAD
             BreakOnMove = true,
+=======
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             BreakOnDamage = true,
             CancelDuplicate = true,
             // multiple pipes can be sprayed at once just not the same one

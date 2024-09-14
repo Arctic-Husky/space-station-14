@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Server.Forensics;
+using Content.Shared.Forensics;
 using Content.Server.Stack;
 using Content.Shared.Prototypes;
 using Content.Shared.Stacks;
@@ -7,6 +7,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Content.Server.Administration.Commands;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors
 {
@@ -50,8 +51,12 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
                         ? minMax.Min
                         : system.Random.Next(minMax.Min, minMax.Max + 1);
 
+<<<<<<< HEAD
                     if (count == 0)
                         continue;
+=======
+                    if (count == 0) continue;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                     if (EntityPrototypeHelpers.HasComponent<StackComponent>(entityId, system.PrototypeManager, system.ComponentFactory))
                     {
@@ -88,6 +93,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
 
             if (!system.Random.Prob(0.4f))
                 return;
+
             comp.Fingerprints = forensicsComponent.Fingerprints;
             comp.Fibers = forensicsComponent.Fibers;
         }

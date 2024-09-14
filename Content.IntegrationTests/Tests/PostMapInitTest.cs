@@ -46,6 +46,7 @@ namespace Content.IntegrationTests.Tests
         {
             "Dev",
             "TestTeg",
+<<<<<<< HEAD
             "Fland",
             "Meta",
             "Packed",
@@ -72,6 +73,24 @@ namespace Content.IntegrationTests.Tests
 	    ,
             "RadStation",
 	    // "EstacaoPirata",
+=======
+            "CentComm",
+            "MeteorArena",
+            "NukieOutpost",
+            "Core",
+            "Pebble", //DeltaV
+            "Edge", //DeltaV
+            "Saltern",
+            "Shoukou", //DeltaV
+            "Tortuga", //DeltaV
+            "Arena", //DeltaV
+            "Asterisk", //DeltaV
+            "Glacier", //DeltaV
+            "TheHive", //DeltaV
+            "Hammurabi", //DeltaV
+            "Lighthouse", //DeltaV
+			"Submarine" //DeltaV
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         };
 
         /// <summary>

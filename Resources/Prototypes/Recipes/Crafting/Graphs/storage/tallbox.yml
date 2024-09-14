@@ -19,6 +19,11 @@
       conditions:
       - !type:StorageWelded
         welded: false
+<<<<<<< HEAD
+=======
+      - !type:Locked
+        locked: false
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       completed:
       - !type:SpawnPrototype
         prototype: SheetSteel1

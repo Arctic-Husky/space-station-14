@@ -17,8 +17,13 @@ namespace Content.Shared.Plunger.Systems;
 /// </summary>
 public sealed class PlungerSystem : EntitySystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+=======
+    [Dependency] protected readonly IPrototypeManager _proto = default!;
+    [Dependency] protected readonly IRobustRandom _random = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -45,7 +50,11 @@ public sealed class PlungerSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.PlungeDuration, new PlungerDoAfterEvent(), uid, target, uid)
         {
+<<<<<<< HEAD
             BreakOnMove = true,
+=======
+            BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             BreakOnDamage = true,
             MovementThreshold = 1.0f,
         });
@@ -76,4 +85,7 @@ public sealed class PlungerSystem : EntitySystem
         args.Handled = true;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

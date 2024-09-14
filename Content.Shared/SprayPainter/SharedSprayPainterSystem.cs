@@ -131,7 +131,12 @@ public abstract class SharedSprayPainterSystem : EntitySystem
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, painter.AirlockSprayTime, new SprayPainterDoorDoAfterEvent(sprite, style.Department), args.Used, target: ent, used: args.Used)
         {
+<<<<<<< HEAD
             BreakOnMove = true,
+=======
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             BreakOnDamage = true,
             NeedHand = true
         };

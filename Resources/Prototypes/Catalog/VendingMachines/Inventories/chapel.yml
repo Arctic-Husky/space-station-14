@@ -16,6 +16,10 @@
     ClothingHeadHatWitch1: 1
     ClothingOuterPlagueSuit: 1
     ClothingMaskPlague: 1
+<<<<<<< HEAD
+=======
+    #ClothingHeadsetService: 2 # Delta-V - Chaplain is no longer service dept
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     ClothingHandsAccessoriesWatch: 1
     ClothingHandsAccessoriesWeddingring: 4
     ClothingHeadsetService: 2

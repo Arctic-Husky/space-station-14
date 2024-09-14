@@ -10,9 +10,12 @@ ent-Gauze = rolo de gaze
 ent-Gauze1 = rolo de gaze
     .desc = Um rolo estéril de gaze, capaz de cobrir feridas.
 
+<<<<<<< HEAD
 ent-Gauze10Lingering = rolo de gaze
     .desc = Um rolo estéril de gaze, capaz de cobrir feridas.
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ent-AloeCream = creme de aloe vera
     .desc = Um creme tópico para queimaduras.
 
@@ -58,6 +61,7 @@ ent-SyringeIpecac = seringa de ipecac
 ent-SyringeCorpium = seringa de corpium
     .desc = Um creme tópico para queimaduras.
 
+<<<<<<< HEAD
 ent-SyringeBicaridine = seringa de bicaridine
     .desc = Uma seinga contendo um analgésico que é altamente eficaz no tratamento de danos brutos.
 
@@ -129,3 +133,5 @@ ent-PillCanisterCharcoal = porta-comprimidos (carvão vegetal 10u)
 
 PillCanisterRandom = porta-comprimidos
     .desc = Comporta até 9 comprimidos.
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

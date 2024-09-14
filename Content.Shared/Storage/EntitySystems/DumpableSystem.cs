@@ -118,6 +118,22 @@ public sealed class DumpableSystem : EntitySystem
         var delay = 0f;
 
         foreach (var entity in storage.Container.ContainedEntities)
+<<<<<<< HEAD
+=======
+        {
+            if (!_itemQuery.TryGetComponent(entity, out var itemComp) ||
+                !_prototypeManager.TryIndex(itemComp.Size, out var itemSize))
+            {
+                continue;
+            }
+
+            delay += itemSize.Weight;
+        }
+
+        delay *= (float) dumpable.DelayPerItem.TotalSeconds * dumpable.Multiplier;
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, userUid, delay, new DumpableDoAfterEvent(), storageUid, target: targetUid, used: storageUid)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             if (!_itemQuery.TryGetComponent(entity, out var itemComp) ||
                 !_prototypeManager.TryIndex(itemComp.Size, out var itemSize))

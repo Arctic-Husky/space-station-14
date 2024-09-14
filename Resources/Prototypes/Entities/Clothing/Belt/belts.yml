@@ -31,7 +31,10 @@
         - AppraisalTool
         - JawsOfLife
         - GPS
+<<<<<<< HEAD
         - WeldingMask
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       components:
         - SprayPainter
         - NetworkConfigurator
@@ -474,7 +477,10 @@
         - MagazinePistol
         - MagazineMagnum
         - CombatKnife
+<<<<<<< HEAD
         - Truncheon
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -523,8 +529,13 @@
         name: Sabre
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
+<<<<<<< HEAD
         insertSound: /Audio/Items/sheath.ogg
         ejectSound: /Audio/Items/unsheath.ogg
+=======
+        insertSound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
+        ejectSound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         whitelist:
           tags:
           - CaptainSabre
@@ -617,6 +628,20 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
+
+- type: entity
+  parent: ClothingBeltSecurityWebbing
+  id: ClothingBeltSecurityWebbingFilled
+  name: security webbing
+  description: Unique and versatile chest rig, can hold security gear.
+  components:
+  - type: StorageFill
+    contents:
+      - id: GrenadeFlashBang
+      - id: TearGasGrenade
+      - id: Stunbaton
+      - id: Handcuffs
+      - id: Handcuffs
 
 - type: entity
   parent: ClothingBeltStorageBase

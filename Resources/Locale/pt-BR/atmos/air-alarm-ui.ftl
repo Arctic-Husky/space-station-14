@@ -19,12 +19,21 @@ air-alarm-ui-window-pressure = {$pressure} kPa
 air-alarm-ui-window-pressure-indicator = Pressão: [color={$color}]{$pressure} kPa[/color]
 air-alarm-ui-window-temperature = {$tempC} C ({$temperature} K)
 air-alarm-ui-window-temperature-indicator = Temperatura: [color={$color}]{$tempC} C ({$temperature} K)[/color]
+<<<<<<< HEAD
 air-alarm-ui-window-alarm-state = [color={$color}]{$state}[/color]
 air-alarm-ui-window-alarm-state-indicator = Estado: [color={$color}]{$state}[/color]
 
 air-alarm-ui-window-tab-vents = Ventilações
 air-alarm-ui-window-tab-scrubbers = Depuradores
 air-alarm-ui-window-tab-sensors = Sensores
+=======
+air-alarm-ui-window-alarm-state = {$state}
+air-alarm-ui-window-alarm-state-indicator = Status: [color={$color}]{$state}[/color]
+
+air-alarm-ui-window-tab-vents = Ventilações
+air-alarm-ui-window-tab-scrubbers = Depuradores
+air-alarm-ui-window-tab-thresholds = Limites
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 air-alarm-ui-gases = {$gas}: {$amount} mol ({$percentage}%)
 air-alarm-ui-gases-indicator = {$gas}: [color={$color}]{$amount} mol ({$percentage}%)[/color]
@@ -70,4 +79,8 @@ air-alarm-ui-thresholds-gas-title = Thresholds (%)
 air-alarm-ui-thresholds-upper-bound = Perigo acima
 air-alarm-ui-thresholds-lower-bound = Perigo abaixo
 air-alarm-ui-thresholds-upper-warning-bound = Aviso acima
+<<<<<<< HEAD
 air-alarm-ui-thresholds-lower-warning-bound = Aviso abaixo
+=======
+air-alarm-ui-thresholds-lower-warning-bound = Aviso abaixo
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

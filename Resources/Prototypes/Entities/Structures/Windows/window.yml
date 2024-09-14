@@ -72,13 +72,8 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: windows
+    key: walls
     base: window
-  - type: InteractionPopup
-    interactSuccessString: comp-window-knock
-    messagePerceivedByOthers: comp-window-knock
-    interactSuccessSound:
-      path: /Audio/Effects/glass_knock.ogg
   - type: Construction
     graph: Window
     node: window
@@ -92,7 +87,14 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+<<<<<<< HEAD
   
+=======
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: entity
   id: WindowRCDResistant
   parent: Window
@@ -116,6 +118,7 @@
   - type: Tag
     tags:
       - Window
+      - Directional #Delta V - Summary: Allows the tilewindow mapping command to work.
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -127,11 +130,6 @@
   - type: Icon
     sprite: Structures/Windows/directional.rsi
     state: window
-  - type: InteractionPopup
-    interactSuccessString: comp-window-knock
-    messagePerceivedByOthers: comp-window-knock
-    interactSuccessSound:
-      path: /Audio/Effects/glass_knock.ogg
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -195,6 +193,17 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 10
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+
+- type: entity
+  id: WindowDirectionalRCDResistant
+  parent: WindowDirectional
+  abstract: true
+  components:
+  - type: RCDDeconstructable
+    deconstructable: false
 
 - type: entity
   id: WindowDirectionalRCDResistant  
@@ -236,7 +245,11 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
+<<<<<<< HEAD
     key: windows
+=======
+    key: walls
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     base: state
   - type: Icon
     sprite: Structures/Windows/window_diagonal.rsi
@@ -264,4 +277,8 @@
       sprite: Structures/Windows/cracks_diagonal.rsi
   - type: Construction
     graph: WindowDiagonal
+<<<<<<< HEAD
     node: windowDiagonal
+=======
+    node: windowDiagonal
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

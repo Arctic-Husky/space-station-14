@@ -12,7 +12,10 @@ namespace Content.Server.Preferences.Managers
         void Init();
 
         Task LoadData(ICommonSession session, CancellationToken cancel);
+<<<<<<< HEAD
         void FinishLoad(ICommonSession session);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         void OnClientDisconnected(ICommonSession session);
 
         bool TryGetCachedPreferences(NetUserId userId, [NotNullWhen(true)] out PlayerPreferences? playerPreferences);
@@ -20,5 +23,10 @@ namespace Content.Server.Preferences.Managers
         PlayerPreferences? GetPreferencesOrNull(NetUserId? userId);
         IEnumerable<KeyValuePair<NetUserId, ICharacterProfile>> GetSelectedProfilesForPlayers(List<NetUserId> userIds);
         bool HavePreferencesLoaded(ICommonSession session);
+<<<<<<< HEAD
+=======
+
+        Task SetProfile(NetUserId userId, int slot, ICharacterProfile profile);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 }

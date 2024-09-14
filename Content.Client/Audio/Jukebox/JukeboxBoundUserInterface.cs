@@ -9,6 +9,10 @@ namespace Content.Client.Audio.Jukebox;
 
 public sealed class JukeboxBoundUserInterface : BoundUserInterface
 {
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly IPlayerManager _player = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     [ViewVariables]
@@ -47,7 +51,10 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         _menu.OnSongSelected += SelectSong;
 
         _menu.SetTime += SetTime;
+<<<<<<< HEAD
         _menu.SetVolume += SetVolume;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         PopulateMusic();
         Reload();
     }
@@ -61,12 +68,18 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             return;
 
         _menu.SetAudioStream(jukebox.AudioStream);
+<<<<<<< HEAD
         _menu.SetVolumeSlider(jukebox.Volume);
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         if (_protoManager.TryIndex(jukebox.SelectedSongId, out var songProto))
         {
             var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             _menu.SetSelectedSong(songProto.Name, (float) length.TotalSeconds);
         }
         else
@@ -104,6 +117,7 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         SendMessage(new JukeboxSetTimeMessage(sentTime));
     }
 
+<<<<<<< HEAD
     public void SetVolume(float volume)
     {
         var sentVolume = volume;
@@ -118,6 +132,8 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         SendMessage(new JukeboxSetVolumeMessage(sentVolume));
     }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);

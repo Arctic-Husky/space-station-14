@@ -4,6 +4,10 @@
   id: Welder
   description: "Melts anything as long as it's fueled, don't forget your eye protection!"
   components:
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/welder_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/welder_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/welder_drop.ogg
@@ -51,7 +55,11 @@
       collection: MetalThud
     activatedDamage:
         types:
+<<<<<<< HEAD
             Heat: 8
+=======
+            Heat: 7
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: ItemToggleSize
     activatedSize: Large
   - type: ItemToggleHot
@@ -71,7 +79,11 @@
     wideAnimationRotation: -90
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 5 #i mean... i GUESS you could use it like that
+=======
+        Blunt: 6 #i mean... i GUESS you could use it like that
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: RefillableSolution
@@ -102,6 +114,7 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+<<<<<<< HEAD
   - type: WeldingHealing # Same as Brutepack
     damageContainers:
       - Silicon
@@ -109,6 +122,17 @@
     damage:
       groups:
         Brute: -10
+=======
+  - type: WeldingHealing # Same as Brutepack - Estacao Pirata IPCs
+    damageContainers:
+      - Silicon
+    fuelcost: 5
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: industrial welding tool

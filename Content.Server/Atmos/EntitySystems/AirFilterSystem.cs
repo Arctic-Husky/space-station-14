@@ -12,6 +12,10 @@ namespace Content.Server.Atmos.EntitySystems;
 public sealed class AirFilterSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly IMapManager _map = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()

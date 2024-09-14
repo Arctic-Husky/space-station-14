@@ -18,8 +18,10 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    fireOnDropChance: 0.15
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    doRecoil: false
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -47,6 +49,10 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+<<<<<<< HEAD
+=======
+    doRecoil: false
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -65,6 +71,10 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - type: entity
   id: BaseWeaponBatterySmall
   parent: BaseWeaponBattery
@@ -170,6 +180,38 @@
 
 - type: entity
   name: tesla gun
+<<<<<<< HEAD
+=======
+  parent: BaseWeaponBattery
+  id: WeaponTeslaGun
+  description: The power of the primordial element of lightning in your hands.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Gun
+    projectileSpeed: 10
+    soundGunshot:
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+      params:
+        variation: 0.2
+  - type: ProjectileBatteryAmmoProvider
+    proto: TeslaGunBullet
+    fireCost: 300
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: laser rifle
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: BaseWeaponBattery
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
@@ -348,6 +390,40 @@
 
 - type: entity
   name: portable particle decelerator
+<<<<<<< HEAD
+=======
+  parent: BaseWeaponBattery
+  id: WeaponParticleDecelerator
+  description: A portable particle decelerator capable of decomposing a tesla or singularity.
+  components:
+    - type: Item
+      size: Ginormous
+    - type: MultiHandedItem
+    - type: ClothingSpeedModifier
+      walkModifier: 0.6
+      sprintModifier: 0.6
+    - type: HeldSpeedModifier
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+    - type: Gun
+      fireRate: 0.5
+      soundGunshot:
+        path: /Audio/Weapons/emitter.ogg
+        params:
+          pitch: 2
+    - type: ProjectileBatteryAmmoProvider
+      proto: AntiParticlesProjectile
+      fireCost: 500
+    - type: Battery
+      maxCharge: 10000
+      startingCharge: 10000
+
+- type: entity
+  name: x-ray cannon
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: BaseWeaponBattery
   id: WeaponParticleDecelerator
   description: A portable particle decelerator capable of decomposing a tesla or singularity.
@@ -446,7 +522,11 @@
       - Security
 
 - type: entity
+<<<<<<< HEAD
   name: automatic disabler
+=======
+  name: disabler SMG
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: BaseWeaponBattery
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
@@ -467,7 +547,11 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
+<<<<<<< HEAD
     fireRate: 2.5
+=======
+    fireRate: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     availableModes:
       - SemiAuto
       - FullAuto
@@ -475,7 +559,11 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
+<<<<<<< HEAD
     fireCost: 50
+=======
+    fireCost: 33
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -565,7 +653,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
-    fireCost: 100
+    fireCost: 75
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 50

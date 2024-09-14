@@ -108,6 +108,7 @@ namespace Content.Shared.Chemistry
         public readonly ContainerInfo? OutputContainer;
 
         public readonly NetEntity? OutputContainerEntity;
+<<<<<<< HEAD
 
         /// <summary>
         /// A list of the reagents which this dispenser can dispense.
@@ -117,6 +118,16 @@ namespace Content.Shared.Chemistry
         public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
 
         public ReagentDispenserBoundUserInterfaceState(ContainerInfo? outputContainer, NetEntity? outputContainerEntity, List<ReagentInventoryItem> inventory, ReagentDispenserDispenseAmount selectedDispenseAmount)
+=======
+        /// <summary>
+        /// A list of the reagents which this dispenser can dispense.
+        /// </summary>
+        public readonly List<KeyValuePair<string, KeyValuePair<string, string>>> Inventory;
+
+        public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
+
+        public ReagentDispenserBoundUserInterfaceState(ContainerInfo? outputContainer, NetEntity? outputContainerEntity, List<KeyValuePair<string, KeyValuePair<string, string>>> inventory, ReagentDispenserDispenseAmount selectedDispenseAmount)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             OutputContainer = outputContainer;
             OutputContainerEntity = outputContainerEntity;

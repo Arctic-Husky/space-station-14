@@ -43,3 +43,21 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#dbdbdb"
+<<<<<<< HEAD
+=======
+
+- type: entity
+  id: CartridgeCaselessRifleRubber
+  name: cartridge (.25 caseless rubber)
+  parent: BaseCartridgeCaselessRifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessRifleRubber
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#43c4f7"
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

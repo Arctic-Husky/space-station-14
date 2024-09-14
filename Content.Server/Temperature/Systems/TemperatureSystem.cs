@@ -160,6 +160,7 @@ public sealed class TemperatureSystem : EntitySystem
         if (!Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
         {
             return Atmospherics.MinimumHeatCapacity;
+<<<<<<< HEAD
         }
 
         return comp.SpecificHeat * physics.FixturesMass;
@@ -217,6 +218,66 @@ public sealed class TemperatureSystem : EntitySystem
         var tempScale = (args.CurrentTemperature - threshold) / (idealTemp - threshold);
         switch (tempScale)
         {
+=======
+        }
+        if (physics.Mass < 1)
+            return comp.SpecificHeat;
+        else return comp.SpecificHeat * physics.FixturesMass;
+    }
+
+    private void OnInit(EntityUid uid, InternalTemperatureComponent comp, MapInitEvent args)
+    {
+        if (!TryComp<TemperatureComponent>(uid, out var temp))
+            return;
+
+        comp.Temperature = temp.CurrentTemperature;
+    }
+
+    private void OnRejuvenate(EntityUid uid, TemperatureComponent comp, RejuvenateEvent args)
+    {
+        ForceChangeTemperature(uid, Atmospherics.T20C, comp);
+    }
+
+    private void ServerAlert(EntityUid uid, AlertsComponent status, OnTemperatureChangeEvent args)
+    {
+        AlertType type;
+        float threshold;
+        float idealTemp;
+
+        if (!TryComp<TemperatureComponent>(uid, out var temperature))
+        {
+            _alerts.ClearAlertCategory(uid, AlertCategory.Temperature);
+            return;
+        }
+
+        if (TryComp<ThermalRegulatorComponent>(uid, out var regulator) &&
+            regulator.NormalBodyTemperature > temperature.ColdDamageThreshold &&
+            regulator.NormalBodyTemperature < temperature.HeatDamageThreshold)
+        {
+            idealTemp = regulator.NormalBodyTemperature;
+        }
+        else
+        {
+            idealTemp = (temperature.ColdDamageThreshold + temperature.HeatDamageThreshold) / 2;
+        }
+
+        if (args.CurrentTemperature <= idealTemp)
+        {
+            type = AlertType.Cold;
+            threshold = temperature.ColdDamageThreshold;
+        }
+        else
+        {
+            type = AlertType.Hot;
+            threshold = temperature.HeatDamageThreshold;
+        }
+
+        // Calculates a scale where 1.0 is the ideal temperature and 0.0 is where temperature damage begins
+        // The cold and hot scales will differ in their range if the ideal temperature is not exactly halfway between the thresholds
+        var tempScale = (args.CurrentTemperature - threshold) / (idealTemp - threshold);
+        switch (tempScale)
+        {
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             case <= 0f:
                 _alerts.ShowAlert(uid, type, 3);
                 break;

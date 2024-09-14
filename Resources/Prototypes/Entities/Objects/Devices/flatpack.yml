@@ -112,6 +112,7 @@
 
 - type: entity
   parent: BaseFlatpack
+<<<<<<< HEAD
   id: EmitterFlatpack
   name: emitter flatpack
   description: A flatpack used for constructing an emitter.
@@ -126,6 +127,8 @@
 
 - type: entity
   parent: BaseFlatpack
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: TeslaGeneratorFlatpack
   name: tesla generator flatpack
   description: A flatpack used for constructing a tesla generator.
@@ -195,6 +198,7 @@
     - state: overlay
       color: "#cec8ac"
     - state: icon-default
+<<<<<<< HEAD
 
 - type: entity
   parent: BaseFlatpack
@@ -225,3 +229,5 @@
     guides: [ Power ] 
 
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

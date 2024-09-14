@@ -28,6 +28,7 @@
       - FoodMealRibs
       - FoodMealEggsbenedict
       - FoodMealOmelette
+      - FoodMealScrambledEggs #DeltaV
       - FoodMealFriedegg
       - FoodMealQueso
       - FoodMealSashimi
@@ -69,6 +70,33 @@
       - FoodSoupOnion
       - FoodSoupBisque
       - FoodSoupBungo
+<<<<<<< HEAD
+=======
+      - FoodMothHerbyCheese # Nyanotrasen - Moth Recipes
+      - FoodMothSqueakingFry # Nyanotrasen - Moth Recipes
+      - FoodMothChiliCabbageWrap # Nyanotrasen - Moth Recipes
+      - FoodMothBakedCheese # Nyanotrasen - Moth Recipes
+      - FoodMothBakedRice # Nyanotrasen - Moth Recipes
+      - FoodMothGreenLasagne # Nyanotrasen - Moth Recipes
+      - FoodMothBakedCorn # Nyanotrasen - Moth Recipes
+      - FoodMothButteredBakedCorn # Nyanotrasen - Moth Recipes
+      - FoodMothMozzarellaSticks # Nyanotrasen - Moth Recipes
+      - FoodMothMacBalls # Nyanotrasen - Moth Recipes
+      - FoodMothCottonSoup # Nyanotrasen - Moth Recipes
+      - FoodMothCheeseSoup # Nyanotrasen - Moth Recipes
+      - FoodMothSeedSoup # Nyanotrasen - Moth Recipes
+      - FoodMothBeanStew # Nyanotrasen - Moth Recipes
+      - FoodMothOatStew # Nyanotrasen - Moth Recipes
+      - FoodMothHeartburnSoup # Nyanotrasen - Moth Recipes
+      - FoodMothHuaMulanCongee # Nyanotrasen - Moth Recipes
+      - FoodMothCornmealPorridge # Nyanotrasen - Moth Recipes
+      - FoodMothCheesyPorridge # Nyanotrasen - Moth Recipes
+      - FoodMothEggplantPolenta # Nyanotrasen - Moth Recipes
+      - FoodMothCapreseSalad # Nyanotrasen - Moth Recipes
+      - FoodMothFleetSalad # Nyanotrasen - Moth Recipes
+      - FoodMothCottonSalad # Nyanotrasen - Moth Recipes
+      - FoodMothKachumbariSalad # Nyanotrasen - Moth Recipes
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - FoodMealSoftTaco
       - FoodMealCornInButter
       - FoodSoupStew
@@ -94,5 +122,9 @@
       - FoodSoupMonkey
       - FoodSoupEyeball
       - FoodSoupElectron
+<<<<<<< HEAD
+=======
+      - FoodMothBakedCheesePlatter # Nyanotrasen - Moth Recipes
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - FoodNoodlesCopy
     rareChance: 0.05

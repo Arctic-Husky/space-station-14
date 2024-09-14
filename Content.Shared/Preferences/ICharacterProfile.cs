@@ -1,7 +1,11 @@
 using Content.Shared.Humanoid;
+<<<<<<< HEAD
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+=======
+using Robust.Shared.Player;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Preferences
 {

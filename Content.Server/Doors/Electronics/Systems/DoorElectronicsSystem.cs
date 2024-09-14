@@ -39,7 +39,11 @@ public sealed class DoorElectronicsSystem : EntitySystem
         }
 
         var state = new DoorElectronicsConfigurationState(accesses);
+<<<<<<< HEAD
         _uiSystem.SetUiState(uid, DoorElectronicsConfigurationUiKey.Key, state);
+=======
+        _uiSystem.TrySetUiState(uid, DoorElectronicsConfigurationUiKey.Key, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnChangeConfiguration(

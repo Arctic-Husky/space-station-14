@@ -38,5 +38,10 @@
       default: ClothingUniformJumpsuitColorBlack
     - type: UserInterface
       interfaces:
+<<<<<<< HEAD
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
+=======
+        - key: enum.ChameleonUiKey.Key
+          type: ChameleonBoundUserInterface
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

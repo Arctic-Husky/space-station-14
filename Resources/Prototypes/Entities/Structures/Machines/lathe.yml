@@ -156,7 +156,10 @@
       - DrinkGlass
       - DrinkShotGlass
       - DrinkGlassCoupeShaped
+<<<<<<< HEAD
       - CustomDrinkJug
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - FoodPlate
       - FoodPlateSmall
       - FoodPlatePlastic
@@ -198,6 +201,7 @@
       - ClothingHeadHatWelding
   - type: EmagLatheRecipes
     emagStaticRecipes:
+<<<<<<< HEAD
       - BoxLethalshot
       - BoxShotgunFlare
       - BoxShotgunSlug
@@ -225,11 +229,85 @@
 - type: entity
   id: AutolatheHyperConvection
   parent: [Autolathe, BaseHyperlathe]
+=======
+       - CartridgePistol
+       - CartridgeMagnum
+       - ShellShotgun
+       - ShellShotgunFlare
+       - ShellTranquilizer
+       - CartridgeLightRifle
+       - CartridgeRifle
+       - CombatKnife
+       - MagazineBoxPistol
+       - MagazineBoxMagnum
+       - MagazineBoxRifle
+       - MagazineBoxLightRifle
+       - GrenadeBlast
+       # DeltaV - .38 special ammo - Add .38 special lethals to emagged autolathe
+       - CartridgeSpecial
+       - MagazineBoxSpecial
+       # End of modified code
+    emagDynamicRecipes:
+      - CartridgePistolRubber
+      - CartridgeMagnumRubber
+      - ShellShotgunBeanbag
+      - CartridgeRifleRubber
+      - CartridgeLightRifleRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxMagnumRubber
+      - MagazineBoxRifleRubber
+      - MagazineBoxLightRifleRubber
+      - ShellShotgunIncendiary
+      - CartridgePistolIncendiary
+      - CartridgeMagnumIncendiary
+      - CartridgeLightRifleIncendiary
+      - CartridgeRifleIncendiary
+      - MagazineBoxPistolIncendiary
+      - MagazineBoxMagnumIncendiary
+      - MagazineBoxLightRifleIncendiary
+      - MagazineBoxRifleIncendiary
+      - ShellShotgunUranium
+      - CartridgePistolUranium
+      - CartridgeMagnumUranium
+      - CartridgeLightRifleUranium
+      - CartridgeRifleUranium
+      - MagazineBoxPistolUranium
+      - MagazineBoxMagnumUranium
+      - MagazineBoxLightRifleUranium
+      - MagazineBoxRifleUranium
+      - PowerCageSmall
+      - PowerCageMedium
+      - PowerCageHigh
+      - MagazineGrenadeEmpty
+      - GrenadeEMP
+      - GrenadeFlash
+      # DeltaV - .38 special ammo - Add various .38 special ammo to emagged autolathe
+      - CartridgeSpecialRubber
+      - CartridgeSpecialIncendiary
+      - CartridgeSpecialUranium
+      - CartridgeSpecialMindbreaker
+      - MagazineBoxSpecialRubber
+      - MagazineBoxSpecialIncendiary
+      - MagazineBoxSpecialUranium
+      - MagazineBoxSpecialMindbreaker
+      # End of modified code
+
+- type: entity
+  id: AutolatheHyperConvection
+  parent: Autolathe
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: hyper convection autolathe
   description: A highly-experimental autolathe that harnesses the power of extreme heat to slowly create objects more cost-effectively.
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe_hypercon.rsi
+<<<<<<< HEAD
+=======
+  - type: Lathe
+    materialUseMultiplier: 0.5
+    timeMultiplier: 1.5
+  - type: LatheHeatProducing
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Machine
     board: AutolatheHyperConvectionMachineCircuitboard
 
@@ -273,6 +351,10 @@
       - AnomalyScanner
       - AnomalyLocator
       - AnomalyLocatorWide
+<<<<<<< HEAD
+=======
+      - HandheldCrewMonitor
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - Scalpel
       - Retractor
       - Cautery
@@ -303,25 +385,39 @@
       - PowerCellMicroreactor
       - PowerCellHigh
       - WeaponPistolCHIMP
+<<<<<<< HEAD
       - ClothingMaskWeldingGas
       - WeaponGauntletGorilla
       - SynthesizerInstrument
+=======
+      - WeaponGauntletGorilla
+      - SynthesizerInstrument
+      - RPED
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - ClothingShoesBootsMagSci
       - ClothingShoesBootsSpeed
       - NodeScanner
       - HolofanProjector
       - BluespaceBeaker
       - SyringeBluespace
+<<<<<<< HEAD
       - WeaponForceGun
+=======
+      #- WeaponForceGun
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
-      - WeaponTetherGun
-      - WeaponGrapplingGun
+      #- WeaponTetherGun
+      #- WeaponGrapplingGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
       - WelderExperimental
       - JawsOfLife
+<<<<<<< HEAD
+=======
+      - CoreSilver # Nyanotrasen - Silver Golem core
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - FauxTileAstroGrass
       - FauxTileMowedAstroGrass
       - FauxTileJungleAstroGrass
@@ -329,6 +425,29 @@
       - FauxTileAstroSnow
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
+<<<<<<< HEAD
+=======
+      - CanilunztTranslator
+      - BubblishTranslator
+      - NekomimeticTranslator
+      - DraconicTranslator
+      - SolCommonTranslator
+      - RootSpeakTranslator
+      - XenoTranslator
+      - BasicGalaticCommonTranslatorImplanter
+      - AdvancedGalaticCommonTranslatorImplanter
+      - BubblishTranslatorImplanter
+      - NekomimeticTranslatorImplanter
+      - DraconicTranslatorImplanter
+      - CanilunztTranslatorImplanter
+      - SolCommonTranslatorImplanter
+      - RootSpeakTranslatorImplanter
+      - AnimalTranslator
+      - MofficTranslatorImplanter
+      - MofficTranslator
+      - RCDAmmo #DeltaV
+      - RCD #EE
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -370,15 +489,33 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+<<<<<<< HEAD
 
 - type: entity
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
+=======
+      - WeaponEnergyGun       # DeltaV - Energy Gun
+      - WeaponEnergyGunMini   # DeltaV - Miniature Energy Gun
+      - WeaponEnergyGunPistol # DeltaV - PDW-9 Energy Pistol
+      - WeaponGunLaserCarbineAutomatic # DeltaV - IK-60 Laser Carbine
+
+- type: entity
+  id: ProtolatheHyperConvection
+  parent: Protolathe
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: hyper convection protolathe
   description: A highly-experimental protolathe that harnesses the power of extreme heat to slowly create objects more cost-effectively.
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe_hypercon.rsi
+<<<<<<< HEAD
+=======
+  - type: Lathe
+    materialUseMultiplier: 0.5
+    timeMultiplier: 1.5
+  - type: LatheHeatProducing
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Machine
     board: ProtolatheHyperConvectionMachineCircuitboard
 
@@ -426,6 +563,10 @@
     - ElectricGrillMachineCircuitboard
     - BoozeDispenserMachineCircuitboard
     - SodaDispenserMachineCircuitboard
+<<<<<<< HEAD
+=======
+    - DeepFryerMachineCircuitboard #Nyano - Summary: adds deep fryer circuit board
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - SpaceHeaterMachineCircuitBoard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
@@ -444,6 +585,7 @@
       - SurveillanceWirelessCameraMonitorCircuitboard
       - SurveillanceCameraWirelessRouterCircuitboard
       - ComputerTelevisionCircuitboard
+      - JukeboxCircuitBoard
       - SurveillanceWirelessCameraMovableCircuitboard
       - SurveillanceWirelessCameraAnchoredCircuitboard
       - HydroponicsTrayMachineCircuitboard
@@ -453,7 +595,10 @@
       - PowerComputerCircuitboard
       - AutolatheHyperConvectionMachineCircuitboard
       - ProtolatheHyperConvectionMachineCircuitboard
+<<<<<<< HEAD
       - CircuitImprinterHyperConvectionMachineCircuitboard
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - FatExtractorMachineCircuitboard
       - FlatpackerMachineCircuitboard
       - SheetifierMachineCircuitboard
@@ -493,10 +638,15 @@
       - AnomalySynchronizerCircuitboard
       - APECircuitboard
       - ArtifactAnalyzerMachineCircuitboard
+<<<<<<< HEAD
+=======
+      - TraversalDistorterMachineCircuitboard
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - ArtifactCrusherMachineCircuitboard
       - TelecomServerCircuitboard
       - MassMediaCircuitboard
       - ReagentGrinderIndustrialMachineCircuitboard
+<<<<<<< HEAD
       - JukeboxCircuitBoard
   - type: EmagLatheRecipes
     emagDynamicRecipes:
@@ -504,12 +654,28 @@
       - ShuttleGunFriendshipCircuitboard
       - ShuttleGunPerforatorCircuitboard
       - ShuttleGunSvalinnMachineGunCircuitboard
+=======
+    # Begin Nyano additions
+      - ReverseEngineeringMachineCircuitboard
+      - CrewMonitoringComputerCircuitboard
+      - DoorElectronics
+      - FireAlarmElectronics
+      - FirelockElectronics
+      - IntercomElectronics
+      - MailingUnitElectronics
+      - SalvageMagnetMachineCircuitboard
+      - StationMapElectronics
+      - MetempsychoticMachineCircuitboard
+    # End Nyano additions
+      - SalvageExpeditionsComputerCircuitboard # DeltaV
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+  - type: RequireProjectileTarget
 
 - type: entity
   id: CircuitImprinterHyperConvection
@@ -595,10 +761,16 @@
     - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
     - BorgModuleMining
+<<<<<<< HEAD
     - BorgModuleGrapplingGun
+=======
+    #- BorgModuleGrapplingGun
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - BorgModuleAdvancedTool
     - BorgModuleGPS
     - BorgModuleRCD
+    - BorgModuleJetpack
+    - BorgModulePka
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
@@ -627,6 +799,12 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+  # Begin Nyano additions
+    - ClothingOuterHardsuitJuggernautReverseEngineered
+    - ClothingOuterHardsuitSyndieReverseEngineered
+    - JetpackBlue
+    - JetpackMini
+  # End Nyano additions
   - type: MaterialStorage
     whitelist:
       tags:
@@ -639,6 +817,52 @@
 
 - type: entity
   id: Biofabricator
+<<<<<<< HEAD
+=======
+  parent: BaseLathe
+  name: biofabricator
+  description: Produces animal cubes using biomass.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/biofabricator.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: BiofabricatorMachineCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    staticRecipes:
+    - MonkeyCube
+    - KoboldCube
+    - CowCube
+    - GoatCube
+    - MothroachCube
+    - MouseCube
+    - CockroachCube
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+    - AbominationCube
+    - SpaceCarpCube
+    - SpaceTickCube
+
+- type: entity
+  id: SecurityTechFab
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   parent: BaseLathe
   name: biofabricator
   description: Produces animal cubes using biomass.
@@ -710,8 +934,10 @@
       - BoxShotgunPractice 
       - BoxShotgunSlug
       - ClothingEyesHudSecurity
+      - CombatKnife
       - Flash
       - ForensicPad
+<<<<<<< HEAD
       - Handcuffs
       - MagazineBoxLightRifle
       - MagazineBoxLightRiflePractice
@@ -784,16 +1010,125 @@
       - SignalTrigger
       - SpeedLoaderMagnumIncendiary
       - SpeedLoaderMagnumUranium
+=======
+      - RiotShield
+      - ShellShotgun
+      - ShellShotgunSlug
+      - ShellShotgunFlare
+      - ShellTranquilizer
+      - MagazinePistol
+      - MagazinePistolSubMachineGun
+      - MagazinePistolSubMachineGunTopMounted
+      - MagazineRifle
+      - MagazineLightRifle
+      - MagazineBoxPistol
+      - MagazineBoxMagnum
+      - MagazineBoxRifle
+      - MagazineBoxLightRifle
+      - SpeedLoaderMagnum
+      - ClothingOuterArmorPlateCarrier # DeltaV - plate carrier body armour
+      - ClothingOuterArmorDuraVest # DeltaV - stabproof vest body armour
+      - TargetHuman
+      - TargetSyndicate
+      - TargetClown
+      - MagazineBoxLightRiflePractice
+      - MagazineBoxMagnumPractice
+      - MagazineBoxPistolPractice
+      - MagazineBoxRiflePractice
+      - ShellShotgunPractice
+      - WeaponLaserCarbinePractice
+      - WeaponDisablerPractice
+      - ShockCollar
+      # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab
+      - MagazineBoxSpecial
+      - MagazineBoxSpecialPractice
+      - SpeedLoaderSpecial
+      - MagazinePistolSpecial
+      # End of modified code
+    dynamicRecipes:
+      - EncryptionKeySyndie # Nyano
+      - CartridgeLightRifleIncendiary
+      - CartridgeMagnumIncendiary
+      - CartridgePistolIncendiary
+      - CartridgeRifleIncendiary
+      - CartridgeLightRifleUranium
+      - CartridgeMagnumUranium
+      - CartridgePistolUranium
+      - CartridgeRifleUranium
+      - CartridgeLightRifleRubber
+      - CartridgeMagnumRubber
+      - CartridgePistolRubber
+      - CartridgeRifleRubber
+      - ClothingEyesGlassesSecurity
+      - ExplosivePayload
+      - FlashPayload
+      - HoloprojectorSecurity
+      - MagazineBoxLightRifleIncendiary
+      - MagazineBoxMagnumIncendiary
+      - MagazineBoxPistolIncendiary
+      - MagazineBoxRifleIncendiary
+      - MagazineBoxLightRifleUranium
+      - MagazineBoxMagnumUranium
+      - MagazineBoxPistolUranium
+      - MagazineBoxRifleUranium
+      - ShellSoulbreaker # Nyanotrasen - Shotgun shell to get rid of psionics
+      - MagazineBoxLightRifleRubber
+      - MagazineBoxMagnumRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxRifleRubber
+      - MagazineGrenadeEmpty
+      - GrenadeEMP
+      - GrenadeFlash
+      - ShellShotgunBeanbag
+      - ShellShotgunIncendiary
+      - ShellShotgunUranium
+      - Signaller
+      - SignalTrigger
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - TelescopicShield
       - TimerTrigger
       - Truncheon
       - VoiceTrigger
+<<<<<<< HEAD
       - WeaponAdvancedLaser
       - WeaponDisabler
       - WeaponDisablerSMG
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+=======
+      - WeaponDisablerPractice
+      - WeaponAdvancedLaser
+      - WeaponDisablerSMG
+      - WeaponLaserCannon
+      - WeaponLaserCarbine
+      - ClothingHeadHelmetInsulated # Nyanotrasen - Insulative headgear
+      - ClothingHeadCage # Nyanotrasen - Insulative headgear
+      - ShockCollar # Nyanotrasen - Shock Collar
+      - WeaponXrayCannon
+      - PowerCageSmall
+      - PowerCageMedium
+      - PowerCageHigh
+      - ShuttleGunSvalinnMachineGunCircuitboard
+      - ShuttleGunPerforatorCircuitboard
+      - ShuttleGunFriendshipCircuitboard
+      - ShuttleGunDusterCircuitboard
+      - WeaponEnergyGun #DeltaV - Energy Gun
+      - WeaponEnergyGunMini #DeltaV - Energy Gun but miniature
+      - WeaponEnergyGunPistol #DeltaV - Energy Gun Mini but with the power of a normal energy gun
+      - WeaponGunLaserCarbineAutomatic #DeltaV - New Laser Projectiles with a 20 round carbine
+      # DeltaV - .38 special ammo - Add various .38 special ammo to security techfab
+      - CartridgeSpecialRubber
+      - CartridgeSpecialIncendiary
+      - CartridgeSpecialUranium
+      - CartridgeSpecialHoly
+      - CartridgeSpecialMindbreaker
+      - MagazineBoxSpecialRubber
+      - MagazineBoxSpecialIncendiary
+      - MagazineBoxSpecialUranium
+      - MagazineBoxSpecialMindbreaker
+      # End of modified code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: MaterialStorage
     whitelist:
       tags:
@@ -826,6 +1161,7 @@
       idleState: icon
       runningState: icon
       staticRecipes:
+<<<<<<< HEAD
         - BoxLethalshot
         - BoxShotgunFlare
         - BoxShotgunSlug
@@ -845,6 +1181,24 @@
         - ShellTranquilizer
         - SpeedLoaderMagnum
         - SpeedLoaderMagnumEmpty
+=======
+        - CartridgePistol
+        - CartridgeMagnum
+        - ShellShotgun
+        - ShellShotgunSlug
+        - ShellShotgunFlare
+        - ShellTranquilizer
+        - CartridgeLightRifle
+        - CartridgeRifle
+        - MagazineBoxPistol
+        - MagazineBoxMagnum
+        - MagazineBoxRifle
+        - MagazineBoxLightRifle
+        # DeltaV - .38 special ammo - Add lethal .38 special ammo to ammo techfab
+        - CartridgeSpecial
+        - MagazineBoxSpecial
+        # End of modified code
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     - type: MaterialStorage
       whitelist:
         tags:
@@ -919,6 +1273,11 @@
       - CryostasisBeaker
       - BluespaceBeaker
       - SyringeBluespace
+<<<<<<< HEAD
+=======
+      - ClothingEyesHudMedical # Nyano
+      - ChemicalPayload # Nyano
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - SyringeCryostasis
   - type: Machine
     board: MedicalTechFabCircuitboard
@@ -989,6 +1348,13 @@
       - ClothingHeadHatHoshat
       - ClothingUniformJumpsuitHoS
       - ClothingUniformJumpskirtHoS
+<<<<<<< HEAD
+=======
+      - ClothingUniformJumpsuitHoSBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtHoSBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitHoSGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtHoSGrey # DeltaV - alternate sec uniforms
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - ClothingUniformJumpsuitHosFormal
       - ClothingUniformJumpskirtHosFormal
       - ClothingUniformJumpsuitHoSAlt
@@ -1004,6 +1370,13 @@
       - ClothingUniformJumpsuitLawyerBlack
       - ClothingUniformJumpsuitLibrarian
       - ClothingUniformJumpskirtColorLightBrown
+<<<<<<< HEAD
+=======
+      - ClothingUniformCourier # DeltaV - Courier Uniform
+      - ClothingUniformSkirtCourier # DeltaV - Courier Uniform
+      - ClothingUniformJumpsuitMantis # Nyanotrasen - Forensic Mantis
+      - ClothingUniformSkirtMantis # Nyanotrasen - Forensic Mantis
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - ClothingHeadHatBeretSeniorPhysician
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
@@ -1035,6 +1408,13 @@
       - ClothingHeadHatBeretSecurity
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
+<<<<<<< HEAD
+=======
+      - ClothingUniformJumpsuitSecBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtSecBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitSecGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtSecGrey # DeltaV - alternate sec uniforms
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - ClothingHeadHatBeretBrigmedic
       - ClothingUniformJumpsuitBrigmedic
       - ClothingUniformJumpskirtBrigmedic
@@ -1042,6 +1422,13 @@
       - ClothingHeadHatWarden
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
+<<<<<<< HEAD
+=======
+      - ClothingUniformJumpsuitWardenBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtWardenBlue # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpsuitWardenGrey # DeltaV - alternate sec uniforms
+      - ClothingUniformJumpskirtWardenGrey # DeltaV - alternate sec uniforms
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - ClothingHeadHatParamedicsoft
       # Winter outfits
       - ClothingOuterWinterCap
@@ -1059,6 +1446,10 @@
       - ClothingNeckMantleHOS
       - ClothingNeckMantleRD
       - ClothingNeckMantleQM
+<<<<<<< HEAD
+=======
+      - ClothingOuterStasecSweater # DeltaV - added stasec sweater to uniform printer.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -1102,9 +1493,12 @@
       - CarpetPurple
       - CarpetCyan
       - CarpetWhite
+<<<<<<< HEAD
       # Pirata
       - ClothingUniformJumpsuitBlueshield
       - ClothingHeadHatBeretBlueshield
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - ClothingHeadHatCentcomcap
@@ -1165,6 +1559,7 @@
       idleState: icon
       runningState: building
       staticRecipes:
+        - BluespaceCrystal #Nyano - Summary: Bluespace Crystals can be created here.
         - SheetSteel30
         - SheetGlass30
         - SheetRGlass30
@@ -1175,6 +1570,37 @@
         - IngotGold30
         - IngotSilver30
         - MaterialBananium10
+    - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
+      magnetEnabled: True
+      range: 0.30 # Delta V - End Magnet Pull
+
+- type: entity
+  parent: OreProcessor
+  id: OreProcessorIndustrial
+  name: industrial ore processor
+  description: An ore processor specifically designed for mass-producing metals in industrial applications.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/ore_processor_industrial.rsi
+  - type: Machine
+    board: OreProcessorIndustrialMachineCircuitboard
+  - type: Lathe
+    materialUseMultiplier: 0.75
+    timeMultiplier: 0.5
+    staticRecipes:
+      - SheetSteel30
+      - SheetGlass30
+      - SheetRGlass30
+      - SheetPlasma30
+      - SheetPGlass30
+      - SheetRPGlass30
+      - SheetPlasteel30
+      - SheetUranium30
+      - SheetUGlass30
+      - SheetRUGlass30
+      - IngotGold30
+      - IngotSilver30
+      - MaterialBananium10
 
 - type: entity
   parent: OreProcessor
@@ -1234,3 +1660,145 @@
     staticRecipes:
     - MaterialSheetMeat
     - SheetPaper
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: BaseLathe
+  id: PrizeCounter
+  name: prize counter
+  description: Claim your prize and win some toys and cute plushies!
+  components:
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 3
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/vending_machine_hum.ogg
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+    priority: Low
+  # - type: Advertise
+  #   pack: CuddlyCritterAds # TODO Change this
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#4b93ad"
+  - type: Transform
+    noRot: false
+  - type: Sprite
+    sprite: Structures/Machines/prizecounter.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticRecipes:
+      - PrizeBall
+      - PlushieMothRandom
+      - PlushieMothMusician
+      - PlushieMothBartender
+      - PlushieBee
+      - PlushieHampter
+      - PlushieRouny
+      - PlushieLamp
+      - PlushieArachind
+      - PlushieLizard
+      - PlushieSpaceLizard
+      - PlushieSharkBlue
+      - PlushieSharkPink
+      - PlushieSharkGrey
+      - PlushieCarp
+      - PlushieMagicarp
+      - PlushieHolocarp
+      - PlushieSlime
+      - PlushieSnake
+      - ToyMouse
+      - ToyRubberDuck
+      - PlushieVox
+      - PlushieAtmosian
+      - PlushiePenguin
+      - PlushieHuman
+      - PlushieArachne
+      - PlushieGnome
+      - PlushieLoveable
+      - PlushieDeer
+      - PlushieIpc
+      - PlushieGrey
+      - PlushieRedFox
+      - PlushiePurpleFox
+      - PlushiePinkFox
+      - PlushieOrangeFox
+      - PlushieMarbleFox
+      - PlushieCrimsonFox
+      - PlushieCoffeeFox
+      - PlushieBlueFox
+      - PlushieBlackFox
+      - PlushieVulp
+      - PlushieCorgi
+      - PlushieGirlyCorgi
+      - PlushieRobotCorgi
+      - PlushieCatBlack
+      - PlushieCatGrey
+      - PlushieCatOrange
+      - PlushieCatSiames
+      - PlushieCatTabby
+      - PlushieCatTuxedo
+      - PlushieCatWhite
+      - ToyAi
+      - ToyIan
+      - BalloonNT
+      - BalloonCorgi
+      - CrayonBox
+      - PetRockCarrier
+      - PlushieXeno
+      - FoamCrossbow
+      - RevolverCapGun
+      - PonderingOrb
+      - ToyAmongPequeno
+      - FoamCutlass
+      - WhoopieCushion
+      - ToyHammer
+      - PlasticBanana
+      - WeaponWaterPistol
+      - WeaponWaterBlaster
+      - NewtonCradle
+      - SnapPopBox
+      - MrDips
+      - MrChips
+      - CrazyGlue
+      - PlushieRatvar
+      - PlushieNar
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+      - PlushieGhost
+      - PlushieRGBee
+      - PlushieRainbowCarp
+      - PlushieJester
+      - PlushieSlips
+      - PlushieTrystan
+      - PlushieAbductor
+      - PlushieAbductorAgent
+      - PlushieNuke
+      - ToyNuke
+      - FoamBlade
+      - BalloonSyn
+      - SingularityToy
+      - TeslaToy
+      - ToySword
+      - BwoinkHammer
+      - ThronglerToy
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - PrizeTicket
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

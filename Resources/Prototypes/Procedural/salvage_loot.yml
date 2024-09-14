@@ -88,6 +88,10 @@
         - proto: RipleyHarness
           cost: 3
           prob: 0.5
+<<<<<<< HEAD
+=======
+        - proto: RPED
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         - proto: SpaceCash1000
         - proto: SpaceCash10000
           cost: 10

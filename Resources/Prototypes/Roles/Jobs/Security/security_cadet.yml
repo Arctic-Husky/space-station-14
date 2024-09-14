@@ -4,19 +4,28 @@
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
   requirements:
+<<<<<<< HEAD
     - !type:OverallPlaytimeRequirement
       time: 36000 # Corvax-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
       time: 28800 #8 hrs
       inverted: true # stop playing intern if you're good at security!
+=======
+    - !type:CharacterOverallTimeRequirement
+      min: 14400 # DeltaV - 4 hours
+#    - !type:DepartmentTimeRequirement # DeltaV - Removes time limit
+#      department: Security
+#      time: 54000 #15 hrs
+#      inverted: true # stop playing intern if you're good at security!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
   access:
   - Security
-  - Brig
+  #- Brig # Delta V: Removed
   - Maintenance
   - Service
   - External
@@ -29,9 +38,17 @@
   id: SecurityCadetGear
   equipment:
     shoes: ClothingShoesBootsCombatFilled
-    outerClothing: ClothingOuterArmorBasic
+    outerClothing: ClothingOuterArmorDuraVest # DeltaV - ClothingOuterArmorBasic replaced in favour of stab vest. Sucks to suck, cadets
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
+<<<<<<< HEAD
     pocket1: WeaponPistolMk58
     pocket2: BookSecurity
+=======
+#    pocket1: WeaponPistolMk58Nonlethal # DeltaV - Security Cadet doesn't spawn with a gun
+    pocket2: BookSecurity
+  innerClothingSkirt: ClothingUniformJumpskirtColorRed
+  satchel: ClothingBackpackSatchelSecurityFilled
+  duffelbag: ClothingBackpackDuffelSecurityFilled
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

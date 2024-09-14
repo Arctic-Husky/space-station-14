@@ -21,4 +21,8 @@ ui-vote-map-title = Próximo mapa
 ui-vote-map-tie = Empate na escolha de mapa! Escolhendo... { $picked }
 ui-vote-map-win = { $winner } venceu a escolha de mapa!
 ui-vote-map-notlobby = Votar para mapas só é válido no lobby pré-round!
+<<<<<<< HEAD
 ui-vote-map-notlobby-time = Votar para mapas só é válido no lobby pré-round com pelo menos { $time } restante!
+=======
+ui-vote-map-notlobby-time = Votar para mapas só é válido no lobby pré-round com pelo menos { $time } restante!
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

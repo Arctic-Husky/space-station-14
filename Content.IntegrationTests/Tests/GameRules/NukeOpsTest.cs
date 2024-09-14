@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+/* WD edit
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 #nullable enable
 using System.Linq;
 using Content.Server.Body.Components;
@@ -5,6 +10,10 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
+<<<<<<< HEAD
+=======
+using Content.Server.NPC.Systems;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Pinpointer;
 using Content.Server.Roles;
 using Content.Server.Shuttles.Components;
@@ -15,7 +24,10 @@ using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
+<<<<<<< HEAD
 using Content.Shared.NPC.Systems;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.NukeOps;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
@@ -58,6 +70,12 @@ public sealed class NukeOpsTest
         Assert.That(client.AttachedEntity, Is.Null);
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
 
+<<<<<<< HEAD
+=======
+        // Opt into the nukies role.
+        await pair.SetAntagPref("NukeopsCommander", true);
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         // There are no grids or maps
         Assert.That(entMan.Count<MapComponent>(), Is.Zero);
         Assert.That(entMan.Count<MapGridComponent>(), Is.Zero);
@@ -103,6 +121,10 @@ public sealed class NukeOpsTest
         Assert.That(entMan.HasComponent<NukeOperativeComponent>(player));
         Assert.That(roleSys.MindIsAntagonist(mind));
         Assert.That(roleSys.MindHasRole<NukeopsRoleComponent>(mind));
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         Assert.That(factionSys.IsMember(player, "Syndicate"), Is.True);
         Assert.That(factionSys.IsMember(player, "NanoTrasen"), Is.False);
 
@@ -196,8 +218,19 @@ public sealed class NukeOpsTest
             Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
         }
 
+<<<<<<< HEAD
         ticker.SetGamePreset((GamePresetPrototype?)null);
         server.CfgMan.SetCVar(CCVars.GridFill, false);
         await pair.CleanReturnAsync();
     }
 }
+=======
+        //ticker.SetGamePreset((GamePresetPrototype?)null); WD edit
+        server.CfgMan.SetCVar(CCVars.GridFill, false);
+        await pair.SetAntagPref("NukeopsCommander", false);
+        await pair.CleanReturnAsync();
+    }
+}
+
+*/
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

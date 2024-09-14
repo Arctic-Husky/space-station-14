@@ -65,7 +65,11 @@
     interfaces:
       enum.IntercomUiKey.Key:
         type: IntercomBoundUserInterface
+<<<<<<< HEAD
       enum.WiresUiKey.Key:
+=======
+      - key: enum.WiresUiKey.Key
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         type: WiresBoundUserInterface
   - type: Construction
     graph: Intercom
@@ -179,7 +183,7 @@
 - type: entity
   id: IntercomScience
   parent: Intercom
-  suffix: Science
+  suffix: Epistemics # DeltaV - Epistemics Department replacing Science
   components:
   - type: Intercom
     supportedChannels:

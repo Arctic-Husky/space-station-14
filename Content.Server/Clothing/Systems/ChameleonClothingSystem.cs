@@ -64,7 +64,11 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
             return;
 
         var state = new ChameleonBoundUserInterfaceState(component.Slot, component.Default);
+<<<<<<< HEAD
         _uiSystem.SetUiState(uid, ChameleonUiKey.Key, state);
+=======
+        _uiSystem.TrySetUiState(uid, ChameleonUiKey.Key, state);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>

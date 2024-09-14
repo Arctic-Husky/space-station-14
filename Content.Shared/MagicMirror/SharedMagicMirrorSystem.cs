@@ -1,6 +1,10 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid.Markings;
+<<<<<<< HEAD
 using Content.Shared.Interaction;
+=======
+using Robust.Shared.Player;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.MagicMirror;

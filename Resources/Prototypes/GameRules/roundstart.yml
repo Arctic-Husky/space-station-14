@@ -69,7 +69,11 @@
   noSpawn: true
   components:
   - type: GameRule
+<<<<<<< HEAD
     minPlayers: 20
+=======
+    minPlayers: 35
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
     - operationPrefix
@@ -147,7 +151,11 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
+<<<<<<< HEAD
       max: 8
+=======
+      max: 12
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       playerRatio: 10
       lateJoinAdditional: true
       mindComponents:
@@ -165,8 +173,13 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
+<<<<<<< HEAD
       max: 3
       playerRatio: 15
+=======
+      max: 2
+      playerRatio: 20 # WD
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -240,6 +253,46 @@
   components:
   - type: RampingStationEventScheduler
 
+<<<<<<< HEAD
+=======
+- type: entity
+  id: HellshiftStationEventScheduler
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: RampingStationEventScheduler
+    chaosModifier: 4 # By default, one event each 30-10 seconds after two hours. Changing CVars will cause this to deviate.
+    startingChaosRatio: 0.025 # Starts as slow as survival, but quickly ramps up
+    shiftLengthModifier: 2.5
+
+- type: entity
+  id: IrregularStationEventScheduler
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: OscillatingStationEventScheduler
+    minChaos: 0.8
+    maxChaos: 14
+    startingSlope: 0.2
+    downwardsLimit: -0.35
+    upwardsLimit: 0.4
+
+# More likely to go down than up, so calmness prevails
+- type: entity
+  id: IrregularExtendedStationEventScheduler
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: OscillatingStationEventScheduler
+    minChaos: 0.8
+    maxChaos: 8
+    startingSlope: -1
+    downwardsLimit: -0.4
+    upwardsLimit: 0.3
+    downwardsBias: -1.1
+    upwardsBias: 0.9
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 # variation passes
 - type: entity
   id: BasicRoundstartVariation
@@ -258,6 +311,7 @@
     - id: BloodbathPuddleMessVariationPass
       prob: 0.01
       orGroup: puddleMess
+<<<<<<< HEAD
 
 - type: entity
   id: Survival
@@ -266,3 +320,5 @@
   components:
   - type: GameRule
     minPlayers: 15
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

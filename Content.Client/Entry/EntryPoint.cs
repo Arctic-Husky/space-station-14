@@ -1,6 +1,8 @@
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
+using Content.Client.DiscordAuth;
+using Content.Client.JoinQueue;
 using Content.Client.Eui;
 using Content.Client.Flash;
 using Content.Client.Fullscreen;
@@ -72,7 +74,12 @@ namespace Content.Client.Entry
         [Dependency] private readonly IResourceManager _resourceManager = default!;
         [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
+<<<<<<< HEAD
         [Dependency] private readonly ContentReplayPlaybackManager _replayMan = default!;
+=======
+        [Dependency] private readonly JoinQueueManager _joinQueue = default!;
+        [Dependency] private readonly DiscordAuthManager _discordAuth = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         public override void Init()
         {
@@ -120,7 +127,11 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("wireLayout");
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
+<<<<<<< HEAD
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
+=======
+            _prototypeManager.RegisterIgnore("stationGoal");
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
@@ -164,6 +175,8 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
             _userInterfaceManager.SetActiveTheme(_configManager.GetCVar(CVars.InterfaceTheme));
             _documentParsingManager.Initialize();
+            _joinQueue.Initialize();
+            _discordAuth.Initialize();
 
             _baseClient.RunLevelChanged += (_, args) =>
             {

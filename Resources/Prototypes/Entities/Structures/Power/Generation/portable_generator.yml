@@ -1,4 +1,4 @@
-﻿#
+#
 # You can use this Desmos sheet to calculate fuel burn rate values:
 # https://www.desmos.com/calculator/qcektq5dqs
 #
@@ -6,7 +6,11 @@
 - type: entity
   abstract: true
   id: PortableGeneratorBase
+<<<<<<< HEAD
   parent: [ BaseMachine, ConstructibleMachine, StructureWheeled]
+=======
+  parent: [ BaseMachine, SmallConstructibleMachine, StructureWheeled]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
     # Basic properties
     - type: Transform

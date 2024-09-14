@@ -42,6 +42,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
     public StatusIconLayer Layer = StatusIconLayer.Base;
 
     /// <summary>
+<<<<<<< HEAD
     /// Offset of the status icon, up and down only.
     /// </summary>
     [DataField]
@@ -52,6 +53,12 @@ public partial class StatusIconData : IComparable<StatusIconData>
     /// </summary>
     [DataField]
     public bool IsShaded = false;
+=======
+    /// Sets if the icon should be rendered with or without the effect of lighting.
+    /// </summary>
+    [DataField]
+    public bool IsShaded;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }
 
 /// <summary>

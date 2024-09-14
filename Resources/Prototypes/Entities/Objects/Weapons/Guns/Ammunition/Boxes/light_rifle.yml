@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: BaseMagazineBox
   id: BaseMagazineBoxLightRifle
   name: ammunition box (.30 rifle)
   components:
@@ -102,4 +102,8 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+<<<<<<< HEAD
     - state: uranium
+=======
+    - state: uranium
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

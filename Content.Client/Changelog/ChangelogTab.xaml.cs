@@ -35,14 +35,22 @@ public sealed partial class ChangelogTab : Control
             .OrderByDescending(c => c.Key);
 
         var hasRead = changelog.Name != MainChangelogName ||
+<<<<<<< HEAD
                       _changelog.MaxId <= _changelog.LastReadId;
+=======
+                      _changelog.MaxTime <= _changelog.LastReadTime;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         foreach (var dayEntries in byDay)
         {
             var day = dayEntries.Key;
 
             var groupedEntries = dayEntries
+<<<<<<< HEAD
                 .GroupBy(c => (c.Author, Read: c.Id <= _changelog.LastReadId))
+=======
+                .GroupBy(c => (c.Author, Read: c.Time <= _changelog.LastReadTime))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 .OrderBy(c => c.Key.Read)
                 .ThenBy(c => c.Key.Author);
 

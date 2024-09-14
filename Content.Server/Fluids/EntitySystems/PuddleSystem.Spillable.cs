@@ -1,14 +1,26 @@
 using Content.Server.Chemistry.Containers.EntitySystems;
+<<<<<<< HEAD
+=======
+using Content.Server.Fluids.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
+<<<<<<< HEAD
 using Content.Shared.Clothing;
+=======
+using Content.Shared.Clothing.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.IdentityManagement;
+<<<<<<< HEAD
+=======
+using Content.Shared.Inventory.Events;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Spillable;
@@ -27,8 +39,13 @@ public sealed partial class PuddleSystem
         SubscribeLocalEvent<SpillableComponent, LandEvent>(SpillOnLand);
         // Openable handles the event if it's closed
         SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]);
+<<<<<<< HEAD
         SubscribeLocalEvent<SpillableComponent, ClothingGotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<SpillableComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
+=======
+        SubscribeLocalEvent<SpillableComponent, GotEquippedEvent>(OnGotEquipped);
+        SubscribeLocalEvent<SpillableComponent, GotUnequippedEvent>(OnGotUnequipped);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         SubscribeLocalEvent<SpillableComponent, SolutionContainerOverflowEvent>(OnOverflow);
         SubscribeLocalEvent<SpillableComponent, SpillDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<SpillableComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
@@ -97,13 +114,34 @@ public sealed partial class PuddleSystem
         }
     }
 
+<<<<<<< HEAD
     private void OnGotEquipped(Entity<SpillableComponent> entity, ref ClothingGotEquippedEvent args)
+=======
+    private void OnGotEquipped(Entity<SpillableComponent> entity, ref GotEquippedEvent args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!entity.Comp.SpillWorn)
             return;
 
+<<<<<<< HEAD
         if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.SolutionName, out var soln, out var solution))
             return;
+
+        // block access to the solution while worn
+        AddComp<BlockSolutionAccessComponent>(entity);
+=======
+        if (!TryComp(entity, out ClothingComponent? clothing))
+            return;
+
+        // check if entity was actually used as clothing
+        // not just taken in pockets or something
+        var isCorrectSlot = clothing.Slots.HasFlag(args.SlotFlags);
+        if (!isCorrectSlot)
+            return;
+
+        if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.SolutionName, out var soln, out var solution))
+            return;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         // block access to the solution while worn
         AddComp<BlockSolutionAccessComponent>(entity);
@@ -113,10 +151,17 @@ public sealed partial class PuddleSystem
 
         // spill all solution on the player
         var drainedSolution = _solutionContainerSystem.Drain(entity.Owner, soln.Value, solution.Volume);
+<<<<<<< HEAD
         TrySplashSpillAt(entity.Owner, Transform(args.Wearer).Coordinates, drainedSolution, out _);
     }
 
     private void OnGotUnequipped(Entity<SpillableComponent> entity, ref ClothingGotUnequippedEvent args)
+=======
+        TrySplashSpillAt(entity.Owner, Transform(args.Equipee).Coordinates, drainedSolution, out _);
+    }
+
+    private void OnGotUnequipped(Entity<SpillableComponent> entity, ref GotUnequippedEvent args)
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     {
         if (!entity.Comp.SpillWorn)
             return;

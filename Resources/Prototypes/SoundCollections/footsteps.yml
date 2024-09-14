@@ -201,6 +201,7 @@
   - /Audio/Effects/Footsteps/spurs1.ogg
   - /Audio/Effects/Footsteps/spurs2.ogg
   - /Audio/Effects/Footsteps/spurs3.ogg
+<<<<<<< HEAD
 
 - type: soundCollection
   id: FootstepBorg
@@ -211,3 +212,5 @@
   id: FootstepHoverBorg
   files:
   - /Audio/Effects/Footsteps/borgwalk2.ogg
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

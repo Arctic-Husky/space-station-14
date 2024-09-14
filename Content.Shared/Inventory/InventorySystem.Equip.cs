@@ -169,14 +169,23 @@ public abstract partial class InventorySystem
             {
                 BlockDuplicate = true,
                 BreakOnHandChange = true,
+<<<<<<< HEAD
                 BreakOnMove = true,
+=======
+                BreakOnUserMove = true,
+                BreakOnTargetMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 CancelDuplicate = true,
                 RequireCanInteract = true,
                 NeedHand = true
             };
 
             _doAfter.TryStartDoAfter(args);
+<<<<<<< HEAD
             return false;
+=======
+            return true; // Changed to return true even if the item wasn't equipped instantly
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
 
         if (!_containerSystem.Insert(itemUid, slotContainer))
@@ -244,6 +253,7 @@ public abstract partial class InventorySystem
             return false;
 
         DebugTools.Assert(slotDefinition.Name == slot);
+<<<<<<< HEAD
         if (slotDefinition.DependsOn != null)
         {
             if (!TryGetSlotEntity(target, slotDefinition.DependsOn, out EntityUid? slotEntity, inventory))
@@ -255,6 +265,11 @@ public abstract partial class InventorySystem
                         return false;
         }
 
+=======
+        if (slotDefinition.DependsOn != null && !TryGetSlotEntity(target, slotDefinition.DependsOn, out _, inventory))
+            return false;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         var fittingInPocket = slotDefinition.SlotFlags.HasFlag(SlotFlags.POCKET) &&
                               item != null &&
                               _item.GetSizePrototype(item.Size) <= _item.GetSizePrototype(PocketableItemSize);
@@ -421,7 +436,12 @@ public abstract partial class InventorySystem
             {
                 BlockDuplicate = true,
                 BreakOnHandChange = true,
+<<<<<<< HEAD
                 BreakOnMove = true,
+=======
+                BreakOnUserMove = true,
+                BreakOnTargetMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 CancelDuplicate = true,
                 RequireCanInteract = true,
                 NeedHand = true

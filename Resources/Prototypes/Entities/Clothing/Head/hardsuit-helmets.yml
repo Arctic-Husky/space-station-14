@@ -17,9 +17,15 @@
     sprite: Clothing/Head/Hardsuits/basic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/basic.rsi
+<<<<<<< HEAD
   - type: HideLayerClothing
     slots:
     - Snout
+=======
+  - type: Tag
+    tags:
+    - HidesNose
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 #Atmospherics Hardsuit
 - type: entity
@@ -156,6 +162,28 @@
         Piercing: 0.9
         Heat: 0.9
 
+<<<<<<< HEAD
+=======
+#Paramedic Void Helmet
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitVoidParamed
+  name: paramedic void helmet
+  description: A void helmet made for paramedics.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/paramedhelm.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/paramedhelm.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.90
+        Radiation: 0.75
+
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 #Security Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
@@ -185,8 +213,13 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBrigmedic
+<<<<<<< HEAD
   name: brigmedic hardsuit helmet
   description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
+=======
+  name: corpsman hardsuit helmet # DeltaV - rename brigmedic to corpsman
+  description: The lightweight helmet of the corpsman hardsuit. Protects against viruses, and clowns. # Delta V - rename brigmedic to corpsman
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   components:
   - type: BreathMask
   - type: Sprite
@@ -374,6 +407,7 @@
         Heat: 0.9
 
 #Blood-red Medic Hardsuit
+<<<<<<< HEAD
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieMedic
@@ -458,6 +492,92 @@
   id: ClothingHeadHelmetHardsuitCybersun
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
+=======
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndieMedic
+  name: blood-red medic hardsuit helmet
+  description: An advanced red hardsuit helmet specifically designed for field medic operations.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
+  - type: PointLight
+    color: green
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+<<<<<<< HEAD
+=======
+#Syndicate Elite Hardsuit
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndieElite
+  name: syndicate elite helmet
+  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+  - type: PointLight
+    color: red
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#Syndicate Commander Hardsuit
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndieCommander
+  name: syndicate commander helmet
+  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+  - type: PointLight
+    color: green
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#Cybersun Juggernaut Hardsuit
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitCybersun
+  name: cybersun juggernaut helmet
+  description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
   components:
   - type: BreathMask
   - type: Sprite
@@ -475,6 +595,7 @@
         Piercing: 0.9
         Heat: 0.9
 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 #Wizard Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase

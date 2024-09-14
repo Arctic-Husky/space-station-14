@@ -16,7 +16,11 @@ public sealed partial class UnpoweredFlashlightComponent : Component
     public SoundSpecifier ToggleSound = new SoundPathSpecifier("/Audio/Items/flashlight_pda.ogg");
 
     [DataField, AutoNetworkedField]
+<<<<<<< HEAD
     public bool LightOn;
+=======
+    public bool LightOn = false;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     [DataField]
     public EntProtoId ToggleAction = "ActionToggleLight";

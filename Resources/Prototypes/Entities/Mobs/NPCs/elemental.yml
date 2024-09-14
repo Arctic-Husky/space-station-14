@@ -44,6 +44,10 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+<<<<<<< HEAD
+=======
+    - ShoesRequiredStepTriggerImmune
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: MobState
     allowedStates:
       - Alive
@@ -72,8 +76,11 @@
   - type: InputMover
   - type: MobMover
   - type: ZombieImmune
+<<<<<<< HEAD
   - type: ClothingRequiredStepTriggerImmune
     slots: All
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   abstract: true
@@ -102,6 +109,14 @@
       - SimpleHostile
   - type: Damageable
     damageContainer: StructuralInorganic
+<<<<<<< HEAD
+=======
+  - type: Psionic
+    removable: false
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: MobOreCrab
@@ -232,8 +247,11 @@
   - type: GhostRole
     prob: 0
     description: ghost-role-information-angry-slimes-description
+<<<<<<< HEAD
     raffle:
       settings: short
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -296,6 +314,14 @@
     solution: bloodstream
   - type: DrainableSolution
     solution: bloodstream
+<<<<<<< HEAD
+=======
+  - type: Psionic
+    removable: false
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   name: Reagent Slime Spawner
@@ -322,6 +348,10 @@
         - ReagentSlimeNorepinephricAcid
         - ReagentSlimeEphedrine
         - ReagentSlimeRobustHarvest
+<<<<<<< HEAD
+=======
+        - ReagentSlimeLotophagoiOil
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
       chance: 1
 
 - type: entity
@@ -533,3 +563,26 @@
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
         color: "#3e901c"
+<<<<<<< HEAD
+=======
+
+- type: entity
+  id: ReagentSlimeLotophagoiOil
+  parent: ReagentSlime
+  suffix: Lotophagoi Oil
+  components:
+  - type: Bloodstream
+    bloodReagent: LotophagoiOil
+  - type: PointLight
+    color: "#FFBF00"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#3e901c"
+  - type: GhostRole
+    prob: 1 #it's significantly more psionic than the others
+    description: ghost-role-information-angry-slimes-description
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

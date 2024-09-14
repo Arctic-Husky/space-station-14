@@ -34,7 +34,11 @@ namespace Content.Server.BarSign.Systems
             _metaData.SetEntityDescription(uid, Loc.GetString(newPrototype.Description), meta);
 
             component.Current = newPrototype.ID;
+<<<<<<< HEAD
             Dirty(uid, component);
+=======
+            Dirty(component);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }

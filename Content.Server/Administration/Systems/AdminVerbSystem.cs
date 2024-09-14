@@ -67,7 +67,10 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly StationSystem _stations = default!;
         [Dependency] private readonly StationSpawningSystem _spawning = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
+<<<<<<< HEAD
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -183,6 +186,84 @@ namespace Content.Server.Administration.Systems
                             Impact = LogImpact.Medium,
                         });
                     }
+
+                    // Erase
+                    args.Verbs.Add(new Verb
+                    {
+                        Text = Loc.GetString("admin-verbs-erase"),
+                        Message = Loc.GetString("admin-verbs-erase-description"),
+                        Category = VerbCategory.Admin,
+                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
+                        Act = () =>
+                        {
+                            _adminSystem.Erase(targetActor.PlayerSession);
+                        },
+                        Impact = LogImpact.Extreme,
+                        ConfirmationPopup = true
+                    });
+
+                // Respawn
+                    args.Verbs.Add(new Verb()
+                    {
+                        Text = Loc.GetString("admin-player-actions-respawn"),
+                        Category = VerbCategory.Admin,
+                        Act = () =>
+                        {
+                            _console.ExecuteCommand(player, $"respawn {targetActor.PlayerSession.Name}");
+                        },
+                        ConfirmationPopup = true,
+                        // No logimpact as the command does it internally.
+                    });
+
+                    // Spawn - Like respawn but on the spot.
+                    args.Verbs.Add(new Verb()
+                    {
+                        Text = Loc.GetString("admin-player-actions-spawn"),
+                        Category = VerbCategory.Admin,
+                        Act = () =>
+                        {
+                            if (!_transformSystem.TryGetMapOrGridCoordinates(args.Target, out var coords))
+                            {
+                                _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
+                                return;
+                            }
+
+                            var stationUid = _stations.GetOwningStation(args.Target);
+
+                            var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
+                            var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                            var targetMind = _mindSystem.GetMind(args.Target);
+
+                            if (targetMind != null)
+                            {
+                                _mindSystem.TransferTo(targetMind.Value, mobUid);
+                            }
+                        },
+                        ConfirmationPopup = true,
+                        Impact = LogImpact.High,
+                    });
+
+                    // Clone - Spawn but without the mind transfer, also spawns at the user's coordinates not the target's
+                    args.Verbs.Add(new Verb()
+                    {
+                        Text = Loc.GetString("admin-player-actions-clone"),
+                        Category = VerbCategory.Admin,
+                        Act = () =>
+                        {
+                            if (!_transformSystem.TryGetMapOrGridCoordinates(args.User, out var coords))
+                            {
+                                _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
+                                return;
+                            }
+
+                            var stationUid = _stations.GetOwningStation(args.Target);
+
+                            var profile = _ticker.GetPlayerProfile(targetActor.PlayerSession);
+                            _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                        },
+                        ConfirmationPopup = true,
+                        Impact = LogImpact.High,
+                    });
 
                     // Erase
                     args.Verbs.Add(new Verb

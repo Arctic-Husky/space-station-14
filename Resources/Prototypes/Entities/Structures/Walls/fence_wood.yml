@@ -72,7 +72,11 @@
         acts: [ "Destruction" ]
   - type: Climbable
     delay: 2.5
+<<<<<<< HEAD
 
+=======
+  - type: RequireProjectileTarget
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 #High
 - type: entity
@@ -96,8 +100,15 @@
         mask:
         - FullTileMask
         layer:
+<<<<<<< HEAD
         - MidImpassable
         - LowImpassable
+=======
+        - Opaque
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: straight
@@ -123,8 +134,15 @@
         mask:
         - FullTileMask
         layer:
+<<<<<<< HEAD
         - MidImpassable
         - LowImpassable
+=======
+        - Opaque
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: end
@@ -159,8 +177,15 @@
         mask:
         - TableMask
         layer:
+<<<<<<< HEAD
         - MidImpassable
         - LowImpassable
+=======
+        - Opaque
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: corner
@@ -195,8 +220,15 @@
         mask:
         - TableMask
         layer:
+<<<<<<< HEAD
         - MidImpassable
         - LowImpassable
+=======
+        - Opaque
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: tjunction
@@ -221,8 +253,15 @@
         mask:
         - FullTileMask
         layer:
+<<<<<<< HEAD
         - MidImpassable
         - LowImpassable
+=======
+        - Opaque
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: InteractionOutline
   - type: Door
     openSpriteState: door_opened
@@ -271,6 +310,10 @@
         layer:
         - MidImpassable
         - LowImpassable
+<<<<<<< HEAD
+=======
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: straight_small
@@ -298,6 +341,10 @@
         layer:
         - MidImpassable
         - LowImpassable
+<<<<<<< HEAD
+=======
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: end_small
@@ -334,6 +381,10 @@
         layer:
         - MidImpassable
         - LowImpassable
+<<<<<<< HEAD
+=======
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: corner_small
@@ -370,6 +421,10 @@
         layer:
         - MidImpassable
         - LowImpassable
+<<<<<<< HEAD
+=======
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Construction
     graph: FenceWood
     node: tjunction_small
@@ -396,6 +451,10 @@
         layer:
         - MidImpassable
         - LowImpassable
+<<<<<<< HEAD
+=======
+        - BulletImpassable
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: InteractionOutline
   - type: Door
     openSpriteState: door_opened_small
@@ -418,4 +477,8 @@
       path: /Audio/Effects/door_close.ogg
   - type: Construction
     graph: FenceWood
+<<<<<<< HEAD
     node: gate_small
+=======
+    node: gate_small
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

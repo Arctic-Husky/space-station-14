@@ -3,7 +3,10 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+<<<<<<< HEAD
 using Content.Shared.Stealth.Components;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -60,11 +63,14 @@ public sealed class EntityHealthBarOverlay : Overlay
                 continue;
             }
 
+<<<<<<< HEAD
             if (_entManager.HasComponent<StealthComponent>(uid))
             {
                 continue;
             }
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             if (!xformQuery.TryGetComponent(uid, out var xform) ||
                 xform.MapID != args.MapId)
             {

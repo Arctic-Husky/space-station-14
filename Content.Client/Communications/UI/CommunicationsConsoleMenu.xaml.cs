@@ -27,6 +27,7 @@ namespace Content.Client.Communications.UI
             var loc = IoCManager.Resolve<ILocalizationManager>();
             MessageInput.Placeholder = new Rope.Leaf(loc.GetString("comms-console-menu-announcement-placeholder"));
 
+<<<<<<< HEAD
             var maxAnnounceLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
             MessageInput.OnTextChanged += (args) =>
             {
@@ -43,6 +44,8 @@ namespace Content.Client.Communications.UI
                 }
             };
 
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             AnnounceButton.OnPressed += (_) => Owner.AnnounceButtonPressed(Rope.Collapse(MessageInput.TextRope));
             AnnounceButton.Disabled = !owner.CanAnnounce;
 

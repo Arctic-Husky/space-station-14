@@ -11,7 +11,10 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.UserInterface;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Popups;
+<<<<<<< HEAD
 using ActivatableUISystem = Content.Shared.UserInterface.ActivatableUISystem;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Server.PowerCell;
 

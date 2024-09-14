@@ -90,12 +90,26 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (args.Handled)
             return;
 
+<<<<<<< HEAD
         if (!_uiSystem.HasUi(uid, SharedCrayonComponent.CrayonUiKey.Key))
+=======
+        if (!TryComp<ActorComponent>(args.User, out var actor) ||
+            !_uiSystem.TryGetUi(uid, SharedCrayonComponent.CrayonUiKey.Key, out var ui))
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             return;
         }
 
+<<<<<<< HEAD
         _uiSystem.TryToggleUi(uid, SharedCrayonComponent.CrayonUiKey.Key, args.User);
+=======
+        _uiSystem.ToggleUi(ui, actor.PlayerSession);
+        if (ui.SubscribedSessions.Contains(actor.PlayerSession))
+        {
+            // Tell the user interface the selected stuff
+            _uiSystem.SetUiState(ui, new CrayonBoundUserInterfaceState(component.SelectedState, component.SelectableColor, component.Color));
+        }
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         _uiSystem.SetUiState(uid, SharedCrayonComponent.CrayonUiKey.Key, new CrayonBoundUserInterfaceState(component.SelectedState, component.SelectableColor, component.Color));
         args.Handled = true;

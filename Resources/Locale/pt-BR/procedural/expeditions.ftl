@@ -5,6 +5,11 @@ salvage-expedition-structure-remaining = {$count ->
 }
 
 salvage-expedition-type = Missão
+<<<<<<< HEAD
+=======
+salvage-expedition-megafauna-remaining = {$count} megafauna restantes.
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 salvage-expedition-window-title = Expedições de salvamento
 salvage-expedition-window-difficulty = Dificuldade:
 salvage-expedition-window-details = Detalhes:
@@ -18,6 +23,24 @@ salvage-expedition-window-claim = Reivindicar
 
 salvage-expedition-window-next = Próxima oferta
 
+<<<<<<< HEAD
+=======
+# Expedition descriptions
+salvage-expedition-desc-mining = Colete recursos dentro da área.
+#  You will be taxed {$tax}% of the resources collected.
+salvage-expedition-desc-structure = {$count ->
+    [one] Destruir {$count} {$structure} dentro da área.
+    *[other] Destruir {$count} {$structure}s dentro da área.
+}
+salvage-expedition-desc-elimination = Mate uma criatura grande e perigosa dentro desta área.
+
+salvage-expedition-type-Mining = Mineração
+salvage-expedition-type-Destruction = Destruição
+salvage-expedition-type-Elimination = Eliminação
+
+salvage-expedition-difficulty-Minimal = Mínima
+salvage-expedition-difficulty-Minor = Pequena
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 salvage-expedition-difficulty-Moderate = Moderada
 salvage-expedition-difficulty-Hazardous = Perigosa
 salvage-expedition-difficulty-Extreme = Extrema

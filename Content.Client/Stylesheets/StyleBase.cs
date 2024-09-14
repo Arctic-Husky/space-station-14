@@ -26,6 +26,7 @@ namespace Content.Client.Stylesheets
         public const string ButtonSquare = "ButtonSquare";
 
         public const string ButtonCaution = "Caution";
+        public const string ButtonDanger = "Danger";
 
         public const int DefaultGrabberSize = 10;
 
@@ -178,7 +179,7 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(TextureButton.StylePropertyTexture, textureCloseButton),
-                        new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#4B596A")),
+                        new StyleProperty(Control.StylePropertyModulateSelf, StyleNano.NanoGold),
                     }),
                 // Window close button hover.
                 new StyleRule(

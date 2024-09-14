@@ -160,7 +160,11 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
             if (!Resolve(uid, ref mixer))
                 return;
 
+<<<<<<< HEAD
             _userInterfaceSystem.SetUiState(uid, GasMixerUiKey.Key,
+=======
+            _userInterfaceSystem.TrySetUiState(uid, GasMixerUiKey.Key,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 new GasMixerBoundUserInterfaceState(EntityManager.GetComponent<MetaDataComponent>(uid).EntityName, mixer.TargetPressure, mixer.Enabled, mixer.InletOneConcentration));
         }
 

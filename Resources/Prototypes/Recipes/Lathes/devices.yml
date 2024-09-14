@@ -76,6 +76,16 @@
     Steel: 100
     Plastic: 200
     Glass: 100
+    
+- type: latheRecipe
+  id: SignallerAdvanced
+  result: RemoteSignallerAdvanced
+  category: Parts
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200
+    Plasma: 100
 
 - type: latheRecipe
   id: SignallerAdvanced
@@ -142,8 +152,9 @@
   materials:
     Steel: 2000
     Silver: 750
-    Plasma: 1500
+    Plasma: 1250 #Higher Plasma due to it needing less bluespace
     Uranium: 150
+    Bluespace: 300 #DeltaV: Bluespace Exists
 
 - type: latheRecipe
   id: ClothingBackpackSatchelHolding
@@ -152,8 +163,9 @@
   materials:
     Steel: 2000
     Silver: 750
-    Plasma: 1500
+    Plasma: 1250 #Higher Plasma due to it needing less bluespace
     Uranium: 150
+    Bluespace: 300 #DeltaV: Bluespace Exists
 
 - type: latheRecipe
   id: ClothingBackpackDuffelHolding
@@ -162,8 +174,9 @@
   materials:
     Steel: 2000
     Silver: 750
-    Plasma: 1500
+    Plasma: 1250 #Higher Plasma due to it needing less bluespace
     Uranium: 150
+    Bluespace: 300 #DeltaV: Bluespace Exists
 
 - type: latheRecipe
   id: OreBagOfHolding
@@ -172,6 +185,7 @@
   materials:
     Steel: 2000
     Silver: 750
+<<<<<<< HEAD
     Plasma: 1500
     Uranium: 150
 
@@ -192,6 +206,29 @@
     Steel: 500
     Glass: 400
     Silver: 200
+=======
+    Plasma: 1000 #DeltaV: Bluespace Exists so less plasma used, no uranium
+    Bluespace: 200 #DeltaV: Bluespace Exists
+
+#- type: latheRecipe #DeltaV - LRP
+#  id: WeaponForceGun
+#  result: WeaponForceGun
+#  category: Tools
+#  completetime: 5
+#  materials:
+#    Steel: 500
+#    Glass: 400
+#    Silver: 200
+
+- type: latheRecipe
+  id: DeviceQuantumSpinInverter
+  result: DeviceQuantumSpinInverter
+  completetime: 5
+  materials:
+    Steel: 700
+    Glass: 100
+    Uranium: 100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: latheRecipe
   id: DeviceQuantumSpinInverter
@@ -212,6 +249,7 @@
     Glass: 500
     Silver: 100
 
+<<<<<<< HEAD
 - type: latheRecipe
   id: WeaponTetherGun
   result: WeaponTetherGun
@@ -231,3 +269,24 @@
     Steel: 500
     Glass: 400
     Gold: 100
+=======
+#- type: latheRecipe #DeltaV - LRP
+#  id: WeaponTetherGun
+#  result: WeaponTetherGun
+#  category: Tools
+#  completetime: 5
+#  materials:
+#    Steel: 500
+#    Glass: 400
+#    Silver: 100
+
+#- type: latheRecipe #DeltaV - LRP
+#  id: WeaponGrapplingGun
+#  result: WeaponGrapplingGun
+#  category: Tools
+#  completetime: 5
+#  materials:
+#    Steel: 500
+#    Glass: 400
+#    Gold: 100
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

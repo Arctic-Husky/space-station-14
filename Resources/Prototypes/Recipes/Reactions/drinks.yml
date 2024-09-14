@@ -87,6 +87,7 @@
     B52: 3
 
 - type: reaction
+<<<<<<< HEAD
   id: BudgetInsulsDrink
   reactants:
     Tequila:
@@ -97,6 +98,8 @@
     BudgetInsulsDrink: 3
 
 - type: reaction
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: BlueHawaiian
   reactants:
     CoconutRum:
@@ -815,6 +818,7 @@
     RoyRogers: 3
 
 - type: reaction
+<<<<<<< HEAD
   id: Rubberneck
   reactants:
     EnergyDrink:
@@ -827,6 +831,8 @@
     Rubberneck: 4
 
 - type: reaction
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: Sbiten
   reactants:
     Vodka:
@@ -889,7 +895,7 @@
     LemonLime:
       amount: 1
   products:
-    SnowWhite: 3
+    SnowWhite: 2
 
 - type: reaction
   id: SoyLatte
@@ -1119,7 +1125,11 @@
     Cola: 4
 
 - type: reaction
+<<<<<<< HEAD
   id: ChocolateDerretidoReaction
+=======
+  id: ChocolateQuenteReaction
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   impact: Low
   minTemp: 344
   reactants:

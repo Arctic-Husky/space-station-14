@@ -13,6 +13,17 @@
     {
       "name": "equipped-HELMET",
       "directions": 4
+<<<<<<<< HEAD:Resources/Textures/Clothing/Head/Hats/beret_blueshield.rsi/meta.json
+========
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "direction": 4
+>>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Resources/Textures/Clothing/Head/Helmets/bone_helmet.rsi/meta.json
     }
   ]
 }

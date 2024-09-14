@@ -175,7 +175,11 @@
 
 # Is this wizard wearing a fanny pack???
 - type: entity
+<<<<<<< HEAD
   parent: ClothingOuterWizardBase
+=======
+  parent: ClothingOuterEVASuitBase # DeltaV - Make real wizard clothes space proof
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingOuterWizardViolet
   name: violet wizard robes
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
@@ -186,7 +190,11 @@
     sprite: Clothing/OuterClothing/Misc/violetwizard.rsi
 
 - type: entity
+<<<<<<< HEAD
   parent: ClothingOuterWizardBase
+=======
+  parent: ClothingOuterEVASuitBase # DeltaV - Make real wizard clothes space proof
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingOuterWizard
   name: wizard robes
   description: A bizarre gem-encrusted blue robe that radiates magical energies.
@@ -197,7 +205,11 @@
     sprite: Clothing/OuterClothing/Misc/wizard.rsi
 
 - type: entity
+<<<<<<< HEAD
   parent: ClothingOuterWizardBase
+=======
+  parent: ClothingOuterEVASuitBase # DeltaV - Make real wizard clothes space proof
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   id: ClothingOuterWizardRed
   name: red wizard robes
   description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.
@@ -384,3 +396,17 @@
     sprite: Clothing/OuterClothing/Misc/red_racoon.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/red_racoon.rsi
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterUnathiRobe
+  name: roughspun robes
+  description: A traditional Unathi garment.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Misc/unathirobe.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Misc/unathirobe.rsi
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

@@ -1,4 +1,4 @@
-﻿- type: palette
+- type: palette
   id: Departmental
   name: Departmental
   colors:
@@ -8,8 +8,14 @@
     engineering: "#EFB34196"
     security: "#DE3A3A96"
     bar: "#79150096"
+<<<<<<< HEAD
     science: "#D381C996"
     cargo: "#A4610696"
+=======
+    epistemics: "#D381C996" # DeltaV - Epistemics Department replacing Science
+    logistics: "#A4610696" # DeltaV - Logistics Department replacing Cargo
+    justice: "#6b2833DD" #DeltaV - Added Justice Department
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     janitor: "#8c347f96"
     chemistry: "#fa750096"
     virology: "#43990996"

@@ -201,7 +201,11 @@ public sealed partial class StoreSystem : EntitySystem
 
         if (_ui.HasUi(uid, StoreUiKey.Key))
         {
+<<<<<<< HEAD
             _ui.SetUiState(uid, StoreUiKey.Key, new StoreInitializeState(preset.StoreName));
+=======
+            _ui.SetUiState(ui, new StoreInitializeState(preset.StoreName));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         }
     }
 }
@@ -221,3 +225,14 @@ public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
         Store = store;
     }
 }
+
+
+/// <summary>
+/// Nyano/DeltaV Code. For penguin bombs and what not. 
+/// Raised on an item when it is purchased.
+/// An item may need to set it upself up for its purchaser.
+/// For example, to make sure it isn't hostile to them or
+/// to make sure it fits their apperance.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ItemPurchasedEvent(EntityUid Purchaser);

@@ -11,3 +11,7 @@ welder-component-suicide-unlit-others-message = {$victim} se batem com o soldado
 welder-component-suicide-unlit-message = Você se bate com o soldador apagado!
 welder-component-after-interact-refueled-message = Reabastecido!
 welder-component-already-full = O soldador já está cheio.
+<<<<<<< HEAD
+=======
+welder-component-cant-refill-when-lit = Você está realmente está tentando reabastecer enquanto seu soldador está aceso?
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

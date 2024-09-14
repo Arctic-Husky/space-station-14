@@ -426,12 +426,20 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
 
         if (_entities.TryGetComponent(entity, out VirtualItemComponent? virtb))
         {
+<<<<<<< HEAD
             button.SetEntity(virtb.BlockingEntity);
+=======
+            button.SpriteView.SetEntity(virtb.BlockingEntity);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             button.Blocked = true;
         }
         else
         {
+<<<<<<< HEAD
             button.SetEntity(entity);
+=======
+            button.SpriteView.SetEntity(entity);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             button.Blocked = false;
             button.StorageButton.Visible = showStorage;
         }

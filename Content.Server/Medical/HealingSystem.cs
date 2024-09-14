@@ -111,7 +111,11 @@ public sealed class HealingSystem : EntitySystem
                 $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {total:damage} damage");
         }
 
+<<<<<<< HEAD
         _audio.PlayPvs(healing.HealingEndSound, entity.Owner, AudioHelpers.WithVariation(0.125f, _random).WithVolume(1f));
+=======
+        _audio.PlayPvs(healing.HealingEndSound, entity.Owner, AudioHelpers.WithVariation(0.125f, _random).WithVolume(-5f));
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         // Logic to determine the whether or not to repeat the healing action
         args.Repeat = (HasDamage(entity.Comp, healing) && !dontRepeat);

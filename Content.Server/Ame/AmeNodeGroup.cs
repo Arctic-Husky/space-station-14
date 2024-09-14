@@ -182,7 +182,11 @@ public sealed class AmeNodeGroup : BaseNodeGroup
         // Fuel is squared so more fuel vastly increases power and efficiency
         // We divide by the number of cores so a larger AME is less efficient at the same fuel settings
         // this results in all AMEs having the same efficiency at the same fuel-per-core setting
+<<<<<<< HEAD
         return 40000f * fuel * fuel / cores;
+=======
+        return 20000f * fuel * fuel / cores; // Delta V - Revert upstream buff for normal AME operation
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public int GetTotalStability()

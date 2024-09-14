@@ -76,6 +76,11 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<MicrowaveComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<MicrowaveComponent, AnchorStateChangedEvent>(OnAnchorChanged);
             SubscribeLocalEvent<MicrowaveComponent, SuicideEvent>(OnSuicide);
+<<<<<<< HEAD
+=======
+
+            SubscribeLocalEvent<MicrowaveComponent, SignalReceivedEvent>(OnSignalReceived);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             SubscribeLocalEvent<MicrowaveComponent, SignalReceivedEvent>(OnSignalReceived);
 
@@ -265,6 +270,14 @@ namespace Content.Server.Kitchen.EntitySystems
         }
 
         private void OnSolutionChange(Entity<MicrowaveComponent> ent, ref SolutionContainerChangedEvent args)
+<<<<<<< HEAD
+=======
+        {
+            UpdateUserInterfaceState(ent, ent.Comp);
+        }
+
+        private void OnContentUpdate(EntityUid uid, MicrowaveComponent component, ContainerModifiedMessage args) // For some reason ContainerModifiedMessage just can't be used at all with Entity<T>. TODO: replace with Entity<T> syntax once that's possible
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         {
             UpdateUserInterfaceState(ent, ent.Comp);
         }
@@ -358,7 +371,15 @@ namespace Content.Server.Kitchen.EntitySystems
 
         public void UpdateUserInterfaceState(EntityUid uid, MicrowaveComponent component)
         {
+<<<<<<< HEAD
             _userInterface.SetUiState(uid, MicrowaveUiKey.Key, new MicrowaveUpdateUserInterfaceState(
+=======
+            var ui = _userInterface.GetUiOrNull(uid, MicrowaveUiKey.Key);
+            if (ui == null)
+                return;
+
+            _userInterface.SetUiState(ui, new MicrowaveUpdateUserInterfaceState(
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
                 GetNetEntityArray(component.Storage.ContainedEntities.ToArray()),
                 HasComp<ActiveMicrowaveComponent>(uid),
                 component.CurrentCookTimeButtonIndex,

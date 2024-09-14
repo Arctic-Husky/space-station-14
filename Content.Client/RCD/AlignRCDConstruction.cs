@@ -16,9 +16,15 @@ public sealed class AlignRCDConstruction : PlacementMode
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+<<<<<<< HEAD
     private readonly SharedMapSystem _mapSystem;
     private readonly RCDSystem _rcdSystem;
     private readonly SharedTransformSystem _transformSystem;
+=======
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly RCDSystem _rcdSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
 
@@ -32,7 +38,16 @@ public sealed class AlignRCDConstruction : PlacementMode
     /// </summary>
     public AlignRCDConstruction(PlacementManager pMan) : base(pMan)
     {
+<<<<<<< HEAD
         IoCManager.InjectDependencies(this);
+=======
+        var dependencies = IoCManager.Instance!;
+        _entityManager = dependencies.Resolve<IEntityManager>();
+        _mapManager = dependencies.Resolve<IMapManager>();
+        _playerManager = dependencies.Resolve<IPlayerManager>();
+        _stateManager = dependencies.Resolve<IStateManager>();
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
         _mapSystem = _entityManager.System<SharedMapSystem>();
         _rcdSystem = _entityManager.System<RCDSystem>();
         _transformSystem = _entityManager.System<SharedTransformSystem>();

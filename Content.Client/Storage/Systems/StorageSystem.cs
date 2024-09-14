@@ -26,6 +26,7 @@ public sealed class StorageSystem : SharedStorageSystem
 
         SubscribeLocalEvent<StorageComponent, ComponentShutdown>(OnShutdown);
         SubscribeNetworkEvent<PickupAnimationEvent>(HandlePickupAnimation);
+<<<<<<< HEAD
         SubscribeAllEvent<AnimateInsertingEntitiesEvent>(HandleAnimatingInsertingEntities);
     }
 
@@ -112,6 +113,134 @@ public sealed class StorageSystem : SharedStorageSystem
             return;
 
         if (entity.Comp.ClientOpenInterfaces.GetValueOrDefault(StorageComponent.StorageUiKey.Key) is not { } bui)
+            return;
+
+        bui.Close();
+    }
+
+    private void OnShutdown(Entity<StorageComponent> ent, ref ComponentShutdown args)
+    {
+        CloseStorageWindow((ent, ent.Comp));
+    }
+
+    /// <inheritdoc />
+    public override void PlayPickupAnimation(EntityUid uid, EntityCoordinates initialCoordinates, EntityCoordinates finalCoordinates,
+        Angle initialRotation, EntityUid? user = null)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        PickupAnimation(uid, initialCoordinates, finalCoordinates, initialRotation);
+    }
+
+    private void HandlePickupAnimation(PickupAnimationEvent msg)
+    {
+        PickupAnimation(GetEntity(msg.ItemUid), GetCoordinates(msg.InitialPosition), GetCoordinates(msg.FinalPosition), msg.InitialAngle);
+    }
+
+    public void PickupAnimation(EntityUid item, EntityCoordinates initialCoords, EntityCoordinates finalCoords, Angle initialAngle)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        if (finalCoords.InRange(EntityManager, TransformSystem, initialCoords, 0.1f) ||
+            !Exists(initialCoords.EntityId) || !Exists(finalCoords.EntityId))
+        {
+            return;
+        }
+
+        var finalMapPos = finalCoords.ToMapPos(EntityManager, TransformSystem);
+        var finalPos = TransformSystem.GetInvWorldMatrix(initialCoords.EntityId).Transform(finalMapPos);
+
+        _entityPickupAnimation.AnimateEntityPickup(item, initialCoords, finalPos, initialAngle);
+=======
+        SubscribeNetworkEvent<AnimateInsertingEntitiesEvent>(HandleAnimatingInsertingEntities);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+    }
+
+    public override void UpdateUI(Entity<StorageComponent?> entity)
+    {
+        if (Resolve(entity.Owner, ref entity.Comp))
+            StorageUpdated?.Invoke((entity, entity.Comp));
+    }
+
+    public void OpenStorageWindow(Entity<StorageComponent> entity)
+    {
+        if (_openStorages.Contains(entity))
+        {
+            if (_openStorages.LastOrDefault() == entity)
+            {
+                CloseStorageWindow((entity, entity.Comp));
+            }
+            else
+            {
+                var storages = new ValueList<Entity<StorageComponent>>(_openStorages);
+                var reverseStorages = storages.Reverse();
+
+                foreach (var storageEnt in reverseStorages)
+                {
+                    if (storageEnt == entity)
+                        break;
+
+                    CloseStorageBoundUserInterface(storageEnt.Owner);
+                    _openStorages.Remove(entity);
+                }
+            }
+            return;
+        }
+
+        ClearNonParentStorages(entity);
+        _openStorages.Add(entity);
+        Entity<StorageComponent>? last = _openStorages.LastOrDefault();
+        StorageOrderChanged?.Invoke(last);
+    }
+
+    public void CloseStorageWindow(Entity<StorageComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return;
+
+        if (!_openStorages.Contains((entity, entity.Comp)))
+            return;
+
+        var storages = new ValueList<Entity<StorageComponent>>(_openStorages);
+        var reverseStorages = storages.Reverse();
+
+        foreach (var storage in reverseStorages)
+        {
+            CloseStorageBoundUserInterface(storage.Owner);
+            _openStorages.Remove(storage);
+            if (storage.Owner == entity.Owner)
+                break;
+        }
+
+        Entity<StorageComponent>? last = null;
+        if (_openStorages.Any())
+            last = _openStorages.LastOrDefault();
+        StorageOrderChanged?.Invoke(last);
+    }
+
+    private void ClearNonParentStorages(EntityUid uid)
+    {
+        var storages = new ValueList<Entity<StorageComponent>>(_openStorages);
+        var reverseStorages = storages.Reverse();
+
+        foreach (var storage in reverseStorages)
+        {
+            if (storage.Comp.Container.Contains(uid))
+                break;
+
+            CloseStorageBoundUserInterface(storage.Owner);
+            _openStorages.Remove(storage);
+        }
+    }
+
+    private void CloseStorageBoundUserInterface(Entity<UserInterfaceComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return;
+
+        if (entity.Comp.OpenInterfaces.GetValueOrDefault(StorageComponent.StorageUiKey.Key) is not { } bui)
             return;
 
         bui.Close();

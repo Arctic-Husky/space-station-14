@@ -7,6 +7,7 @@
   components:
   - type: Hunger
   - type: Thirst
+  - type: Carriable # Carrying system from nyanotrasen.
   - type: Icon
     sprite: Mobs/Species/Slime/parts.rsi # It was like this beforehand, no idea why.
     state: full
@@ -20,7 +21,6 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    scale: 1, 0.8
   - type: Body
     prototype: Dwarf
     requiredLegs: 2
@@ -51,16 +51,31 @@
     accent: dwarf
   - type: Speech
     speechSounds: Bass
+<<<<<<< HEAD
   - type: HumanoidAppearance
     species: Human
     hideLayersOnEquip:
     - Hair
     - Snout
+=======
+  - type: LanguageKnowledge
+    speaks:
+    - GalacticCommon
+    - SolCommon
+    understands:
+    - GalacticCommon
+    - SolCommon
+  - type: LightweightDrunk
+    boozeStrengthMultiplier: 0.5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   parent: BaseSpeciesDummy
   id: MobDwarfDummy
   noSpawn: true
+<<<<<<< HEAD
   components:
   - type: Sprite
     scale: 1, 0.8
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

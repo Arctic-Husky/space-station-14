@@ -1,7 +1,9 @@
 using Content.Server.Administration;
 using Content.Server.Database;
+using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.Players;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
@@ -9,7 +11,11 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Whitelist;
 
+<<<<<<< HEAD
 [AdminCommand(AdminFlags.Ban)]
+=======
+[AdminCommand(AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 public sealed class AddWhitelistCommand : LocalizedCommands
 {
     public override string Command => "whitelistadd";
@@ -25,6 +31,8 @@ public sealed class AddWhitelistCommand : LocalizedCommands
 
         var db = IoCManager.Resolve<IServerDbManager>();
         var loc = IoCManager.Resolve<IPlayerLocator>();
+        var player = IoCManager.Resolve<IPlayerManager>();
+        var playtime = IoCManager.Resolve<PlayTimeTrackingManager>();
 
         var name = string.Join(' ', args).Trim();
         var data = await loc.LookupIdByNameAsync(name);
@@ -40,6 +48,18 @@ public sealed class AddWhitelistCommand : LocalizedCommands
             }
 
             await db.AddToWhitelistAsync(guid);
+<<<<<<< HEAD
+=======
+
+            // Nyanotrasen - Update whitelist status in player data.
+            if (player.TryGetPlayerDataByUsername(name, out var playerData) &&
+                player.TryGetSessionByUsername(name, out var session))
+            {
+                playerData.ContentData()!.Whitelisted = true;
+                playtime.QueueSendWhitelist(session);
+            }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             shell.WriteLine(Loc.GetString("cmd-whitelistadd-added", ("username", data.Username)));
             return;
         }
@@ -58,7 +78,11 @@ public sealed class AddWhitelistCommand : LocalizedCommands
     }
 }
 
+<<<<<<< HEAD
 [AdminCommand(AdminFlags.Ban)]
+=======
+[AdminCommand(AdminFlags.Ban), AdminCommand(AdminFlags.Whitelist)] // DeltaV - Custom permission for whitelist.
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 public sealed class RemoveWhitelistCommand : LocalizedCommands
 {
     public override string Command => "whitelistremove";
@@ -74,6 +98,8 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
 
         var db = IoCManager.Resolve<IServerDbManager>();
         var loc = IoCManager.Resolve<IPlayerLocator>();
+        var player = IoCManager.Resolve<IPlayerManager>();
+        var playtime = IoCManager.Resolve<PlayTimeTrackingManager>();
 
         var name = string.Join(' ', args).Trim();
         var data = await loc.LookupIdByNameAsync(name);
@@ -89,6 +115,18 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
             }
 
             await db.RemoveFromWhitelistAsync(guid);
+<<<<<<< HEAD
+=======
+
+            // Nyanotrasen - Update whitelist status in player data.
+            if (player.TryGetPlayerDataByUsername(name, out var playerData) &&
+                player.TryGetSessionByUsername(name, out var session))
+            {
+                playerData.ContentData()!.Whitelisted = false;
+                playtime.QueueSendWhitelist(session);
+            }
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             shell.WriteLine(Loc.GetString("cmd-whitelistremove-removed", ("username", data.Username)));
             return;
         }

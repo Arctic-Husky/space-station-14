@@ -51,25 +51,67 @@
       - id: ClothingHeadsetMedical
       - id: ClothingEyesHudMedical
       - id: ClothingBeltMedical
+#Yea. Those probs are fucked. Nothing I can do about orGroup behavior. Everything below this line is DeltaV.
+#If Wizden ever adds new Probs, throw their probs out, but keep new items if added
       - id: ClothingHeadHatSurgcapGreen
         prob: 0.1
         orGroup: Surgcaps
       - id: ClothingHeadHatSurgcapPurple
-        prob: 0.05
+        prob: 0.11
         orGroup: Surgcaps
       - id: ClothingHeadHatSurgcapBlue
-        prob: 0.90
+        prob: 0.12
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapCyan
+        prob: 0.13
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapBlack
+        prob: 0.15
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapPink
+        prob: 0.16
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapRainbow
+        prob: 0.18
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapWhite
+        prob: 0.19
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapCybersun
+        prob: 0.02
         orGroup: Surgcaps
       - id: UniformScrubsColorBlue
-        prob: 0.5
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorGreen
         prob: 0.1
         orGroup: Surgshrubs
-      - id: UniformScrubsColorPurple
-        prob: 0.05
+      - id: UniformScrubsColorGreen
+        prob: 0.11
         orGroup: Surgshrubs
+      - id: UniformScrubsColorPurple
+        prob: 0.12
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorCyan
+        prob: 0.13
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorBlack
+        prob: 0.15
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorPink
+        prob: 0.16
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorRainbow
+        prob: 0.18
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorWhite
+        prob: 0.19
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorCybersun
+        prob: 0.02
+        orGroup: Surgshrubs
+      - id: NitrousOxideTankFilled
+        prob: 0.3
       - id: ClothingMaskSterile
+      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
+        prob: 0.3 
 
 - type: entity
   parent: LockerWallMedical
@@ -104,6 +146,8 @@
         prob: 0.05
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
+      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
+        prob: 0.3 
 
 - type: entity
   id: LockerChemistryFilled
@@ -127,8 +171,41 @@
         prob: 0.5
 
 - type: entity
-  id: LockerParamedicFilled
+  id: LockerParamedicFilled #Delta V - Paramedic locker without suit
   suffix: Filled
+  parent: LockerParamedic
+  components:
+  - type: StorageFill
+    contents:
+<<<<<<< HEAD
+      - id: ClothingOuterHardsuitVoidParamed
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
+      - id: ClothingOuterCoatParamedicWB
+      - id: ClothingHeadHatParamedicsoft
+      - id: ClothingOuterWinterPara
+      - id: ClothingUniformJumpsuitParamedic
+      - id: ClothingUniformJumpskirtParamedic
+      - id: ClothingEyesHudMedical
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHeadsetMedical
+      - id: ClothingMaskSterile
+<<<<<<< HEAD
+      - id: HandheldGPSBasic
+      - id: MedkitFilled
+        prob: 0.3
+      - id: PortaFib
+        prob: 0.1
+=======
+      - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
+      - id: MedkitFilled
+        prob: 0.3
+      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
+        prob: 0.3 
+
+- type: entity
+  id: LockerParamedicFilledHardsuit #Delta V - Paramedic locker with suit
+  suffix: Filled, Hardsuit
   parent: LockerParamedic
   components:
   - type: StorageFill
@@ -143,8 +220,10 @@
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
+      - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
       - id: HandheldGPSBasic
       - id: MedkitFilled
         prob: 0.3
-      - id: PortaFib
-        prob: 0.1
+      - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
+        prob: 0.3 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

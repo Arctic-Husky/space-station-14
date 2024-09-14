@@ -2,7 +2,13 @@ using System.Linq;
 using Content.Shared.Preferences;
 using Robust.Client;
 using Robust.Client.Player;
+<<<<<<< HEAD:Content.Client/Lobby/ClientPreferencesManager.cs
+=======
+using Robust.Shared.Configuration;
+using Robust.Shared.IoC;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Content.Client/Preferences/ClientPreferencesManager.cs
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby
@@ -16,6 +22,11 @@ namespace Content.Client.Lobby
     {
         [Dependency] private readonly IClientNetManager _netManager = default!;
         [Dependency] private readonly IBaseClient _baseClient = default!;
+<<<<<<< HEAD:Content.Client/Lobby/ClientPreferencesManager.cs
+=======
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly IPrototypeManager _prototypes = default!;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f:Content.Client/Preferences/ClientPreferencesManager.cs
         [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public event Action? OnServerDataLoaded;

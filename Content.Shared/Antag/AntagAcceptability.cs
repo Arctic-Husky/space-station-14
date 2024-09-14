@@ -22,6 +22,18 @@ public enum AntagAcceptability
 
 public enum AntagSelectionTime : byte
 {
+<<<<<<< HEAD
     PrePlayerSpawn,
+=======
+    /// <summary>
+    /// Antag roles are assigned before players are assigned jobs and spawned in.
+    /// This prevents antag selection from happening if the round is on-going.
+    /// </summary>
+    PrePlayerSpawn,
+
+    /// <summary>
+    /// Antag roles get assigned after players have been assigned jobs and have spawned in.
+    /// </summary>
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     PostPlayerSpawn
 }

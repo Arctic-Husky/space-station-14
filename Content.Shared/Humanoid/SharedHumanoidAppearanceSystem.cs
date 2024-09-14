@@ -1,12 +1,18 @@
+<<<<<<< HEAD
 using System.IO;
 using System.Linq;
 using Content.Shared.CCVar;
+=======
+using System.Linq;
+using System.Numerics;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Decals;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
+<<<<<<< HEAD
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -17,6 +23,12 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+=======
+using Content.Shared.HeightAdjust;
+using Robust.Shared.GameObjects.Components.Localization;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Humanoid;
 
@@ -34,8 +46,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+<<<<<<< HEAD
     [Dependency] private readonly ISerializationManager _serManager = default!;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
@@ -46,6 +62,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HumanoidAppearanceComponent, ExaminedEvent>(OnExamined);
+<<<<<<< HEAD
     }
 
     public DataNode ToDataNode(HumanoidCharacterProfile profile)
@@ -77,6 +94,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var collection = IoCManager.Instance;
         profile.EnsureValid(session, collection!);
         return profile;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     private void OnInit(EntityUid uid, HumanoidAppearanceComponent humanoid, ComponentInit args)
@@ -304,6 +323,64 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Set the height of a humanoid mob
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID</param>
+    /// <param name="height">The height to set the mob to</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetHeight(EntityUid uid, float height, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid) || MathHelper.CloseTo(humanoid.Height, height, 0.001f))
+            return;
+
+        var species = _proto.Index(humanoid.Species);
+        humanoid.Height = Math.Clamp(height, species.MinHeight, species.MaxHeight);
+
+        if (sync)
+            Dirty(humanoid);
+    }
+
+    /// <summary>
+    ///     Set the width of a humanoid mob
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID</param>
+    /// <param name="width">The width to set the mob to</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetWidth(EntityUid uid, float width, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid) || MathHelper.CloseTo(humanoid.Width, width, 0.001f))
+            return;
+
+        var species = _proto.Index(humanoid.Species);
+        humanoid.Width = Math.Clamp(width, species.MinWidth, species.MaxWidth);
+
+        if (sync)
+            Dirty(humanoid);
+    }
+
+    /// <summary>
+    ///     Set the scale of a humanoid mob
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID</param>
+    /// <param name="scale">The scale to set the mob to</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetScale(EntityUid uid, Vector2 scale, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid))
+            return;
+
+        var species = _proto.Index(humanoid.Species);
+        humanoid.Height = Math.Clamp(scale.Y, species.MinHeight, species.MaxHeight);
+        humanoid.Width = Math.Clamp(scale.X, species.MinWidth, species.MaxWidth);
+
+        if (sync)
+            Dirty(humanoid);
+    }
+
+    /// <summary>
     ///     Loads a humanoid character profile directly onto this humanoid mob.
     /// </summary>
     /// <param name="uid">The mob's entity UID.</param>
@@ -387,7 +464,15 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.Age = profile.Age;
 
+<<<<<<< HEAD
         Dirty(uid, humanoid);
+=======
+        _heightAdjust.SetScale(uid, new Vector2(profile.Width, profile.Height));
+
+        humanoid.LastProfileLoaded = profile; // DeltaV - let paradox anomaly be cloned
+
+        Dirty(humanoid);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     /// <summary>
@@ -455,6 +540,41 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         if (sync)
             Dirty(uid, humanoid);
+    }
+
+    /// <summary>
+    /// Takes ID of the species prototype, returns UI-friendly name of the species.
+    /// </summary>
+    public string GetSpeciesRepresentation(string speciesId)
+    {
+        if (_proto.TryIndex<SpeciesPrototype>(speciesId, out var species))
+        {
+            return Loc.GetString(species.Name);
+        }
+
+        Log.Error("Tried to get representation of unknown species: {speciesId}");
+        return Loc.GetString("humanoid-appearance-component-unknown-species");
+    }
+
+    public string GetAgeRepresentation(string species, int age)
+    {
+        if (!_proto.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
+        {
+            Log.Error("Tried to get age representation of species that couldn't be indexed: " + species);
+            return Loc.GetString("identity-age-young");
+        }
+
+        if (age < speciesPrototype.YoungAge)
+        {
+            return Loc.GetString("identity-age-young");
+        }
+
+        if (age < speciesPrototype.OldAge)
+        {
+            return Loc.GetString("identity-age-middle-aged");
+        }
+
+        return Loc.GetString("identity-age-old");
     }
 
     /// <summary>

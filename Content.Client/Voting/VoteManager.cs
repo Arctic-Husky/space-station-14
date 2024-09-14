@@ -60,9 +60,13 @@ namespace Content.Client.Voting
             _voteSource = _audio.CreateAudioSource(_res.GetResource<AudioResource>(sound));
 
             if (_voteSource != null)
+<<<<<<< HEAD
             {
                 _voteSource.Global = true;
             }
+=======
+                _voteSource.Global = true;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
             _netManager.RegisterNetMessage<MsgVoteData>(ReceiveVoteData);
             _netManager.RegisterNetMessage<MsgVoteCanCall>(ReceiveVoteCanCall);

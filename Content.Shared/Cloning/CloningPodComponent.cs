@@ -1,5 +1,9 @@
 using Content.Shared.DeviceLinking;
 using Content.Shared.Materials;
+<<<<<<< HEAD
+=======
+using Content.Shared.Random;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -17,11 +21,21 @@ public sealed partial class CloningPodComponent : Component
     public ContainerSlot BodyContainer = default!;
 
     /// <summary>
+<<<<<<< HEAD
     /// How long the cloning has been going on for.
+=======
+    ///     How long the cloning has been going on for
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     /// </summary>
     [ViewVariables]
     public float CloningProgress = 0;
 
+<<<<<<< HEAD
+=======
+    [DataField]
+    public float BiomassCostMultiplier = 1;
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     [ViewVariables]
     public int UsedBiomass = 70;
 
@@ -29,6 +43,7 @@ public sealed partial class CloningPodComponent : Component
     public bool FailedClone = false;
 
     /// <summary>
+<<<<<<< HEAD
     /// The material that is used to clone entities.
     /// </summary>
     [DataField("requiredMaterial"), ViewVariables(VVAccess.ReadWrite)]
@@ -50,13 +65,40 @@ public sealed partial class CloningPodComponent : Component
     /// Emag sound effects.
     /// </summary>
     [DataField("sparkSound")]
+=======
+    ///     The material that is used to clone entities
+    /// </summary>
+    [DataField]
+    public ProtoId<MaterialPrototype> RequiredMaterial = "Biomass";
+
+    /// <summary>
+    ///     The current amount of time it takes to clone a body
+    /// </summary>
+    [DataField]
+    public float CloningTime = 30f;
+
+    /// <summary>
+    ///     The mob to spawn on emag
+    /// </summary>
+    [DataField]
+    public EntProtoId MobSpawnId = "MobAbomination";
+
+    /// <summary>
+    ///     Emag sound effects
+    /// </summary>
+    [DataField]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks")
     {
         Params = AudioParams.Default.WithVolume(8),
     };
 
     // TODO: Remove this from here when cloning and/or zombies are refactored
+<<<<<<< HEAD
     [DataField("screamSound")]
+=======
+    [DataField]
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     public SoundSpecifier ScreamSound = new SoundCollectionSpecifier("ZombieScreams")
     {
         Params = AudioParams.Default.WithVolume(4),
@@ -67,6 +109,83 @@ public sealed partial class CloningPodComponent : Component
 
     [ViewVariables]
     public EntityUid? ConnectedConsole;
+<<<<<<< HEAD
+=======
+
+    /// <summary>
+    ///     Tracks whether a Cloner is actively cloning someone
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool ActivelyCloning;
+
+    /// <summary>
+    ///     Controls whether a Cloning Pod will add genetic damage to a clone, scaling as the body's crit threshold + 1 + the genetic damage of the body to be cloned
+    /// </summary>
+    [DataField]
+    public bool DoGeneticDamage = true;
+
+    /// <summary>
+    ///     How much should the cloning pod adjust the hunger of an entity by
+    /// </summary>
+    [DataField]
+    public float HungerAdjustment = 50;
+
+    /// <summary>
+    ///     How much should the cloning pod adjust the thirst of an entity by
+    /// </summary>
+    [DataField]
+    public float ThirstAdjustment = 50;
+
+    /// <summary>
+    ///     How much time should the cloning pod give an entity the durnk condition, in seconds
+    /// </summary>
+    [DataField]
+    public float DrunkTimer = 300;
+
+    #region Metempsychosis
+
+    /// <summary>
+    ///     Controls whether a cloning machine performs the Metempsychosis functions, EG: Is this a Cloner or a Metem Machine?
+    ///     Metempsychosis refers to the metaphysical process of Reincarnation.
+    /// </summary>
+    /// <remarks>
+    ///     A Machine with this enabled will essentially create a random new character instead of creating a living version of the old character.
+    ///     Although, the specifics of how much of the new body is a "new character" is highly adjustable in server configuration.
+    /// </remarks>
+    [DataField]
+    public bool DoMetempsychosis;
+
+    /// <summary>
+    ///     How much should each point of Karma decrease the odds of reincarnating as a humanoid
+    /// </summary>
+    [DataField]
+    public float KarmaOffset = 0.5f;
+
+    /// <summary>
+    ///     The base chances for a Metem Machine to produce a Humanoid.
+    ///     > 1 has a chance of acting like a true Cloner.
+    ///     On a successful roll, produces a random Humanoid.
+    ///     A failed roll poduces a random NonHumanoid.
+    /// </summary>
+    [DataField]
+    public float HumanoidBaseChance = 1;
+
+    /// <summary>
+    ///     The proto that the Metem Machine picks a random Humanoid from
+    /// </summary>
+    [ValidatePrototypeId<WeightedRandomPrototype>]
+    [DataField]
+    public string MetempsychoticHumanoidPool = "MetempsychoticHumanoidPool";
+
+    /// <summary>
+    ///     The proto that the Metem Machine picks a random Non-Humanoid from
+    /// </summary>
+    [ValidatePrototypeId<WeightedRandomPrototype>]
+    [DataField]
+    public string MetempsychoticNonHumanoidPool = "MetempsychoticNonhumanoidPool";
+
+    #endregion
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }
 
 [Serializable, NetSerializable]
@@ -84,6 +203,7 @@ public enum CloningPodStatus : byte
     NoMind
 }
 
+<<<<<<< HEAD
 /// <summary>
 /// Raised after a new mob got spawned when cloning a humanoid
 /// </summary>
@@ -100,4 +220,13 @@ public struct CloningEvent
         Source = source;
         Target = target;
     }
+=======
+[Serializable, NetSerializable]
+public enum ForcedMetempsychosisType : byte
+{
+    None,
+    Clone,
+    RandomHumanoid,
+    RandomNonHumanoid
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 }

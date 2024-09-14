@@ -15,7 +15,11 @@ using Robust.Shared.Timing;
 namespace Content.Server.Animals.Systems;
 
 /// <summary>
+<<<<<<< HEAD
 ///     Gives ability to produce milkable reagents, produces endless if the
+=======
+///     Gives ability to produce milkable reagents, produces endless if the 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 ///     owner has no HungerComponent
 /// </summary>
 internal sealed class UdderSystem : EntitySystem
@@ -76,8 +80,14 @@ internal sealed class UdderSystem : EntitySystem
 
         var doargs = new DoAfterArgs(EntityManager, userUid, 5, new MilkingDoAfterEvent(), udder, udder, used: containerUid)
         {
+<<<<<<< HEAD
             BreakOnMove = true,
             BreakOnDamage = true,
+=======
+            BreakOnUserMove = true,
+            BreakOnDamage = true,
+            BreakOnTargetMove = true,
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             MovementThreshold = 1.0f,
         };
 

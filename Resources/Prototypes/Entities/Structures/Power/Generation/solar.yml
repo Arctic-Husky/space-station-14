@@ -49,6 +49,7 @@
     onBump: false
     requirePower: true
     highVoltageNode: output
+  - type: RequireProjectileTarget 
 
 - type: entity
   id: SolarPanel
@@ -157,6 +158,10 @@
     graph: SolarPanel
     node: solarassembly
     defaultTarget: solarpanel
+<<<<<<< HEAD
+=======
+  - type: RequireProjectileTarget 
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: SolarTracker
@@ -201,3 +206,4 @@
   - type: Construction
     graph: SolarPanel
     node: solartracker
+  - type: RequireProjectileTarget 

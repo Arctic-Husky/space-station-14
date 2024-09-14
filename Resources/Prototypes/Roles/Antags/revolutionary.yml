@@ -4,6 +4,15 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-rev-head-objective
+<<<<<<< HEAD
+=======
+  requirements:
+  - !type:CharacterOverallTimeRequirement # DeltaV - Playtime requirement
+    min: 172800 # DeltaV - 48 hours
+  - !type:CharacterDepartmentTimeRequirement # DeltaV - Command dept time requirement
+    department: Command
+    min: 36000 # DeltaV - 10 hours
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: antag
   id: Rev

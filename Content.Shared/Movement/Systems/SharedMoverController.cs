@@ -1,5 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+<<<<<<< HEAD
+=======
+using Content.Shared.Alert;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -9,7 +13,12 @@ using Content.Shared.Maps;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+<<<<<<< HEAD
+=======
+using Content.Shared.StepTrigger.Components;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Shared.Tag;
+using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -23,6 +32,10 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 namespace Content.Shared.Movement.Systems
 {
@@ -32,6 +45,7 @@ namespace Content.Shared.Movement.Systems
     /// </summary>
     public abstract partial class SharedMoverController : VirtualController
     {
+        [Dependency] private   readonly AlertsSystem _alerts = default!;
         [Dependency] private   readonly IConfigurationManager _configManager = default!;
         [Dependency] protected readonly IGameTiming Timing = default!;
         [Dependency] private   readonly IMapManager _mapManager = default!;
@@ -46,6 +60,7 @@ namespace Content.Shared.Movement.Systems
         [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
         [Dependency] private   readonly SharedTransformSystem _transform = default!;
         [Dependency] private   readonly TagSystem _tags = default!;
+        [Dependency] private   readonly IEntityManager _entities = default!; // Delta V-NoShoesSilentFootstepsComponent
 
         protected EntityQuery<InputMoverComponent> MoverQuery;
         protected EntityQuery<MobMoverComponent> MobMoverQuery;
@@ -57,6 +72,14 @@ namespace Content.Shared.Movement.Systems
         protected EntityQuery<TransformComponent> XformQuery;
         protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
         protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
+<<<<<<< HEAD
+=======
+
+        private const float StepSoundMoveDistanceRunning = 2;
+        private const float StepSoundMoveDistanceWalking = 1.5f;
+
+        private const float FootstepVariation = 0f;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         /// <summary>
         /// <see cref="CCVars.StopSpeed"/>
@@ -158,6 +181,7 @@ namespace Content.Shared.Movement.Systems
             var (walkDir, sprintDir) = GetVelocityInput(mover);
             var touching = false;
 
+
             // Handle wall-pushes.
             if (weightless)
             {
@@ -250,10 +274,23 @@ namespace Content.Shared.Movement.Systems
                     TryGetSound(weightless, uid, mover, mobMover, xform, out var sound, tileDef: tileDef))
                 {
                     var soundModifier = mover.Sprinting ? 3.5f : 1.5f;
+                    var volume = sound.Params.Volume + soundModifier;
+
+                    if (_entities.TryGetComponent(uid, out FootstepVolumeModifierComponent? volumeModifier))
+                    {
+                        volume += mover.Sprinting
+                            ? volumeModifier.SprintVolumeModifier
+                            : volumeModifier.WalkVolumeModifier;
+                    }
 
                     var audioParams = sound.Params
+<<<<<<< HEAD
                         .WithVolume(sound.Params.Volume + soundModifier)
                         .WithVariation(sound.Params.Variation ?? mobMover.FootstepVariation);
+=======
+                        .WithVolume(volume)
+                        .WithVariation(sound.Params.Variation ?? FootstepVariation);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
                     // If we're a relay target then predict the sound for all relays.
                     if (relayTarget != null)
@@ -276,6 +313,12 @@ namespace Content.Shared.Movement.Systems
 
             // Ensures that players do not spiiiiiiin
             PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
+        }
+
+        private void WalkingAlert(EntityUid player, bool walking)
+        {
+            walking = _configManager.GetCVar(CCVars.GamePressToSprint) ? !walking : walking;
+            _alerts.ShowAlert(player, AlertType.Walking, walking ? (short) 0 : (short) 1);
         }
 
         public void LerpRotation(EntityUid uid, InputMoverComponent mover, float frameTime)
@@ -435,6 +478,14 @@ namespace Content.Shared.Movement.Systems
                 sound = moverModifier.FootstepSoundCollection;
                 return true;
             }
+
+            // If got the component in yml and no shoes = no sound. Delta V
+            if (_entities.TryGetComponent(uid, out NoShoesSilentFootstepsComponent? _) &
+                !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
+            {
+                return false;
+            }
+            // Delta V NoShoesSilentFootsteps till here.
 
             if (_inventory.TryGetSlotEntity(uid, "shoes", out var shoes) &&
                 TryComp<FootstepModifierComponent>(shoes, out var modifier))

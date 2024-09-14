@@ -187,9 +187,15 @@ binds:
 - function: OpenCharacterMenu
   type: State
   key: C
+<<<<<<< HEAD
 - function: OpenEmotesMenu
   type: State
   key: Y
+=======
+- function: OpenLanguageMenu
+  type: State
+  key: L
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - function: TextCursorSelect
   # TextCursorSelect HAS to be above ExamineEntity
   # So that LineEdit receives it correctly.
@@ -258,6 +264,15 @@ binds:
   type: State
   key: V
   mod1: Shift
+<<<<<<< HEAD
+=======
+- function: OfferItem
+  type: State
+  key: F
+- function: ToggleStanding
+  type: State
+  key: R
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 - function: ShowDebugConsole
   type: State
   key: Tilde

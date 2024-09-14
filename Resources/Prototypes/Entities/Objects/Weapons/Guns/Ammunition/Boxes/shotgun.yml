@@ -21,7 +21,11 @@
       whitelist:
         tags:
         - ShellShotgun
+<<<<<<< HEAD
       capacity: 16
+=======
+      capacity: 12
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 # Shotgun Shells
 - type: entity
@@ -90,6 +94,7 @@
         - state: shellincendiary
 
 - type: entity
+<<<<<<< HEAD
   name: shotgun uranium cartridges dispenser
   parent: AmmoProviderShotgunShell
   id: BoxShotgunUranium
@@ -103,6 +108,8 @@
         - state: shelluranium
 
 - type: entity
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   name: shotgun practice cartridges dispenser
   parent: AmmoProviderShotgunShell
   id: BoxShotgunPractice
@@ -126,4 +133,8 @@
     - type: Sprite
       layers:
         - state: boxwide
+<<<<<<< HEAD
         - state: shellslug
+=======
+        - state: shellslug
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

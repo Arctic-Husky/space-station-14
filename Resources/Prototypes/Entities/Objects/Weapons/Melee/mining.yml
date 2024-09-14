@@ -43,12 +43,27 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
+<<<<<<< HEAD
     attackRate: 1.5
     wideAnimationRotation: -135
     damage:
       types:
         Blunt: 10
         Slash: 5
+=======
+    attackRate: 0.75
+    range: 1.75
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 8
+        Slash: 4
+    bluntStaminaDamageFactor: 2.0
+    heavyRateModifier: 0.75
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 10
+    angle: 120
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     soundHit:
       collection: MetalThud
   - type: Wieldable
@@ -79,10 +94,23 @@
   - type: MeleeWeapon
     autoAttack: true
     wideAnimationRotation: -135
+<<<<<<< HEAD
     attackRate: 2
     damage:
       types:
         Slash: 15
+=======
+    attackRate: 1.25
+    range: 1.4
+    damage:
+      types:
+        Slash: 9
+    heavyRateModifier: 0.9
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 2
+    angle: 20
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
   - type: Tag
     tags:
     - Knife

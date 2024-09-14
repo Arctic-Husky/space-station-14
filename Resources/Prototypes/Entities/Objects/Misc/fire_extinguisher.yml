@@ -38,9 +38,19 @@
     hasSafety: true
   - type: MeleeWeapon
     wideAnimationRotation: 180
+<<<<<<< HEAD
+=======
+    attackRate: 0.8
+    bluntStaminaDamageFactor: 2.5
+    range: 1.75
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     damage:
       types:
-        Blunt: 10
+        Blunt: 8
+    heavyRateModifier: 0.8
+    heavyDamageBaseModifier: 2
+    heavyStaminaCost: 15
+    maxTargets: 8
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: Tool

@@ -20,4 +20,8 @@
   name: Reformed Diona
   components:
     - type: IsDeadIC
+<<<<<<< HEAD
     - type: RandomHumanoidAppearance 
+=======
+    - type: RandomHumanoidAppearance
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

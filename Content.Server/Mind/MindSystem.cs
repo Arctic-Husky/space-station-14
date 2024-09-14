@@ -1,7 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
+<<<<<<< HEAD
 using Content.Server.Ghost;
+=======
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Content.Server.Mind.Commands;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
@@ -10,8 +13,15 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Players;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
+<<<<<<< HEAD
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+=======
+using Robust.Shared.Map.Components;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 using Robust.Shared.Utility;
 
 namespace Content.Server.Mind;
@@ -71,6 +81,7 @@ public sealed class MindSystem : SharedMindSystem
 
         if (!component.GhostOnShutdown || mind.Session == null || _gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
             return;
+<<<<<<< HEAD
 
         var ghost = _ghosts.SpawnGhost((mindId, mind), uid);
         if (ghost != null)
@@ -79,6 +90,43 @@ public sealed class MindSystem : SharedMindSystem
         else
             // This should be an error, if it didn't cause tests to start erroring when they delete a player.
             Log.Warning($"Entity \"{ToPrettyString(uid)}\" for {mind.CharacterName} was deleted, and no applicable spawn location is available.");
+=======
+
+        var xform = Transform(uid);
+        var gridId = xform.GridUid;
+        var spawnPosition = Transform(uid).Coordinates;
+
+        // Use a regular timer here because the entity has probably been deleted.
+        Timer.Spawn(0, () =>
+        {
+            // Make extra sure the round didn't end between spawning the timer and it being executed.
+            if (_gameTicker.RunLevel == GameRunLevel.PreRoundLobby)
+                return;
+
+            // Async this so that we don't throw if the grid we're on is being deleted.
+            if (!HasComp<MapGridComponent>(gridId))
+                spawnPosition = _gameTicker.GetObserverSpawnPoint();
+
+            // TODO refactor observer spawning.
+            // please.
+            if (!spawnPosition.IsValid(EntityManager))
+            {
+                // This should be an error, if it didn't cause tests to start erroring when they delete a player.
+                Log.Warning($"Entity \"{ToPrettyString(uid)}\" for {mind.CharacterName} was deleted, and no applicable spawn location is available.");
+                TransferTo(mindId, null, createGhost: false, mind: mind);
+                return;
+            }
+
+            var ghost = Spawn(GameTicker.ObserverPrototypeName, spawnPosition);
+            var ghostComponent = Comp<GhostComponent>(ghost);
+            _ghosts.SetCanReturnToBody(ghostComponent, false);
+
+            // Log these to make sure they're not causing the GameTicker round restart bugs...
+            Log.Debug($"Entity \"{ToPrettyString(uid)}\" for {mind.CharacterName} was deleted, spawned \"{ToPrettyString(ghost)}\".");
+            _metaData.SetEntityName(ghost, mind.CharacterName ?? string.Empty);
+            TransferTo(mindId, ghost, mind: mind);
+        });
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
     }
 
     public override bool TryGetMind(NetUserId user, [NotNullWhen(true)] out EntityUid? mindId, [NotNullWhen(true)] out MindComponent? mind)

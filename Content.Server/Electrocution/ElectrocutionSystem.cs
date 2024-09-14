@@ -63,7 +63,11 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     private const string DamageType = "Shock";
 
     // Yes, this is absurdly small for a reason.
+<<<<<<< HEAD
     public const float ElectrifiedDamagePerWatt = 0.0015f; // Parkstation-IPC // This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
+=======
+    public const float ElectrifiedDamagePerWatt = 0.0015f; // This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
     private const float RecursiveDamageMultiplier = 0.75f;
     private const float RecursiveTimeMultiplier = 0.8f;
@@ -302,7 +306,11 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             || !DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
             return false;
 
+<<<<<<< HEAD
         RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Parkstation-IPC
+=======
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             return true;
         }
 
@@ -352,7 +360,11 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         electrocutionComponent.Electrocuting = uid;
         electrocutionComponent.Source = sourceUid;
 
+<<<<<<< HEAD
         RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Parkstation-IPC
+=======
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true);
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
         return true;
     }

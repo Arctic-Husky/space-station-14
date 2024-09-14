@@ -146,6 +146,12 @@
   - type: StaticPrice
     price: 100
   - type: PryUnpowered
+<<<<<<< HEAD
+=======
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BaseSecureWindoor
@@ -253,7 +259,11 @@
   - type: StaticPrice
     price: 170
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 2
+=======
+    resistance: 4
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BaseSecurePlasmaWindoor
@@ -308,7 +318,11 @@
   - type: StaticPrice
     price: 312
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 4
+=======
+    resistance: 6
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 #Uranium Windoors
 - type: entity
@@ -363,7 +377,11 @@
   - type: StaticPrice
     price: 180
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 3
+=======
+    resistance: 5
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
 
 - type: entity
   id: BaseSecureUraniumWindoor
@@ -418,4 +436,8 @@
   - type: StaticPrice
     price: 462
   - type: RadiationBlocker
+<<<<<<< HEAD
     resistance: 5
+=======
+    resistance: 8
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f

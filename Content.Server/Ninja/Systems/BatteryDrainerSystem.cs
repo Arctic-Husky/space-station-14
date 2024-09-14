@@ -50,6 +50,11 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
 
         var doAfterArgs = new DoAfterArgs(EntityManager, uid, comp.DrainTime, new DrainDoAfterEvent(), target: target, eventTarget: uid)
         {
+<<<<<<< HEAD
+=======
+            BreakOnUserMove = true,
+            BreakOnWeightlessMove = true, // prevent a ninja on a pod remotely draining it
+>>>>>>> a2133335fb6e574d2811a08800da08f11adab31f
             MovementThreshold = 0.5f,
             BreakOnMove = true,
             CancelDuplicate = false,
